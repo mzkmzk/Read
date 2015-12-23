@@ -116,3 +116,22 @@ book.hasOwnProperty('toString') //false
 
 ###2.4.1 原型链
 
+```javascript
+function K (name){
+    this.name = name;
+}
+
+K.protoype.say_name = function (){
+    ...
+}
+
+var k1 = new K('404');
+var k2 = new K('404_');
+
+k1 instanceof K ;//true
+k1 instanceof Object //true
+k1.toString(); //[object Object]
+
+```
+![原型链](QQ20151223-2.png)
+
