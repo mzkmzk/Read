@@ -110,6 +110,6 @@ var K = {
 book.hasOwnProperty('name') //true
 book.hasOwnProperty('toString') //false
 
-'name' in book//true
+'name' in book //true
 'toString' in book //true
 ```
