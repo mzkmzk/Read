@@ -41,5 +41,7 @@ IE中.分别存在`jscript.dll` & `mshtml.dll`
     
     建议如果频繁操作HTML集合,可转换为数组.
     
+    避免在for循环中使用HTML集合.length因为每次都会重新计算.
+    
     
 5. 
