@@ -135,3 +135,4 @@ k1.toString(); //[object Object]
 ```
 ![原型链](QQ20151223-2.png)
 
+k1的原型是K,K的原型是Object.
