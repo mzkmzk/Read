@@ -24,4 +24,7 @@ IE中.分别存在`jscript.dll` & `mshtml.dll`
     
 3. 节点`clone`
     
+    先`createElement`好所需元素.
+    
+    在循环中`clone`
 4. 
