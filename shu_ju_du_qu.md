@@ -73,4 +73,21 @@ var total = add(5,10);
     这样只有一个局部变量,那样到了`handleError`函数中,异常对象`ex`会在我们的活动对象层中.
     ```
 
+###2.3 闭包 作用域 内存
 
+```javascript
+function K_404(){
+    var id = 1;
+    document.getElementByID("save-btn").onclick = function(event){
+        k(id);
+    }
+}
+```
+
+当闭包代码环境生成时,闭包中的作用域链
+
+1. 活动对象(闭包);
+2. 活动对象(K_404);
+3. 全局对象;
+
+所以K_404的执行环境一直不能释放.
