@@ -113,3 +113,6 @@ book.hasOwnProperty('toString') //false
 'name' in book //true
 'toString' in book //true
 ```
+
+###2.4.1 原型链
+
