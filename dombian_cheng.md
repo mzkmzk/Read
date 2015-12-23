@@ -43,5 +43,21 @@ IE中.分别存在`jscript.dll` & `mshtml.dll`
     
     避免在for循环中使用HTML集合.length因为每次都会重新计算.
     
-    尽量采用局部变量,但要用到对象成员
+    尽量采用局部变量,但要用到对象成员时.
+    ```javascript
+    function K(){
+    var coll document.getElementsByTagName('div'),
+        len = coll.length,
+        name ='',
+        el =null;
+        for(var count =0;count<len;count++){
+            el =coll[count];
+            name = el.nodeName;
+            type = el.nodeType;
+            name = el.tagName;
+        }
+    
+    }
+    ```
+    
 5. 
