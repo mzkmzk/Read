@@ -28,5 +28,18 @@ IE中.分别存在`jscript.dll` & `mshtml.dll`
     
     在循环中`clone`
 4. HTML集合优化
+
+    1. document.getElementByName();
+    2. document.getElementsByClassName();
+    3. document.getElementsByTagName();
+    4. document.images;
+    5. document.links;
+    6. document.forms;
+    7. document.forms[0].elements
+    
+    以上方法军返回HTML集合对象,非数组,因为没有`push()`和`slice()`等方法,可以根据索引获取对象和length获取长度
+    
+    建议如果频繁操作HTML集合,可转换为数组.
+    
     
 5. 
