@@ -100,3 +100,16 @@ function K_404(){
 
 该对象就会包含属性`_proto_`,从`Object`实例中获取.
 
+`_proto_`中包含`toString()`方法
+
+```javascript
+var K = {
+    name : 'mzk';
+}
+
+book.hasOwnProperty('name') //true
+book.hasOwnProperty('toString') //false
+
+'name' in book//true
+'toString' in book //true
+```
