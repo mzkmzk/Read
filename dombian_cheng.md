@@ -14,5 +14,5 @@ IE中.分别存在`jscript.dll` & `mshtml.dll`
 
 在旧浏览器中`innerHTML`比`标准DOM操作(document.createElement())`快
 
-现在浏览器相差无几,甚至有点反超.
+现代浏览器相差无几,甚至有点反超.
 
