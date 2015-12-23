@@ -12,3 +12,5 @@ IE中.分别存在`jscript.dll` & `mshtml.dll`
 
 若DOM操作有顺序,先放在一个字符串里,汇总完后再一次修改DOM.
 
+在旧浏览器中`innerHTML`比`标准DOM操作(document.createElement())`快,现在浏览器相差无几,甚至有点反超.
+
