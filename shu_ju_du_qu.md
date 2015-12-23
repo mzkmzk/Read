@@ -47,12 +47,15 @@ var total = add(5,10);
 
 1. `with`
 
-```javascript
-with(document){
-    var links = getElementByTagName("a");
-}
-    
-```
-这时,局部变量所在的`活动对象`作用域链上多了一层,就是可变对象(这里是document),这样访问局部变量都变成了第二层,所以使用时慎重考虑.
+    ```javascript
+    with(document){
+        var links = getElementByTagName("a");
+    }
+        
+    ```
+    这时,局部变量所在的`活动对象`作用域链上多了一层,就是可变对象(这里是document),这样访问局部变量都变成了第二层,所以使用时慎重考虑.
 2. `try-catch`
+
+    当异常发生后,`catch`中异常对象就会在作用域链的第一层.
+    
 
