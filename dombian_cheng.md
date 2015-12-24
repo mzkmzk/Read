@@ -128,5 +128,7 @@ or `scolllTop/...`
 
 or `clientTop/...`
 
-or `getComputedStyle()` 
+or `getComputedStyle()` //currentStyle in IE
+
+
 
