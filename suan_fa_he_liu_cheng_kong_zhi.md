@@ -113,6 +113,25 @@
 
     以`factorial`为例.
     
+    ```javascript
+    function memfactorial(n){
+        if(!mefactorial.cache){
+            memfactorial.cache = {
+                "0" : 1,
+                "1" : 1
+            };
+        }
+        
+        if(!memfactorial.cache.hasOwnProperty(n)){
+            memfactorial.cache[n] = n * memfactorial(n-1);
+        }
+        
+        return memfactorial.cache[n];
+    }
+    
+    var fact6 =memfactorial(6);
+    ```
+    
     
 
 
