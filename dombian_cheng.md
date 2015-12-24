@@ -209,7 +209,7 @@ eg:
 
 ```javascript
 document.getElementByID('ul_ID').onclick =function (e){
-//IE6/7/8中会采取后面的方式获得全局对象.
+//IE6/7/8中会采取后面的方式获得全局事件对象..
     e = e || window.event
     
     
