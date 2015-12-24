@@ -147,8 +147,9 @@ element.style.borderRight = ...;
 ```
 
 方法 2 :
+```javascript
 element.style.cssText += '; borderLeft :1px ...';
-
+```
 后者会只触发一次重排.
 
 
