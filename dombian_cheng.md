@@ -212,13 +212,31 @@ document.getElementByID('ul_ID').onclick =function (e){
     //IE6/7/8中会采取后面的方式获得全局事件对象..
     e = e || window.event
     
+    var pageid,hrefparts;
     //获取触发事件的元素 后者还是为了兼容IE.
     var target = e.target || e.srcElement;
     
     if(target.nodeName !=='A'){
         return ;
     }
-
+    
+    //作者应该默认网页为../id.html
+    从链接找到页面ID
+    hrefparts =target.href=splict('/');
+    pageid =hrefparts[hreparts.length-1];
+    //把.html去掉..
+    pageid = pageid.replace('.html','');
+    
+    ajaxRequets('xhr.php?page='+id,updatePageContent);
+    
+    //允许浏览器组织默认行为 并取消默认的a标签跳转
+    if(typeof e.preventDefault == 'function'){
+        e.preventDefault();
+        e.stopPropagation();
+    }else {
+        e.returnValue =false;
+        e.cancelBuddle =true;
+    }
 }
 ```
 
