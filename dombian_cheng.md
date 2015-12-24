@@ -195,7 +195,7 @@ element.style.cssText += '; borderLeft :1px ...';
 
 ###2.5 IE和:hover
 
-
+例如表格中使用hover让所在行高亮,当表格很大时,应该避免这种效果.
 
 
 
