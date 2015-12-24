@@ -175,7 +175,9 @@ element.style.cssText += '; borderLeft :1px ...';
     ```
 3. 把要改变的部分`clone`,再替换
 
+    ```javascript
     
+    ```
 
 
 
