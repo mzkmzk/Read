@@ -69,6 +69,17 @@ IE中.分别存在`jscript.dll` & `mshtml.dll`
     
     因为方法2中用到HTML集合,所有在IE6/7上前者效率高很多,但是现代浏览器就相差无几了
     
+    但是`nextSlibing`和`childNodes`都会有一个问题,会把HTML的注释/空格都算作一个元素节点.所以有了以下API的代替
     
+    | 属性名 | 被替代的属性|
+    | -- | -- |
+    | children | childNodes |
+    | childElmentCount | childNodes.length |
+    | firstElementChild | firstChild |
+    | lastElementChild | lastChild |
+    | nextElementSlibling | nextSlibling |
+    | previousElementSlibing | previousSlibing |
 
+    以上属性IE6/7/8只支持children属性
+    
 6. 
