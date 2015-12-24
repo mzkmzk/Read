@@ -88,6 +88,8 @@ IE中.分别存在`jscript.dll` & `mshtml.dll`
     var elements = document.querySelectorAll('#menu a');
     var elements = document.getElementById('menu').getElementsByTagName('a');
     ```
-    前者会返回一个`NodeList`--匹配节点的类数组对象.因为是数组比后者返回的HTML集合要快多   
+    前者会返回一个`NodeList`--匹配节点的类数组对象.因为是数组比后者返回的HTML集合要快多了.
+    
+    前者从IE8开始支持.
         
 7. 
