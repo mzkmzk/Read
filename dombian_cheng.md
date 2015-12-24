@@ -173,10 +173,13 @@ element.style.cssText += '; borderLeft :1px ...';
     DOM操作.
     document.getElementById('指定部分').appendChild(fragment);
     ```
-3. 把要改变的部分`clone`,再替换
+3. 把要改变的部分`clone`,再替换(两次)
 
     ```javascript
-    
+    var old = document.getElementById('修改部分');
+    var clone =old.cloneNode(true);
+    操作`clone`
+    old.parentNode.replaceChild(clone,old);
     ```
 
 
