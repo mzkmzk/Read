@@ -56,7 +56,40 @@
     ```
     
     将上述方法设置一个通用的Utils,然后要循环时用这个Utils方法,应该还不错,不过要把执行的主题封装为方法.还是不错的.
-3. 
+3. `if-else` vs `swith`
+
+    建议多使用swith,因为swith使用的是全等比较符,不会产生类型转换的消耗.
+    
+4. 优化`if-else`
+
+    这个不太建议,易读性会变差.
+    ```javascript
+    if(value==0 ){
+        ...
+    }else if(value ==1){
+        ...
+    }...else if(value ==10){
+        ...
+    }
+    ```
+    这样每次到10都要10次判断,可以根据实际情况优化
+    
+    ```javascript
+    if(value<6){
+        if(value <3){
+            if(value ==0){
+                ...
+            }...
+        }
+        else {
+            if(value ==3){
+                ...
+            }...
+        }
+    } else ...
+    ```
+
+5. 
     
 
 
