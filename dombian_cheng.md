@@ -215,7 +215,9 @@ document.getElementByID('ul_ID').onclick =function (e){
     //获取触发事件的元素 后者还是为了兼容IE.
     var target = e.target || e.srcElement;
     
-    
+    if(target.nodeName !=='A'){
+        return ;
+    }
 
 }
 ```
