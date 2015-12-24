@@ -37,7 +37,22 @@
     这个主要是减少了判断条件的执行,作者说超过500000的迭代次数能优化能减少70%运行时间..当然这主要看循环主体执行了多少,如果循环主体为空,那么循环速度只取决于循环的判断条件..那当然能快很多.
 
     ```javascript
+    var i =items.length % 8;
+    while(i){
+        process(item[i--]);
+    }
+    i =Math.floor(items.length /8);
     
+    while(i){
+        process(items[i--]);
+        process(items[i--]);
+        process(items[i--]);
+        process(items[i--]);
+        process(items[i--]);
+        process(items[i--]);
+        process(items[i--]);
+        process(items[i--]);
+    }
     ```
 3. 
     
