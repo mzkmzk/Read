@@ -181,6 +181,7 @@ element.style.cssText += '; borderLeft :1px ...';
     DOM操作`clone`
     old.parentNode.replaceChild(clone,old);
     ```
+###2.4 缓存布局新兴
 
 
 
