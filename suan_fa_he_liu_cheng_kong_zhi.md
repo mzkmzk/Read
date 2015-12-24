@@ -136,5 +136,25 @@
     
     这是一个越用越优的循环.
     
+    差一点,但能通用的Memoization.
+    
+    ```javascript
+    function memoize(fundamental,cahce){
+        cache = cache || {};
+        var shell = function(arg){
+            if(!cache.hasOwnProperty(arg)){
+                cache[arg] = fundamental(arg);
+            }
+        }
+        return shell;
+    }
+    
+    //缓存
+    var memfactorial =memoize(factorial,{"0":1,"1":1});
+    var fact6 =memfactorial(6);
+    var fact6 =memfactorial(5);
+    var fact6 =memfactorial(4);
+    ```
+    
 
 
