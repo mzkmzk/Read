@@ -205,7 +205,7 @@ element.style.cssText += '; borderLeft :1px ...';
 
 eg:
 
-在导航栏中,`ul->li->a`,要把所有的
+在导航栏中,`ul->li->a`,要把所有的a链接改为ajax更新页面.
 
 
 
