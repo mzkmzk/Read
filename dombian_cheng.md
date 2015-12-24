@@ -92,4 +92,6 @@ IE中.分别存在`jscript.dll` & `mshtml.dll`
     
     前者从IE8开始支持.
         
-7. 
+##2. 重绘和重排
+
+
