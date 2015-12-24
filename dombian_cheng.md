@@ -247,7 +247,7 @@ document.getElementByID('ul_ID').onclick =function (e){
 1. 尽量减少DOM访问次数,尽可能在JS解决,然后采取操作DOM
 2. 使用HTML最好把它放到数组里.
 3. 动画中使用绝对定位.
-4. 使用事件委托,减少绑定
+4. 使用事件委托,减少绑定数量.
 
 
 
