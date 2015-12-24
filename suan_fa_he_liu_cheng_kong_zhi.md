@@ -109,6 +109,10 @@
     
 7. Memoization
     
+    使用缓存的递归..
+
+    以`factorial`为例.
+    
     
 
 
