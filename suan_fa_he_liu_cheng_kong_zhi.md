@@ -130,7 +130,10 @@
     }
     
     var fact6 =memfactorial(6);
+    var fact6 =memfactorial(5);
+    var fact6 =memfactorial(4);
     ```
+    
     
     
 
