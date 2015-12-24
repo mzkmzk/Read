@@ -203,6 +203,8 @@ element.style.cssText += '; borderLeft :1px ...';
 
 建议让时间冒泡,让统一的高层捕抓.
 
+eg:
+
 在导航栏中,`ul->li->a`,要把所有的
 
 
