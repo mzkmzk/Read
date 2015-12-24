@@ -134,7 +134,7 @@
     var fact6 =memfactorial(4);
     ```
     
-    
+    这是一个越用越优的循环.
     
 
 
