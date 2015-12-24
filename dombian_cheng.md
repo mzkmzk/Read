@@ -152,6 +152,10 @@ element.style.cssText += '; borderLeft :1px ...';
 ```
 后者会只触发一次重排.
 
+###2.3 批量修改DOM
+
+
+
 
 
 
