@@ -65,7 +65,7 @@
     这个不太建议,易读性会变差.
     ```javascript
     if(value==0 ){
-        ...
+        return result0;
     }else if(value ==1){
         ...
     }...else if(value ==10){
@@ -92,6 +92,15 @@
 5. 查找表
 
     通过数组/普通对象构建表,比`if-else` & `swith`快多了.
+    
+    还是value = 0~10的判断
+    
+    ```javascript
+    var result[result0...result10];
+    return result[value];
+    ```
+    但这比较适合`key:value`一一对应时,当每一个`swith`都对应不同的操作,就不能用这个了.
+    
 6. 
     
 
