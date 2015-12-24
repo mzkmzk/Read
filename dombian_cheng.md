@@ -209,10 +209,11 @@ eg:
 
 ```javascript
 document.getElementByID('ul_ID').onclick =function (e){
-//IE6/7/8中会采取后面的方式获得全局事件对象..
+    //IE6/7/8中会采取后面的方式获得全局事件对象..
     e = e || window.event
     
-    
+    //获取触发事件的元素 后者还是为了兼容IE.
+    var target = e.target || e.srcElement;
 
 }
 ```
