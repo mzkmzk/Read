@@ -197,6 +197,7 @@ element.style.cssText += '; borderLeft :1px ...';
 
 例如表格中使用hover让所在行高亮,当表格很大时,应该避免这种效果.
 
+###2.6 事件委托
 
 
 
