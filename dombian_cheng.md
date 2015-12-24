@@ -207,6 +207,16 @@ eg:
 
 在导航栏中,`ul->li->a`,要把所有的a链接改为ajax更新页面.
 
+```javascript
+document.getElementByID('ul_ID').onclick =function (e){
+//IE6/7/8中会采取后面的方式获得全局对象.
+    e = e || window.event
+    
+    
+
+}
+```
+
 
 
 
