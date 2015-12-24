@@ -229,18 +229,23 @@ document.getElementByID('ul_ID').onclick =function (e){
     
     ajaxRequets('xhr.php?page='+id,updatePageContent);
     
-    //允许浏览器组织默认行为 并取消默认的a标签跳转
+    
     if(typeof e.preventDefault == 'function'){
+        //阻止浏览器默认行为 跳转页面
         e.preventDefault();
+        //阻止事件冒泡&捕获
         e.stopPropagation();
     }else {
         e.returnValue =false;
-        e.cancelBuddle =true;
+        e.cancelBubble =true;
     }
 }
 ```
 
+##总结
 
+1. 尽量减少DOM访问次数,尽可能在JS解决,然后采取操作DOM
+2. 使用HTML最好把它放到数组里.
 
 
 
