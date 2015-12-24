@@ -134,6 +134,22 @@ or `getComputedStyle()` //currentStyle in IE
 
 在修改样式的过程中,尽量少用.
 
+###2.2 最少化重绘和重排
+
+改变样式时
+
+1. 多次改变样式
+
+方法 1:
+```javascript
+element.style.borderLeft = ...;
+element.style.borderRight = ...;
+```
+
+方法 2 :
+element.style.cssText += '; borderLeft :1px ...';
+
+后者会只触发一次重排.
 
 
 
