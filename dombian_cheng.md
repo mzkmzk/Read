@@ -120,5 +120,13 @@ IE中.分别存在`jscript.dll` & `mshtml.dll`
 
 当浏览器的滚动条出现时,整个页面重排.
 
+###2.1 渲染树变化的队列和刷新
 
+使用`offsetTop/Left/Width/Height`
+
+or `scolllTop/...`
+
+or `clientTop/...`
+
+or `getComputedStyle()` 
 
