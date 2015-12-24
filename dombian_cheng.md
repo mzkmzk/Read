@@ -154,6 +154,26 @@ element.style.cssText += '; borderLeft :1px ...';
 
 ###2.3 批量修改DOM
 
+当需要一些列DOM操作时,可以通过下面三个步骤优化
+
+1. 使元素脱离文档流(一次重排)
+2. 对其应用多重改变
+3. 把元素带回文档(一次重排)
+
+令DOM脱离文档流主要有三种方法
+
+1. `display : none`
+    
+    这里就是批处理前先`none`掉,执行完了,再`display`回来.
+
+2. 在文档外创建并更新一个文档片段.
+    
+    ```javascript
+    val ul = document.createDcoumentFragment();
+    
+    ```
+3. 
+
 
 
 
