@@ -130,5 +130,7 @@ or `clientTop/...`
 
 or `getComputedStyle()` //currentStyle in IE
 
+当执行以上方法时,浏览器刷新队列,并立即执行上述代码.尽量少用.
+
 
 
