@@ -79,7 +79,15 @@ IE中.分别存在`jscript.dll` & `mshtml.dll`
     | lastElementChild | lastChild |
     | nextElementSlibling | nextSlibling |
     | previousElementSlibing | previousSlibing |
-
-    以上属性IE6/7/8只支持children属性
     
-6. 
+    以上属性IE6/7/8只支持children属性,使用新的API会比旧的要快很多,因为少了空白等无用的节点个数.
+    
+6. 选择器API
+    
+    ```javascript
+    var elements = document.querySelectorAll('#menu a');
+    var elements = document.getElementById('menu').getElementsByTagName('a');
+    ```
+    前者会返回一个`NodeList`--匹配节点的类数组对象.因为是数组比后者返回的HTML集合要快多   
+        
+7. 
