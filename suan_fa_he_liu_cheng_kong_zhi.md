@@ -167,6 +167,6 @@
 1. 避免使用for-in,for-each
 2. 优化循环在于建设每次迭代运算量和迭代次数
 3. 小心递归爆栈
-4. Memoization优化你的
+4. Memoization优化你的递归
 
 
