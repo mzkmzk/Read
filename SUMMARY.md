@@ -8,4 +8,5 @@
        * [数据读取](shu_ju_du_qu.md)
        * [DOM编程](dombian_cheng.md)
        * [算法和流程控制](suan_fa_he_liu_cheng_kong_zhi.md)
+       * 字符串和正则表达式
 
