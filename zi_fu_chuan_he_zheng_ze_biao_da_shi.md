@@ -15,3 +15,15 @@ str += "one" + "two"
 3. 临时字符串与str当前的值连接
 4. 结果付给str
 
+优化
+```javascript
+str += "one";
+str += "two";
+
+or
+
+str =str + "one" +"two";
+```
+
+这两种都可以避免临时字符串的创建.
+
