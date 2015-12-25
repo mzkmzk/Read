@@ -40,3 +40,21 @@ IE8实现字符串链接,只是记录现在字符串的引用,当你要用它的
 IE7更加糟糕.每连接一对字符串都要把他`复制`到一个新内存中.
 
 ###1.1 Firefox的编译期合并.
+
+Firefox在赋值便打算中所有要链接的字符串都属于编译器常量.
+
+```javascript
+function folding_demo(){
+    var str = "compile" + "time" + "folding";
+    str += "this" + "work" + "too";
+    str = str +"but" +"not" + "this"
+}
+
+//同效
+function folding_demo(){
+    var str ="compiletimefolding";
+    str += "thisworktoo";
+    str = str +"but" +"not" + "this"
+}
+```
+
