@@ -68,3 +68,20 @@ function folding_demo(){
 
 IE7除外
 
+```javascript
+var str = "I'm a hansome man,ye!",
+    newStr ="",
+    appends = 5000;
+    
+    while(appends--){
+        newStr+=str;
+    }
+    
+    var sts = [];
+    while(appends--){
+        strs[strs.length] =str;
+    }
+    //数组内字符串连接
+    newStr = strs.join("");
+```
+
