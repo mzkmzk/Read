@@ -62,3 +62,5 @@ function folding_demo(){
 
 `YUI Compressor`代码压缩也会做这样的优化.
 
+###1.2 数组项合并
+
