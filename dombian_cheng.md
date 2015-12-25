@@ -183,6 +183,7 @@ element.style.cssText += '; borderLeft :1px ...';
     DOM操作`clone`
     old.parentNode.replaceChild(clone,old);
     ```
+    
 ###2.4 让元素脱离动画流
 
 假如你要在页顶添加一个`div`,导致整个页面向下移,会导致整个页面重排
