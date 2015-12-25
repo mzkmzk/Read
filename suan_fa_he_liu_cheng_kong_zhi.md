@@ -153,8 +153,8 @@
     //缓存
     var memfactorial =memoize(factorial,{"0":1,"1":1});
     var fact6 =memfactorial(6);
-    var fact6 =memfactorial(5);
-    var fact6 =memfactorial(4);
+    var fact5 =memfactorial(5);
+    var fact4 =memfactorial(4);
     ```
     
     这个比之前专门的优化要差一点,因为memoize只会存储最终的结果,中间的计算过程并不会存储.
