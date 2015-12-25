@@ -87,3 +87,9 @@ var str = "I'm a hansome man,ye!",
 IE7的话,后者性能提升几百倍左右..因为IE7避免了地址了重复分配.所以快,但是其他浏览器是前者更优.
 
 
+###1.3 String.prototype.concat
+
+`concat`能连接任意字符串/数组/对象`toString()`.
+
+但是效率在各个浏览器都比较慢,建议不要用.
+
