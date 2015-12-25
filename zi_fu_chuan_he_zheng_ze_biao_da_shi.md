@@ -23,6 +23,8 @@ str += "two";
 or
 
 str =str + "one" +"two";
+
+//str = "one" + str + "two";
 ```
 
 这两种都可以避免临时字符串的创建.
