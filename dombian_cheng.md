@@ -71,14 +71,14 @@ IE中.分别存在`jscript.dll` & `mshtml.dll`
     
     但是`nextSlibing`和`childNodes`都会有一个问题,会把HTML的注释/空格都算作一个元素节点.所以有了以下API的代替
     
-    | 属性名 | 被替代的属性|
-    | -- | -- |
-    | children | childNodes |
-    | childElmentCount | childNodes.length |
-    | firstElementChild | firstChild |
-    | lastElementChild | lastChild |
-    | nextElementSlibling | nextSlibling |
-    | previousElementSlibing | previousSlibing |
+| 属性名 | 被替代的属性|
+| -- | -- |
+| children | childNodes |
+| childElmentCount | childNodes.length |
+| firstElementChild | firstChild |
+| lastElementChild | lastChild |
+| nextElementSlibling | nextSlibling |
+| previousElementSlibing | previousSlibing |
     
 以上属性IE6/7/8只支持children属性,使用新的API会比旧的要快很多,因为少了空白等无用的节点个数.
     
