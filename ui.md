@@ -36,3 +36,6 @@ button.onclick = function (){
 }
 ```    
 
+这里有几个注意点
+
+1. 
