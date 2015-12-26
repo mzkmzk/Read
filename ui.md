@@ -24,4 +24,15 @@ IE会控制用户交互时触发的`javascript`任务,连续两次的重复动�
 
     创建一个周期性重复运行的定时器.
     
+```javascript
+button.onclick = function (){
+    one_method();
     
+    setTimeout(function(){
+        UI变化.
+    },50)
+    
+    two_method();
+}
+```    
+
