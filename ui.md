@@ -16,11 +16,11 @@ IE会控制用户交互时触发的`javascript`任务,连续两次的重复动�
 
 ##1. 使用定时器让出时间片段
 
-1. setTimeout()
+1. setTimeout(函数,毫秒)
     
     创建一个执行一次的定时器
 
-2. setInterval()
+2. setInterval(函数,毫秒)
 
     创建一个周期性重复运行的定时器.
     
