@@ -183,5 +183,5 @@ IE7的话,后者性能提升几百倍左右..因为IE7避免了地址了重复�
     
     `?:exp` : 匹配exp,不能捕获匹配的文本,也不给此分组分配组号.参考<http://deerchao.net/tutorials/regex/regex.htm>
     
-    
+    这里还把之前的`*?`换成了`*`
 4. 
