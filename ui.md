@@ -38,4 +38,5 @@ button.onclick = function (){
 
 这里有几个注意点
 
-1. 
+1. 50ms代表,在执行到`setTimeout`函数之后50ms开始把这个`UI变化`放进UI队列中.
+2. 
