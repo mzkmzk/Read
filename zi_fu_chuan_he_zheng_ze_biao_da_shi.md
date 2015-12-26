@@ -160,5 +160,10 @@ IE7的话,后者性能提升几百倍左右..因为IE7避免了地址了重复�
     
     下面的正则,用来匹配整个`HTML`文件
 
+    ```javascript
+    /<html>[\s\S]*?<head>[\s\S]*?<title>[\s\S]*?<\/title>[\s\S]*?<\/head>[/s/S]*?<body>[\s\S]*?<\/body>[\s\S]*?<\/html>
+    ```
+    以上匹配标签齐全的`HTML`运行正常.
     
+    当比如缺少最后的`</html>`,
 4. 
