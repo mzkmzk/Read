@@ -84,7 +84,6 @@ function remove_handler(target,event_type,handler){
     
     在函数被调用前,没有必要判断用哪种方式执行.
 
-
     ```javascript
     function add_handler(target,evnet_type,handler){
         if(target.addEventListener){
@@ -103,4 +102,8 @@ function remove_handler(target,event_type,handler){
     这里就第一次执行add_handler去判断该如何操作.
 2. 条件预加载
     
-    和延迟加载类似,
+    和延迟加载类似,不过判断条件是提前执行的,以保证每次执行该函数的速度一致.
+
+    ```javascript
+    
+    ```
