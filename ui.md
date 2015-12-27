@@ -176,4 +176,6 @@ Worker组成部分
 3. `selft`对象,指向全局的`worker`对象.
 4. `importScripts()`方法,用来加载外部的`javascript`文件.
 5. 所有的ECMAScript对象.例如`Object` `Array` `Date`等
-6. 
+6. XMLHttpRequest构造器
+7. `setTimeout`方法 和 `setInterval()`方法
+8. 
