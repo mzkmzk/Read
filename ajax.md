@@ -175,5 +175,5 @@ beacon.onload = function (){
 
 1. XHR技术比较安全,但解析比较慢,因为传递的是字符串.
 2. 动态注入脚本就不安全,但是不用解析.
-3. Multipart XHR 可以很好的解决要很多HTTP连接问题.
+3. Multipart XHR 可以很好的解决要很多HTTP连接问题.但不能缓存
 4. 
