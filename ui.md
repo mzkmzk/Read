@@ -86,7 +86,11 @@ function process_array(items,process,callback){
 
 所以一般50ms左右的任务阻塞是不会影响用户体验的,所以我们可以定制一个定时器,处理数组时,阻塞准备超过50ms后,设置定时器.
 
-
+```javascript
+function time_process_array(items,process,callback){
+    
+}
+```
 
 ##1.4 分割任务
 
