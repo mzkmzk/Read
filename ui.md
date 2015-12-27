@@ -180,3 +180,6 @@ Worker组成部分
 7. `setTimeout`方法 和 `setInterval()`方法
 8. `close()`方法,立马停止Worker.
 
+使用Worker,需要创建一个独立的js.
+
+    var worker = new Worker("code.js");
