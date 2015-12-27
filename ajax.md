@@ -64,8 +64,9 @@ req.onreadystatechange  function(){
     script_element.src = "http://any-domain.com/javascript/lib.js";
     document.getElementByTagName('head')[0].appendChild(script_element);
     
-    function json_callback(jsonString){
-        var data = eval('('+jsonString+')');
+    //回调函数,名字与外域的可执行`javascript`方法名一样,当外域js加载完成后,会执行json_callback(json_string)方法;
+    function json_callback(json_string){
+        var data = eval('('+json_string+')');
         
     }
 ```
