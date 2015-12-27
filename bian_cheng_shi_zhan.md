@@ -105,5 +105,9 @@ function remove_handler(target,event_type,handler){
     和延迟加载类似,不过判断条件是提前执行的,以保证每次执行该函数的速度一致.
 
     ```javascript
-    
+    var add_handler = document.body.addEventLister ?
+                      function(target,event_type,handler){
+                         target.addEventLister(event_type,handler,false);
+                      } :
+                      function(target,evnet_type,handler)
     ```
