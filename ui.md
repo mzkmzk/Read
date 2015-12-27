@@ -82,3 +82,19 @@ function process_array(items,process,callback){
 
 递归的定义是调用自身的函数.应该是算,当时也是尾递归,尾递归指递归语句执行后,后面没有需要执行的语句,这样递归后,内存不用记录已递归函数的状态,就不会把已递归的函数入栈,所以也就不存在爆栈.
 
+##1.4 分割任务
+
+上一节说的是每条数据只需执行一条语句,那如何写一条数据执行多条语句呢.
+
+
+```javascript
+function save_document(id){
+    open_document(id);
+    write_text(id);
+    close_document(id);
+    
+    update_UI(id);
+}
+
+
+```
