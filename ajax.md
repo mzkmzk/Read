@@ -12,3 +12,6 @@
 
 ##1. XMLHttpRequest
 
+```javascript
+
+```
