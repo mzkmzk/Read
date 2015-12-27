@@ -49,6 +49,26 @@ req.onreadystatechange  function(){
 }
 ```
 
+Post请求
+```javascript
+function xhr_post(url,params,callback){
+    var req =XMLHttpRequest();
+    
+    req.onerror = function(){
+        setTimeout(function(){
+            xhr_post(url,params,callback);
+        },1000);
+    }
+    
+    req.onreadystatechange = function(){
+        if(req.readyState ==4){
+            
+        }
+    };
+}
+
+```
+
 注意点
 
 1. `XHR`不能从外域请求数据.
