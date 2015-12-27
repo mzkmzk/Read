@@ -151,7 +151,7 @@ alert(num_2.toString(2));//会忽略最高位的0
     
     //定义可选项
     var options =OPTION_A | OPTION_C; // 101
-    if(options & OPTION_A){
+    if(options & OPTION_A){ // 101 & 001
         ...
     }
     ```
