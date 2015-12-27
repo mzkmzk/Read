@@ -88,7 +88,11 @@ function process_array(items,process,callback){
 
 ```javascript
 function time_process_array(items,process,callback){
-    
+    var tudo =items.concat();
+    setTimeout(function(){
+        var start = +new Data(); //+号可以让Data对象转为数字
+        
+    })
 }
 ```
 
