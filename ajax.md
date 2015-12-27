@@ -22,7 +22,9 @@ var params = [
 var req = new XMLHttpRequest();
 
 req.onerror = function(){
-    
+    setTimeout(function(){
+        xhrPost()
+    })
 }
     
 req.onreadystatechange  function(){
