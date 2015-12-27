@@ -96,5 +96,9 @@ function save_document(id){
     update_UI(id);
 }
 
+//拆分语句
 
+function mutistep(steps,args,callback){
+    
+}
 ```
