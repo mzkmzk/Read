@@ -78,4 +78,5 @@ function process_array(items,process,callback){
 }
 ```
 
-代码有两个疑问点
+这代码算不算递归?.
+
