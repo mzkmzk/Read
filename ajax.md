@@ -143,5 +143,6 @@ var params = [
     'time=1248219291';
 ];
 
+(new Image()).src = url + '?' + params.join('&');
 ```
 
