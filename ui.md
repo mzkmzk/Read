@@ -186,3 +186,21 @@ Worker组成部分
     
 一旦执行上述代码,浏览器将为这个文件创建一个新的线程和新的Wroker运行环境,这个文件会异步下载,下载完才会启动Worker.
 
+```javascript
+//外部JS
+var worker = new Worker("code.js");
+//用于接收Worker给外部JS传递的数据.
+worker.onmessage = function(event){
+    alert(event.data);
+}
+
+//给Wroker发送数据
+worker.postMessage('404_K');
+
+//code.js内部代码
+//接收外部数据;
+self_onmessage = function(event){
+    //给外部发送数据
+    self.postMessage("Hello," + event.data + "!");
+}
+```
