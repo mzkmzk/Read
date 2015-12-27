@@ -165,5 +165,9 @@ function save_document(id){
 
 ##2 Wroker
 
+Worker对象被`FX3.5` `Chrome 3` `Safari 4`原生支持.
+
+他的作用是能不阻塞UI队列,但它也不可以改变UI.
+
 
 
