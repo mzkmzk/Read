@@ -47,4 +47,6 @@ req.onreadystatechange  function(){
 2. 低版本IE不支持`流`,和readyState为`3`
 3. `GET`请求不改变服务器数据,只作请求数据(幂等行为),这样这个GET会被缓存起来(也是一些BUG引发的原因),当URL长度超过2048时,建议使用POST,具体建议参考`RESTful`
 
+##2. 动态脚本注入
+
 
