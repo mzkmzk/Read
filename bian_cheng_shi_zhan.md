@@ -50,3 +50,30 @@ var my_object = {
 
 var my_array = ['1',2];
 ```
+
+##3 避免重复工作
+
+1. 别做无关紧要的工作
+2. 别重复做已经完成的工作.
+
+最常见的重复工作为浏览器坦诚,
+
+```javascript
+function add_handler(target,event_type,handler){
+    if(target.addEventListener){ //DOM2 Events
+        target.addEventListener(event_type,handler,false);
+    } else { //IE
+        target.attachEvent("on" +eventType,handler);
+    }
+}
+
+function remove_handler(target,event_type,handler){
+    if(target.removeEventListener){
+        target.removeEventListener(event_type,hanlder,false);
+    }else {
+        target.detachEvent("on"+eventType,handelr);
+    }
+}
+```
+
+像这种检测浏览器应该在一开始加载页面就执行
