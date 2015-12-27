@@ -144,5 +144,17 @@ var params = [
 ];
 
 (new Image()).src = url + '?' + params.join('&');
+
+//需要获取返回信息
+var beacon  = new Image();
+beacon.src = url + '?' + params.join('&');
+
+beacon.onload = function (){
+    if(this.width == 1){
+        //成功
+    }else if (this.width ==2 ){
+        //失败,重新发送操作.
+    }
+}
 ```
 
