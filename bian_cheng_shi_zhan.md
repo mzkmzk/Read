@@ -76,4 +76,5 @@ function remove_handler(target,event_type,handler){
 }
 ```
 
-像这种检测浏览器应该在一开始加载页面就执行
+每次运行方法都熬做方法的判断
+
