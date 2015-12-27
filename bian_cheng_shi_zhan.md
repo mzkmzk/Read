@@ -101,4 +101,6 @@ function remove_handler(target,event_type,handler){
     }
     ```
     这里就第一次执行add_handler去判断该如何操作.
-2. 
+2. 条件预加载
+    
+    和延迟加载类似,
