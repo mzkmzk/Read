@@ -10,3 +10,5 @@
 
 这里主要降序`XHR` `动态脚本注入` `Multipart XHR`
 
+##1. XMLHttpRequest
+
