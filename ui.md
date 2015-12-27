@@ -80,3 +80,4 @@ function process_array(items,process,callback){
 
 这代码算不算递归?.
 
+递归的定义是调用自身的函数.
