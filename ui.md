@@ -105,7 +105,20 @@ function multistep(steps,args,callback){
         var task =task.shift();
         //参数null,代表调用者为window
         task.apply(null,args || []);
+        
+        if(tasks.length >0 ){
+            setTimeout(arguments.callee,25);
+        }else {
+            callback();
+        }
     },25);
+}
+
+//使用
+
+function save_document(id){
+    var tasks = [open_doucment,write_text,close_document,update_UI];
+    
     
 }
 ```
