@@ -12,4 +12,5 @@
        * [UI](ui.md)
        * [Ajax](ajax.md)
        * [编程实战](bian_cheng_shi_zhan.md)
+       * 构造和部署高性能javascript应用
 
