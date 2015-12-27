@@ -22,7 +22,7 @@ var params = [
 var req = new XMLHttpRequest();
 
 req.onerror = function(){
-    ...
+    
 }
     
 req.onreadystatechange  function(){
