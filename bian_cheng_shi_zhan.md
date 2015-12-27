@@ -158,3 +158,5 @@ alert(num_2.toString(2));//会忽略最高位的0
     
 ##3. 使用原生方法.
 
+了解`Math`对象<http://www.w3school.com.cn/jsref/jsref_obj_math.asp>
+
