@@ -56,7 +56,8 @@ req.onreadystatechange  function(){
 3. 只能采用`GET`请求
 4. 不能设置请求超时
 5. 必须等所有数据都返回了,才可访问它们.
-6. 你使用外域的JSON,无法控制请求.容易有安全问题,例如JSONP漏洞(<http://blog.knownsec.com/2015/03/jsonp_security_technic/>)
+6. 响应消息作为标签源码,外部的`js`必须是可执行`javascript`代码,不能使用纯XML和JSON,必须封装在一个回调函数汇总. 
+7. 你使用外域的JSON,无法控制请求.容易有安全问题,例如JSONP漏洞(<http://blog.knownsec.com/2015/03/jsonp_security_technic/>)
 
 ```javascript
     var script_element = document.createElement('script');
