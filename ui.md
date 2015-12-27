@@ -198,11 +198,17 @@ worker.onmessage = function(event){
 worker.postMessage('404_K'); 
 
 //code.js内部代码
+
+调用其他`js`
+importScripts(file_1.js,file_2.js);//这个调用是阻塞式的.
+
 //接收外部数据;
 self_onmessage = function(event){
     //给外部发送数据
     self.postMessage("Hello," + event.data + "!");
 }
+
+
 ```
 
 `postMessage`只支持原始值(字符串,数组,布尔,null,undefined),也可以传递Object和Array实例,有效数据会被序列化传入Worker,传出时反序列化.
