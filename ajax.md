@@ -169,3 +169,4 @@ beacon.onload = function (){
 
 1. 数组JSON和对象集的JSON,前者下载和解析速度会比较快.
 2. 在使用动态脚本注入的时候,外域JSON数据建议封装在`parseJSON(JSON数据)里.`
+3. XHR和动态脚本注入的效率基本一致.
