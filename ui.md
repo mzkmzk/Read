@@ -222,3 +222,6 @@ self_onmessage = function(event){
 
 ##总结
 
+1. 任何`javascript`不要超过100ms,
+2. 定时器拆分任务
+3. Worker处理非UI任务.
