@@ -178,4 +178,5 @@ Worker组成部分
 5. 所有的ECMAScript对象.例如`Object` `Array` `Date`等
 6. XMLHttpRequest构造器
 7. `setTimeout`方法 和 `setInterval()`方法
-8. 
+8. `close()`方法,立马停止Worker.
+
