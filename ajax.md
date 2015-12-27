@@ -62,5 +62,8 @@ req.onreadystatechange  function(){
     script_element.src = "http://any-domain.com/javascript/lib.js";
     document.getElementByTagName('head')[0].appendChild(script_element);
     
-    
+    function jsonCallback(jsonString){
+        var data = eval('('+jsonString+')');
+        
+    }
 ```
