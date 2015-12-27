@@ -177,4 +177,3 @@ beacon.onload = function (){
 2. 动态注入脚本就不安全,但是不用解析.
 3. Multipart XHR 可以很好的解决要很多HTTP连接问题.但不能缓存
 4. 减少请求书,合并javascript和css
-5. 
