@@ -161,3 +161,8 @@ alert(num_2.toString(2));//会忽略最高位的0
 了解`Math`对象<http://www.w3school.com.cn/jsref/jsref_obj_math.asp>
 
 另外一个就是CSS选择器`querySelector()`和`querySelectAll()`
+
+##总结
+
+1. 避免使用eval(),Function(),setTimeout()和setInterval()使用匿名函数
+2. 
