@@ -182,9 +182,9 @@ Worker组成部分
 8. `close()`方法,立马停止Worker.
 
 使用Worker,需要创建一个独立的js.
-
-    var worker = new Worker("code.js");
-    
+```javascript
+var worker = new Worker("code.js");
+```   
 一旦执行上述代码,浏览器将为这个文件创建一个新的线程和新的Wroker运行环境,这个文件会异步下载,下载完才会启动Worker.
 
 ```javascript
