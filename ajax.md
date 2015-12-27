@@ -160,7 +160,7 @@ function json_callback(json_string){
 var url = '/status_tracker.php';
 var params = [
     'step=2',
-    'time=1248219291';
+    'time=1248219291',
 ];
 
 (new Image()).src = url + '?' + params.join('&');
