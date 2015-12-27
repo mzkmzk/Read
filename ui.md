@@ -29,7 +29,7 @@ button.onclick = function (){
     one_method();
     
     setTimeout(function(){
-        UI变化.
+        DOM操作.
     },50)
     
     two_method();
