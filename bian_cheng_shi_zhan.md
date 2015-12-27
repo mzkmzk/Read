@@ -109,5 +109,7 @@ function remove_handler(target,event_type,handler){
                       function(target,event_type,handler){
                          target.addEventLister(event_type,handler,false);
                       } :
-                      function(target,evnet_type,handler)
+                      function(target,evnet_type,handler){
+                        target.attachEvent("on"+evenet_type,handler);
+                      }
     ```
