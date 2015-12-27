@@ -62,7 +62,7 @@ button.onclick = function (){
     但是写到这里也大概懂了,因为作者写的定时器是数组内的每条数据都执行一个定时器,然后每个定时器设置了25ms,所以这样的忧虑还是有的.每条数据100ms可能会太长了~.
     
 ```javascript
-function process_array(){
-
+function process_array(items,process,callback){
+    
 }
 ```
