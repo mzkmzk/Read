@@ -62,9 +62,16 @@ function xhr_post(url,params,callback){
     
     req.onreadystatechange = function(){
         if(req.readyState ==4){
-            
+            if (callback && typeof callback === 'function'){
+                callback();
+            }
         }
     };
+    
+    req.open('POST',url,true);
+    req.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    req.setRequestHeader('Contetn-Length',params.length);
+    req.send(params.join('&'));
 }
 
 ```
