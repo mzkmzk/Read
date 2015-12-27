@@ -175,4 +175,5 @@ Worker组成部分
 2. `location`对象,即只读的`window.location`
 3. `selft`对象,指向全局的`worker`对象.
 4. `importScripts()`方法,用来加载外部的`javascript`文件.
-5. 
+5. 所有的ECMAScript对象.例如`Object` `Array` `Date`等
+6. 
