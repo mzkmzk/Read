@@ -133,5 +133,15 @@ json_callback({"status" : 1});
 1. 页面包含了大量其他地方用不到的资源.
 2. 无需从缓存读数据,除非重载页面
 
+##4. Beeacons
 
+和动态脚本注入类似
+```javascript
+var url = '/status_tracker.php';
+var params = [
+    'step=2',
+    'time=1248219291';
+];
+
+```
 
