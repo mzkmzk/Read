@@ -82,10 +82,10 @@ function xhr_post(url,params,callback){
 ```javascript
 function create_XHR_object(){
     var msxml_progid = [
-    'MSXML2.XMLHTTP.6.0',
-    'MSXML3.XMLHTTP',
-    'Microsoft.XMLHTTP', //不支持readyStatue 3
-    'MSXML2.XMLHTTP.3.0', //不支持readyStatue 3
+        'MSXML2.XMLHTTP.6.0',
+        'MSXML3.XMLHTTP',
+        'Microsoft.XMLHTTP', //不支持readyStatue 3
+        'MSXML2.XMLHTTP.3.0', //不支持readyStatue 3
     ];
     
     var req ;
