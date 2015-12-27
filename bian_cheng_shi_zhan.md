@@ -121,5 +121,11 @@ function remove_handler(target,event_type,handler){
 ```javascript
 var num_1 =25
 alert(num_2.toString(2));//会忽略最高位的0
-
 ```
+
+逻辑操作符
+
+1. 按位与 
+2. 按位或
+3. 按位异或(两个操作数的对应为只有一个为1,则该位为1)
+4. 按位取反
