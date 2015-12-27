@@ -56,14 +56,20 @@ req.onreadystatechange  function(){
 3. 只能采用`GET`请求
 4. 不能设置请求超时
 5. 必须等所有数据都返回了,才可访问它们.
+6. 你使用外域的JSON,无法控制请求.容易有安全问题,例如JSONP漏洞(<http://blog.knownsec.com/2015/03/jsonp_security_technic/>)
 
 ```javascript
     var script_element = document.createElement('script');
     script_element.src = "http://any-domain.com/javascript/lib.js";
     document.getElementByTagName('head')[0].appendChild(script_element);
     
-    function jsonCallback(jsonString){
+    function json_callback(jsonString){
         var data = eval('('+jsonString+')');
         
     }
+```
+
+外部文件lib.js
+```javascript
+json_callback({"status" : 1});
 ```
