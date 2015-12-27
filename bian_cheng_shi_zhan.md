@@ -165,4 +165,6 @@ alert(num_2.toString(2));//会忽略最高位的0
 ##总结
 
 1. 避免使用eval(),Function(),setTimeout()和setInterval()使用匿名函数
-2. 
+2. 尽量直接量创建数组和对象
+3. 避免重复检测操作
+4. 尽量使用Math.,既javascript原生代码.
