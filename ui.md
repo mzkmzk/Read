@@ -173,4 +173,5 @@ Worker组成部分
 
 1. `navigator`对象,只包含`appName` `appVersion` `user Agent` `planform`
 2. `location`对象,即只读的`window.location`
-3. 
+3. `selft`对象,指向全局的`worker`对象.
+4. 
