@@ -172,4 +172,5 @@ Worker对象被`FX3.5` `Chrome 3` `Safari 4` `IE10`原生支持.
 Worker组成部分
 
 1. `navigator`对象,只包含`appName` `appVersion` `user Agent` `planform`
-
+2. `location`对象,即只读的`window.location`
+3. 
