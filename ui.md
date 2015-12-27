@@ -91,8 +91,16 @@ function time_process_array(items,process,callback){
     var tudo =items.concat();
     setTimeout(function(){
         var start = +new Data(); //+号可以让Data对象转为数字
+        do {
+            process(todo.shift());
+        }while(todo.length>0 && (+new Date() -start <50));
         
-    })
+        if (todo.length>0){
+            setTimeout(argument.callee,25);
+        }else {
+            callback(items);
+        }
+    },25);
 }
 ```
 
