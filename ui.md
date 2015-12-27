@@ -204,7 +204,7 @@ worker.postMessage('404_K');
 importScripts(file_1.js,file_2.js);//这个调用是阻塞式的.但不会也不能影响UI
 
 //接收外部数据;
-self_onmessage = function(event){
+self.onmessage = function(event){
     //给外部发送数据
     self.postMessage("Hello," + event.data + "!");
 }
