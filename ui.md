@@ -119,6 +119,8 @@ function multistep(steps,args,callback){
 function save_document(id){
     var tasks = [open_doucment,write_text,close_document,update_UI];
     
-    
+    multistep(tasks,[id],function(){
+        alert("Save completed!");
+    });
 }
 ```
