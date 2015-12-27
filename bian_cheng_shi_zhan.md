@@ -30,3 +30,5 @@
 
 尽可能不用eval和Function,setTimeout和setInterval建议使用匿名函数.
 
+##2. 使用Object/Array直接量
+
