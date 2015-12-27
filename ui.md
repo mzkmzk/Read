@@ -65,8 +65,14 @@ button.onclick = function (){
 function process_array(items,process,callback){
     var tudo = items.concat();//克隆数组
     
-    setTime(function(){
+    setTimeout(function(){
+        process(todo.shift());
         
+        if(todo.length >0){
+            setTimeout(arguments.callee,25);
+        } else {
+            callback(items);
+        }
     },25);
 }
 ```
