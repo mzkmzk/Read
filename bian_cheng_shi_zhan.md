@@ -82,4 +82,5 @@ function remove_handler(target,event_type,handler){
 
 1. 延迟加载
     
+    在函数被调用前,没有必要判断用哪种方式执行.
 2. 
