@@ -21,11 +21,12 @@ var params = [
 
 var req = new XMLHttpRequest();
 
+req.onerror = function(){
+    ...
+}
+    
 req.onreadystatechange  function(){
 
-    req.onerror = function(){
-        ...
-    }
     if (req.readyState == 3){ //正在`流`数据 接受到部分信息,但不是所有
         var data_now = req.responseText;
         ...
