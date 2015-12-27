@@ -65,6 +65,8 @@ button.onclick = function (){
 function process_array(items,process,callback){
     var tudo = items.concat();//克隆数组
     
-    
+    setTime(function(){
+        
+    },25);
 }
 ```
