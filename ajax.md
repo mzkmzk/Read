@@ -92,4 +92,10 @@ json_callback({"status" : 1});
 
 具体实现代码可参考.<http://techfoolery.com/mxhr/>
 
+使用建议.
+
+1. 页面包含了大量其他地方用不到的资源.
+2. 无需从缓存读数据,除非重载页面
+
+
 
