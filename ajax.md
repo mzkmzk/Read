@@ -30,6 +30,8 @@ req.onreadystatechange  function(){
     if (req.readyState === 4){
         var reponse_headers = req.getAllReponseHeaders();//获取响应头信息
         
+        var data =req.reponseText; //获取数据
+        ...
         
     }
 }
