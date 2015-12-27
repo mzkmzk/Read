@@ -149,6 +149,7 @@ var params = [
 var beacon  = new Image();
 beacon.src = url + '?' + params.join('&');
 
+//这里假设服务器会返回图片,设定返回图片宽度为1为正确,2为错误.
 beacon.onload = function (){
     if(this.width == 1){
         //成功
