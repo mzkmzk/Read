@@ -83,7 +83,11 @@ function xhr_post(url,params,callback){
 3. `GET`请求不改变服务器数据,只作请求数据(幂等行为),这样这个GET会被缓存起来(也是一些BUG引发的原因),当URL长度超过2048时,建议使用POST,具体建议参考`RESTful`
 4. 一个POST请求至少发送两个数据包,一个装在头信息,另一个装在POST正文.而`GET`只发送一次.
 
+能兼容IE的XHR写法
 
+```javascript
+
+```
 ##2. 动态脚本注入
 
 特点:
