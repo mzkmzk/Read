@@ -135,6 +135,6 @@ alert(num_2.toString(2));//会忽略最高位的0
 
     ```javascript
     if(i%2)...
-    if(i&1)...
+    if(i&1)... //优化
     ```
 2. 
