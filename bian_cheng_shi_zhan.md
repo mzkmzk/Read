@@ -113,3 +113,6 @@ function remove_handler(target,event_type,handler){
                         target.attachEvent("on"+evenet_type,handler);
                       }
     ```
+    
+##2. 位操作
+
