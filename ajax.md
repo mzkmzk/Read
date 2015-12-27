@@ -22,12 +22,6 @@ var params = [
 
 var req = new XMLHttpRequest();
 
-req.onerror = function(){
-    setTimeout(function(){
-        xhrPost()
-    });
-}
-    
 req.onreadystatechange  function(){
 
     if (req.readyState == 3){ //正在`流`数据 接受到部分信息,但不是所有
