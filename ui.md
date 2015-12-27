@@ -29,7 +29,7 @@ button.onclick = function (){
     one_method();
     
     setTimeout(function(){
-        DOM操作.
+        DOM操作/耗时操作.
     },50)
     
     two_method();
