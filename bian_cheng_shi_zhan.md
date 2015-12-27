@@ -139,3 +139,12 @@ alert(num_2.toString(2));//会忽略最高位的0
     ```
 2. 位掩码
 
+    处理存在多个布尔选项的情形,思路为使用单个数字的每一位来判断是否选项成立.掩码中的每个选项的值都等于2的幂.
+    
+    ```javascript
+    var OPTION_A = 1;
+    var OPTION_B = 2;
+    var OPTION_C = 4;
+    
+    //
+    ```
