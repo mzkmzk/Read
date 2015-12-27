@@ -63,7 +63,7 @@ req.onreadystatechange  function(){
 ```javascript
 json_callback({"status" : 1});
 ```
-
+本地`javascript`
 ```javascript
     var script_element = document.createElement('script');
     script_element.src = "http://any-domain.com/javascript/lib.js";
