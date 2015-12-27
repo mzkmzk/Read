@@ -69,6 +69,7 @@ function process_array(items,process,callback){
         process(todo.shift());
         
         if(todo.length >0){
+            //arguments.callee代表当前执行的匿名函数
             setTimeout(arguments.callee,25);
         } else {
             callback(items);
@@ -76,3 +77,5 @@ function process_array(items,process,callback){
     },25);
 }
 ```
+
+代码有两个疑问点
