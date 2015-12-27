@@ -200,7 +200,7 @@ worker.postMessage('404_K');
 //code.js内部代码
 
 调用其他`js`
-importScripts(file_1.js,file_2.js);//这个调用是阻塞式的.
+importScripts(file_1.js,file_2.js);//这个调用是阻塞式的.但不会也不能影响UI
 
 //接收外部数据;
 self_onmessage = function(event){
