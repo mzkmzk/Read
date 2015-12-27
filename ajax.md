@@ -88,4 +88,8 @@ json_callback({"status" : 1});
 
 只不过是把多个`XHR`封装成一个`XHR`而已.
 
+但是性能可以快4~10倍.
+
 具体实现代码可参考.<http://techfoolery.com/mxhr/>
+
+
