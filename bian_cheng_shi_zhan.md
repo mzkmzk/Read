@@ -133,6 +133,8 @@ alert(num_2.toString(2));//会忽略最高位的0
 
 1. 判断奇偶
 
+    ```javascript
     if(i%2)...
-    if(i&1)
+    if(i&1)...
+    ```
 2. 
