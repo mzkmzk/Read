@@ -21,5 +21,16 @@ var params = [
 
 var req = new XMLHttpRequest();
 
-
+req.onreadystatechange  function(){
+    if (req.readyState == 3){ //正在`流`数据 接受到部分信息,但不是所有
+        var data_now = req.responseText;
+        ...
+    }
+    
+    if (req.readyState === 4){
+        var reponse_headers = req.getAllReponseHeaders();//获取响应头信息
+        
+        
+    }
+}
 ```
