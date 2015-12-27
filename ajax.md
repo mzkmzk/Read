@@ -12,6 +12,7 @@
 
 ##1. XMLHttpRequest
 
+`Get` 请求:
 ```javascript
 var url = '/data.php';
 var params = [
