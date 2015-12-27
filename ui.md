@@ -218,3 +218,7 @@ self_onmessage = function(event){
 1. 编码/解码大字符串
 2. 大数组排序.
 3. 复杂数学运算.
+
+
+##总结
+
