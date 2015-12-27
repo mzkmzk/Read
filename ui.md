@@ -99,7 +99,13 @@ function save_document(id){
 //拆分语句
 
 function multistep(steps,args,callback){
-    var tasks = steps.concat();
+    var tasks = steps.concat(); //克隆数组
+    
+    setTimeout(function(){
+        var task =task.shift();
+        //参数null,代表调用者为window
+        task.apply(null,args || []);
+    },25);
     
 }
 ```
