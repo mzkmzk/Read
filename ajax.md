@@ -82,5 +82,7 @@ json_callback({"status" : 1});
 
 可以详细看`第二章 :数据读取`.
 
+##3. Multipart XHR
+
 
 
