@@ -145,12 +145,12 @@ alert(num_2.toString(2));//会忽略最高位的0
     处理存在多个布尔选项的情形,思路为使用单个数字的每一位来判断是否选项成立.掩码中的每个选项的值都等于2的幂.
     
     ```javascript
-    var OPTION_A = 1;
-    var OPTION_B = 2;
-    var OPTION_C = 4;
+    var OPTION_A = 1; //1
+    var OPTION_B = 2; //10
+    var OPTION_C = 4; //100
     
     //定义可选项
-    var options =OPTION_A | OPTION_C;
+    var options =OPTION_A | OPTION_C; // 101
     if(options & OPTION_A){
         ...
     }
