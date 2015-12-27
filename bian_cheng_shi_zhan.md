@@ -88,8 +88,14 @@ function remove_handler(target,event_type,handler){
     ```javascript
     function add_handler(target,evnet_type,handler){
         if(target.addEventListener){
-             add_handler = function(target,event_type,handler,false);
-        };
+             add_handler = function(target,event_type,handler,false){
+                target.addEventListener(evenet_type,handler,false);
+             }
+        }else {
+            
+        }
     }
+    
+    
     ```
 2. 
