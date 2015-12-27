@@ -121,15 +121,15 @@ json_callback({"status" : 1});
 ```
 本地`javascript`
 ```javascript
-    var script_element = document.createElement('script');
-    script_element.src = "http://any-domain.com/javascript/lib.js";
-    document.getElementByTagName('head')[0].appendChild(script_element);
+var script_element = document.createElement('script');
+script_element.src = "http://any-domain.com/javascript/lib.js";
+document.getElementByTagName('head')[0].appendChild(script_element);
+
+//回调函数,名字与外域的可执行`javascript`方法名一样,当外域js加载完成后,会执行json_callback(json_string)方法;
+function json_callback(json_string){
+    var data = eval('('+json_string+')');
     
-    //回调函数,名字与外域的可执行`javascript`方法名一样,当外域js加载完成后,会执行json_callback(json_string)方法;
-    function json_callback(json_string){
-        var data = eval('('+json_string+')');
-        
-    }
+}
 ```
 
 本地通过创建和外域.js的方法同名而实现回调.
@@ -153,7 +153,7 @@ json_callback({"status" : 1});
 1. 页面包含了大量其他地方用不到的资源.
 2. 无需从缓存读数据,除非重载页面
 
-##4. Beeacons
+##4. Beacons
 
 和动态脚本注入类似
 ```javascript
