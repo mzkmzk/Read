@@ -86,7 +86,28 @@ function xhr_post(url,params,callback){
 能兼容IE的XHR写法
 
 ```javascript
-
+function create_XHR_object(){
+    var msxml_progid = [
+    'MSXML2.XMLHTTP.6.0',
+    'MSXML3.XMLHTTP',
+    'Microsoft.XMLHTTP', //不支持readyStatue 3
+    'MSXML2.XMLHTTP.3.0', //不支持readyStatue 3
+    ];
+    
+    var req ;
+    try {
+        req =new XMLHttpRequest();
+    }catch(e){
+        for (var i=0,len=msxml_progid.length;i<len;++i){
+            try{
+                req = new ActiveXObject(msxml_progid[i]);
+                break;
+            }catch(e2) {}
+        }
+    }finally{
+        return req;
+    }
+}
 ```
 ##2. 动态脚本注入
 
