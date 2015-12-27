@@ -59,6 +59,11 @@ req.onreadystatechange  function(){
 6. 响应消息作为标签源码,外部的`js`必须是可执行`javascript`代码,不能使用纯XML和JSON,必须封装在一个回调函数汇总. 
 7. 你使用外域的JSON,无法控制请求.容易有安全问题,例如JSONP漏洞(<http://blog.knownsec.com/2015/03/jsonp_security_technic/>)
 
+外部文件lib.js
+```javascript
+json_callback({"status" : 1});
+```
+
 ```javascript
     var script_element = document.createElement('script');
     script_element.src = "http://any-domain.com/javascript/lib.js";
@@ -71,7 +76,4 @@ req.onreadystatechange  function(){
     }
 ```
 
-外部文件lib.js
-```javascript
-json_callback({"status" : 1});
-```
+
