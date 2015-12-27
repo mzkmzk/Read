@@ -191,11 +191,11 @@ Worker组成部分
 var worker = new Worker("code.js");
 //用于接收Worker给外部JS传递的数据.
 worker.onmessage = function(event){
-    alert(event.data);
+    alert(event.data); //alert Hello,404_K!
 }
 
 //给Wroker发送数据
-worker.postMessage('404_K');
+worker.postMessage('404_K'); 
 
 //code.js内部代码
 //接收外部数据;
