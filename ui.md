@@ -205,4 +205,4 @@ self_onmessage = function(event){
 }
 ```
 
-`postMessage`只支持原始值(字符串,数组,布尔,null,undefined),也可以传递Object和Array实例,
+`postMessage`只支持原始值(字符串,数组,布尔,null,undefined),也可以传递Object和Array实例,有效数据会被序列化传入Worker,传出时反序列化.
