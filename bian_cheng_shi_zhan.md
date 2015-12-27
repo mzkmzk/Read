@@ -78,3 +78,8 @@ function remove_handler(target,event_type,handler){
 
 每次运行方法都熬做方法的判断
 
+解决办法
+
+1. 延迟加载
+    
+2. 
