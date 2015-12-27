@@ -32,3 +32,14 @@
 
 ##2. 使用Object/Array直接量
 
+```javascript
+var my_object =new Object();
+my_object.name ='404_K';
+
+var my_array =new Array();
+my_array[0] = 1;
+my_array[1] = 2;
+```
+
+使用直接量.
+
