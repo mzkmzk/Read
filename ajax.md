@@ -8,3 +8,5 @@
 4. Comet
 5. Multipart XHR
 
+这里主要降序`XHR` `动态脚本注入` `Multipart XHR`
+
