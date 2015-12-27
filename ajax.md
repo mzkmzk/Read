@@ -57,4 +57,10 @@ req.onreadystatechange  function(){
 4. 不能设置请求超时
 5. 必须等所有数据都返回了,才可访问它们.
 
-
+```javascript
+    var script_element = document.createElement('script');
+    script_element.src = "http://any-domain.com/javascript/lib.js";
+    document.getElementByTagName('head')[0].appendChild(script_element);
+    
+    
+```
