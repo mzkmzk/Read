@@ -40,3 +40,9 @@ req.onreadystatechange  function(){
     
 }
 ```
+
+注意点
+
+1. `XHR`不能从外域请求数据.
+2. 低版本IE不支持`流`,和readyState为`3`
+3. 
