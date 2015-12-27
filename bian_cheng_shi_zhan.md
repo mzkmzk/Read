@@ -20,6 +20,13 @@
     ```
 3. setTimeout()
     ```javascript
-    
+    setTimeout("sum = num_1 + num_2",100);
     ```
 4. setInterval()
+    ```javascript
+    setInterval("sum = num_1 + num_2",100);
+    ```
+因为在执行一段`javascript`代码时去执行另外一个`javascript`代码,会导致双重求值的性能消耗.
+
+尽可能不用eval和Function,setTimeout和setInterval建议使用匿名函数.
+
