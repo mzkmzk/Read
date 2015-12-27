@@ -98,7 +98,8 @@ function save_document(id){
 
 //拆分语句
 
-function mutistep(steps,args,callback){
+function multistep(steps,args,callback){
+    var tasks = steps.concat();
     
 }
 ```
