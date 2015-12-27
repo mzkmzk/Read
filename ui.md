@@ -205,3 +205,4 @@ self_onmessage = function(event){
 }
 ```
 
+`postMessage`只支持原始值(字符串,数组,布尔,null,undefined),也可以传递Object和Array实例,
