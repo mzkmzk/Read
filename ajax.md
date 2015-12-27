@@ -84,5 +84,8 @@ json_callback({"status" : 1});
 
 ##3. Multipart XHR
 
+`Multipart XHR`基于XHR,
 
+只不过是把多个`XHR`封装成一个`XHR`而已.
 
+具体实现代码可参考.<http://techfoolery.com/mxhr/>
