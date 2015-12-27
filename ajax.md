@@ -32,7 +32,11 @@ req.onreadystatechange  function(){
         
         var data =req.reponseText; //获取数据
         ...
-        
     }
+    
+    req.open('GET',url+'?' +params.join('&'),true);
+    req.setRequestHeader('X-Requested-With','XMLHttpRequest')//设置请求头信息.
+    req.send(null);//发送请求
+    
 }
 ```
