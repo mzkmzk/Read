@@ -116,3 +116,10 @@ function remove_handler(target,event_type,handler){
     
 ##2. 位操作
 
+`javascript`中的数字都依照IEEE-754标准以64位格式存储,在位操作中,数字被转换为有符号的32位格式
+
+```javascript
+var num_1 =25
+alert(num_2.toString(2));//会忽略最高位的0
+
+```
