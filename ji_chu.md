@@ -94,3 +94,4 @@ null === undefined // => false
 
 Window对象定义了核心全局属性,它也针对浏览器和客户端`javascript`定义了一少部分其他全局属性.
 
+##8 包装对象
