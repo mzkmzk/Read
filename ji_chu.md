@@ -198,5 +198,4 @@ parseInt("0xFF") //255
 parseInt(".1") //NaN
 parseInt("0.1") //0
 parseFloat(".1") //0.1
-
 ```
