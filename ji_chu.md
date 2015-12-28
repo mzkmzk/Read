@@ -81,10 +81,9 @@ NaN
 
 ##6 null和undefined
 
-`undefined`不是关键字
-
 ```javascript
 alert(typeof null) //=>object
+alert(typeof undefined) // =>undefined
 ```
 
 只有`null`和`undefined`无法拥有方法的值
