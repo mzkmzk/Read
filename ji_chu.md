@@ -59,7 +59,9 @@ var text = "texting : 1 ,2, 3";
 var pattern = /\d/g; //匹配所有包含一个/多个数字的实例
 pattern.test(text) ; //=> true 匹配成功
 text.search(pattern); // =>9:首次匹配成功的位置
-
+text.match(pattern); //=>["1","2","3"] 所有匹配组成的数组
+text.replace(pattern,"#"); // =>"testing: #,#,#"
+text.split(/\D+/); // =>["","1","2","3"]:用非数字字符截取字符串.
 
 
 
