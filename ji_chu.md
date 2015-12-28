@@ -92,6 +92,5 @@ null === undefined // => false
 
 ##7 全局对象
 
-```javascript
+Window对象定义了核心全局属性,它也针对浏览器和客户端`javascript`定义了一少部分其他全局属性.
 
-```
