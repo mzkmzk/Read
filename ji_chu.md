@@ -36,11 +36,21 @@ y
 
 ```
 
+##2. 二进制浮点数和四舍五入错误
 `javascript`只能表示1/2,1/8,1/1024等浮点数,但是1/10等是不精确的
 
 ```javascript
 var x =.3 -.2;
 x == .1 //false
 ```
+
+##3. 日期和时间
+
+```javascript
+var then =new Date(2011,0,1);
+var later =new Date(2011,0,1,17,10,30);
+var now = new Date();
+```
+
 
 只有`null`和`undefined`无法拥有方法的值
