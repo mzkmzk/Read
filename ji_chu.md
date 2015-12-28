@@ -16,4 +16,11 @@ console.log(a)
 
 //自动填充为
 var a ; a = 3; console.log(a);
+
+var y =x +f 
+(a+b).toString()
+
+//解析后 var y =x+f(a+b).toString();
+
+
 ```
