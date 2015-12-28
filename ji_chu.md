@@ -203,3 +203,4 @@ parseFloat(".1") //0.1
 parseInt("11",2) //3
 parseInt("ff",16) //255
 ```
+
