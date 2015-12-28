@@ -81,6 +81,8 @@ NaN
 
 ##6 null和undefined
 
+`undefined`不是关键字
+
 ```javascript
 alert(typeof null) //=>object
 ```
