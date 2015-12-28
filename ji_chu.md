@@ -139,4 +139,5 @@ a === b //true
 ```javascript
 "7" * "4" //28
 var n = 1-"x" //NaN "x"无法转为数字的
+n + "object" //NaN object
 ```
