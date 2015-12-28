@@ -89,3 +89,6 @@ null === undefined // => false
 ```
 
 只有`null`和`undefined`无法拥有方法的值
+
+##7 全局对象
+
