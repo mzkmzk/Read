@@ -153,4 +153,7 @@ null == undefined //true 以下皆为true
 "0" == false
 ```
 
+但是`==`从不会将操作数转为布尔值
+```javascript
 
+```
