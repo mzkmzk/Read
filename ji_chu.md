@@ -141,3 +141,6 @@ a === b //true
 var n = 1-"x" //NaN "x"无法转为数字的
 n + "object" //NaN object
 ```
+
+数组转String 会使用join()方法
+
