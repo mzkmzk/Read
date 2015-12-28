@@ -188,5 +188,5 @@ n.toFixed(2); //"12345679"
 n.toExponential(1) //"1.2e+5"
 //toPrecision方法将有效数字为转换为字符串,如果有效数字少于数字证书部分的位数,则转为指数形式
 n.toPrecision(4); //"1.235e+5"
-
+n.toPrecision(10); //"123456.7890"
 ```
