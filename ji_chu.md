@@ -216,4 +216,5 @@ var d= new Date(2010,0,1);
 d.valueOf(); //1262332800000
 ```
 
+对象转字符串 有toString就执行toString,无toString就执行tvalueOf,若两者都无,报错.
 
