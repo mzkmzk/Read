@@ -208,5 +208,5 @@ parseInt("ff",16) //255
 
 ```javascript
 [1,2,3].toString() //"1,2,3"
-
+(function(x) { f(x) ;}).toString(); //function(x) {\n f(x); \n}
 ```
