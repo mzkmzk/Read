@@ -166,5 +166,5 @@ undefined == false //false
 Number("3");
 String(false);
 Boolean([]);
-Object(3);
+Object(3); //new Number(3);
 ```
