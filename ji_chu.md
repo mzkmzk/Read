@@ -62,10 +62,6 @@ text.search(pattern); // =>9:首次匹配成功的位置
 text.match(pattern); //=>["1","2","3"] 所有匹配组成的数组
 text.replace(pattern,"#"); // =>"testing: #,#,#"
 text.split(/\D+/); // =>["","1","2","3"]:用非数字字符截取字符串.
-
-
-
-
 ```
 
 只有`null`和`undefined`无法拥有方法的值
