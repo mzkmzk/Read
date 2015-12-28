@@ -184,5 +184,6 @@ hex_string ="0x"+n.toString(16); //0x11
 ```javascript
 var n =123456.789;
 n.toFixed(0); //123457;
-n.toFixed(2);
+n.toFixed(2); //12345679
+
 ```
