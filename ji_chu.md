@@ -167,4 +167,8 @@ Number("3");
 String(false); //false.toString()
 Boolean([]); //true
 Object(3); //new Number(3);
+
+x+"" // String(x);
++x or -x //Number(x)
+!!x //
 ```
