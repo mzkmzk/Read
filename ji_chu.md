@@ -193,5 +193,6 @@ n.toPrecision(10); //"123456.7890"
 字符串 => 数字
 
 ```javascript
+parseInt(3 blind mice) //3 会自动跳过前导空格和忽略后面的内容
 
 ```
