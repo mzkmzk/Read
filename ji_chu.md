@@ -164,7 +164,7 @@ undefined == false //false
 
 ```javascript
 Number("3");
-String(false);
-Boolean([]);
+String(false); //false.toString()
+Boolean([]); //true
 Object(3); //new Number(3);
 ```
