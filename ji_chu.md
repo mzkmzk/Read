@@ -146,3 +146,11 @@ n + "object" //NaN object
 
 ##11 转换和相等性
 
+```javascript
+null == undefined //true 以下皆为true
+"0" == 0
+0 == false
+"0" == false
+```
+
+
