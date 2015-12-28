@@ -148,10 +148,12 @@ n + "object" //NaN object
 
 ```javascript
 null == undefined //true 以下皆为true
+//以下相等是因为false转为了数字
 "0" == 0
 0 == false
 "0" == false
 ```
+
 
 但是`==`从不会将操作数转为布尔值
 ```javascript
