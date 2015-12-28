@@ -55,6 +55,8 @@ var now = new Date();
 4. 模式匹配
 
 ```javascript
+var text = "texting : 1 ,2, 3";
+var pattern = /\d/g; //匹配所有包含一个/多个数字的实例
 
 ```
 
