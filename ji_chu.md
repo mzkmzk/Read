@@ -52,7 +52,7 @@ var later =new Date(2011,0,1,17,10,30);
 var now = new Date();
 ```
 
-4. 模式匹配
+##4. 模式匹配
 
 ```javascript
 var text = "texting : 1 ,2, 3";
