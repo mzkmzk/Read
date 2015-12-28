@@ -210,4 +210,6 @@ parseInt("ff",16) //255
 [1,2,3].toString() //"1,2,3"
 (function(x) { f(x) ;}).toString(); //function(x) {\n f(x); \n}
 /\d+/g.toString() //"/\\d+/g"
+new Date(2010,0,1).toString*( // Fri Jan 01 2010 00:00:00 GMT-0800 (PST)
 ```
+
