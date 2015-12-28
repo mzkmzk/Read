@@ -92,3 +92,6 @@ null === undefined // => false
 
 ##7 全局对象
 
+```javascript
+
+```
