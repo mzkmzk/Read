@@ -64,7 +64,7 @@ text.replace(pattern,"#"); // =>"testing: #,#,#"
 text.split(/\D+/); // =>["","1","2","3"]:用非数字字符截取字符串.
 ```
 
-##5. 布尔
+##5. 布尔值
 
 ```javascript
 undefined
