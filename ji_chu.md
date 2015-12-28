@@ -157,5 +157,5 @@ null == undefined //true 以下皆为true
 
 但是`==`从不会将操作数转为布尔值
 ```javascript
-
+undefined == false //false
 ```
