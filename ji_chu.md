@@ -64,4 +64,17 @@ text.replace(pattern,"#"); // =>"testing: #,#,#"
 text.split(/\D+/); // =>["","1","2","3"]:用非数字字符截取字符串.
 ```
 
+##5. 布尔
+
+```javascript
+undefined
+null
+0
+-0
+NaN
+""
+```
+
+以上自动转为布尔为`false`
+
 只有`null`和`undefined`无法拥有方法的值
