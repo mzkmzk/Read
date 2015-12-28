@@ -57,6 +57,11 @@ var now = new Date();
 ```javascript
 var text = "texting : 1 ,2, 3";
 var pattern = /\d/g; //匹配所有包含一个/多个数字的实例
+pattern.test(text) ; //=> true 匹配成功
+
+
+
+
 
 ```
 
