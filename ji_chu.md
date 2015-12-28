@@ -170,5 +170,5 @@ Object(3); //new Number(3);
 
 x+"" // String(x);
 +x or -x //Number(x)
-!!x //
+!!x //Boolean(x);
 ```
