@@ -198,4 +198,8 @@ parseInt("0xFF") //255
 parseInt(".1") //NaN
 parseInt("0.1") //0
 parseFloat(".1") //0.1
+
+//指定基数
+parseInt("11",2) //3
+parseInt("ff",16) //255
 ```
