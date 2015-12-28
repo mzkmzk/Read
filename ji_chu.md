@@ -109,3 +109,10 @@ var t = s.len // =>undefined;
 存取字符串/数组/布尔的属性时创建的临时对象叫做包装对象.
 
 String(),Number(),Boolean(),构造函数就是用来显示创建包装对象的.
+
+```javascript
+var s = "test"; //字符串值
+var S = new String(s); //字符串对象
+s == S //false;
+s === S //true;
+```
