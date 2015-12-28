@@ -212,6 +212,7 @@ parseInt("ff",16) //255
 /\d+/g.toString() //"/\\d+/g"
 new Date(2010,0,1).toString*( // Fri Jan 01 2010 00:00:00 GMT-0800 (PST)
 
+var d= new Date(2010,0,1);
 d.valueOf(); //1262332800000
 ```
 
