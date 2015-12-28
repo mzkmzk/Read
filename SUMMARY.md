@@ -12,4 +12,5 @@
        * [UI](ui.md)
        * [Ajax](ajax.md)
        * [编程实战](bian_cheng_shi_zhan.md)
+   * JavaScript权威指南
 
