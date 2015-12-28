@@ -121,3 +121,15 @@ s === S //true;
 
 原始值 : undefined null 布尔值 数字 字符串
 对象引用 : 对象 数组
+
+```javascript
+var s = "hello";
+s.toUpperCase();
+s                // hello
+
+var a =[];
+var b = 啊;
+b[0] = 1;
+a[0]  // 1
+a === b //true
+```
