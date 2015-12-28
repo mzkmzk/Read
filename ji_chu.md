@@ -207,5 +207,6 @@ parseInt("ff",16) //255
 对象转换为原始值
 
 ```javascript
+[1,2,3].toString() //"1,2,3"
 
 ```
