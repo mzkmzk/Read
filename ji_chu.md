@@ -173,3 +173,14 @@ x+"" // String(x);
 !!x //Boolean(x);
 ```
 
+进制转换
+```javascript
+var n =17;
+binary_string =n.toString(2); //10001
+octal_stirng = "0" + n.toString(8) //021
+hex_string ="0x"+n.toString(16); //0x11
+```
+
+```数字处理
+
+```
