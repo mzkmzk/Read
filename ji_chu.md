@@ -22,5 +22,9 @@ var y =x +f
 
 //解析后 var y =x+f(a+b).toString();
 
+//当然 return break continue除外后面会紧跟分号
+return
+ture;
 
+//解析为 return ; ture;
 ```
