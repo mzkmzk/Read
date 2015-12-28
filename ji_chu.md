@@ -84,6 +84,8 @@ NaN
 ```javascript
 alert(typeof null) //=>object
 alert(typeof undefined) // ES5中 =>undefined
+null == undefined // => true
+null === undefined // => false
 ```
 
 只有`null`和`undefined`无法拥有方法的值
