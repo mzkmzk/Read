@@ -159,3 +159,12 @@ null == undefined //true 以下皆为true
 ```javascript
 undefined == false //false
 ```
+
+##12 显示的类型转换
+
+```javascript
+Number("3");
+String(false);
+Boolean([]);
+Object(3);
+```
