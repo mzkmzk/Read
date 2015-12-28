@@ -17,8 +17,8 @@
 var url = '/data.php';
 var params = [
     'id=123',
-    `limit=20'
-]
+    'limit=20'
+];
 
 var req = new XMLHttpRequest();
 
