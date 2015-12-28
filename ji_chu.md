@@ -52,5 +52,10 @@ var later =new Date(2011,0,1,17,10,30);
 var now = new Date();
 ```
 
+4. 模式匹配
+
+```javascript
+
+```
 
 只有`null`和`undefined`无法拥有方法的值
