@@ -204,3 +204,8 @@ parseInt("11",2) //3
 parseInt("ff",16) //255
 ```
 
+对象转换为原始值
+
+```javascript
+
+```
