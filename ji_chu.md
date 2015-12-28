@@ -38,6 +38,9 @@ y
 
 `javascript`只能表示1/2,1/8,1/1024等浮点数,但是1/10等是不精确的
 
-
+```javascript
+var x =.3 -.2;
+x == .1 //false
+```
 
 只有`null`和`undefined`无法拥有方法的值
