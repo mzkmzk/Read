@@ -225,4 +225,5 @@ d.valueOf(); //1262332800000
 ```javascript
 var truevar = 1; 
 fakevar = 2;
+
 ```
