@@ -243,5 +243,6 @@ delete this.fakevar2 // true
 ```javascript
 1 + {} //1[object Object]
 true + true //2
+2+null = 2;
 
 ```
