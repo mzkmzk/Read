@@ -313,4 +313,7 @@ a.length //3 会留个洞
 2. 宿主对象: JavaScript解析器嵌入的宿主环境(浏览器)
 3. 自定义对象
 
+##20 `in` `hasOwnPreperty` `propertyIsEnumerable`
 
+1. in 检测自有属性/继承属性 返回true
+2. hasOwnPreperty 
