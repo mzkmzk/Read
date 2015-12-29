@@ -279,7 +279,9 @@ a.length //3 会留个洞
 ```
 `delete`只能删除自身的属性,不能删除继承的`属性
 
-`delete`删除不存在的属性返回`true`
+`delete`删除不存在的属性也返回`true`
+
+`delete`不能删除全局属性
 
 ##18 `use strict`
 
