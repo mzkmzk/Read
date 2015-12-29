@@ -5,8 +5,8 @@
 标准动态执行代码方法
 
 ```javascript
-    var num_1 =5,
-        num_2 = 6;
+var num_1 =5,
+num_2 = 6;
 ```
 
 1. eval()
