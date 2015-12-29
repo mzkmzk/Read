@@ -253,3 +253,10 @@ true + true //2
 
 ##16 `delete`运算符
 
+```javascript
+var o = {x:1};
+delete 0.x;
+"x" in o
+
+
+```
