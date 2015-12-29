@@ -279,7 +279,8 @@ a.length //3 会留个洞
 ```
 `delete`只能删除自身的属性,不能删除继承的`属性
 
-`delete`
+`delete`删除不存在的属性返回`true`
+
 ##18 `use strict`
 
 在不支持ECMA 5的浏览器下`use strict`无任何作用.
