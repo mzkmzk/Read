@@ -291,6 +291,7 @@ a.length //3 会留个洞
     var has_strict_mode = (function() {"use stricut"; return this === undefiend});
     ```
 4. 通过`call`或`apply`调用函数时,`this`值就是通过call和apply传入的第一个参数;(非扬模式,null和undefined值会被全局对象转换为对象的非对象值代替)
-5. 
+5. 给补课操作的值创建新成员会报错(非严格止只是操作失败,不会报错)
+6. 
 
 
