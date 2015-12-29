@@ -10,18 +10,22 @@ num_2 = 6;
 ```
 
 1. eval()
+
     ```javascript
     result = eval ("num_1 + num_2");
     ```
 2. Function() 构造函数
+    
     ```javascript
     sum = new Function("arg1","arg2","return arg1 +arg2");
     ```
 3. setTimeout()
+   
     ```javascript
     setTimeout("sum = num_1 + num_2",100);
     ```
 4. setInterval()
+   
     ```javascript
     setInterval("sum = num_1 + num_2",100);
     ```
