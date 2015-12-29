@@ -321,4 +321,17 @@ a.length //3 会留个洞
 
 ##21 `getter` `setter`
 
-
+```javascript
+var p = {
+    x:1,
+    get r(){return Math(this.x*this.x + this.y*this.y)},
+    set r(new_value){
+        var old_value = Math.sqrt(this.x*this.x + this.y*this.y );
+        var ratio = new_value/old_value;
+        this.x *=ratio;
+        this.y *=ratio;
+    },
+    //只读
+    get theta(return Math.atan2(this.y,this.x));
+}
+```
