@@ -246,3 +246,6 @@ true + true //2
 2+null = 2;
 2+undefined = NaN
 ```
+
+##15 比较运算符
+
