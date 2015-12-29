@@ -290,7 +290,6 @@ a.length //3 会留个洞
     //判断是否严格模式
     var has_strict_mode = (function() {"use stricut"; return this === undefiend});
     ```
-
 4. 
 
 
