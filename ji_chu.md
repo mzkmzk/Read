@@ -222,8 +222,15 @@ d.valueOf(); //1262332800000
 
 ##13作用属性的变量
 
+声明一个全局变量时,用var声明的话是不可配置的
+
+但是没用var 是可以配置的
+
 ```javascript
 var truevar = 1; 
 fakevar = 2;
-
+this.fakevar2 = 3;
+delete truevar //false
+delete fakevar // true
+delete this.fakevar2 // true
 ```
