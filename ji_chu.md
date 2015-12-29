@@ -348,3 +348,7 @@ ECMAScript5新增
 3. 可枚举性 `enumerable`
 4. 可配置性 `configurable`
 
+可通过`Object.getOwnPropertyDescriptor`访问
+
+//{value: 1,writable:true,enumerable:true,configurable:true}
+Object.getOwnPropertyDescriptor({x:1},"x");
