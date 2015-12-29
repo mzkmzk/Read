@@ -59,7 +59,7 @@ var my_array = ['1',2];
 1. 别做无关紧要的工作
 2. 别重复做已经完成的工作.
 
-最常见的重复工作为浏览器坦诚,
+最常见的重复工作为浏览器判断,
 
 ```javascript
 function add_handler(target,event_type,handler){
