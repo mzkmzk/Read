@@ -373,5 +373,14 @@ o.x =2 //报错
 
 Object.definePropery(o,'x',{value : 2})//这样修改是OK的
 
+//修改读写器
+Object.definePropery(o,'x',{get: function(){return 0;}});
 
+//当`Object.defineProery`要修改多个属性
+var p =Object.definePropery({},{
+        x :{ value:1},//其他符默认为false或undefined
+        y :{value :2}
+    }
+);
 ```
+
