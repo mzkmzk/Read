@@ -244,5 +244,5 @@ delete this.fakevar2 // true
 1 + {} //1[object Object]
 true + true //2
 2+null = 2;
-
+2+undefined = NaN
 ```
