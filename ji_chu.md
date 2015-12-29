@@ -315,7 +315,7 @@ a.length //3 会留个洞
 
 ##20 `in` `hasOwnPreperty` `propertyIsEnumerable`
 
-1. in 检测自有属性/继承属性 返回true
+1. in 检测自有属性/继承属性 返回true,还可以通过`!==undefined`实现
 2. hasOwnPreperty 检测自身属性
 3. propertyIsEnumberable 检测自身属性 & 可枚举
 
