@@ -285,5 +285,12 @@ a.length //3 会留个洞
 
 1. 禁止使用`with`
 2. 所有变量都要先声明,否则报错.
-3. 调用函数(不是方法)中的`this`值是`undefined`
+3. 调用函数(不是方法)中的`this`值是`undefined`,(非严格`this`值总数全局对象)
+    ```javascript
+    //判断是否严格模式
+    var has_strict_mode = (function() {"use stricut"; return this === undefiend});
+    ```
+
+4. 
+
 
