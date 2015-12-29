@@ -350,5 +350,16 @@ ECMAScript5新增
 
 可通过`Object.getOwnPropertyDescriptor`访问
 
+```javascript
 //{value: 1,writable:true,enumerable:true,configurable:true}
 Object.getOwnPropertyDescriptor({x:1},"x");
+
+配置属性描述符
+var o ={}
+Object.defineProperty(o,"x",{
+                        value :1,
+                        writable :true,
+                        enumerable:false,
+                        configurable:true
+                    });
+```
