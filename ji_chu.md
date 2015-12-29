@@ -371,5 +371,7 @@ Object.defineProperty(o,'x',{writeable:false})
 
 o.x =2 //报错
 
+Object.definePropery(o,'x',{value : 2})//这样修改是OK的
+
 
 ```
