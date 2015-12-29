@@ -319,4 +319,6 @@ a.length //3 会留个洞
 2. hasOwnPreperty 检测自身属性
 3. propertyIsEnumberable 检测自身属性 & 可枚举
 
+##21 `getter` `setter`
+
 
