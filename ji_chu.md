@@ -234,3 +234,14 @@ delete truevar //false
 delete fakevar // true
 delete this.fakevar2 // true
 ```
+##14 `+`运算符
+
+1. 如果其中一个操作数是对象,则 日期对象通过toString()方法转换,其他对象通过valueOf();
+2. 如果其中一个曹所长是字符串,另外一个操作数也会变成字符串.
+3. 否则,都转为数字进行运输
+
+```javascript
+1 + {} //1[object Object]
+true + true //2
+
+```
