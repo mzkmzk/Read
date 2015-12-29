@@ -362,4 +362,8 @@ Object.defineProperty(o,"x",{
                         enumerable:false,
                         configurable:true
                     });
+                    
+o.x //1
+Object.keys(o) //[]不可枚举
+
 ```
