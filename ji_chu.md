@@ -366,4 +366,8 @@ Object.defineProperty(o,"x",{
 o.x //1
 Object.keys(o) //[]不可枚举
 
+//修改可写性
+Object.defineProperty(o,'x',{writeable:false})
+
+
 ```
