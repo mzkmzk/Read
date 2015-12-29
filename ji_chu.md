@@ -261,5 +261,5 @@ delete 0.x;
 var a = [1,2,3,];
 delete a[2];
 2 in a; //false
-a.length //3
+a.length //3 会留个洞
 ```
