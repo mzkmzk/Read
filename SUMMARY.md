@@ -15,5 +15,5 @@
    * [JavaScript权威指南](javascriptquan_wei_zhi_nan.md)
        * [基础](ji_chu.md)
 * [Utils](utils.md)
-   * Git
+   * [Git](git.md)
 
