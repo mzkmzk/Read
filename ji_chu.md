@@ -253,6 +253,16 @@ true + true //2
 
 ##16 `typeof`运算符
 
+| x                    | typeof x                                               |
+|----------------------|--------------------------------------------------------|
+| undefined            | "undefiend"                                            |
+| null                 | "object"                                               |
+| true/false           | "boolean"                                              |
+| 任意数字和NaN        | "number"                                               |
+| 任意字符串           | "string"                                               |
+| 任意函数             | "function"                                             |
+| 任意内置对象(非函数) | "object"                                               |
+| 任意宿主对象         | 编译器各自实现,但不是"undefined boolean number string" |
 
 ##17 `delete`运算符
 
