@@ -258,5 +258,5 @@ var o = {x:1};
 delete 0.x;
 "x" in o
 
-
+var a = [1,2,3,];
 ```
