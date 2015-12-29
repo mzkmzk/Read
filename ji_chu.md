@@ -299,4 +299,12 @@ a.length //3 会留个洞
 10. 不允许不进制速
 11. 严格模式下arguments.caller和arguments.callee,会报错.
 
+##19 对象
+
+对象类型
+
+1. 内置对象: ECMAScript定义的对象/类
+2. 宿主对象: JavaScript解析器嵌入的宿主环境(浏览器)
+3. 自定义对象
+
 
