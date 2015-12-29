@@ -256,7 +256,10 @@ true + true //2
 ```javascript
 var o = {x:1};
 delete 0.x;
-"x" in o
+"x" in o //false
 
 var a = [1,2,3,];
+delete a[2];
+2 in a; //false
+a.length //3
 ```
