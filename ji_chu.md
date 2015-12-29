@@ -276,3 +276,10 @@ delete a[2];
 2 in a; //false
 a.length //3 会留个洞
 ```
+
+##18 `use strict`
+
+在不支持ECMA 5的浏览器下`use strict`无任何作用.
+
+支持的话表示代码执行`严格模式`
+
