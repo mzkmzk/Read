@@ -335,3 +335,9 @@ var p = {
     get theta(return Math.atan2(this.y,this.x));
 }
 ```
+##22 属性的特性
+
+ECMAScript5新增
+
+1. 可以给原型对象添加方法,并设置成不可枚举
+2. 
