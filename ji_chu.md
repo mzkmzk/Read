@@ -369,5 +369,7 @@ Object.keys(o) //[]不可枚举
 //修改可写性
 Object.defineProperty(o,'x',{writeable:false})
 
+o.x =2 //报错
+
 
 ```
