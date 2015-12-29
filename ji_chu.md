@@ -275,7 +275,9 @@ var a = [1,2,3,];
 delete a[2];
 2 in a; //false
 a.length //3 会留个洞
+
 ```
+`delete`只能删除自身的属性,不能删除继承的`属性
 
 ##18 `use strict`
 
