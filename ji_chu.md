@@ -343,8 +343,8 @@ ECMAScript5新增
 2. 给对象定义不可删除的属性
 
 属性的特性
-1. 值
-2. 可写性
-3. 可读性
-4. 可配置性
+1. 值 `value`
+2. 可写性 `writable`
+3. 可枚举性 `enumerable`
+4. 可配置性 `configurable`
 
