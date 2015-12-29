@@ -220,4 +220,9 @@ d.valueOf(); //1262332800000
 
 数组转字符串,同理.不过先尝试valueOf
 
+##13作用属性的变量
 
+```javascript
+var truevar = 1; 
+fakevar = 2;
+```
