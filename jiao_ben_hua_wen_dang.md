@@ -2,6 +2,7 @@
 
 `Document Object Model`
 
+![文档节点的部分层次结构](QQ20151230-0.png)
 ```javascript
 //ID
 document.getElementById('ID_K');
