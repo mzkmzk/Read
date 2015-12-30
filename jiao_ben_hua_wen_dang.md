@@ -64,4 +64,5 @@ document.links
     3. 3表示Text节点
     4. 8表示Comment节点
     5. 11表示DcoumentFragment节点
-6. 
+6. nodeValue : Text节点/Commetn节点的文本内容.
+7. 
