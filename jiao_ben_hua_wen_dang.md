@@ -135,3 +135,24 @@ document.body.attributes["onload"]
 
 ##7. 作为HTML的元素内容
 
+1. innerHTML
+2. outerHTML
+
+    outerHTML返回标签的开始标签和结束标签,还有内容.当替换该属性时,标签也被替换
+3. insertAdjacenHTML
+    
+    该方法在HTML5标准化
+
+    有两个参数
+    
+    1. 为依赖的参数位置
+        
+        `beforebegin` `afterbegin` `befireend` `afterend`
+        
+        ```javascript
+        1<div>2This3</div>4
+        ```
+        以上的1234和参数插入的未知对应
+    2. 为HTML标记字符串
+    
+    
