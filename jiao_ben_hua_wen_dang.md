@@ -66,3 +66,12 @@ document.links
     5. 11表示DcoumentFragment节点
 6. nodeValue : Text节点/Commetn节点的文本内容.
 7. nodeName : 元素的标签名,以大写形式表示
+
+
+##3. HTML属性作为Element的属性
+
+```javascript
+var image = document.getElementByID("K_404");
+var iamge_url = "../image/404_K.jpg";
+
+```
