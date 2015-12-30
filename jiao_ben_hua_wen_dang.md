@@ -20,8 +20,11 @@ document.getElementsByName("name_K");
 var first_p = document.getElementTagName("p")[0];
 first_p_span = first_p.getElementsTagName("span");
 
-//通过CSS
+//通过Class
 document.getElementsByClassName("K container");
+
+//通过CSS选择器 返回NodeList
+document.querySelectorAll("#K div");
 
 ```
 
