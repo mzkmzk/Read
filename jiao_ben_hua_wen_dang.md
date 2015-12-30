@@ -4,6 +4,11 @@
 
 ![文档节点的部分层次结构](QQ20151230-0.png)
 
+
+每个Window对象都有一个document属性指向`Document`
+
+Document对象表示窗口的内容.
+
 ##1. 获取文档元素
 ```javascript
 //ID
@@ -50,3 +55,4 @@ document.links
 ##2. Node属性
 
 1. parentNode : 该节点的父节点,类似Document对象此属性为null.
+2. 
