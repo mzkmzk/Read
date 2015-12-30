@@ -228,5 +228,20 @@ function insert_at(parent,child,n){
 判定用户选择了什么文本
 
 ```javascript
-
+function get_select_text(){
+    if(window.getSelection){ //HTML5标准
+        return window.getSelection().toString();
+    } else if (document.selection){ //IE特有
+        return documnet.selection.createRange().text;
+    }
+}
 ```
+
+##14. 可编辑内容
+
+1. HTML设置contenteditable属性
+2. 设置JavaScript
+    
+        ```javascript
+        some_vid.contentDocument.designMode = "on";
+        ```
