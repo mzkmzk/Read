@@ -97,5 +97,8 @@ image.setAttribute('class',"container");
 
 ##5. `data-` 数据集属性
 
-因为在`第四节`中定义了非标准的HTML属性,
-在`HTML5`新增了任意以`data-`为前缀的小谢属性名字都是合法的,
+因为在`第四节`中定义了非标准的HTML属性,导致HTML不再是合法的HTML,所以
+
+在`HTML5`新增了任意以`data-`为前缀的小谢属性名字都是合法的,并且HTML也是合法的
+
+HTML5在`Element`
