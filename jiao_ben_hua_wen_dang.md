@@ -7,12 +7,15 @@
 获取文档元素
 ```javascript
 //ID
-document.getElementsById('ID_K');
+//返回`element`
+document.getElementById('ID_K');
 
 //Name
+//返回NodeList
 document.getElementsByName("name_K");
 
 //根据标签 
+//返回HTMLCollection 在JavaScript第六版第367页中写的是返回NodeList,但是查了官网API是返回HTMLCollection的.
 //因为HTML不区分大小写,所以这个也不区分大小写.
 var first_p = document.getElementTagName("p")[0];
 first_p_span = first_p.getElementsTagName("span");
