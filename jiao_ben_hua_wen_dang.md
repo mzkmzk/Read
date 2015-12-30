@@ -76,5 +76,5 @@ var iamge_url = "../image/404_K.jpg";
 
 ///关键字 会默认前面加html 除class
 document.getElementsByTagName('lable')[0].htmlFor = "404_K";
-
+document.getElementById('K_404').className = "container";
 ```
