@@ -174,7 +174,7 @@ textContent和innerText的区别
 3. createComment;
 4. createDocumentFragment;
 5. cloneNode(true/false) : 是否深层复制
-6. 
+6. importNode() 如果它传递另一个文档的一个节点,它
 
 ##10 插入节点
 
