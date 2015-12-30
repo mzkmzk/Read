@@ -194,3 +194,5 @@ function insert_at(parent,child,n){
     else parent.inserBefore(child,parent.childNodes[n]);
 }
 ```
+
+这两个方法还可以帮节点移位,文档中的一个节点再次插入,会删除旧的.
