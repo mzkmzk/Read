@@ -157,3 +157,7 @@ document.body.attributes["onload"]
     
 ##8. 作为纯文本的元素内容
 
+```javascript
+var k = document.getElementsByTagNames('p')[0];
+var text = k.textContent;
+```
