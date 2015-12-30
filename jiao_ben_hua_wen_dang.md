@@ -199,3 +199,9 @@ function insert_at(parent,child,n){
 
 ##11. 删除和替换节点
 
+1. removeChlid
+
+    ```javascript
+    n.parentNode.removeChild(n);
+    ```
+2. replaceChild
