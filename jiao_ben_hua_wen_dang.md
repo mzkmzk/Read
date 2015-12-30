@@ -213,3 +213,13 @@ function insert_at(parent,child,n){
     
 ##12 其他文档属性
 
+1. document
+    
+    1. cookie
+    2. domain
+    3. lastModified
+    4. location
+    5. referrer
+    6. title
+    7. URL
+    8. 
