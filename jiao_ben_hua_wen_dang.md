@@ -65,4 +65,4 @@ document.links
     4. 8表示Comment节点
     5. 11表示DcoumentFragment节点
 6. nodeValue : Text节点/Commetn节点的文本内容.
-7. 
+7. nodeName : 元素的标签名,以大写形式表示
