@@ -16,7 +16,7 @@
        * [基础](ji_chu.md)
            * [基础](ji_chu_.md)
        * [客户端JavaScript](ke_hu_duan_javascript.md)
-           * 脚本化文档
+           * [脚本化文档](jiao_ben_hua_wen_dang.md)
 * [Utils](utils.md)
    * [Pro_Git](git.md)
        * 起步
