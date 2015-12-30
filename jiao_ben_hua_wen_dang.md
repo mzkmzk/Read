@@ -22,7 +22,7 @@ first_p_span = first_p.getElementsTagName("span");
 
 `HtmlDocument`还定义了一些快捷的访问方式.
 
-只读的`img`,`form`,`a(包含href属性的)`等元素的集合.
+只读的`img`,`form`,`a(包含href属性的)`等元素的集合.(返回HTMLCollection)
 
 因为在`Document`对象中为`form` `img` `iframe` `applet` `embed` `ojbect`元素设置name属性,既在Document对象中创建以此name属性值为名字的属性.
 
