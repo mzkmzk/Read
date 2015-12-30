@@ -147,7 +147,7 @@ document.body.attributes["onload"]
     
     1. 为依赖的参数位置
         
-        `beforebegin` `afterbegin` `befireend` `afterend`
+        `beforebegin` `afterbegin` `beforeend` `afterend`
         
         ```javascript
         1<div>2This3</div>4
