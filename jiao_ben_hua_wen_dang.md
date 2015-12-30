@@ -177,3 +177,12 @@ textContent和innerText的区别
     
     1. 待插入的节点.
     2. 父节点的子节点. 待插入节点会插在他前面.
+
+```javascript
+//将child节点插入到parent,使其成为第n个节点
+function insert_at(parent,child,n){
+    if(n<0 || n> parent.childNodes.length) throw new Error("invalid index");
+    
+    
+}
+```
