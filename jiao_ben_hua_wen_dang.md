@@ -82,5 +82,7 @@ document.getElementById('K_404').className = "container";
 ##4. 获取和设置非标准HTML属性
 
 ```javascript
-
+var image = document.images[0];
+var width = parseInt("iamge.getAttribute('width')");
+image.setAttribute('class',"container");
 ```
