@@ -94,3 +94,6 @@ var width = parseInt("iamge.getAttribute('width')");
 image.setAttribute('class',"container");
 
 ```
+
+##5. `data-`
+
