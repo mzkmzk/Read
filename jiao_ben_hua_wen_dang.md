@@ -165,3 +165,4 @@ var text = k.textContent;
 textContent和innerText的区别
 
 1. textContent只是把后台的Text节点串联在一起.
+2. ineerText不返回`<script>`元素,和忽略多余的空白.
