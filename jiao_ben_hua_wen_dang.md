@@ -210,3 +210,6 @@ function insert_at(parent,child,n){
      //b节点替换n节点.
     n.parentNode.replaceChild(b,n);
     ```
+    
+##12 其他文档属性
+
