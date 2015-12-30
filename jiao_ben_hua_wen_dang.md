@@ -20,6 +20,9 @@ document.getElementsByName("name_K");
 var first_p = document.getElementTagName("p")[0];
 first_p_span = first_p.getElementsTagName("span");
 
+//通过CSS
+document.getElementsByClassName("K container");
+
 ```
 
 `HtmlDocument`还定义了一些快捷的访问方式.
