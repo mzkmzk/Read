@@ -132,3 +132,6 @@ document.body.attributes["onload"]
 ```
 
 当索引attributes对象得到的都是Attr对象,Attr有name和value属性
+
+##7. 作为HTML的元素内容
+
