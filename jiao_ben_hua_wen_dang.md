@@ -4,7 +4,7 @@
 
 ![文档节点的部分层次结构](QQ20151230-0.png)
 
-获取文档元素
+##1. 获取文档元素
 ```javascript
 //ID
 //返回`element`
@@ -47,5 +47,5 @@ document.K_404;
 document.links
 ```
 
-#1. Node属性
+##2. Node属性
 
