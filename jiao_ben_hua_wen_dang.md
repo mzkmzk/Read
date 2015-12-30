@@ -109,6 +109,7 @@ HTML5在`Element`对象定义了`dataset`属性,指向一个对象,它的各个�
 </span>     
 ```
 ```javascript
+var spanrkline = document.getElementsByClassName('sparkline');
 
 
 ```
