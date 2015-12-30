@@ -56,4 +56,5 @@ document.links
 
 1. parentNode : 该节点的父节点,类似Document对象此属性为null.
 2. childNode : 只读的类数组对象(NodeList对象),实时表示
-3. 
+3. firstChild lastChild
+4. nextSibling previoursSibling
