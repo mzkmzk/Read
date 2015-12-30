@@ -27,7 +27,7 @@ first_p_span = first_p.getElementsTagName("span");
 不太建议这样的使用方法
 ```javascript
 
-//假如women定义了一个name属性为K_404的form
+//假如women定义了一个ID/name属性为K_404的form 
 document.forms.K_404;
 
 //or
