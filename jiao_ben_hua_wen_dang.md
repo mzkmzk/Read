@@ -101,4 +101,9 @@ image.setAttribute('class',"container");
 
 在`HTML5`新增了任意以`data-`为前缀的小谢属性名字都是合法的,并且HTML也是合法的
 
-HTML5在`Element`
+HTML5在`Element`对象定义了`dataset`属性,指向一个对象,它的各个属性对应于去掉前缀`data-`属性.
+
+```javascript
+
+
+```
