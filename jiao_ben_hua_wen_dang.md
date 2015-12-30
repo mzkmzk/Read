@@ -170,7 +170,10 @@ textContent和innerText的区别
 
 ##9 创建节点
 1. createElement;
-2. 
+2. createTextNode;
+3. createComment;
+4. createDocumentFragment;
+5. 
 
 ##10 插入节点
 
