@@ -10,7 +10,7 @@ document.getElementById('ID_K');
 document.getElementByName("name_K");
 
 //根据标签 
-//返回
+//返回HTML Collection
 //因为HTML不区分大小写,所以这个也不区分大小写.
 document.getElementTagName("span");
 
