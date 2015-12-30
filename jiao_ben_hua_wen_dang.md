@@ -121,4 +121,6 @@ for(var i=0,length = sparklines.length;i< length ; i++){
 
 ##6. 作为Attr节点的属性
 
-Node定义了`attributes`属性.
+Node定义了`attributes`属性.非Element对象,该属性为null
+
+对应Element对象,attributes属性是只读的类数组对象.
