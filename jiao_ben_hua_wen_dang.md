@@ -28,7 +28,7 @@ first_p_span = first_p.getElementsTagName("span");
 
 因为在`Document`对象中为`form` `img` `iframe` `applet` `embed` `ojbect`元素设置name属性,既在Document对象中创建以此name属性值为名字的属性.
 
-不太建议这样的使用方法
+不太建议这样的使用方法,以下都返回的是`HTMLColection`
 ```javascript
 document.images;
 
