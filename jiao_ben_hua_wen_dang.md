@@ -74,4 +74,7 @@ document.links
 var image = document.getElementByID("K_404");
 var iamge_url = "../image/404_K.jpg";
 
+///关键字 会默认前面加html 除class
+
+
 ```
