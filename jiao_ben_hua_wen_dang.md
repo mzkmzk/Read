@@ -169,7 +169,8 @@ textContent和innerText的区别
 
 
 ##9 创建节点
-
+1. createElement;
+2. 
 
 ##10 插入节点
 
