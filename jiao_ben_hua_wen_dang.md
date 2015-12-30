@@ -7,5 +7,10 @@
 document.getElementById('ID_K');
 
 //Name
-document.getElementByNames("name_K");
+document.getElementByName("name_K");
+
+//根据标签
+document.getElementTagName("span");
+
+
 ```
