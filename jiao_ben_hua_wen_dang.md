@@ -243,5 +243,5 @@ function get_select_text(){
 2. 设置JavaScript
     
     ```javascript
-    some_vid.contentDocument.designMode = "on";
+    some_div.contentDocument.designMode = "on";
     ```
