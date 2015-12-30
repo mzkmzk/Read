@@ -18,5 +18,9 @@ document.getElementsByName("name_K");
 var first_p = document.getElementTagName("p")[0];
 first_p_span = first_p.getElementsTagName("span");
 
-
 ```
+
+`HtmlDocument`还定义了一些快捷的访问方式.
+
+只读的`img`,`form`,`a(包含href属性的)`等元素的集合
+不建议的使用方法
