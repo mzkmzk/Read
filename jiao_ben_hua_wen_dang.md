@@ -78,3 +78,5 @@ var iamge_url = "../image/404_K.jpg";
 document.getElementsByTagName('lable')[0].htmlFor = "404_K";
 document.getElementById('K_404').className = "container";
 ```
+
+##4. 获取和设置非标准HTML属性
