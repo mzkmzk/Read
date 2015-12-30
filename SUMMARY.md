@@ -13,10 +13,10 @@
        * [Ajax](ajax.md)
        * [编程实战](bian_cheng_shi_zhan.md)
    * [JavaScript权威指南](javascriptquan_wei_zhi_nan.md)
-       * [客户端JavaScript](ke_hu_duan_javascript.md)
-           * 脚本化文档
        * [基础](ji_chu.md)
            * [基础](ji_chu_.md)
+       * [客户端JavaScript](ke_hu_duan_javascript.md)
+           * 脚本化文档
 * [Utils](utils.md)
    * [Pro_Git](git.md)
        * 起步
