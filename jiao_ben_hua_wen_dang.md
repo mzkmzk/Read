@@ -59,5 +59,4 @@ document.links
 3. firstChild lastChild
 4. nextSibling previoursSibling
 5. nodeType : 节点类型, 9表示Document节点,1表示Element节点,3表示Text节点,8表示Comment节点,11表示DcoumentFragment节点
-
-
+6. 
