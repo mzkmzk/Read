@@ -49,3 +49,4 @@ document.links
 
 ##2. Node属性
 
+1. parentNode : 该节点的父节点,类似Document对象此属性为null.
