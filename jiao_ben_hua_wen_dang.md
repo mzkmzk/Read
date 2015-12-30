@@ -168,7 +168,10 @@ textContent和innerText的区别
 2. ineerText不返回`<script>`元素,和忽略多余的空白.,`table` `trbody` `tr`的innerText是只读属性.
 
 
-##9 插入节点
+##9 创建节点
+
+
+##10 插入节点
 
 1. appendChild() 插在调用者的最后一个子节点
 2. insertBefore() 
