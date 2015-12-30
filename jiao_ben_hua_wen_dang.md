@@ -161,3 +161,7 @@ document.body.attributes["onload"]
 var k = document.getElementsByTagNames('p')[0];
 var text = k.textContent;
 ```
+
+textContent和innerText的区别
+
+1. textContent只是把后台的Text节点串联在一起.
