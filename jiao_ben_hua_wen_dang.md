@@ -123,8 +123,10 @@ for(var i=0,length = sparklines.length;i< length ; i++){
 
 Node定义了`attributes`属性.非Element对象,该属性为null
 
-对应`Element`对象,attributes属性是只读的类数组对象.它代表所有属性,并且是实时的.
+对应`Element`对象,attributes属性是只读的类数组对象.它代表元素的所有属性,并且是实时的.
 
 ```javascript
-
+document.body.attributes[0]
+document.body.attributes.bgcolor
+document.body.attributes["onload"]
 ```
