@@ -155,4 +155,5 @@ document.body.attributes["onload"]
         以上的1234和参数插入的未知对应
     2. 为HTML标记字符串
     
-    
+##8. 作为纯文本的元素内容
+
