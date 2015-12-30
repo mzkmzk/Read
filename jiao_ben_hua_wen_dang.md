@@ -173,7 +173,8 @@ textContent和innerText的区别
 2. createTextNode;
 3. createComment;
 4. createDocumentFragment;
-5. 
+5. cloneNode(true/false) : 是否深层复制
+6. 
 
 ##10 插入节点
 
