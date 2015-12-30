@@ -242,6 +242,6 @@ function get_select_text(){
 1. HTML设置contenteditable属性
 2. 设置JavaScript
     
-        ```javascript
-        some_vid.contentDocument.designMode = "on";
-        ```
+    ```javascript
+    some_vid.contentDocument.designMode = "on";
+    ```
