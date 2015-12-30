@@ -130,3 +130,5 @@ document.body.attributes[0]
 document.body.attributes.bgcolor
 document.body.attributes["onload"]
 ```
+
+当索引attributes对象得到的都是Attr对象,Attr有name和value属性
