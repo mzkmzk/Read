@@ -118,3 +118,6 @@ for(var i=0,length = sparklines.length;i< length ; i++){
 }
 
 ```
+
+##6. 作为Attr节点的属性
+
