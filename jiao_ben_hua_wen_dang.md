@@ -211,7 +211,7 @@ function insert_at(parent,child,n){
     n.parentNode.replaceChild(b,n);
     ```
     
-##12 其他文档属性
+##12. 其他文档属性
 
 1. document
     
@@ -222,4 +222,11 @@ function insert_at(parent,child,n){
     5. referrer
     6. title
     7. URL
-    8. 
+
+##13.查询选取文本
+
+判定用户选择了什么文本
+
+```javascript
+
+```
