@@ -182,7 +182,8 @@ textContent和innerText的区别
 //将child节点插入到parent,使其成为第n个节点
 function insert_at(parent,child,n){
     if(n<0 || n> parent.childNodes.length) throw new Error("invalid index");
-    
+    else if (n == parent.childNodes.length) parent.appendChild(child);
+    else parent.inserBefore(child,parent.childNodes[n]);
     
 }
 ```
