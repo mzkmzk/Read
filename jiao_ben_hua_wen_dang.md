@@ -25,6 +25,7 @@ document.getElementsByClassName("K container");
 
 //通过CSS选择器 返回NodeList
 document.querySelectorAll("#K div");
+document.querySelector("#K div");
 
 ```
 
