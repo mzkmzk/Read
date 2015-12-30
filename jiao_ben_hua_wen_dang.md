@@ -97,4 +97,5 @@ image.setAttribute('class',"container");
 
 ##5. `data-` 数据集属性
 
+因为
 在`HTML5`新增了任意以`data-`为前缀的小谢属性名字都是合法的,
