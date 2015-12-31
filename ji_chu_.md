@@ -439,6 +439,7 @@ var p =Object.definePropery({},{
     //自定义排序
     var k =[33,4,111,222];
     k.sort(); //1111 222 33 4
+    //想第一个参数在前面,返回负数,想在后面,返回正数.
     k.sort(function(a,b){ // 4 33 222 1111 
         return a-b;
     });
