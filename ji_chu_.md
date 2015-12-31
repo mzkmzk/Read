@@ -460,5 +460,5 @@ var p =Object.definePropery({},{
     a.slice(0,3); //[1,2,3]
     a.slice(3); //[4,5]
     a.slice(1,-1) // [2,3,4]
-    a.slice(-3,-2) //[]
+    a.slice(-3,-2) //[3]
     ```
