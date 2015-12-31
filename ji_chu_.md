@@ -493,5 +493,13 @@ var p =Object.definePropery({},{
     
     ```javascript
     var data = [1,2,3,4,5];
+    var sum =0;
+    data.forEach(function(value){
+        sum += value;
+    });
     
+    data.forEach(function(value,index,array){
+       a[i] = v+1; 
+    });
+    data //[2,3,4,5,6]
     ```
