@@ -467,5 +467,6 @@ var p =Object.definePropery({},{
     ```javascript
     var a = [1,2,3,4,5,6,7,8];
     a.splice(4); //返回[5,6,7,8] a为[1,2,3,4]
-    
+    a.splice(1,2) //返回[2,3] a为[1,4]
+    a.splice(1,1) //返回[4] a为[1]
     ```
