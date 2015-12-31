@@ -466,5 +466,6 @@ var p =Object.definePropery({},{
     
     ```javascript
     var a = [1,2,3,4,5,6,7,8];
+    a.splice(4); //返回[5,6,7,8] a为[1,2,3,4]
     
     ```
