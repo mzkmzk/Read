@@ -506,4 +506,11 @@ var p =Object.definePropery({},{
     
     注意`forEach`无法break停止遍历.,除非放在try里,然后抛出异常
     
-    2. map()
+    2. map() : 和forEach类似,但是会把结果放入到一个新数组返回,不会影响旧数组
+    
+    ```javascript
+    a = [1,2,3,];
+    b =a.map(function(x){
+        return x*x;
+    });
+    ```
