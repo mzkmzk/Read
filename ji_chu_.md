@@ -464,4 +464,6 @@ var p =Object.definePropery({},{
     ```
     6. splice() : 在数组插入/删除元素的通用方法
     
-    
+    ```javascript
+    var a = [1,2,3,4,5,6,7,8];
+    ```
