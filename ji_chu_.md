@@ -515,4 +515,4 @@ var p =Object.definePropery({},{
     });
     ```
     
-    3.fliter
+    3.fliter 过滤数组,当return`true`
