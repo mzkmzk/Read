@@ -479,4 +479,8 @@ var p =Object.definePropery({},{
     
     7. push pop 在栈尾操作
     8. unshift & shift  : 在栈头操作. 注意unshift中的参数是按顺序插入的.
-    9. 
+    9. toString toLocaleString
+    
+        toString和不使用参数的join作用一致
+        
+        
