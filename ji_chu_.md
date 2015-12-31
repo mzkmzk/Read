@@ -397,6 +397,6 @@ var p =Object.definePropery({},{
     
 2. 类属性
 
-
+    类属性只可以通过`toString`方式访问.
 
 3. 可拓展性
