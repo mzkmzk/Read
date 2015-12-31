@@ -514,3 +514,5 @@ var p =Object.definePropery({},{
         return x*x;
     });
     ```
+    
+    3.fliter
