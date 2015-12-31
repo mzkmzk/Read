@@ -524,4 +524,8 @@ var p =Object.definePropery({},{
     });
     ```
     
-    4. every() 和 some()
+    4. every() 和 some() : 判断数组是否全部满足/至少一个满足
+    
+    ```javascript
+    
+    ```
