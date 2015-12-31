@@ -524,4 +524,4 @@ var p =Object.definePropery({},{
     });
     ```
     
-    4. 
+    4. every() 和 some()
