@@ -473,7 +473,6 @@ var p =Object.definePropery({},{
     var a = [1,2,3,4,5];
     a.splice(2,0,'a','b');// 返回[] ,a为[1,2,'a','b',3,4,5]
     a.splice(2,2,[1,2],3) //返回[1,2,[1,2],3,3,4,5]
-    
-    
-    
     ```
+    
+    concat和splice插入时的区别在于splice会插入数组本身.
