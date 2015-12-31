@@ -471,5 +471,5 @@ var p =Object.definePropery({},{
     a.splice(1,1) //返回[4] a为[1]
     
     var a = [1,2,3,4,5];
-    
+    a.splice(2,0,'a','b');
     ```
