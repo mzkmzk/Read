@@ -523,3 +523,5 @@ var p =Object.definePropery({},{
         return x< 3 ;
     });
     ```
+    
+    4. 
