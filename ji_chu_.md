@@ -484,3 +484,5 @@ var p =Object.definePropery({},{
         toString和不使用参数的join作用一致
         
         toLocacleString 能返回自定义的本地化方法返回字符串.
+        
+3. ECMAScript 5的数组方法    
