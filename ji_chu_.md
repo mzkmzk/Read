@@ -515,4 +515,11 @@ var p =Object.definePropery({},{
     });
     ```
     
-    3.fliter 返回过滤数组,当return`true`时,不过滤此
+    3.fliter 返回过滤数组,当return`true`时,不过滤此元素
+    
+    ```javascript
+    a = [5,4,3,2,1];
+    small_values = a.filter(function(x){ //[2,1]
+        return x< 3 
+    });
+    ```
