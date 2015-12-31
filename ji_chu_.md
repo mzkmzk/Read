@@ -478,4 +478,4 @@ var p =Object.definePropery({},{
     concat和splice插入时的区别在于splice会插入数组本身.
     
     7. push pop
-    8. 
+    8. unshift & shift 
