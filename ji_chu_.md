@@ -520,6 +520,6 @@ var p =Object.definePropery({},{
     ```javascript
     a = [5,4,3,2,1];
     small_values = a.filter(function(x){ //[2,1]
-        return x< 3 
+        return x< 3 ;
     });
     ```
