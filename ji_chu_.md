@@ -429,3 +429,6 @@ var p =Object.definePropery({},{
     // a[1] = 5
     // a[3] = 9
     ```
+2. 数组方法
+
+    1. join() : 
