@@ -479,3 +479,4 @@ var p =Object.definePropery({},{
     
     7. push pop 在栈尾操作
     8. unshift & shift  : 在栈头操作.
+    9. 
