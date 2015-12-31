@@ -99,7 +99,7 @@ function remove_handler(target,event_type,handler){
             }
         }
         
-        addhandler(target,event_type,handler);
+        return add_handler(target,event_type,handler);
     }
     ```
     这里就第一次执行add_handler去判断该如何操作.
