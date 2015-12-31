@@ -504,4 +504,5 @@ var p =Object.definePropery({},{
     data //[2,3,4,5,6]
     ```
     
-    注意`forEach`无法break停止遍历.
+    注意`forEach`无法break停止遍历.,除非放在try里,然后抛出异常
+    
