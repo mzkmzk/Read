@@ -486,3 +486,5 @@ var p =Object.definePropery({},{
         toLocacleString 能返回自定义的本地化方法返回字符串.
         
 3. ECMAScript 5的数组方法    
+
+    
