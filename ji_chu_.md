@@ -444,4 +444,4 @@ var p =Object.definePropery({},{
         return a-b;
     });
     ```
-    4. concat() : 
+    4. concat() : 创建并返回一个新数组,
