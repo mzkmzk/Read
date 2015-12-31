@@ -398,5 +398,17 @@ var p =Object.definePropery({},{
 2. 类属性
 
     类属性只可以通过`toString`方式访问.
+    
+    返回类似的字符串`[object class]`
+    
+    以下方法可获取class
+    
+    ```javascript
+    function class_of(o){
+        if (o === null) return "null";
+        if(o === undefiend) return "undefiend";
+        return Object.prototype.toString.call(o).slice(8,-1);
+    }
+    ```
 
 3. 可拓展性
