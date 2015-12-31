@@ -439,7 +439,7 @@ var p =Object.definePropery({},{
     //自定义排序
     var k =[33,4,111,222];
     k.sort(); //1111 222 33 4
-    k.sort(function(a,b){
+    k.sort(function(a,b){ // 4 33 222 1111 
         return a-b;
     });
     ```
