@@ -441,5 +441,5 @@ var p =Object.definePropery({},{
     k.sort(); //1111 222 33 4
     k.sort(function(a,b){
         return a-b;
-    })
+    });
     ```
