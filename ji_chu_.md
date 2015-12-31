@@ -489,7 +489,7 @@ var p =Object.definePropery({},{
 
     这些数组方法一般有3个参数,一个个参数
     
-    1. forEach
+    1. forEach()
     
     ```javascript
     var data = [1,2,3,4,5];
@@ -515,7 +515,7 @@ var p =Object.definePropery({},{
     });
     ```
     
-    3.fliter 返回过滤数组,当return`true`时,不过滤此元素
+    3.fliter() 返回过滤数组,当return`true`时,不过滤此元素
     
     ```javascript
     a = [5,4,3,2,1];
@@ -538,3 +538,4 @@ var p =Object.definePropery({},{
     ```
     这两个方法当能觉得返回什么结果时就结束循环
     
+    5. reduce() 和 reduceRight()
