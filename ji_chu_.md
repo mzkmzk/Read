@@ -462,3 +462,6 @@ var p =Object.definePropery({},{
     a.slice(1,-1) // [2,3,4]
     a.slice(-3,-2) //[3]
     ```
+    6. splice() : 在数组插入/删除元素的通用方法
+    
+    
