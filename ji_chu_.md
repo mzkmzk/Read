@@ -487,4 +487,11 @@ var p =Object.definePropery({},{
         
 3. ECMAScript 5的数组方法    
 
+    这些数组方法一般有3个参数,一个个参数
     
+    1. forEach
+    
+    ```javascript
+    var data = [1,2,3,4,5];
+    
+    ```
