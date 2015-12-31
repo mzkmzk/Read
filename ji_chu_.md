@@ -392,6 +392,7 @@ var p =Object.definePropery({},{
     
     1. 将对象直接量创建的对象使用Object.prototype作为它们的原型.
     2. 通过new创建的对象使用构造函数的prototype属性作为它们的原型.
+    3. 通过Object.create()创建的对象使用第一个参数(也可以是null)作为它们的原型
     
     
 2. 类属性
