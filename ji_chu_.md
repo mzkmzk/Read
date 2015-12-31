@@ -503,3 +503,5 @@ var p =Object.definePropery({},{
     });
     data //[2,3,4,5,6]
     ```
+    
+    注意`forEach`无法break停止遍历.
