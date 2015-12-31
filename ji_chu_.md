@@ -527,5 +527,14 @@ var p =Object.definePropery({},{
     4. every() 和 some() : 判断数组是否全部满足/至少一个满足
     
     ```javascript
+    a = [1,2,3,4,5];
+    a.every(function(x){ //true
+        return x <10;
+    });
     
+    a.some(function(x){ //true
+        return x%2 ==0;
+    });
     ```
+    这两个方法当能觉得返回什么结果时就结束循环
+    
