@@ -624,6 +624,16 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
 
 ###25.3命名空间
 
+```javascript
+(function(){
+    模块代码;
+}());
+```
+实例: 检测在IE下是否缺少某些变量,有就返回补丁
 
+```javascript
+
+
+```
 
     
