@@ -599,14 +599,20 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
     ```javascript
     var calculator = {
         operand_1 :1,
-        operand_2 :2,
+        operand_2 :1,
         add :function(){
             this.result = this.apperand_1 + this.aperand_2;
         }
     }
     calculator.add();
+    //or
+    
     calculator.result ; //2
+    
+    
     ```
+    
+    
 3. 作为构造函数
 4. 通过它们的call()和apply()调用
 
