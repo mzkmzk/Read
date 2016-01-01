@@ -594,7 +594,19 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
     ```
     作为函数和作为方法调用最大的区别是`this`
     
-    作为方法
+    作为方法调用`this`为对象的上下文
+    
+    ```javascript
+    var calculator = {
+        operand_1 :1,
+        operand_2 :2,
+        add :function(){
+            this.result = this.apperand_1 + this.aperand_2;
+        }
+    }
+    calculator.add();
+    calculator.result ; //2
+    ```
 3. 作为构造函数
 4. 通过它们的call()和apply()调用
 
