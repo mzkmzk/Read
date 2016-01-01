@@ -605,7 +605,7 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
         }
     }
     calculator.add();
-    //or
+    //or 下面这种调用好处在于动态选择调用的方法.
     calculator["add"]();
     calculator.result ; //2
     ```
