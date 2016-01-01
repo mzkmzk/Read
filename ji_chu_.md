@@ -592,6 +592,8 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
     ```javascript
     object_k.method_k();
     ```
+    作为函数和作为方法调用最大的区别是`this`
+    
     
 3. 作为构造函数
 4. 通过它们的call()和apply()调用
