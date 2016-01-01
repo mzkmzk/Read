@@ -415,6 +415,8 @@ var p =Object.definePropery({},{
 
 ##24 数组
 
+
+###24.1 数组方法
 1. 遍历数组之forEach
 
     ```javascript
@@ -541,3 +543,6 @@ var p =Object.definePropery({},{
     5. reduce() 和 reduceRight()
     6. indexOf() 和 lastIndexOf() : 返回索引
 
+###24.2 数组类型
+
+判断数组类型,`typeof`对数组只返回`object`
