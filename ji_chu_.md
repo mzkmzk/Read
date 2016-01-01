@@ -571,3 +571,8 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
     function distance(x1,y1,x2,y2){...}
     ```
     该方式可以在定义之前的语句中调用.
+
+##25.2 函数调用
+
+
+    
