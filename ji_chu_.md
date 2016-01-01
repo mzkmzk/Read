@@ -609,7 +609,7 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
     calculator["add"]();
     calculator.result ; //2
     ```
-    
+    每次用方法调用,都会隐式传入一个实参;
     
 3. 作为构造函数
 4. 通过它们的call()和apply()调用
