@@ -633,7 +633,9 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
 
 ```javascript
 
+var extend = (function(){
 
+}());
 ```
 
     
