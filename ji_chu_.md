@@ -625,7 +625,13 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
     在严格模式下,这两个方法第一个实参都会变为this的值.
     
     ```javascript
-    
+    //将o中的m方法替换为新方法
+    function trace(o,m){
+        var =original =o[m];
+        o[m] = function(){
+            return original.apply(this,arguments);
+        };
+    }
     
     ```
 
