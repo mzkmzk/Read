@@ -657,6 +657,9 @@ var extend = (function(){
         return o;
     };
     
+    var protoprops = ["toString","valueOf","constructor","hasOwnProperty",
+        "isPrototypeof","propertyIsEnumerable","toLocalString"
+    ];
 }());
 ```
 
