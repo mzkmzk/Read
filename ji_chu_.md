@@ -582,6 +582,11 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
     ECMAScript3和非严格ECMAScript5 `this`的值为全局对象
     
     严格的ECMAScript5无法调用`this`
+    
+    ```javascript
+    //判断是否为严格的ECMAScript5
+    var strict (function(){return !this;}());
+    ```
 2. 作为方法
 3. 作为构造函数
 4. 通过它们的call()和apply()调用
