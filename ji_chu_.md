@@ -561,7 +561,7 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
     var f =function(){...}
     
     //定义时即调用一次
-    
+    var tensquared = (function(x){return x*x}(10));
     ```
     
     该方式无法在定义之前使用.
