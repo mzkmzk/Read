@@ -665,5 +665,18 @@ var extend = (function(){
 
 ###25.4 闭包
 
+```javascript
+function counter(){
+    var n = 0;
+    return {
+        count:function(){return n++;}
+    };
+}
 
-    
+var c =counter(), d =counter();
+c.count() //0
+d.count() //0
+d.count() //1
+c.count() //1
+```
+闭包主要作用是为了让内部嵌套的函数能使用外部的局部变量,当创建了一个对象以后,    
