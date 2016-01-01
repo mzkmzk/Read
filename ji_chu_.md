@@ -545,4 +545,6 @@ var p =Object.definePropery({},{
 
 ###24.2 数组类型
 
-判断数组类型,`typeof`对数组只返回`object`
+判断数组类型,`typeof`对对象除了`function`都返回`object` 
+
+EMCMAScript5 提供 Array.isArray(参数)判断是否为
