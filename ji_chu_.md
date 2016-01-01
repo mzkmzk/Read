@@ -629,7 +629,7 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
     function trace(o,m){
         var =original =o[m];
         o[m] = function(){
-            //增加log操作.
+            //增加log操作. this指调用trace的对象.
             return original.apply(this,arguments);
         };
     }
