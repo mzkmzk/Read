@@ -634,7 +634,16 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
 ```javascript
 
 var extend = (function(){
-
+    for (var p in {toString:null}){
+        return function extend(o){
+            for(var i =1 length = arguments.length;i<length;i++){
+                var source =arguments[i];
+                for (var prop in source) o[prop] = source[prop];
+            }        
+            return o;
+        }
+        
+    }
 }());
 ```
 
