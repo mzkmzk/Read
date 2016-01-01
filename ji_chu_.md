@@ -574,5 +574,14 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
 
 ##25.2 函数调用
 
+1. 作为函数
+    
+    ```javascript
+    distance(1,2,3,4,);
+    ```
+    
+2. 作为方法
+3. 作为构造函数
+4. 通过它们的call()和apply()调用
 
     
