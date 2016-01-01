@@ -579,7 +579,7 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
     ```javascript
     distance(1,2,3,4,);
     ```
-    
+    ECMAScript3和非严格ECMAScript5 `this`的值为全局对象
 2. 作为方法
 3. 作为构造函数
 4. 通过它们的call()和apply()调用
