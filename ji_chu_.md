@@ -588,6 +588,11 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
     var strict (function(){return !this;}());
     ```
 2. 作为方法
+
+    ```javascript
+    object_k.method_k();
+    ```
+    
 3. 作为构造函数
 4. 通过它们的call()和apply()调用
 
