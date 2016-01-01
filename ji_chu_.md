@@ -615,6 +615,9 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
 
     ```javascript
     var o =new Object();
+    //构造函数先创建一个新的空对象
+    //
+    var new o.m(); 
     ```
 4. 通过它们的call()和apply()调用
 
