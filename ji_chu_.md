@@ -540,3 +540,4 @@ var p =Object.definePropery({},{
     
     5. reduce() 和 reduceRight()
     6. indexOf() 和 lastIndexOf() : 返回索引
+
