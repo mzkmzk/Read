@@ -90,7 +90,7 @@ Element定义的方法
 
 ```javascript
 var image = document.images[0];
-var width = parseInt("iamge.getAttribute('width')");
+var width = parseInt("image.getAttribute('width')");
 image.setAttribute('class',"container");
 
 ```
@@ -165,7 +165,7 @@ var text = k.textContent;
 textContent和innerText的区别
 
 1. textContent只是把Text节点串联在一起.
-2. ineerText不返回`<script>`元素,和忽略多余的空白.,`table` `trbody` `tr`的innerText是只读属性.
+2. innerText不返回`<script>`元素,和忽略多余的空白.,`table` `trbody` `tr`的innerText是只读属性.
 
 
 ##9 创建节点
