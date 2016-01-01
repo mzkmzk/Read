@@ -539,4 +539,4 @@ var p =Object.definePropery({},{
     这两个方法当能觉得返回什么结果时就结束循环
     
     5. reduce() 和 reduceRight()
-    6. indexOf() 和 lastIndexOf()
+    6. indexOf() 和 lastIndexOf() : 返回索引
