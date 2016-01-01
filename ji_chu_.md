@@ -566,3 +566,7 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
     
     该方式无法在定义之前使用.
  2. 函数声明式
+ 
+    ```javascript
+    function distance(x1,y1,x2,y2){...}
+    ```
