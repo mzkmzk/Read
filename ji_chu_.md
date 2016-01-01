@@ -624,7 +624,10 @@ ECMAScript5 提供 Array.isArray(参数)判断是否为数组
 
     在严格模式下,这两个方法第一个实参都会变为this的值.
     
-
+    ```javascript
+    
+    
+    ```
 
 ###25.3命名空间
 
