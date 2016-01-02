@@ -5,5 +5,7 @@
 
 1. 前端
     1. `<<高性能JavaScript>>`
+    2. `<<JavaScript权威指南>>`
+    3. 
 
 2. Utils
