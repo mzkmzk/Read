@@ -17,6 +17,7 @@
        * [客户端JavaScript](ke_hu_duan_javascript.md)
            * [脚本化文档](jiao_ben_hua_wen_dang.md)
            * [事件处理](shi_jian_chu_li.md)
+   * 疯狂Html5/CSS3/JavaScript
 * [Utils](utils.md)
    * [Pro_Git](git.md)
        * 起步
