@@ -7,4 +7,6 @@
 区别.
 
 1. `attacheEvent`不支持事件捕获
-2. 
+2. `attacheEvent`要添加`on`前缀
+3. `attacheEvent`允许同一函数注册多次,而`addEventListener`同一函数只能注册一次
+
