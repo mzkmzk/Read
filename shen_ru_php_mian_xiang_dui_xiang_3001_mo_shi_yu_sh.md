@@ -169,7 +169,7 @@
 
 解决方案2: 运用组合,将处理计费和输出计算方式单独封装为一个计费策略类.
 
-![组合模式](/images/QQ20151118-0.png)	
+![组合模式](/images/QQ20151118-0.png)	
 
 	abstract class Cost_Strategy {
 		protected $duration;
