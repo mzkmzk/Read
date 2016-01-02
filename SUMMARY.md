@@ -18,6 +18,7 @@
            * [脚本化文档](jiao_ben_hua_wen_dang.md)
            * [事件处理](shi_jian_chu_li.md)
    * [疯狂Html5/CSS3/JavaScript](feng_kuang_html5__css3__javascript.md)
+       * HTML5
 * [Utils](utils.md)
    * [Pro_Git](git.md)
        * 起步
