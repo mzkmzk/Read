@@ -9,4 +9,5 @@
 1. `attacheEvent`不支持事件捕获
 2. `attacheEvent`要添加`on`前缀
 3. `attacheEvent`允许同一函数注册多次,而`addEventListener`同一函数只能注册一次
+4. `attachEvent`注册的处理程序可能按任何顺序调用(~_~!!!!),`addEventListener`安装注册顺序调用.
 
