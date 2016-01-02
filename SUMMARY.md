@@ -20,6 +20,7 @@
    * [疯狂Html5/CSS3/JavaScript](feng_kuang_html5__css3__javascript.md)
        * HTML5
        * CSS3
+       * JavaScript
 * [Utils](utils.md)
    * [Pro_Git](git.md)
        * 起步
