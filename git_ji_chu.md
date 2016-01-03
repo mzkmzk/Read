@@ -99,3 +99,5 @@ Git的每个版本的文件是独立存在的,是直接记录快照.
 
 详细可参考<https://github.com/github/gitignore>
 
+##7.2 git diff 
+
