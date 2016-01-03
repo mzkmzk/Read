@@ -239,3 +239,7 @@ git log 限制输出
 
 ##8. Git分支
 
+创建新分支
+
+    git branch 分支名称
+    
