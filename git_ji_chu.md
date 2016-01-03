@@ -260,3 +260,6 @@ git log 限制输出
 查看当前分支和所有的分支
 
     git branch
+    git branch -v //查看每个分支最后一次提交
+    
+    
