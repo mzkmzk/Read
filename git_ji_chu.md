@@ -79,3 +79,5 @@ Git的每个版本的文件是独立存在的,是直接记录快照.
     `git clone https://github.com/mzkmzk/Read.git [重命名本地目录]
 `
 
+##7 Git 基础
+
