@@ -26,8 +26,8 @@
    * [深入php面向对象、模式与实践](shen_ru_php_mian_xiang_dui_xiang_3001_mo_shi_yu_sh.md)
 * [Utils](utils.md)
    * [Pro_Git](git.md)
-       * 起步
        * [基础](git_ji_chu.md)
+       * 起步
        * 分支
        * 服务器上的Git
        * 分布式Git
