@@ -257,4 +257,6 @@ git log 限制输出
  
     git merge 分支名称
     
-    
+查看当前分支和所有的分支
+
+    git branch
