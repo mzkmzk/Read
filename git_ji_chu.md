@@ -133,4 +133,6 @@ git rm 后面可跟`glob`
 
 git rm *~ ,所以~结尾的文件.
 
+##7.4 git mv
+
 
