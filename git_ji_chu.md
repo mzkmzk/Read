@@ -201,4 +201,5 @@ git log 限制输出
 3. 想撤销工作区间的操作,
 
     `git checkout -- README.md`,注意这会把git仓库中的文件覆盖掉你本地的文件.
-3. 
+
+##7.7 git remote
