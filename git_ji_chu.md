@@ -261,5 +261,5 @@ git log 限制输出
 
     git branch
     git branch -v //查看每个分支最后一次提交
-    git branch --merged/--merged 
+    git branch --merged/--no-merged //过滤合并/未合并到当前分支的分支
     
