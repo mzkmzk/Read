@@ -217,5 +217,22 @@ git log 限制输出
 
 1. 附注标签 : 存储在git数据库中的一个完整对象,它们可以被校验,包含打标签者的名称,电子邮箱,日期,标注信息.
         git tag -a v0.1 -m "tag message"
-2. 
+2. 轻量标签 :它是一个特定提交的引用,轻量标签本质上是讲提交校验和存储到一个文件中
+        git tag v0.1
 
+查看标签信息 git show 版本号
+
+如果后期追加标签
+
+    git tag -a v0.2 SHA-1码
+
+共享标签
+
+    git push origin 标签名称
+    //or 提交多个标签
+    git push origin
+     --tags
+     
+检出标签
+
+    git checkout -b 分支名称 标签名称 
