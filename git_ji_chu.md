@@ -239,6 +239,8 @@ git log 限制输出
 
 ##8. Git分支
 
+` git log --oneline --decorate`可以查看分支父节点
+
 创建新分支
 
     git branch 分支名称
