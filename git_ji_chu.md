@@ -1,10 +1,12 @@
 # 基础
 
+##1 Git的优势
+
 `SVN`和`Git`,因为`SVN`要是主机挂了.所有记录都GG了.而`Git`是分布式的.而且`Git`平台比较多,`GitLab`,`coding.net`,`GitHab`等等
 
 而且`Git`可以现在本地执行,可以在本地进行`commit`,而`SVN`每次`commit`都必须是提交到主机.(虽然笔者推荐多push,但是可以本地`commit`有时也是不错的,主要是保证本地能有备份)
 
-##1. Git和SVN存储方式的不同
+##2. Git和SVN存储方式的不同
 
 SVN :
 
