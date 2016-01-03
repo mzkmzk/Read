@@ -253,4 +253,8 @@ git log 限制输出
 
     git branch -d 分支名称
     
+ 合并分支
+ 
+    git merge 分支名称
+    
     
