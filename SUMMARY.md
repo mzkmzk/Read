@@ -27,7 +27,7 @@
 * [Utils](utils.md)
    * [Pro_Git](git.md)
        * 起步
-       * 基础
+       * [基础](git_ji_chu.md)
        * 分支
        * 服务器上的Git
        * 分布式Git
