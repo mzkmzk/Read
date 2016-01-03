@@ -236,3 +236,6 @@ git log 限制输出
 检出标签
 
     git checkout -b 分支名称 标签名称 
+
+##8. Git分支
+
