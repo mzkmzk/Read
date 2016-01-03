@@ -181,7 +181,7 @@ git log 限制输出
         git add other.js
         git commit --amend
         
-2. 当已经`commit`但想撤回
+2. 当已经`commit`但想撤回提交到缓冲区.
     
     `git reset HEAD 文件名`
         404-K:My_Website maizhikun$ git add .
