@@ -42,3 +42,9 @@ Git的每个版本的文件是独立存在的,是直接记录快照.
 2. 已修改 : 自上一次取出来修改了,但还没放入暂存区(commit)
 3. 已暂存 : 如果作了修改并放入暂存区域(commit),就属于已暂存. 
 
+##4. 安装Git
+
+    //ubuntu
+    apt-get install git
+    
+其他版本系统 :<http://git-scm.com/downloads>     
