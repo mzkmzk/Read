@@ -248,3 +248,9 @@ git log 限制输出
 切换分支
 
     git checkout 分支名称
+    
+删除分支
+
+    git branch -d 分支名称
+    
+    
