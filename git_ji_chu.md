@@ -206,4 +206,6 @@ git log 限制输出
 
 1. git remote -v 可以看到当前远程仓库的名字和url
 2. git remote add <自定义远程仓库名称> url : 添加分支
-3. git 
+3. git fetch 自定义远程仓库名称 :把远程仓库名称对应的仓库拉下来
+4. git remote show 自定义远程仓库名称 可以查看指定远程仓库的信息
+5. 
