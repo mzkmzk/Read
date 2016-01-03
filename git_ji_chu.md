@@ -55,3 +55,8 @@ Git的每个版本的文件是独立存在的,是直接记录快照.
 2. 用户`~/.gitconfig` or `~/.config/git/config` git config --global ...
 3. 当前项目 : ./git/config
 
+一开始设置用户名和邮箱
+
+    $ git config --global user.name "404_K"
+    $ git config --global user.email 404_K@example.com
+    
