@@ -203,3 +203,6 @@ git log 限制输出
     `git checkout -- README.md`,注意这会把git仓库中的文件覆盖掉你本地的文件.
 
 ##7.7 git remote
+
+1. git remote -v 可以看到当前远程分支的名字和url
+2. 
