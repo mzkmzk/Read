@@ -69,6 +69,10 @@ Git的每个版本的文件是独立存在的,是直接记录快照.
     $ git config --global user.name "404_K"
     $ git config --global user.email 404_K@example.com
     
+更改git编译器
+
+    git config --global core.editor 命令设定你喜欢的编辑软件
+    
 详情输入`git config`查看 or `git help config`
 
 ##6 获取Git仓库
@@ -104,4 +108,6 @@ Git的每个版本的文件是独立存在的,是直接记录快照.
 1. git diff : 查看尚未暂存的文件更新了哪些部分,比较工作目录和暂存区的差异
 2. git diff --staged 查看已暂存的下次将要提交的.
 
+##7.2 git commit 
 
+1. git commit : 
