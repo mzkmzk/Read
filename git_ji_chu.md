@@ -205,4 +205,5 @@ git log 限制输出
 ##7.7 git remote
 
 1. git remote -v 可以看到当前远程分支的名字和url
-2. 
+2. git remote add <分支名称> url : 添加分支
+3. 
