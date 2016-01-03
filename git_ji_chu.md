@@ -263,3 +263,8 @@ git log 限制输出
     git branch -v //查看每个分支最后一次提交
     git branch --merged/--no-merged //显示合并/未合并到当前分支的分支
     
+    
+##全局设定
+    
+    //https设置暂时不用每次都输入密码
+    git config --global credential.helper cache
