@@ -183,6 +183,7 @@ git log 限制输出
         
 2. 当已经`commit`但想撤回
     
+    `git reset HEAD 文件名`
         404-K:My_Website maizhikun$ git add .
         404-K:My_Website maizhikun$ git status
         On branch master
