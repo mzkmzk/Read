@@ -60,3 +60,5 @@ Git的每个版本的文件是独立存在的,是直接记录快照.
     $ git config --global user.name "404_K"
     $ git config --global user.email 404_K@example.com
     
+详情输入`git config`查看
+
