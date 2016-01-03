@@ -62,3 +62,15 @@ Git的每个版本的文件是独立存在的,是直接记录快照.
     
 详情输入`git config`查看 or `git help config`
 
+##6 获取Git仓库
+
+1. 初始化仓库
+
+    1. git init : 创建.git目录初始化git
+    2. git add . 添加当前目录到git中.
+    3. git commit -m "first commit" 放入暂存区中.
+2. 克隆现有仓库
+
+    `git clone https://github.com/mzkmzk/Read.git [重命名本地目录]
+`
+
