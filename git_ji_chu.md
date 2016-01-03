@@ -243,3 +243,6 @@ git log 限制输出
 
     git branch 分支名称
     
+切换分支
+
+    git checkout 分支名称
