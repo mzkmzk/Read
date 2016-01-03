@@ -181,4 +181,4 @@ git log 限制输出
         git add other.js
         git commit --amend
         
-
+2. 当已经`commit`
