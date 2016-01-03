@@ -135,4 +135,6 @@ git rm *~ ,所以~结尾的文件.
 
 ##7.4 git mv
 
+git mv README.马队README 
 
+无论通过命名还是图形改名字,git都能检测出来
