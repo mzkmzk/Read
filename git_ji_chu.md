@@ -181,4 +181,16 @@ git log 限制输出
         git add other.js
         git commit --amend
         
-2. 当已经`commit`
+2. 当已经`commit`但想撤回
+    
+        404-K:My_Website maizhikun$ git add .
+        404-K:My_Website maizhikun$ git status
+        On branch master
+        Your branch is ahead of 'origin/master' by 7 commits.
+          (use "git push" to publish your local commits)
+        Changes to be committed:
+          (use "git reset HEAD <file>..." to unstage)
+        
+        	modified:   REAMDME.md
+
+3. 
