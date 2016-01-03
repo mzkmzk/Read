@@ -193,4 +193,8 @@ git log 限制输出
         
         	modified:   REAMDME.md
 
+        404-K:My_Website maizhikun$ git reset HEAD REAMDME.md
+        Unstaged changes after reset:
+        M	REAMDME.md
+
 3. 
