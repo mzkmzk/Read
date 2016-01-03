@@ -47,4 +47,11 @@ Git的每个版本的文件是独立存在的,是直接记录快照.
     //ubuntu
     apt-get install git
     
-其他版本系统 :<http://git-scm.com/downloads>     
+其他版本系统 :<http://git-scm.com/downloads>   
+
+##5. Git配置
+
+1. 全局系统配置 : `/etc/gitconfig` git config --system ...
+2. 用户`~/.gitconfig` or `~/.config/git/config` git config --global ...
+3. 当前项目 : ./git/config
+
