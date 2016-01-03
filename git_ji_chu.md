@@ -177,4 +177,8 @@ git log 限制输出
 
 1. 当你先commit了一次,后面发现少add了一些文件/commit的信息写错了
 
-    
+        git commit -m  "first"
+        git add other.js
+        git commit --amend
+        
+
