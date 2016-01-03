@@ -209,4 +209,6 @@ git log 限制输出
 3. git fetch 自定义远程仓库名称 :把远程仓库名称对应的仓库拉下来
 4. git remote show 自定义远程仓库名称 可以查看指定远程仓库的信息
 5. git pull是抓取所有分支的更改下来
-6. 
+6. git remote rename 更新后的仓库名称 需要更新名称的仓库
+
+
