@@ -13,3 +13,5 @@
 
 ##3. 减少HTTP请求
 
+1. CSS Sprite
+2. 合并CSS/JS 使用Sass和grunt/gulp等
