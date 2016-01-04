@@ -2,7 +2,7 @@
 
 ##1. 请求头 
 
-1. `If-Modified-Since` 值为 
+1. `If-Modified-Since` 值为缓存的最后修改时间, 
 
 ##2. 响应头
 
