@@ -15,3 +15,7 @@
 
 1. CSS Sprite
 2. 合并CSS/JS 使用Sass和grunt/gulp等
+
+
+##4. 使用CDN
+
