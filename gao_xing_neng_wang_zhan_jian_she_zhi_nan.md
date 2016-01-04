@@ -10,3 +10,6 @@
 1. `Content-Encoding ` 若值为gzip,则表明服务器已压缩.
 2. `Last-Modified ` 值为响应资源的最后修改时间.
 3. `Expries` 值为时间,该资源到该资源过期前,都不会发送请求.
+
+##3. 减少HTTP请求
+
