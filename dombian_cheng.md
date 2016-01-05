@@ -173,7 +173,7 @@ element.style.cssText += '; borderLeft :1px ...';
     ```javascript
     val ul = document.createDcoumentFragment();
     DOM操作.
-    document.getElementById('指定部分').appendChild(fragment);
+    document.getElementById('指定部分').appendChild(ul);
     ```
 3. 把要改变的部分`clone`,再替换(两次重排)
 
