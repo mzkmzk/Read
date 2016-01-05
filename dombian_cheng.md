@@ -171,7 +171,7 @@ element.style.cssText += '; borderLeft :1px ...';
 2. 在文档外创建并更新一个文档片段.(一次重排 推荐.)
     
     ```javascript
-    val ul = document.createDcoumentFragment();
+    val ul = document.createDocumentFragment();
     DOM操作.
     document.getElementById('指定部分').appendChild(ul);
     ```
