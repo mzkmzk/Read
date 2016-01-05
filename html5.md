@@ -12,7 +12,7 @@ HTML:Hyper Text Markup Language.(How To Make Love - -.)
 	
 作者的愤怒.
 
-	不要<html>和<head>、</head>和<body>还有</body>和</html>插任何内容.		
+	不要在<html>和<head>、</head>和<body>还有</body>和</html>插任何内容.		
 验证HTML是否符合规范<http://validator.w3.org/>.
 
 #2. HTML5常用标签和属性.
