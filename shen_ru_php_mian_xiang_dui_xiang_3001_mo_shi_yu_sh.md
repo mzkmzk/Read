@@ -612,7 +612,7 @@ class 军队战斗力访问者 extends 军队访问者{
 
 被访问者
 ```php
-abstract 单元{
+abstract class 单元{
     function 接受(军队访问者){
         $method = "访问_".get_class($this);
         $军队访问者->$method($this);
@@ -629,7 +629,7 @@ abstract 单元{
     ...
 }
 
-
+abstract 
 
 ```
 
