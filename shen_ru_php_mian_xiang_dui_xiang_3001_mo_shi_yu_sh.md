@@ -584,6 +584,7 @@ PHP有内置的SPL实现上述的观察者模式.
 abstract class 军队访问者{
     abstract function 访问(单元);
     
+    
 }
 ```
 
