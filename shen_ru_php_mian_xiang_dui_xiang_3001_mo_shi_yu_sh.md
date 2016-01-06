@@ -578,7 +578,7 @@ PHP有内置的SPL实现上述的观察者模式.
 
 ##5.3 访问者模式
 
-问题: 在一个军队中,有很多军队,军队下面可能包含军队/步兵/弓箭手,这时我们要显示一个军队的战斗力/需要粮食的各级分配?(遍历对象并设置显示).怎么办?.解决办法是军队还是保存自己的基本信息,设置一个访问者,访问者包含总战斗力方法和总粮食的方法.
+问题: 在一个军队中,有很多军队,军队下面可能包含军队/步兵/弓箭手,这时我们要显示一个军队的战斗力/需要粮食的各级分配?(遍历对象并设置显示方法).怎么办?.解决办法是军队还是保存自己的基本信息,设置一个访问者,访问者包含总战斗力方法和总粮食的方法.
 
 访问者
 ```php
@@ -634,6 +634,22 @@ abstract class 综合单元 extends 单元{
         parent::接受($军队访问者)
         foreach($this->单元集合 as $this_unit){
             $this->unit->接受($军队访问者);
+        }
+    }
+}
+
+class 军队 extends 综合单元{
+    function bombardStrenth(){
+        $ret =0;
+        foreach($this-units() as $unit){
+            $ret += $unit->bombardStrenth();
+        }
+        return $ret
+    }
+    
+    function 弓箭手 extents 单元{
+        function bombardStrenth(){
+            return 4;
         }
     }
 }
