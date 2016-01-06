@@ -597,7 +597,11 @@ abstract class 军队访问者{
     
     //这里重复定义了大量代码,其实可以用call来替代
     function __call($method_name,$args){
-        ifstrrpos($method_name, "访问");
+        if(strrpos($method_name, "访问")){
+            return call_user_func_array(
+				array($this->writer,$method_name),$args
+			);
+						
 			return $this->访问($this);
 		}
 	}
