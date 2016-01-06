@@ -570,6 +570,6 @@ RLGL!!!.印象笔记不只要显示新浪微博内容!!!还要显示我的新浪
 	//使用
 	$login = new Login();
 	new 邮件观察者 ($login);
-	new 日志	观察者 ($login);
+	new 日志观察者 ($login);
 	
 PHP有内置的SPL实现上述的观察者模式.	
