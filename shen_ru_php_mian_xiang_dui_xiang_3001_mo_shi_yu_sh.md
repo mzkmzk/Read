@@ -661,7 +661,7 @@ class 军队 extends 综合单元{
     }
 }
 
-class 弓箭手 extents 单元{
+class 弓箭手 extends 单元{
     function bombardStrenth(){
         return 4;
     }
