@@ -588,6 +588,8 @@ abstract class 军队访问者{
     function 访问弓箭手($弓箭手){
         $this->visit($弓箭手);
     }
+    
+    
 }
 ```
 
