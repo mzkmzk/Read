@@ -584,7 +584,7 @@ PHP有内置的SPL实现上述的观察者模式.
 
 访问者
 ```php
-//这里重复定义了大量代码,其实可以用call来替代
+
 abstract class 军队访问者{
     abstract function 访问(单元);
     
@@ -595,6 +595,7 @@ abstract class 军队访问者{
         $this->访问($弓箭手);
     }
     
+    //这里重复定义了大量代码,其实可以用call来替代
     function __call($method_name,$args){
         ifstrrpos($method_name, "访问");
 			return $this->访问($this);
