@@ -597,7 +597,7 @@ class 军队战斗力访问者 extends 军队访问者{
     
     function 访问($单元){
         $ret = "";
-        $pad = 4*$单元->getDpth();
+        $pad = 4*$单元->getDpth(); //设置显示深一级前面多4个空格.
         $ret .= sprintf( "%{$pad}s","");
         $ret .= get_class($单元). ": ";
         $ret .= "战斗力: " .$单元->bombardStrenth()."\n";
