@@ -594,7 +594,8 @@ abstract class 军队访问者{
 class 军队战斗力访问者 extends 军队访问者{
     private $text="";
     
-    
+    function 访问($单元){
+    }
 }
 ```
 
