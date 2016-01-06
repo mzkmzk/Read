@@ -618,8 +618,13 @@ abstract 单元{
         $军队访问者->$method($this);
     }
     
+    private $depth;
     protected function set_depath($depth){
-        
+        $this->depth=$depth;
+    }
+    
+    function get_depth(){
+        return $this->depth;
     }
     ...
 }
