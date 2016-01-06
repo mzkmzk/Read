@@ -617,6 +617,10 @@ abstract 单元{
         $method = "访问_".get_class($this);
         $军队访问者->$method($this);
     }
+    
+    protected function set_depath($depth){
+        
+    }
     ...
 }
 
