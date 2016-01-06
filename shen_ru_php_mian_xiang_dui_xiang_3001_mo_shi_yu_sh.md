@@ -599,7 +599,7 @@ abstract class 军队访问者{
     function __call($method_name,$args){
         if(strrpos($method_name, "访问")){
             return call_user_func_array(
-				array($this->writer,$method_name),$args
+				array($this,"访问"),$args
 			);
 						
 			return $this->访问($this);
