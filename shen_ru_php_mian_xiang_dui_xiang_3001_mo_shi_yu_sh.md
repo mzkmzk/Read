@@ -633,7 +633,7 @@ abstract class 综合单元 extends 单元{
     function 接受($军队访问者){
         parent::接受($军队访问者)
         foreach($this->单元集合 as $this_unit){
-            
+            $this->unit->接受($军队访问者);
         }
     }
 }
