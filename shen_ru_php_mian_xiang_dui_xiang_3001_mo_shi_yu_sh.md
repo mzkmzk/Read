@@ -588,10 +588,18 @@ PHP有内置的SPL实现上述的观察者模式.
 abstract class 军队访问者{
     abstract function 访问(单元);
     
+    function 访问军队($军队){
+         $this->访问($军队);
+    }
     function 访问弓箭手($弓箭手){
-        $this->visit($弓箭手);
+        $this->访问($弓箭手);
     }
     
+    function __call($method_name,$args){
+        ifstrrpos($method_name, "访问");
+			return $this->访问($this);
+		}
+	}
 }
 
 class 军队战斗力访问者 extends 军队访问者{
@@ -648,11 +656,11 @@ class 军队 extends 综合单元{
         }
         return $ret
     }
-    
-    function 弓箭手 extents 单元{
-        function bombardStrenth(){
-            return 4;
-        }
+}
+
+class 弓箭手 extents 单元{
+    function bombardStrenth(){
+        return 4;
     }
 }
 
