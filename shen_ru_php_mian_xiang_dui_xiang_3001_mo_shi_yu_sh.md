@@ -600,6 +600,11 @@ class 军队战斗力访问者 extends 军队访问者{
         $ret .= sprintf( "%{$pad}s","");
         $ret .= get_class($单元). ": ";
         $ret .= "攻击力: " .$单元->bombardStrenth()."\n";
+        $this->text .=$ret;
+    }
+    
+    function get_text(){
+        return $this->text;
     }
 }
 ```
