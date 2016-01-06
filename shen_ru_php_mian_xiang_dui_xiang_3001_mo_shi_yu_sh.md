@@ -595,7 +595,11 @@ class 军队战斗力访问者 extends 军队访问者{
     private $text="";
     
     function 访问($单元){
-        
+        $ret = "";
+        $pad = 4*$单元->getDpth();
+        $ret .= sprintf( "%{$pad}s","");
+        $ret .= get_class($单元). ": ";
+        $ret .= "攻击力: " .$单元->bombardStrenth()."\n";
     }
 }
 ```
