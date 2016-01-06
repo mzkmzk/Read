@@ -601,8 +601,6 @@ abstract class 军队访问者{
             return call_user_func_array(
 				array($this,"访问"),$args
 			);
-						
-			return $this->访问($this);
 		}
 	}
 }
