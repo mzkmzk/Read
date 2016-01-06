@@ -600,7 +600,7 @@ class 军队战斗力访问者 extends 军队访问者{
         $pad = 4*$单元->getDpth();
         $ret .= sprintf( "%{$pad}s","");
         $ret .= get_class($单元). ": ";
-        $ret .= "攻击力: " .$单元->bombardStrenth()."\n";
+        $ret .= "战斗力: " .$单元->bombardStrenth()."\n";
         $this->text .=$ret;
     }
     
@@ -642,6 +642,19 @@ abstract class 综合单元 extends 单元{
 
 调用
 ```php
+$main_army = new Army();
+$main_army->add_unit(new 步兵());
+$main_army->add_unit(new 弓箭手());
 
+$军队战斗力访问者_实例 =new 军队战斗力访问者();
+$main_army->接受(均分战斗力访问者);
+print $军队战斗力访问者->get_text();
+```
+
+输出
+```php
+军队: 战斗力: 50
+    步兵: 攻击力 :48
+    弓箭手: 攻击力: 4
 ```
 
