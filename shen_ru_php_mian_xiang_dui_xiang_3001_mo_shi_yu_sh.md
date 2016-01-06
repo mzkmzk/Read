@@ -610,9 +610,15 @@ class 军队战斗力访问者 extends 军队访问者{
 }
 ```
 
-军队
+被访问者
 ```php
-
+abstract 单元{
+    function 接受(军队访问者){
+        $method = "访问_".get_class($this);
+        
+    }
+    ...
+}
 
 ```
 
