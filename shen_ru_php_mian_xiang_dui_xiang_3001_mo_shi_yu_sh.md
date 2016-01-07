@@ -699,6 +699,8 @@ print $军队战斗力访问者->get_text();
 
 命令模式比较适合`命令执行`例如登陆,反馈等简单只需要判断是否成功的任务
 
+![命令](QQ20160107-3.png)
+
 命令:
 ```php
 abstract class Command{
@@ -723,19 +725,43 @@ class Login_Command extends Command{
 部署命令的调用者
 
 ```php
-class Command_Facotry($action){
-    $class = UCFirst(strtolower($action))."_Command";
-    $cmd = new $class();
-    return $cmd;
+class Command_Facotry{
+    public function get_command($action){
+        $class = UCFirst(strtolower($action))."_Command";
+        $cmd = new $class();
+        return $cmd;
+    }
+    
 }
 ```
 客户端
 ```php
 
+
 class Controller{
     private $context;
     function __construct(){
-        $this->context =new Commadn_Context();
+        //Command_Context主要用来存储request和params
+        $this->context =new Command_Context();
+    }
+    function process(){
+        $cmd Command_Factory::get_commad($this->context->get('action'));
+        if(!$cmd-execute($this->context)){
+            //错误处理
+        }else{
+            //成功 分发视图
+        }
     }
 }
+```
+
+使用
+
+```php
+$controller =new Controller();
+$context = $controller->get_context();
+$context->add_param('action','login');
+$context->add_param('username','404_k');
+$context->add_param('pass','123456');
+$controller->process();
 ```
