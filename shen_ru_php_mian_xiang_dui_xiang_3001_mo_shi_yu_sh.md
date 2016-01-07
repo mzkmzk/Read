@@ -689,4 +689,4 @@ print $军队战斗力访问者->get_text();
 
 ##5.4 命令模式
 
-
+例子为Web页面的login和feed_back,假如都需要使用ajax提交,
