@@ -726,6 +726,16 @@ class Login_Command extends Command{
 class Command_Facotry($action){
     $class = UCFirst(strtolower($action))."_Command";
     $cmd = new $class();
-    
+    return $cmd;
+}
+```
+客户端
+```php
+
+class Controller{
+    private $context;
+    function __construct(){
+        $this->context =new Commadn_Context();
+    }
 }
 ```
