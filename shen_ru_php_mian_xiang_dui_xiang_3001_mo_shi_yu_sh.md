@@ -699,7 +699,7 @@ print $军队战斗力访问者->get_text();
 
 命令模式比较适合`命令执行`例如登陆,反馈等简单只需要判断是否成功的任务
 
-![命令](QQ20160107-3.png)
+![命令模式](QQ20160107-3.png)
 
 命令:
 ```php
@@ -736,8 +736,6 @@ class Command_Facotry{
 ```
 客户端
 ```php
-
-
 class Controller{
     private $context;
     function __construct(){
