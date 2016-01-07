@@ -699,7 +699,31 @@ print $军队战斗力访问者->get_text();
 
 命令模式比较适合`命令执行`例如登陆,反馈等简单只需要判断是否成功的任务
 
+命令:
+```php
+abstract class Command{
+    abstract function execute(Conmmand_Context $context);
+}
 
+class Login_Command extends Command{
+    function execute(CommandContext $context){
+        $managr =Register::getAccessManager();
+        $user = $context->get("username");
+        $pass = $context->get('pass');
+        $user_obj = $manager->login($user,$pass);
+        if(is_null($user_obj)){
+            $context->setError($manager->getError());
+            return false;
+        }
+        $context->addParam("user",$user_obj);
+        return true;
+    }
+}
+```
+部署命令的调用者
 
-
-
+```php
+class Command_Facotry($action){
+    
+}
+```
