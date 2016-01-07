@@ -725,6 +725,7 @@ class Login_Command extends Command{
 ```php
 class Command_Facotry($action){
     $class = UCFirst(strtolower($action))."_Command";
+    $cmd = new $class();
     
 }
 ```
