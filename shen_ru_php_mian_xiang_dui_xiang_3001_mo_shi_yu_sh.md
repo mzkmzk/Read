@@ -764,4 +764,11 @@ $context->add_param('pass','123456');
 $controller->process();
 ```
 
+##6. 企业模式
+
+主要介绍
+
+1. 注册模式
+2. 表现层
+3. 业务逻辑层
 
