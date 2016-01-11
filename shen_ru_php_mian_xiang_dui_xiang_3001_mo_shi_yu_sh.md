@@ -131,7 +131,7 @@
 		//模拟场景
 		$product_sale = new Produce_Sale();
 		//指定报警金额为8块
-		$product_sale = register_callback(Product_Titakuzer::warn_amount(8)); 
+		$product_sale = register_callback(Produce_Totalizer::warn_amount(8)); 
 		
 		//卖商品
 		$product_sale->sale(new Product("Durex",6));
