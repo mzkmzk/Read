@@ -38,7 +38,8 @@
 
 笔者网站在Chrome47打开就会显示
 
-``
+    Accept-Encoding:gzip, deflate, sdch
+
 
 
 
