@@ -40,6 +40,8 @@
 
     Accept-Encoding:gzip, deflate, sdch
 
+###1.5 分块发送
+
 
 
 
