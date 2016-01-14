@@ -26,7 +26,19 @@
 
 通常,报文主体等于实体字体,只有当传输中进行编码操作时,实体主体发生变化,才导致它和报文主体产生差异.
 
+###1.4 压缩
 
+常用
+
+1. gzip(GNU zip)
+2. compress(UNIX系统的标准压缩)
+3. deflate(zlib)
+4. identity(不进行编码)
+5. sdch(Shared Dictionary Compression over HTTP)
+
+笔者网站在Chrome47打开就会显示
+
+``
 
 
 
