@@ -152,7 +152,15 @@ HTTP首部字段类型
     缓存响应指令
     
     1. public: 可向任一方提供响应缓存
-    2. private: 
+    2. private: 仅向特定用户返回响应
+    3. no-cache: 缓存前必须先确认其有效性
+    4. no-store: 不缓存请求或响应的任何内容
+    5. no-transform: 代理不可更改媒体类型
+    6. must-revalidate: 可缓存但必须再向源服务器进行确认
+    7. proxy-revalidate: 要求中间缓存服务器对缓存的响应有效性再进行确认
+    8. max-age=秒: 响应最大的Age值
+    9. s-maxage=秒: 公共缓存服务器响应最大的Age值
+    
 2. 
 
 
