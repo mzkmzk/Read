@@ -147,8 +147,12 @@ HTTP首部字段类型
     5. min-fresh=秒: 期望在指定时间内响应仍有效
     6. no-transform: 代理不可更改媒体类型
     7. only-if-cached: 从缓存获取资源
-    8. cache-extension: 新指令标记(token)
+    8. cache-extension: 新指令标记(token).
+    ---
+    缓存响应指令
     
+    1. public: 可向任一方提供响应缓存
+    2. 
 2. 
 
 
