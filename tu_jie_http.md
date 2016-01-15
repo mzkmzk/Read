@@ -88,5 +88,6 @@ HTTP1.1存在一种称为传输编码(Transfer Coding)机制,可以在通信时�
 3. 206 Partial Content 返回指定资源的一部分请求
 4. 301 Moved Permanently 永久性重定向
 5. 302 Found 临时性重定向
-6. 303 See Other 
+6. 303 See Other 和302类似,不过303表明客户端应当采取GET方法获取资源
+7. 
 
