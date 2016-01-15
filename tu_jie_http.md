@@ -99,6 +99,7 @@ HTTP1.1存在一种称为传输编码(Transfer Coding)机制,可以在通信时�
 
 ---
 1. 400 Bad Request:   请求报文存在语法错误,浏览器会对待200一样对待此状态
-2. 401 Unauthorized: 
+2. 401 Unauthorized:请求需要通过HTTP认证(BASIC认证/DIGEST认证)等,但若之前进行过一次失败的认证,返回该状态码
+3. 
 
 
