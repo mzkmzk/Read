@@ -108,4 +108,8 @@ HTTP1.1存在一种称为传输编码(Transfer Coding)机制,可以在通信时�
 1. 500 Internal Server Error表示服务器执行请求时发生了错误
 2. 503 Service Unavailable 表示服务器超负载,无法处理请求.
 
+##3. 与HTTP协作的Web服务器
+
+
+
 
