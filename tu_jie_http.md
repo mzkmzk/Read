@@ -140,7 +140,7 @@ HTTP首部字段类型
     
     缓存请求指令
 
-    1. no-cache: 强制向服务器再次验证
+    1. no-cache: 强制向服务器再次验证,可指定特定用户`no-cache=Location`
     2. no-store: 不缓存请求或响应的任何内容(和`no-cache`有啥区别)
     3. max-age=秒: 响应最大的Age值
     4. max-stale=秒: 接受已过期的响应
