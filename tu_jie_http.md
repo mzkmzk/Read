@@ -92,7 +92,8 @@ HTTP1.1存在一种称为传输编码(Transfer Coding)机制,可以在通信时�
 1. 301 Moved Permanently 永久性重定向
 2. 302 Found 临时性重定向
 3. 303 See Other 和302类似,不过303表明客户端应当采取GET方法获取资源
-4. 304Not Modified
+4. 304Not Modified表名客户端发送附带条件的请求(If-Math,If-Modified-Since等.),服务区允许访问,但请求未满足条件,返回304
+5. 
 
 301,302,303作为装潢台吗返回,几乎所有浏览器都会默认把POST改为GET,并删除请求报文内的主题,之后请求会自动重新发送.
 
