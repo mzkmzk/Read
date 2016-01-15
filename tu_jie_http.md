@@ -86,5 +86,6 @@ HTTP1.1存在一种称为传输编码(Transfer Coding)机制,可以在通信时�
 1. 200 OK 当请求方式不同,返回结果不同,GET请求资源的实体会作为响应返回,HEAD请求资源的实体首部不随报文主体响应返回.
 2. 204 No Content 不允许返回任何实体的主题.
 3. 206 Partial Content 返回指定资源的一部分请求
-4. 
+4. 301 Moved Permanently 永久性重定向
+5. 302 Found
 
