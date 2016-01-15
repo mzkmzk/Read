@@ -145,6 +145,9 @@ HTTP首部字段类型
     3. max-age=秒: 响应最大的Age值
     4. max-stale=秒: 接受已过期的响应
     5. min-fresh=秒: 期望在指定时间内响应仍有效
+    6. no-transform: 代理不可更改媒体类型
+    7. only-if-cached: 从缓存获取资源
+    8. cache-extension: 新指令标记(token)
     
 2. 
 
