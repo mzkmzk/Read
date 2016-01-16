@@ -396,5 +396,8 @@ WebScoket为HMTL5标准的一部分.
 
 1. 请求: 请求头带有`Upgrade:websocket`(用这个还需加`Connection:Upgrade`)和Sec-WebSocket-Protocol字段内记录的子协议.子协议按WebSocket协议标准在连接分开使用时,定义连接名称.
 2. 响应: 服务器返回101Switching Protocols响应,并返回Set-WebSocket-Accept,该值更根据之前Sec-WebSocket-Key字段生成.
+3. 连接成功
+
+
 
 疑问:代理服务器和缓存服务器的区别?.
