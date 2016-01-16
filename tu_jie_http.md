@@ -314,6 +314,9 @@ HTTPS通信步骤
 8. 服务器通用发送Change Cipher Spec报文
 9. 服务器同样发送Finished报文
 10. 服务器和客户端的Finished报文交换完毕之后,SSL连接就算建立完成,通信会受SSL保护,开始发送HTTP请求
+11. 应用层协议通信,发送HTTP响应
+12. 最后由客户端断开链接,发送close_notify
+
 
 
 
