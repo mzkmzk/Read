@@ -248,7 +248,9 @@ HTTP首部字段类型
 
 ##4.6 其他首部字段
 
-1. X-Frame-Options: 用于控制网站内容在其他Web网站的Frame标签内的显示问题,目的在于防止点击劫持. 
+1. X-Frame-Options: 用于控制网站内容在其他Web网站的Frame标签内的显示问题,目的在于防止点击劫持.值:
+    1. DENY: 拒绝
+
 2. X-XSS-Protection
 3. DNT
 4. P3P
