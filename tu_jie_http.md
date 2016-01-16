@@ -169,7 +169,6 @@ HTTP首部字段类型
     9. s-maxage=秒: 公共缓存服务器响应最大的Age值,只适用于多用户使用的公共缓存服务器,设置了该指令后,忽略Expires和max-age.
     10. cache-extension: 新指令标记(token),自己设定指令,给缓存服务器识别.
     
-    
 2. Connection
 
     作用:
