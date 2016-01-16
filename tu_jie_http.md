@@ -248,7 +248,7 @@ HTTP首部字段类型
 
 ##4.6 其他首部字段
 
-1. X-Frame-Options: 
+1. X-Frame-Options: 用于控制 
 2. X-XSS-Protection
 3. DNT
 4. P3P
