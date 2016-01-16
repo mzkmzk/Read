@@ -246,6 +246,9 @@ HTTP首部字段类型
     6. HttpOnly: 加以限制,Cookie不能被js脚本访问.
 2. Cookie: 请求首部字段,Cookie内容
 
+##4.6 其他首部字段
+
+1. X-Frame-Options
 
 
 
