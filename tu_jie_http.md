@@ -395,6 +395,6 @@ WebScoket为HMTL5标准的一部分.
 实现WebSocket,需要进行一次握手
 
 1. 请求: 请求头带有`Upgrade:websocket`和Sec-WebSocket-Protocol字段内记录的子协议.子协议按WebSocket协议标准在连接分开使用时,定义连接名称.
-2. 
+2. 响应: 服务器返回101Switching Protocols
 
 疑问:代理服务器和缓存服务器的区别?.
