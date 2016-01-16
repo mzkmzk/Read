@@ -201,4 +201,5 @@ HTTP首部字段类型
 11. if-None-Math: 只有当if-none-Match字段和ETag值不一致时,可以处理这个请求.使用GET/HEAD方法使用if-none-Math,可获取最新的资源.
 12. if-Range: 设定ETag/时间,和请求的资源的ETag/时间一致,作为范围请求处理,反之,返回全体资源.
 13. if-unmodified-Since: 和if-Modified-Since作用相反.
+14. Max-forwards
 
