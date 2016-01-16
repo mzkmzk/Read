@@ -499,6 +499,13 @@ select * from K where name="404"--" password="123456";
 
 ##10.3 OS注入
 
+发送邮件核心代码为
+
+```php
+my $ad = $q->param('mailaddress');
+open(MALL,"| /user/sbin/sendmail $adr");
+```
+
 
 疑问:代理服务器和缓存服务器的区别?.
 
