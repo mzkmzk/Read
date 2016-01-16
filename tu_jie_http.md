@@ -489,12 +489,16 @@ js不适合做防范,因为可以被篡改.
 例如
 
 ```sql
-select * from K where name="404" and flag=1;
+select * from K where name="404" and password="123456";
 
 篡改为
 
-
+select * from K where name="404"--" password="123456";
 ```
+这样就可以成功绕过登录密码查询
+
+
+
     
 疑问:代理服务器和缓存服务器的区别?.
 
