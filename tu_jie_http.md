@@ -512,6 +512,10 @@ open(MALL,"| /user/sbin/sendmail $adr");
 
 ##10.4 HTTP首部注入
 
+1. 设置任何Cookie
+2. 重定向至任何URL
+3. 显示任何的主体9HTTP响应截断攻击)
+
 
 疑问:代理服务器和缓存服务器的区别?.
 
