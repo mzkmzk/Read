@@ -158,7 +158,7 @@ HTTP首部字段类型
     3. no-cache: 缓存前必须先确认其有效性
     4. no-store: 不缓存请求或响应的任何内容
     5. no-transform: 代理不可更改媒体类型
-    6. must-revalidate: 可缓存但必须再向源服务器进行确认,
+    6. must-revalidate: 可缓存但必须再向源服务器进行确认,代理缓存会向服务器再次验证即将返回的响应缓存目前是否仍然有效,
     7. proxy-revalidate: 要求中间缓存服务器对缓存的响应有效性再进行确认
     8. max-age=秒: 响应最大的Age值,当源服务器设置了该值,缓存服务器将不对资源的有效性再作确认,而max-age数值代表资源保存为缓存的最长时间.HTTP1.1会忽略Expires,而HTTP1.0会忽略max-age,
     9. s-maxage=秒: 公共缓存服务器响应最大的Age值,只适用于多用户使用的公共缓存服务器,设置了该指令后,忽略Expires和max-age.
