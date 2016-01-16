@@ -228,6 +228,6 @@ HTTP首部字段类型
 2. Content-Encoding: 告知客户端实体的主体部分的编码方式,gzip,compress等.
 3. Content-Language: 告知客户端实体所用的语言
 4. Content-Length: 服务器告诉客户端实体主体部分的大小(字节),当设置了内容编码传输时,不能再使用Content-Length.
-5. Content
+5. Content-Location: 给出与报文主题部分相对应的URI,
 
 疑问:代理服务器和缓存服务器的区别?.
