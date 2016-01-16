@@ -191,5 +191,5 @@ HTTP首部字段类型
 1. Accept: 告知服务器,客户端能处理媒体类型的优先级别,格式为type/subtype,例如客户端想要HTML资源时候`Accept: text/html application/xhtml+xml;q=0.9,*/*;q=0.8`q值为0~1,指定优先级.
 2. Accept-Charset: 告知服务器客户端支持字符串的优先顺序.
 3. Accept-Encoding: 告知服务器客户端支持的编码和优先顺序,gzip,deflate等
-4. 
+4. Accept-Language: 告知服务器客户端所需的语言及其优先级别.
 
