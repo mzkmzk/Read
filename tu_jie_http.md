@@ -144,7 +144,7 @@ HTTP首部字段类型
 
     1. no-cache: 强制向服务器再次验证,可指定特定用户`no-cache=Location`,其实该指令代表不缓存过期的资源,缓存会向源服务器进行有效期确认后处理资源.
     2. no-store: 不缓存请求或响应的任何内容,该指令才是真正的不进行缓存.
-    3. max-age=秒: 响应最大的Age值
+    3. max-age=秒: 响应最大的Age值,
     4. max-stale=秒: 接受已过期的响应
     5. min-fresh=秒: 期望在指定时间内响应仍有效
     6. no-transform: 代理不可更改媒体类型
@@ -161,7 +161,7 @@ HTTP首部字段类型
     6. must-revalidate: 可缓存但必须再向源服务器进行确认
     7. proxy-revalidate: 要求中间缓存服务器对缓存的响应有效性再进行确认
     8. max-age=秒: 响应最大的Age值
-    9. s-maxage=秒: 公共缓存服务器响应最大的Age值,只适用于多用户使用的公共缓存服务器,设置了该指令后,Expires和max-age.
+    9. s-maxage=秒: 公共缓存服务器响应最大的Age值,只适用于多用户使用的公共缓存服务器,设置了该指令后,忽略Expires和max-age.
     10. cache-extension: 新指令标记(token)
     
     
