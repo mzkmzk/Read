@@ -218,5 +218,6 @@ HTTP首部字段类型
 6. Retry-After: 告知客户端过多久后重新访问,一般配合503和3xx
 7. Server: 告诉客户端,服务器的运行环境
 8. Vary: 代理服务器接受到Vary请求时,如果值和`Accept-Language`值相同,那么返回缓存结果,反之,重新从源服务器请求.
+9. WWW-Authenticate: HTTP访问认证.
 
 疑问:代理服务器和缓存服务器的区别?.
