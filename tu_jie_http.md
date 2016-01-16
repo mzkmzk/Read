@@ -249,6 +249,8 @@ HTTP首部字段类型
 ##4.6 其他首部字段
 
 1. X-Frame-Options: 
+2. X-XSS-Protection
+3. 
 
 
 
