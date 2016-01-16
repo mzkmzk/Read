@@ -202,5 +202,6 @@ HTTP首部字段类型
 12. if-Range: 设定ETag/时间,和请求的资源的ETag/时间一致,作为范围请求处理,反之,返回全体资源.
 13. if-unmodified-Since: 和if-Modified-Since作用相反.
 14. Max-forwards: 设定最大的转发次数,当Max-Forwards为0时,由服务器直接请求.
-15. Proxy-Authorization: 接受到服务器发送过来认证质询时,客户端发送此字段.
+15. Proxy-Authorization: 接受到服务器发送过来认证质询时,客户端发送此字段.和HTTP访问认证类似,不过该字段是代理和客户端认证
+16. Range: 
 
