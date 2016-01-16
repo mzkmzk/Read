@@ -438,7 +438,7 @@ socket.onopen = function(){
 3. 属性: 定义资源的属性 key=value
 4. 锁: 把文件设置为无法编辑状态,防止多人同时编辑时,同一时间写入
 
-WebDAV内心中方法和状态码
+WebDAV内新增方法和状态码
 
 1. PROPFIND: 获取属性
 2. PROPPATCH: 修改属性
@@ -448,5 +448,7 @@ WebDAV内心中方法和状态码
 6. LOCK
 7. UNLOCK
 
+状态码
 
+102 Processing: 可正常处理
 疑问:代理服务器和缓存服务器的区别?.
