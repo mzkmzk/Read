@@ -239,7 +239,7 @@ HTTP首部字段类型
 
 1. Cookie: 请求首部字段.
     1. NAME=VALUE
-    2. expires=DATE
+    2. expires=DATE 省略时,时间为SESSION
     3. path=Path 指定服务器存Cookie的文件夹,不指定则为默认文件夹
     4. domain=域名.不指定则默认服务器域名
     5. Secure: 仅在HTTPS使用Cookie
