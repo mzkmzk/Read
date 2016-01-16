@@ -193,4 +193,5 @@ HTTP首部字段类型
 3. Accept-Encoding: 告知服务器客户端支持的编码和优先顺序,gzip,deflate等
 4. Accept-Language: 告知服务器客户端所需的语言及其优先级别.
 5. Authorization: 告知服务器,客户端的认证信息.
+6. Expect: 告知服务器,客户端需要某种特殊的行为,`Expect: 100-continue`
 
