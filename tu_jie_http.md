@@ -252,6 +252,10 @@ HTTP首部字段类型
     1. DENY: 拒绝
     2. SAMEORIGIN:仅在同源下的页面匹配时许可.
 2. X-XSS-Protection: 针对跨站脚本攻击
+
+    0: 将XSS过滤设置成无效状态
+    
+    1: 将XSS过滤设置成
 3. DNT
 4. P3P
 
