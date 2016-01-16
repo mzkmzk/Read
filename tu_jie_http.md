@@ -238,6 +238,11 @@ HTTP首部字段类型
 ###4.5 为Cookie服务的首部字段
 
 1. Cookie: 请求首部字段.
+    1. NAME=VALUE
+    2. expires=DATE
+    3. path=Path 指定服务器存Cookie的文件夹
+    4. 
+2. 
 
 
 
