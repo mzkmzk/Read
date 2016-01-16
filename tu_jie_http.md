@@ -410,4 +410,13 @@ socket.onopen = function(){
 }
 ```
 
+##9.2 HTTP2.0
+
+实现方式
+
+1. SDPY
+2. HTTP Speed+Mobility
+3. Network-Friendly HTTPUpgrade
+
+
 疑问:代理服务器和缓存服务器的区别?.
