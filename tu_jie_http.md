@@ -514,8 +514,10 @@ open(MALL,"| /user/sbin/sendmail $adr");
 
 1. 设置任何Cookie
 2. 重定向至任何URL
+    
+    `LOCATION%0D%0A=指定url`
 3. 显示任何的主体9HTTP响应截断攻击)
-
+    `%OD%OA%OD%OA<html><HEAD><TITLE>显示内容<!--`
 
 疑问:代理服务器和缓存服务器的区别?.
 
