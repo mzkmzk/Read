@@ -250,7 +250,8 @@ HTTP首部字段类型
 
 1. X-Frame-Options: 
 2. X-XSS-Protection
-3. 
+3. DNT
+4. P3P
 
 
 
