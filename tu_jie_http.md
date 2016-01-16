@@ -197,5 +197,5 @@ HTTP首部字段类型
 7. From: 告知服务器客户端用户的电子邮件.
 8. Host: 同一服务器运行两个Web,靠Host加以区分.
 9. if-Match: 告知服务器资源的实体标记(ETag值),只有在服务器又匹配的ETag文件,资源才可返回.还可以使用`*`指定,代表忽略ETag值.
-10. if-Modified-Since: 
+10. if-Modified-Since: 告知服务器若If-Modified-Since字段早于资源更新时间,
 
