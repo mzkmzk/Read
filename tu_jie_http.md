@@ -195,5 +195,5 @@ HTTP首部字段类型
 5. Authorization: 告知服务器,客户端的认证信息.
 6. Expect: 告知服务器,客户端需要某种特殊的行为,`Expect: 100-continue`,服务器无法识别特殊行为时,返回417Expectation Failed
 7. From: 告知服务器客户端用户的电子邮件.
-8. Host: 同一服务器运行两个Web,
+8. Host: 同一服务器运行两个Web,靠Host加以区分.
 
