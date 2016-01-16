@@ -453,5 +453,6 @@ WebDAV内新增方法和状态码
 1. 102 Processing: 可正常处理,但目前处理中状态
 2. 207 Multi-Status: 存在多种状态.
 3. 422 Unprocessible Enity:格式正确 内容错误
-4. 
+4. 423 Locked
+5. 424 Failed Dependency: 处理与某请求关联的请求失败
 疑问:代理服务器和缓存服务器的区别?.
