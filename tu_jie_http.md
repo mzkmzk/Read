@@ -454,5 +454,6 @@ WebDAV内新增方法和状态码
 2. 207 Multi-Status: 存在多种状态.
 3. 422 Unprocessible Enity:格式正确 内容错误
 4. 423 Locked
-5. 424 Failed Dependency: 处理与某请求关联的请求失败
+5. 424 Failed Dependency: 处理与某请求关联的请求失败,因此不再为何依赖关系.
+6. 
 疑问:代理服务器和缓存服务器的区别?.
