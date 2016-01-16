@@ -343,7 +343,8 @@ HTTP1.1 使用认证的方式
     
     HTTP1.1开始拥有
 
-    1. 服务器返回401,和WWW-Authenticate首部
+    1. 服务器返回401,和WWW-Authenticate首部,该字段内包含质问响应方式认证所需的临时质询吗(随机数,nonce)
+    2. 客户端接受到401,和WWW-Authenticate的DIGEST认证信息,Authenticate必须包含username,realm,nonce,uri,response字段信息,
 3. SSL客户端认证
 4. FormBase认证(基于表单认证)
 
