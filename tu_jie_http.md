@@ -333,7 +333,7 @@ HTTP1.1 使用认证的方式
 
 1. BASIC认证 (基本认证)
     
-    不常用安全性不高,但是Tomcat服务器登录前就是这样的方式,HTTP1.0开始
+    不常用安全性不高,,HTTP1.0开始
     1. 服务器返回401,和WWW-Authenticate首部
     2. 客户端需要输入账号密码,结果形式:账号:密码,然后仅限BASE64编码转换.
     3. 服务器验证
@@ -345,6 +345,7 @@ HTTP1.1 使用认证的方式
 
     1. 服务器返回401,和WWW-Authenticate首部,该字段内包含质问响应方式认证所需的临时质询吗(随机数,nonce)
     2. 客户端接受到401,和WWW-Authenticate的DIGEST认证信息,返回响应时,设定的Authenticate必须包含username,realm,nonce,uri,response字段信息,其中realm和nonce是从之前服务器接受到的响应字段.response信息为景观MD5运算的字符串.
+    3. 服务器验证信息
 3. SSL客户端认证
 4. FormBase认证(基于表单认证)
 
