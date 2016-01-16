@@ -244,7 +244,8 @@ HTTP首部字段类型
     4. domain=域名.不指定则默认服务器域名
     5. Secure: 仅在HTTPS使用Cookie
     6. HttpOnly: 加以限制,Cookie不能被js脚本访问.
-2. 
+2. Cookie: 请求首部字段
+    1. 
 
 
 
