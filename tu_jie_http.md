@@ -437,5 +437,16 @@ socket.onopen = function(){
 2. 资源: 文件或集合称为资源
 3. 属性: 定义资源的属性 key=value
 4. 锁: 把文件设置为无法编辑状态,防止多人同时编辑时,同一时间写入
-5
+
+WebDAV内心中方法和状态码
+
+1. PROPFIND: 获取属性
+2. PROPPATCH: 修改属性
+3. MKCOL: 创建集合
+4. COPY:
+5. MOVE
+6. LOCK
+7. UNLOCK
+
+
 疑问:代理服务器和缓存服务器的区别?.
