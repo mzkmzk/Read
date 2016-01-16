@@ -199,5 +199,5 @@ HTTP首部字段类型
 9. if-Match: 告知服务器资源的实体标记(ETag值),只有在服务器又匹配的ETag文件,资源才可返回.还可以使用`*`指定,代表忽略ETag值.
 10. if-Modified-Since: 告知服务器若if-Modified-Since字段早于资源更新时间,则返回现有资源,若再if-Modified-Since晚于资源更新时间,则返回304NOT Modified
 11. if-None-Math: 只有当if-none-Match字段和ETag值不一致时,可以处理这个请求.使用GET/HEAD方法使用if-none-Math,可获取最新的资源.
-12. if-Range: 设定ETag/时间
+12. if-Range: 设定ETag/时间,和请求的资源的ETag/时间一致,作为范围请求处理,反之,返回全体资源
 
