@@ -215,6 +215,6 @@ HTTP首部字段类型
 3. ETag: ETag告知客户端实体识别,强ETag,只要发生变化,ETag都会发生变化`ETag:"usagi-1234"`,弱ETag值只用于提示资源十分相同,当资源发生更笨变化时,才改变Etag`ETAG: W/"usagi-1234"`
 4. Locaition: 重定向
 5. Proxy-Authenticate: 该字段会由代理服务器所要求的认证信息发送给客户端.
-6. 
+6. Retry-After: 
 
 疑问:代理服务器和缓存服务器的区别?.
