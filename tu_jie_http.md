@@ -177,4 +177,6 @@ HTTP首部字段类型
     1. 控制不再转发给代理的首部字段:`Connection:不再转发的首部字段名`.
     2. 管理持久连接: HTTP1.1默认连接都是持久连接,当服务器明确想断开关系时:`Connection:close`在HTTP1.1版本之前默认连接未非持久连接的,需要持久连接可以`Connection:Keep-Alive`.
 
+3. Date
+
 
