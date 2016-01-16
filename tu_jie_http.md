@@ -224,6 +224,6 @@ HTTP首部字段类型
 
 实体首部是包含在请求报文和响应报文中的实体部分所使用的首部.用于补充内容更新时间等与实体相关的信息.
 
-1. Allow: GET,HEAD等,告知客户端服务器支持的Request-URI指定的所有HTTP方法,
+1. Allow: GET,HEAD等,告知客户端服务器支持的Request-URI指定的所有HTTP方法,当服务器接受不支持的HTTP方法时,返回405 Method Not Allowed
 
 疑问:代理服务器和缓存服务器的区别?.
