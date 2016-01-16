@@ -521,5 +521,5 @@ open(MALL,"| /user/sbin/sendmail $adr");
     `%OD%OA%OD%OA<html><HEAD><TITLE>显示内容<!--`
 
 
-疑问:代理服务器和缓存服务器的区别?.
+
 
