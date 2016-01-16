@@ -163,7 +163,7 @@ HTTP首部字段类型
     6. must-revalidate: 可缓存但必须再向源服务器进行确认,代理缓存会向服务器再次验证即将返回的响应缓存目前是否仍然有效,若代理无法连通服务器再次获取有效资源,缓存必须给客户端一条504状态码.设置了该指令会忽略max-stale.
     7. proxy-revalidate: 要求中间缓存服务器对缓存的响应有效性再进行确认,和must-revaladate的区别是该方法不适用于非共享代理服务器,可以让用户只进行一次验证,其他用户再请求则无需验证.(该解释笔者参考下文,
     
-        The proxy-revalidate directive has the same meaning as the must- revalidate directive, except that it does not apply to non-shared user agent caches. It can be used on a response to an authenticated request to permit the user's cache to store and later return the response without needing to revalidate it (since it has already been authenticated once by that user), while still requiring proxies that service many users to revalidate each time (in order to make sure that each user has been authenticated). Note that such authenticated responses also need the public cache control directive in order to allow them to be cached at all.
+        The proxy-revalidate directive has the same meaning as the must- revalidate directive, except that it does not apply to non-shared user agent caches. It can be used on a response to an authenticated request to permit the user's cache to store and later return the response without needing to revalidate it (since it has already been authenticated once by that user), while still requiring proxies that service many users to revalidate each time (in order to make sure that each user has been authenticated). Note that such authenticated responses also need the public cache control directive in order to allow them to be cached at all.)
 
     8. max-age=秒: 响应最大的Age值,当源服务器设置了该值,缓存服务器将不对资源的有效性再作确认,而max-age数值代表资源保存为缓存的最长时间.HTTP1.1会忽略Expires,而HTTP1.0会忽略max-age,
     9. s-maxage=秒: 公共缓存服务器响应最大的Age值,只适用于多用户使用的公共缓存服务器,设置了该指令后,忽略Expires和max-age.
