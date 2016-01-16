@@ -394,6 +394,6 @@ WebScoket为HMTL5标准的一部分.
 
 实现WebSocket,需要进行一次握手
 
-
+1. 请求: 请求头带有`Upgrade:websocket`和Sec-WebSocket-Protocol字段内记录的子协议
 
 疑问:代理服务器和缓存服务器的区别?.
