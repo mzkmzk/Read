@@ -356,7 +356,7 @@ HTTP1.1 使用认证的方式
     
 4. FormBase认证(基于表单认证)
     
-    自己搭建表单认证, 应用Session管理及Cookie
+    自己搭建表单认证, 应用Session管理及Cookie,这种方式Cookie最好加上httponly防止XSS攻击.
 
     1. 客户端发送账号密码
     2. 客户端返回SessionID,保存在cookie里
