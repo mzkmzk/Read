@@ -403,7 +403,9 @@ WebScoket为HMTL5标准的一部分.
 var socket =new WebSocket('ws://404mzk.com:12010/updates');
 socket.onopen = function(){
     setInterval(function(){
-        socket.send(getUpdateDate);
+        if(socket.bufferedAmount ==0){
+            socket.send(getUpdateData());
+        },50);
     });
 }
 ```
