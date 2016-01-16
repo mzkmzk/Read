@@ -227,6 +227,7 @@ HTTP首部字段类型
 1. Allow: GET,HEAD等,告知客户端服务器支持的Request-URI指定的所有HTTP方法,当服务器接受不支持的HTTP方法时,返回405 Method Not Allowed,并且会把所有能支持HTTP方法写入首部字段Allow后返回.
 2. Content-Encoding: 告知客户端实体的主体部分的编码方式,gzip,compress等.
 3. Content-Language: 告知客户端实体所用的语言
-4. Content-Length: 服务器告诉客户端实体主体部分的大小(字节)
+4. Content-Length: 服务器告诉客户端实体主体部分的大小(字节),当设置了内容编码传输时,不能再使用Content-Length.
+5. Content
 
 疑问:代理服务器和缓存服务器的区别?.
