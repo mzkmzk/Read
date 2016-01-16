@@ -188,5 +188,5 @@ HTTP首部字段类型
 
 ###4.2 请求首部字段
 
-1.Accept: 告知服务器,客户端能处理媒体类型的优先级别,格式为type/subtype,例如客户端想要HTML资源时候`Accept: text/html`
+1.Accept: 告知服务器,客户端能处理媒体类型的优先级别,格式为type/subtype,例如客户端想要HTML资源时候`Accept: text/html application/xhtml+xml;q=0.9,*/*;q=0.8`q值为0~1,指定优先级.
 
