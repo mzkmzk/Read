@@ -161,7 +161,7 @@ HTTP首部字段类型
     4. no-store: 不缓存请求或响应的任何内容
     5. no-transform: 代理不可更改媒体类型
     6. must-revalidate: 可缓存但必须再向源服务器进行确认,代理缓存会向服务器再次验证即将返回的响应缓存目前是否仍然有效,若代理无法连通服务器再次获取有效资源,缓存必须给客户端一条504状态码.设置了该指令会忽略max-stale.
-    7. proxy-revalidate: 要求中间缓存服务器对缓存的响应有效性再进行确认,和must-revaladate的区别是该方法不适用于非共享代理服务器,可以让用户只进行一次验证,其他用户再请求则无需验证.(该解释笔者参考下文,
+    7. proxy-revalidate: 要求中间缓存服务器对缓存的响应有效性再进行确认,和must-revaladate的区别是该方法不适用于非共享代理服务器,可以让用户只进行一次验证,其他用户再请求则无需验证.(该解释笔者参考下文<https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9.4>,
     
         The proxy-revalidate directive has the same meaning as the must- revalidate directive, except that it does not apply to non-shared user agent caches. It can be used on a response to an authenticated request to permit the user's cache to store and later return the response without needing to revalidate it (since it has already been authenticated once by that user), while still requiring proxies that service many users to revalidate each time (in order to make sure that each user has been authenticated). Note that such authenticated responses also need the public cache control directive in order to allow them to be cached at all.)
 
