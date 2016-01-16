@@ -184,5 +184,5 @@ HTTP首部字段类型
 6. Transfer-Encoding: 规定报文主体采用的编码方式,HTTP1.1只对分块传输编码有效.
 7. Upgrade: 检测HTTP或其他协议是否有更高版本使用,要和`Connection:Upgrade`联合使用.
 8. Via: 追踪客户端和服务器之间的传播路径.每经过一个代理/网关,会在via增加代理/网关的信息,还可以避免回环.
-9. Warning
+9. Warning: Warning : [警告码][警告主机:端口号] "[警告内容]" ([日期时间])
 
