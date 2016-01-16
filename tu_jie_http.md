@@ -182,5 +182,5 @@ HTTP首部字段类型
 4. Pragma: 旧版本主要设在通用首部字段,历史遗留字段.
 5. Trailer: 说明报文主体记录了哪些首部字段,可应用在分块传输编码.
 6. Transfer-Encoding: 规定报文主体采用的编码方式,HTTP1.1只对分块传输编码有效.
-7. 
+7. Upgrade: 检测HTTP或其他协议是否有更高版本使用,要和`Connection:Upgrade`联合使用.
 
