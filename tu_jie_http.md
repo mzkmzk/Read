@@ -217,6 +217,6 @@ HTTP首部字段类型
 5. Proxy-Authenticate: 该字段会由代理服务器所要求的认证信息发送给客户端.
 6. Retry-After: 告知客户端过多久后重新访问,一般配合503和3xx
 7. Server: 告诉客户端,服务器的运行环境
-8. Vary: 
+8. Vary: 代理服务器接受到Vary请求时,如果值和`Accept-Language`值相同,
 
 疑问:代理服务器和缓存服务器的区别?.
