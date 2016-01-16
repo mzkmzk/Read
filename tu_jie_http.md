@@ -204,5 +204,5 @@ HTTP首部字段类型
 14. Max-forwards: 设定最大的转发次数,当Max-Forwards为0时,由服务器直接请求.
 15. Proxy-Authorization: 接受到服务器发送过来认证质询时,客户端发送此字段.和HTTP访问认证类似,不过该字段是代理和客户端认证
 16. Range: 指定资源的部分请求
-17. Referer: 
+17. Referer: 会告知服务器请求原始资源的URL
 
