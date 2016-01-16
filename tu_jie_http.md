@@ -308,7 +308,8 @@ HTTPS通信步骤
 3. 之后服务器发送Certificate报文,报文中包含公开密钥证书,报文中包含
 公开密钥证书.
 4. 最后服务器发送Server Heel Done报文通知客户端,最初阶段的SSL握手协商部分结束.
-5. SSL第一次握手结束之后,客户端以Client Key Exchange报文作为回应,报文中包含通信加密中使用的一种被称为Pre-master secret的随机密码串,
+5. SSL第一次握手结束之后,客户端以Client Key Exchange报文作为回应,报文中包含通信加密中使用的一种被称为Pre-master secret的随机密码串,该报文已用步骤3中的公开密钥进行加密
+6. 
 
 
 为什么不都用HTTPS,因为使用HTTPS会增加CPU损耗和流量等,而且一年大概要交付600RNB左右呢...
