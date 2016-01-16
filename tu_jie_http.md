@@ -250,8 +250,8 @@ HTTP首部字段类型
 
 1. X-Frame-Options: 用于控制网站内容在其他Web网站的Frame标签内的显示问题,目的在于防止点击劫持.值:
     1. DENY: 拒绝
-    2. SAMEORIGIN:仅在同源下的页面匹配时许可,
-2. X-XSS-Protection
+    2. SAMEORIGIN:仅在同源下的页面匹配时许可.
+2. X-XSS-Protection: 
 3. DNT
 4. P3P
 
