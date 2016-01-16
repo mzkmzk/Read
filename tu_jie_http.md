@@ -167,7 +167,7 @@ HTTP首部字段类型
 
     8. max-age=秒: 响应最大的Age值,当源服务器设置了该值,缓存服务器将不对资源的有效性再作确认,而max-age数值代表资源保存为缓存的最长时间.HTTP1.1会忽略Expires,而HTTP1.0会忽略max-age,
     9. s-maxage=秒: 公共缓存服务器响应最大的Age值,只适用于多用户使用的公共缓存服务器,设置了该指令后,忽略Expires和max-age.
-    10. cache-extension: 新指令标记(token),自己设定指令,给代理服务器识别.
+    10. cache-extension: 新指令标记(token),自己设定指令,给缓存服务器识别.
     
     
 2. 
