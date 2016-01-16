@@ -418,5 +418,14 @@ socket.onopen = function(){
 2. HTTP Speed+Mobility
 3. Network-Friendly HTTPUpgrade
 
+主要研究方向
+
+1. 多路复用: SPDY
+2. TLS义务化: Speed+Mobility
+3. 协商: Speed+Nobility,Friendly
+4. 客户端拉拽/服务器推送: Speed+Mobility
+5. 流量控制: SPDY
+6. WebSocket : Speed+Mobility
+
 
 疑问:代理服务器和缓存服务器的区别?.
