@@ -248,16 +248,16 @@ HTTP首部字段类型
 
 ##4.6 其他首部字段
 
-1. X-Frame-Options: 用于控制网站内容在其他Web网站的Frame标签内的显示问题,目的在于防止点击劫持.值:
+1. X-Frame-Options:响应首部, 用于控制网站内容在其他Web网站的Frame标签内的显示问题,目的在于防止点击劫持.值:
     1. DENY: 拒绝
     2. SAMEORIGIN:仅在同源下的页面匹配时许可.
-2. X-XSS-Protection: 针对跨站脚本攻击
+2. X-XSS-Protection: 请求首部,针对跨站脚本攻击
 
     0: 将XSS过滤设置成无效状态
     
     1: 将XSS过滤设置成有效状态
-3. DNT: Do Not Track,拒绝个人信息被手机,0为同意被追踪,1为拒绝被追踪.
-4. P3P
+3. DNT: 请求首部, Do Not Track,拒绝个人信息被手机,0为同意被追踪,1为拒绝被追踪.
+4. P3P: 响应首部,
 
 
 
