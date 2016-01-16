@@ -342,6 +342,8 @@ HTTP1.1 使用认证的方式
 2. DIGEST认证(摘要认证)
     
     HTTP1.1开始拥有
+
+    1. 服务器返回401,和WWW-Authenticate首部
 3. SSL客户端认证
 4. FormBase认证(基于表单认证)
 
