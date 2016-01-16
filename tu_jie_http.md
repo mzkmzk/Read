@@ -192,5 +192,5 @@ HTTP首部字段类型
 2. Accept-Charset: 告知服务器客户端支持字符串的优先顺序.
 3. Accept-Encoding: 告知服务器客户端支持的编码和优先顺序,gzip,deflate等
 4. Accept-Language: 告知服务器客户端所需的语言及其优先级别.
-5. Authorization
+5. Authorization: 告知服务器,客户端的认证信息.
 
