@@ -230,5 +230,5 @@ HTTP首部字段类型
 4. Content-Length: 服务器告诉客户端实体主体部分的大小(字节),当设置了内容编码传输时,不能再使用Content-Length.
 5. Content-Location: 给出与报文主体部分相对应的URI,和首部字段Location不同,Content-Location表示报文主体返回资源的URI.例如当设置了Accept-Language时,返回页面内容和实际请求对象不同,Content-Location会写明URI.
 6. Content-MD5: 客户端会对接受报文主体执行相同的MD5算法,然后和首部字段Content-MD5字段值比较.目的在于验证报文主体在传输过程是否保持了完整.对报文主体进行MD5算法得出128位二进制,再通过Base64编码后将结果写入Content-MD5,然后只能保证完整性,没有安全性可言,因为内容被篡改,Content-MD5也能被篡改.
-
+7. Content-Range: 
 疑问:代理服务器和缓存服务器的区别?.
