@@ -265,7 +265,9 @@ git log 限制输出
     git branch --vv //查看设置所有跟踪的分支.
     //显示合并/未合并到当前分支的分支
     
-    
+`git pull` 和 `git fetch`    
+
+
 ##全局设定
     
     //https设置暂时不用每次都输入密码
