@@ -516,6 +516,10 @@ open(MALL,"| /user/sbin/sendmail $adr");
 
 用`%0D%OA`代表换行符
 1. 设置任何Cookie
+
+    例如本来客户端请求是`Location:http://404mzk.com/?cat=101`
+    
+    
 2. 重定向至任何URL
     
     `LOCATION%0D%0A=指定url`
