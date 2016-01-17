@@ -318,6 +318,13 @@ git init --bare,可以生成一个空的仓库,初始化仓库时不会创建工
 一般使用
 
     ssh-keygen -t rsa -b 4096 -C "your_email@404mzk.com"
+    
+##10 Git工具
+
+##10.1 重写历史
+
+1. 修改最近一次commit的消息`$ git commit --amend`
+2. 
 ##全局设定
     
     //https设置暂时不用每次都输入密码
