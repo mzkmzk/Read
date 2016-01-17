@@ -561,6 +561,9 @@ WEB的反馈页,填写邮箱地址和咨询内容,
 
 foo.php代码
 ```php
+$modname = $_GET['mod'];
+inclide($modname);
+
 
 ```
 
