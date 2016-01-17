@@ -309,6 +309,8 @@ git init --bare,可以生成一个空的仓库,初始化仓库时不会创建工
 
 自行搭建git服务器建议gitlab<https://bitnami.com/stack/gitlab >,帮组文件<https://gitlab.com/gitlab-org/gitlab-ce/tree/master >
 
+第三方git托管<https://git.wiki.kernel.org/index.php/GitHosting>
+
 ##9.1 生成key
 
 `ssh-keygen`通过设定以后,就会在`~/.ssh发现公钥(.pub)和密钥了.`
