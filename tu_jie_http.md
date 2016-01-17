@@ -6,7 +6,9 @@
 
 1. 发送端标有SYN(synchronize)标志的数据给接收端
 2. 接收端回传一个带有SYN和ACK(acknowledgement)标志的数据包以示传达成功.
-3. 发送端再回传带有ACK标志的数据包,结束.
+3. 发送端再回传带有ACK标志3. 从P3P隐私中新建Compact policies后输入到HTTP响应中.
+
+的数据包,结束.
 
 ###1.2 请求报文 & 响应报文
 
@@ -261,6 +263,7 @@ HTTP首部字段类型
     1. 创建P3P隐私
     2. 创建P3P隐私对照文件后,保存命名为/w3c/p3p.xml
     3. 从P3P隐私中新建Compact policies后输入到HTTP响应中.
+    
     ---
     详情见<http://www.w3.org/TR/P3P>
 
