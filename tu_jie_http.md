@@ -514,6 +514,7 @@ open(MALL,"| /user/sbin/sendmail $adr");
 
 是值在篡改响应首部,插入换行,添加任意首部/主体信息.
 
+用`%0D%OA`代表换行符
 1. 设置任何Cookie
 2. 重定向至任何URL
     
