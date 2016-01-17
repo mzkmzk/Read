@@ -545,7 +545,11 @@ WEB的反馈页,填写邮箱地址和咨询内容,
 
 通过`../`相对定位到/etc/passwd等决定地址上.
 
-本来路径`http://404mzk.com`
+本来路径`http://404mzk.com/read.php?log=0401.log`
+
+篡改为
+
+`http://404mzk.com/read.php?log=../../etc/passwd`,可以尝试多个`../`来寻找真正的根目录.
 
 
 
