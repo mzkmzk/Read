@@ -40,5 +40,5 @@
        * Git与其他系统
        * 将Git嵌入你的应用
        * Git命令
-   * Pro_Git
+   * [Pro_Git](progit.md)
 
