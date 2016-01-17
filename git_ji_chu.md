@@ -340,11 +340,13 @@ git init --bare,可以生成一个空的仓库,初始化仓库时不会创建工
 
 重置命名 reset,原理
 
-1. 移动HEAD
+1. 移动HEAD(若指定了 --soft，则到此停止）
 2. 更新索引(--mixed),HEAD指向当前快照内容更新索引.
 3. 更新工作目录(--hard)
 
+reset和checkout的危险性
 
+![reset和checkout的危险性](QQ20160117-1.png)
 
 ##全局设定
     
