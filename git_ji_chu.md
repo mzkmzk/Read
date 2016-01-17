@@ -348,7 +348,3 @@ reset和checkout的危险性
 
 ![reset和checkout的危险性](QQ20160117-1.png)
 
-##全局设定
-    
-    //https设置暂时不用每次都输入密码
-    git config --global credential.helper cache
