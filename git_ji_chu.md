@@ -333,6 +333,9 @@ git init --bare,可以生成一个空的仓库,初始化仓库时不会创建工
     Index 预期的下一次提交的快照
     
     Working Directory 沙盒
+
+
+
 ##全局设定
     
     //https设置暂时不用每次都输入密码
