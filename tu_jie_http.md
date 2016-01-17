@@ -527,6 +527,8 @@ open(MALL,"| /user/sbin/sendmail $adr");
 
     `%OD%OA%OD%OA<html><HEAD><TITLE>显示内容<!--`,利用这个攻击,黑客可伪造Web页面要求输入个人信息.
 
+HTTP1.1汇集了多响应返回功能,导致缓存服务器对任意内容进行缓存,造成缓存污染.
+
 
 
 
