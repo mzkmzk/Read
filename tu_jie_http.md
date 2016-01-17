@@ -535,7 +535,7 @@ WEB的反馈页,填写邮箱地址和咨询内容,
 
 例如在邮件地址输入 `mai@404mzk.com%0D0ABcc: user@example.com`
 
-
+一旦服务器接受了这个换行符,
 
 
 
