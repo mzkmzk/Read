@@ -30,15 +30,5 @@
    * [系统分析师UML项目实战](xi_tong_fen_xi_shi_uml_xiang_mu_shi_zhan.md)
    * [深入php面向对象、模式与实践](shen_ru_php_mian_xiang_dui_xiang_3001_mo_shi_yu_sh.md)
 * [Utils](utils.md)
-   * [Pro_Git](git.md)
-       * [基础](git_ji_chu.md)
-       * 起步
-       * 分支
-       * 服务器上的Git
-       * Git工具
-       * 自定义Git
-       * Git与其他系统
-       * 将Git嵌入你的应用
-       * Git命令
    * [Pro_Git](progit.md)
 
