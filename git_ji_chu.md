@@ -334,7 +334,9 @@ git init --bare,可以生成一个空的仓库,初始化仓库时不会创建工
     
     Working Directory 沙盒
 
+查看Index(下次准备push的)
 
+    git ls-files -s
 
 ##全局设定
     
