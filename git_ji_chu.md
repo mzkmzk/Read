@@ -277,7 +277,7 @@ git push origin --delete 远程分支名称
 
 ##8.1 变基
 
-合并分支,一般都使用merg或rebase
+合并分支,一般都使用merge或rebase
 
 
 
