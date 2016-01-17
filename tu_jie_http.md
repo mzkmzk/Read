@@ -346,7 +346,7 @@ HTTP1.1 使用认证的方式
     HTTP1.1开始拥有
 
     1. 服务器返回401,和WWW-Authenticate首部,该字段内包含质问响应方式认证所需的临时质询吗(随机数,nonce)
-    2. 客户端接受到401,和WWW-Authenticate的DIGEST认证信息,返回响应时,设定的Authenticate必须包含username,realm,nonce,uri,response字段信息,其中realm和nonce是从之前服务器接受到的响应字段.response信息为景观MD5运算的字符串.
+    2. 客户端接受到401,和WWW-Authenticate的DIGEST认证信息,返回响应时,设定的Authenticate必须包含username,realm,nonce,uri,response字段信息,其中realm和nonce是从之前服务器接受到的响应字段.response信息为经过MD5运算的字符串.
     3. 服务器验证信息,认证通过后返回的首部会在Authentication-info写入成功信息.
 3. SSL客户端认证
     
