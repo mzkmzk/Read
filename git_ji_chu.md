@@ -267,6 +267,9 @@ git log 限制输出
     
 `git pull` 和 `git fetch`    
 
+大多数情况下,git pull = git fetch + git merge
+
+
 
 ##全局设定
     
