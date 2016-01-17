@@ -519,7 +519,7 @@ open(MALL,"| /user/sbin/sendmail $adr");
 
     例如本来客户端请求是`Location:http://404mzk.com/?cat=101`
     
-    
+    用户把101更改为,`101%0D0ASet-Cookie:+SID=123456789`,这样就把cookie篡改了.
 2. 重定向至任何URL
     
     `LOCATION%0D%0A=指定url`
