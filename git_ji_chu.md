@@ -261,7 +261,9 @@ git log 限制输出
 
     git branch
     git branch -v //查看每个分支最后一次提交
-    git branch --merged/--no-merged //显示合并/未合并到当前分支的分支
+    git branch --merged/--no-merged
+    git branch --vv //查看设置所有跟踪的分支.
+    //显示合并/未合并到当前分支的分支
     
     
 ##全局设定
