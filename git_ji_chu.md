@@ -279,7 +279,7 @@ git push origin --delete 远程分支名称
 
 合并分支,一般都使用merge或rebase
 
-
+merge是指:
 
 ##全局设定
     
