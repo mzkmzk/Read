@@ -307,7 +307,7 @@ rebase: 现在有两个并行的开发分支C3和C4,先把C4rebase到C3中,然�
 
 git init --bare,可以生成一个空的仓库,初始化仓库时不会创建工作空间.
 
-自行搭建git服务器建议gitlab<https://bitnami.com/stack/gitlab >
+自行搭建git服务器建议gitlab<https://bitnami.com/stack/gitlab >,帮组文件<https://gitlab.com/gitlab-org/gitlab-ce/tree/master >
 
 ##9.1 生成key
 
