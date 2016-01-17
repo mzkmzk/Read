@@ -294,7 +294,10 @@ rebase: 现在有两个并行的开发分支C3和C4,先把C4rebase到C3中,然�
 现在只想提交client到master,怎么办?.
 
     $ git rebase --onto master server client
-
+    git checkout master
+    $ git merge client
+    
+完成目标.
 
 ##全局设定
     
