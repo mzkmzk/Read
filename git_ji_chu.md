@@ -280,6 +280,7 @@ git push origin --delete 远程分支名称
 合并分支,一般都使用merg或rebase
 
 
+
 ##全局设定
     
     //https设置暂时不用每次都输入密码
