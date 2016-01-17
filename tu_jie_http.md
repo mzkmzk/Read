@@ -512,6 +512,7 @@ open(MALL,"| /user/sbin/sendmail $adr");
 
 ##10.4 HTTP首部注入
 
+是值在篡改响应首部,
 1. 设置任何Cookie
 2. 重定向至任何URL
     
