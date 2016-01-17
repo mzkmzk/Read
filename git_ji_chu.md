@@ -283,7 +283,7 @@ git push origin --delete 远程分支名称
 
 merge是指:当有两个分支分别改了代码,merge是把这两个分支和她们的共同祖节点进行合并,合并成新的分支.
 
-rebase: 
+rebase: 现在有两个并行的开发分支C3和C4,
 
 ##全局设定
     
