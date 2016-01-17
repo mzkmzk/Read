@@ -269,7 +269,7 @@ git log 限制输出
 
 大多数情况下,git pull = git fetch + git merge
 
-
+git fetch从服务器上抓本地没有的数据,它不会修改工作目录的内容,
 
 ##全局设定
     
