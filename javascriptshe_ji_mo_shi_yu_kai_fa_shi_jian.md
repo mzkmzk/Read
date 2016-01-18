@@ -35,3 +35,10 @@ typeof 类.方法 === 'function'
 
 使用`Object.create`克隆原型.
 
+```javascript
+Object.create =  Object.create || function(obj){
+    var F = function(){};
+    F.prototype = obj;
+    return new F();
+}
+```
