@@ -17,3 +17,14 @@ JavaScript
 
 因为JavaScript不存在类型判断,只取决于你有/没有这个方法即可.
 
+一般在调用方法时候,判断有无这个方法即可
+
+```javascript
+类.方法 instanceof Function
+
+or
+
+typeof 类.方法 === 'function'
+```
+
+如果`true`那就放心的调用吧.
