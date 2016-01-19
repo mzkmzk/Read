@@ -42,3 +42,11 @@ Object.create =  Object.create || function(obj){
     return new F();
 }
 ```
+
+原型判断
+
+```javascript
+var obj = {};
+Object.getPrototypeOf(obj) === Object.prototype; //true
+```
+
