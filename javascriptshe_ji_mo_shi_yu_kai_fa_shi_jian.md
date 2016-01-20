@@ -103,6 +103,8 @@ func(3,4);
 ##3 闭包
 
 ```javascript
-for(var l)
+for(var len = nodes.length ;len--;){
+    
+}
 
 ```
