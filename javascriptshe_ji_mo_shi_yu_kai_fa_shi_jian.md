@@ -54,5 +54,9 @@ Object.getPrototypeOf(obj) === Object.prototype; //true
 
 ##2.1 构造器
 
+如果构造器显式的返回一个object类型对象,那么此次运算最终返回这个对象,而非this,但是返回非对象的数据还是还会返回this
 
+```javascript
+
+```
 
