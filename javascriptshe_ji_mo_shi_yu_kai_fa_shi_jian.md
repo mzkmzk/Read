@@ -76,5 +76,18 @@ console.log(obj_2.name);//'k'
 
 ##2.2 绑定this
 
+有些浏览器自带`bind`,这里实现一下
 
+```javascript
+Function.prototype.bind = function(){
+    var self =this,
+        context = [].shift.call(arguments),
+        args = [].slice.call(arguments);
+    return function(){
+        return self.apply(context,[].concat.call(args,[].slice.call(arguments)));
+    }
+}
+
+
+```
 
