@@ -88,6 +88,15 @@ Function.prototype.bind = function(){
     }
 }
 
+var abj = {
+    name : 'sven';
+}
 
+var func = function(a,b,c,d){
+    alert(this,name); // sven
+    alert([a,b,c,d]); //[1,2,3,4]
+}.bind(obj,1,2);
+
+func(3,4);
 ```
 
