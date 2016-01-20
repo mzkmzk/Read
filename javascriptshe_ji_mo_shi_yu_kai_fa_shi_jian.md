@@ -102,5 +102,7 @@ func(3,4);
 ```
 ##3 闭包
 
+```javascript
+for(var l)
 
-
+```
