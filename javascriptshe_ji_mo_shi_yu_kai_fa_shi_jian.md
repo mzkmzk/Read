@@ -50,3 +50,7 @@ var obj = {};
 Object.getPrototypeOf(obj) === Object.prototype; //true
 ```
 
+##2 this call apply
+
+
+
