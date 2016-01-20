@@ -72,6 +72,7 @@ var My_Class2 = function (){
 }
 var obj_2 = new My_Class_2();
 console.log(obj_2.name);//'k'
-
 ```
+
+
 
