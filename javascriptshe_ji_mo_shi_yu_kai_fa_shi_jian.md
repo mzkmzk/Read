@@ -123,3 +123,38 @@ for (var index = nodes.length;index--;){
 }
 ```
 
+###2.1 延长局部变量寿命
+
+```javascript
+var report = function(src){
+    var img = new Image();
+    img.src=src;
+}
+```
+上传经常会不成功,因为在上传过程中,在img数据还没发出去之间,方法就销毁了.
+```javascript
+var report = function(){
+    var imgs = [];
+    return function(src){
+        var img =new Image();
+        imgs.push(img);
+        img.src=src;
+    }
+}
+```
+
+###2.2 面向闭包开发
+
+```javascript
+var Extent =function (){
+    this.value = 0;
+}
+
+Extent.prototype.call = function(){
+    this.value++;
+    console.log(this.value);
+}
+
+var extent = new Extent();
+
+```
