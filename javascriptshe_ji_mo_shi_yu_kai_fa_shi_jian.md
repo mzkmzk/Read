@@ -57,13 +57,21 @@ Object.getPrototypeOf(obj) === Object.prototype; //true
 如果构造器显式的返回一个object类型对象,那么此次运算最终返回这个对象,而非this,但是返回非对象的数据还是还会返回this
 
 ```javascript
-var MyClass = function (){
+var My_Class = function (){
     this.name = 'k';
     return {
         name : '404';
     }
 }
+var obj = new My_Class();
+console.log(obj.name);//404
 
+var My_Class2 = function (){
+    this.name = 'k';
+    return '404';
+}
+var obj_2 = new My_Class_2();
+console.log(obj_2.name);//'k'
 
 ```
 
