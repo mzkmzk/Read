@@ -103,8 +103,13 @@ func(3,4);
 ##3 闭包
 
 ```javascript
-for(var len = nodes.length ;len--;){
-    
+for(var index = nodes.length ;index--;){
+    nodes[index].onclick = function(){
+        console.log(index);
+    }
 }
+
+但是最后出来结果全是5,因为onclick是异步执行的.
+
 
 ```
