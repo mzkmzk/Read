@@ -156,5 +156,7 @@ Extent.prototype.call = function(){
 }
 
 var extent = new Extent();
-
+extent.call(); //1
+extent.call(); //2
+extent.call(); //3
 ```
