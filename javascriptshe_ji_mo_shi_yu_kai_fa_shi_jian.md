@@ -108,12 +108,18 @@ for(var index = nodes.length ;index--;){
         console.log(index);
     }
 }
-
+```
 但是最后出来结果全是5,因为onclick是异步执行的.
 
 利用闭包
 
 ```javascript
+for (var index = nodes.length;index--;){
+    (function(index){
+        nodes[index].onclick =function(){
+            console.log(index);
+        }
+    })(index);
+}
+```
 
-```
-```
