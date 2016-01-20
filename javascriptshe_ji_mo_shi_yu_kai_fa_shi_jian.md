@@ -52,5 +52,7 @@ Object.getPrototypeOf(obj) === Object.prototype; //true
 
 ##2 this call apply
 
+##2.1 构造器
+
 
 
