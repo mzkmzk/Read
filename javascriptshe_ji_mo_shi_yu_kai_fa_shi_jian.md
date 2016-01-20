@@ -84,7 +84,7 @@ Function.prototype.bind = function(){
         context = [].shift.call(arguments),
         args = [].slice.call(arguments);
     return function(){
-    //args代表func函数bind后面的参数1,2,而[].slice.call(arguments),为克隆3,4参数.
+        //args代表func函数bind后面的参数1,2,而[].slice.call(arguments),为克隆3,4参数.
         return self.apply(context,[].concat.call(args,[].slice.call(arguments)));
     }
 }
@@ -100,4 +100,5 @@ var func = function(a,b,c,d){
 
 func(3,4);
 ```
+
 
