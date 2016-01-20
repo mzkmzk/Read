@@ -100,5 +100,7 @@ var func = function(a,b,c,d){
 
 func(3,4);
 ```
+##3 闭包
+
 
 
