@@ -66,7 +66,7 @@
 				
 				function __call($method_name,$args){
 					if(methood_exists($this->wirter,$method_name)){
-						return $this->writer->$method_name($this);
+						return $this->writer->method_name($this);
 					}
 				}
 				
