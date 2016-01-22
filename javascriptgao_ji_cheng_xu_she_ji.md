@@ -23,3 +23,20 @@ Javascript组成
 5. object
 6. function
 
+
+##1.3 undefined
+
+未声明和未定义
+
+```javascript
+var message;
+alert(message);//undefined
+alert(age); //报错
+
+alert(typeof message);//undefined
+alert(typeof age);//undefined;
+```
+
+
+
+
