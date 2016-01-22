@@ -37,7 +37,10 @@ alert(age); //报错
 alert(typeof message);//undefined
 alert(typeof age);//undefined;
 ```
+##1.4 Object
 
+1. hasOwnProperty(propertyName),判断属性是否在当前实例当中,而非原型链.
+2. isPrototypeOf(obbject),检测参数对象是否为本对象的原型.
 
 
 
