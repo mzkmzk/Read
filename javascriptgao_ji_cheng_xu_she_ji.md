@@ -23,6 +23,7 @@ Javascript组成
 5. object
 6. function
 
+`typeof null` 大部分浏览器会返回`object`,而部分返回`function`
 
 ##1.3 undefined
 
