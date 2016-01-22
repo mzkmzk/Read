@@ -7,3 +7,6 @@ Javascript组成
 3. BOM(浏览器对象模型)
 
 
+##1. 基础
+
+`<script>`
