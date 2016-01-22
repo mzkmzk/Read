@@ -12,3 +12,5 @@ Javascript组成
 `<script>`元素
 
 1. async: 是否立即下载脚本.
+2. defer: 是否延迟到文档完全解析和显示完再执行.
+
