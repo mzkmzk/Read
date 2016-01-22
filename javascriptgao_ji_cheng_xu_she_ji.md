@@ -9,4 +9,6 @@ Javascript组成
 
 ##1. 基础
 
-`<script>`
+`<script>`元素
+
+1. async: 是否立即下载脚本.
