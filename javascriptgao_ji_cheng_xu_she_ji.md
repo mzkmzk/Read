@@ -53,3 +53,5 @@ alert(typeof age);//undefined;
 1. 当操作数是对象时,先执行valueOf(),如果没有此方法执行toString().
 
 
+
+
