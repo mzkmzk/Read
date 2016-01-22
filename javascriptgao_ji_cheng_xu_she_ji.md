@@ -42,5 +42,10 @@ alert(typeof age);//undefined;
 1. hasOwnProperty(propertyName),判断属性是否在当前实例当中,而非原型链.
 2. isPrototypeOf(obbject),检测参数对象是否为本对象的原型.
 
+##1.5 逻辑或
+
+1. 如果第一个操作数是对象,返回第一个操作数
+2. 如果第一个操作数值为false,返回第二个操作数
+3. 
 
 
