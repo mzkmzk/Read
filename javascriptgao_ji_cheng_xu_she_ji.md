@@ -60,7 +60,7 @@ alert(typeof age);//undefined;
 if(true){
     var name = 'K';
 }
-console.log(name); //K ,name作为了全局变量
+console.log(name); //K ,name作为了全局变量 for 也一样.
 ```
 
 
