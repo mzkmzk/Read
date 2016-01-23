@@ -52,6 +52,15 @@ alert(typeof age);//undefined;
 
 1. 当操作数是对象时,先执行valueOf(),如果没有此方法执行toString().
 
+##1.7 没有块状作用域
 
+体现在if for当中
+
+```javascript
+if(true){
+    var name = 'K';
+}
+console.log(name); //K ,name作为了全局变量
+```
 
 
