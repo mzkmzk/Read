@@ -70,3 +70,16 @@ console.log(name); //K ,name作为了全局变量 for 也一样.
     toString方法默认输出,分割的数组字符串,join就可以控制分隔符
 2. push和pop方法实现栈,后进先去
 3. push和shift(取出最前端的任意元素.)实现队列,先进先出.而pop和unshift(在最前端加任意元素..)能实现相反方向的队列.
+4. 排序,当一个数组都存着人名和age的对象,要根据age排序
+
+    ```javascript
+    var items = [
+        {name : 'K' , age :12},
+        {name : '404' , age =21}
+    ];
+    items.sort(function(a,b)){
+        return a.age-b.age;
+    }
+    ```
+
+    
