@@ -69,4 +69,4 @@ console.log(name); //K ,name作为了全局变量 for 也一样.
     
     toString方法默认输出,分割的数组字符串,join就可以控制分隔符
 2. push和pop方法实现栈,后进先去
-3. push和shift实现队列,先进先出.
+3. push和shift实现队列,先进先出.而pop和unshift能实现相反方向的队列.
