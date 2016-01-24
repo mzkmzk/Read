@@ -124,5 +124,6 @@ Regexp方法
 重要的是replace方法
 
 ```javascript
-
+var text = 'cat,bat';
+var result = text.replace('/at/g','K'); //cK,bK
 ```
