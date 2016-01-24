@@ -89,7 +89,8 @@ console.log(name); //K ,name作为了全局变量 for 也一样.
     ```javascript
     function createComparisonFunction(propertyName){
         return function(object1,object2){
-            
+            var value1 = object1[propertyName];
+            var value2 = object2[propertyName];
         }
     }
     ```
