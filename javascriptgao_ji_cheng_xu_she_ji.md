@@ -98,7 +98,7 @@ console.log(name); //K ,name作为了全局变量 for 也一样.
     items.sort(createComparisonFunction('age'));
     ```
 5. concat方法,参数为空,复制副本,若有参数,参数放在数组后面并返回,不会影响原来的数组.
-6. slice(开始位置,结束位置)截取字符串,不影响原来的数组
+6. slice(开始位置,结束位置)截取数组,不影响原来的数组
 7. splice(起始位置,删除的项数,要插入的任意多项),原数组会改变,调用方法会返回删除的项.
 8. every,filter,forEach,map,some方法参数组项的值,该项在数组的位置,数组本身
 9. reduce,reduceRight方法,第一个参数为前一项,第二个参数为当前项,第三个参数为当前项索引,第四个为数组本身
