@@ -143,3 +143,14 @@ var result = text.replace('/at/g','K'); //cK,bK
 var text = 'cat,bat';
 var result = text.replace('/at/g','K $1'); //K cat,K bat
 ```
+
+下面演示过滤html字符过滤
+
+```javascript
+function htmlEscape(text){
+    returntext.replace([/[<>"&]]/g,function(match,pos,originalTex{
+    
+    
+    });
+}
+```
