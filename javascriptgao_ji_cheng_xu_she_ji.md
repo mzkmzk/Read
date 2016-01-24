@@ -89,4 +89,9 @@ console.log(name); //K ,name作为了全局变量 for 也一样.
     
 ##1.8正则
 
+Regexp的实例属性
+
+1. lastIndex,表示开始下一次搜索匹配字符的起始位置
+2. source,
+
 ##1. exec方法,返回一个数组,数组的元素包含2个额外属性,index:匹配字符串的位置,input: 正则表达式的字符串.
