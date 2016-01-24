@@ -139,3 +139,7 @@ var result = text.replace('/at/g','K'); //cK,bK
 | $n       | 匹配的第n个捕获组子字符串    |
 | $nn      | 匹配的第nn个捕获组的子字符串 |
 
+```javascript
+var text = 'cat,bat';
+var result = text.replace('/at/g','K $1'); //K cat,K bat
+```
