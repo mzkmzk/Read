@@ -163,3 +163,11 @@ function htmlEscape(text){
 }
 ```
 
+##1.11 Math 获取随机数
+```javascript
+function selectForm(lowerValue,upperValue){
+    var choices = upperValue - lowelValue +1 ;
+    return Math.floor(Math.random() * choices +lowerValue);
+}
+var num = selectFrom(2,10);//获取包括2和10的一个数.
+```
