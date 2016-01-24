@@ -81,6 +81,16 @@ console.log(name); //K ,name作为了全局变量 for 也一样.
         return a.age-b.age;
     }
     ```
+    
+    哎呀我操,那我是不是比较每一个属性都写一个这样的匿名函数啊...我不...
+    
+    设置一个函数,每次只要传递给他要比较的属性即可
+    
+    ```javascript
+    function createComparisonFunction(propertyName){
+        
+    }
+    ```
 5. concat方法,参数为空,复制副本,若有参数,参数放在数组后面并返回,不会影响原来的数组.
 6. slice(开始位置,结束位置)截取字符串,不影响原来的数组
 7. splice(起始位置,删除的项数,要插入的任意多项),原数组会改变,调用方法会返回删除的项.
