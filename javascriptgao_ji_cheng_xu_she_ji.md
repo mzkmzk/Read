@@ -122,3 +122,7 @@ Regexp方法
 ##1.10 字符串的模式匹配方法
 
 重要的是replace方法
+
+```javascript
+
+```
