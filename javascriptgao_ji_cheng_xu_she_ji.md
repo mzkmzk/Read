@@ -148,9 +148,17 @@ var result = text.replace('/at/g','K $1'); //K cat,K bat
 
 ```javascript
 function htmlEscape(text){
-    returntext.replace([/[<>"&]]/g,function(match,pos,originalTex{
-    
-    
+    returntext.replace([/[<>"&]]/g,function(match,pos,originalTex){
+        swith(match){
+            case "<":
+                return "&lt";
+            case ">"
+                return "&gt;";
+            case "&":
+                return "&amp;";
+            case "\""
+                return "&quot;";
+        }
     });
 }
 ```
