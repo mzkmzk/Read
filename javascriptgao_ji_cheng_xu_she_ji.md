@@ -171,3 +171,6 @@ function selectForm(lowerValue,upperValue){
 }
 var num = selectFrom(2,10);//获取包括2和10的一个数值.
 ```
+
+##1.12 对象属性
+
