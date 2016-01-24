@@ -127,3 +127,6 @@ Regexp方法
 var text = 'cat,bat';
 var result = text.replace('/at/g','K'); //cK,bK
 ```
+
+第二个参数还可以是特殊的字符序列
+
