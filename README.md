@@ -1,6 +1,8 @@
 读书总结
 =======
 
+为什么读书?学我不会的知识.
+
 本书主要记录我的阅读总结.
 
 在线阅读<https://mzkmzk.gitbooks.io/read/content/>
