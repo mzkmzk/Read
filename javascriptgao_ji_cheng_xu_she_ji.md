@@ -91,9 +91,11 @@ console.log(name); //K ,name作为了全局变量 for 也一样.
         return function(object1,object2){
             var value1 = object1[propertyName];
             var value2 = object2[propertyName];
-            
+            return value1 - value2;
         }
     }
+    
+    items.sort(createComparisonFunction('age'));
     ```
 5. concat方法,参数为空,复制副本,若有参数,参数放在数组后面并返回,不会影响原来的数组.
 6. slice(开始位置,结束位置)截取字符串,不影响原来的数组
