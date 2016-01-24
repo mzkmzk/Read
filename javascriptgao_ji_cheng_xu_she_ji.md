@@ -87,3 +87,5 @@ console.log(name); //K ,name作为了全局变量 for 也一样.
 8. every,filter,forEach,map,some方法参数组项的值,该项在数组的位置,数组本身
 9. reduce,reduceRight方法,第一个参数为前一项,第二个参数为当前项,第三个参数为当前项索引,第四个为数组本身
     
+##1.8正则
+
