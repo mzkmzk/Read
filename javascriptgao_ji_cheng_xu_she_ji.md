@@ -248,3 +248,14 @@ SubType.prototype.sayAge = function(){
 
 ##3. 函数表达式
 
+递归保险的写法
+
+```javascript
+var factorial = (function f(num){
+    if(num<=1){
+        return 1;
+    }else {
+        return num * f(num-1);
+    }
+});
+```
