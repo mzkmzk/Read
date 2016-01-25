@@ -200,5 +200,12 @@ function SubType(name,age){
 //继承方法
 SubType.prototype = new SuperType();
 SubType.prototype.constructor = SubType;
+SubType.prototype.sayAge = function(){
+    alert(this.age)
+}
+
+var instance1 = new SubType("K",21);
+instnace1.colors.push("black");
+console.log(instance1.colors); //red,blue,green,black
 
 ```
