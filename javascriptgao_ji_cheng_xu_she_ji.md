@@ -215,3 +215,4 @@ console.log(instance2.colors);//red,blude,green
 instance2.sayName();/404
 instance2.sayAge(); //22
 ```
+
