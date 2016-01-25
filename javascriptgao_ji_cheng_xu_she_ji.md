@@ -198,5 +198,7 @@ function SubType(name,age){
 }
 
 //继承方法
-SubType.prototype = new 
+SubType.prototype = new SuperType();
+SubType.prototype.constructor = SubType;
+
 ```
