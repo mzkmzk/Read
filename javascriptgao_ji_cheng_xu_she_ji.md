@@ -208,7 +208,10 @@ var instance1 = new SubType("K",21);
 instnace1.colors.push("black");
 console.log(instance1.colors); //red,blue,green,black
 instance1.sayName();//K
-instance1.sayAge(); //29
+instance1.sayAge(); //21
 
-
+var instance2 = new SubType("404",22);
+console.log(instance2.colors);//red,blude,green
+instance2.sayName();/404
+instance2.sayAge(); //22
 ```
