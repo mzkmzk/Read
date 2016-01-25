@@ -207,5 +207,8 @@ SubType.prototype.sayAge = function(){
 var instance1 = new SubType("K",21);
 instnace1.colors.push("black");
 console.log(instance1.colors); //red,blue,green,black
+instance1.sayName();//K
+instance1.sayAge(); //29
+
 
 ```
