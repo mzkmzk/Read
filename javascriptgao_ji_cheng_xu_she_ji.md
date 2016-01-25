@@ -216,3 +216,12 @@ instance2.sayName();/404
 instance2.sayAge(); //22
 ```
 
+###2.2 寄生组合继承
+
+```javascript
+function inheritPrototype(subType,superType){
+    var prototype = Object(superType.prototype);
+    prototype.constructor = subType;
+    subType.prototype = prototype;
+}
+```
