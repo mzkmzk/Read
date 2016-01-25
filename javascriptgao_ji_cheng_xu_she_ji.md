@@ -197,5 +197,6 @@ function SubType(name,age){
     this.age = age;
 }
 
-
+//继承方法
+SubType.prototype = new 
 ```
