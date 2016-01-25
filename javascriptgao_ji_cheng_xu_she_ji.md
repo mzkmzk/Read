@@ -245,3 +245,6 @@ SubType.prototype.sayAge = function(){
     alert(this.age);
 };
 ```
+
+##3. 函数表达式
+
