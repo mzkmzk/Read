@@ -181,3 +181,9 @@ var num = selectFrom(2,10);//获取包括2和10的一个数值.
 
 ###2.1 组合继承
 
+```javascript
+function SuperType(name){
+    this.name = name;
+    this.colors = ['red','blue','green'];
+}
+```
