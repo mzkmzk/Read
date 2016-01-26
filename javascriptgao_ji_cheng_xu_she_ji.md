@@ -262,3 +262,7 @@ var factorial = (function f(num){
 
 模仿块级作用域
 
+(function(){
+    块级作用域
+})();
+
