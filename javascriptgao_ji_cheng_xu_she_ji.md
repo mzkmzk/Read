@@ -259,3 +259,6 @@ var factorial = (function f(num){
     }
 });
 ```
+
+模仿块级作用域
+
