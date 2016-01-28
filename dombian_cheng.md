@@ -223,7 +223,7 @@ document.getElementByID('ul_ID').onclick =function (e){
     
     //作者应该默认网页为../id.html
     //从链接找到页面ID
-    hrefparts =target.href=splict('/');
+    hrefparts =target.href.splict('/');
     pageid =hrefparts[hreparts.length-1];
     //把.html去掉..
     pageid = pageid.replace('.html','');
