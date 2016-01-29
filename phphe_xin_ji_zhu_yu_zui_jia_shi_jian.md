@@ -23,5 +23,9 @@ typedef union_zvalue_value{
 对象源码定义:
 
 ```c
-
+#zend/zend.h
+typedef struct_zend_object {
+    zend_class_entry *ce;//类的入口
+    
+}
 ```
