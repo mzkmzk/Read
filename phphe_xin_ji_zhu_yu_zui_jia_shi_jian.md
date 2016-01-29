@@ -13,6 +13,7 @@ typedef union_zvalue_value{
         char *val;
         int len;
     };
-    
+    HashTable *ht ; /* hash table value*/
+    zend_object_value obj;
 }
 ```
