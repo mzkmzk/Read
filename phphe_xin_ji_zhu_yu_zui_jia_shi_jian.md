@@ -4,6 +4,8 @@
 
 ###1.1 源码定义变量和对象
 
+变量源码定义:
+
 ```c
 #zend/zend.h
 typedef union_zvalue_value{
@@ -15,5 +17,5 @@ typedef union_zvalue_value{
     };
     HashTable *ht ; /* hash table value*/
     zend_object_value obj;
-}
+}zvalue_value;
 ```
