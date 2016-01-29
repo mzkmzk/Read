@@ -37,3 +37,16 @@ typedef struct_zend_object {
 
 ###1.2 对象和数组
 
+序列化后对象和数组的区别
+
+```php
+//对象
+$str = serialize($student);
+    0:6:"Student":2:{s:4:"name";s:3:"Tom";s:6:"gender";s:"mail";}
+
+$student_arr = array("name"=>"Tom","gender"=>"male");
+
+//数组
+$str_arr = serialize($student_arr);
+
+```
