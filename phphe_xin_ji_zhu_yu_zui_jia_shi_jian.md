@@ -48,5 +48,5 @@ $student_arr = array("name"=>"Tom","gender"=>"male");
 
 //数组
 $str_arr = serialize($student_arr);
-
+     a:2:{s:4:"name";s:3:"Tom";s:6:"gender";s:"mail";}
 ```
