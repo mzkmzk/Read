@@ -34,3 +34,6 @@ typedef struct_zend_object {
 对象的组成:
 
 ![对象的组成](QQ20160129-1.png)
+
+###1.2 对象和数组
+
