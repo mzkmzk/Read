@@ -8,6 +8,7 @@
 #zend/zend.h
 typedef union_zvalue_value{
     long lval;/*long value*/
+    double dval; /* double value */
     
 }
 ```
