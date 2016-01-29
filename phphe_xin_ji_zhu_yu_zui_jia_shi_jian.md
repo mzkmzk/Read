@@ -20,3 +20,8 @@ typedef union_zvalue_value{
 }zvalue_value;
 ```
 
+对象源码定义:
+
+```c
+
+```
