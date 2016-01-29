@@ -28,5 +28,6 @@ typedef struct_zend_object {
     zend_class_entry *ce;//类的入口
     HashTable *properties; //属性组成的HashTable
     HashTable *guards;/*防止递归调用的 protects from __get/__set ...recursion */
-}
+}zend_object
 ```
+
