@@ -9,6 +9,10 @@
 typedef union_zvalue_value{
     long lval;/*long value*/
     double dval; /* double value */
+    struct {
+        char *val;
+        int len;
+    };
     
 }
 ```
