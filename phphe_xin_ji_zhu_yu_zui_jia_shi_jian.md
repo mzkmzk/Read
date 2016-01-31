@@ -53,3 +53,5 @@ $str_arr = serialize($student_arr);
 
 序列化后,对象和数组的区别只是对象多一个指针指向它所属的类.
 
+##@. PHP与数据库
+
