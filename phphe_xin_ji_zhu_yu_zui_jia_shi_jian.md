@@ -179,3 +179,8 @@ partition foo_2 values less than (to_days('2010-01-01'))
 )
 ```
 
+创建完表后,谈价分区
+
+```sql
+
+```
