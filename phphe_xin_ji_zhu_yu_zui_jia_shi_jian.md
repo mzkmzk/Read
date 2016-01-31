@@ -144,7 +144,9 @@ $str_arr = serialize($student_arr);
     //查看最大连接数
     show variables like 'max_connections';
     ```
+    
 ##2.3 MySQL瓶颈及应对措施
 
 MySQL单表达到千万级以上,无论如何优化,查询都会很慢.
 
+1. 增加MySQL配置的buffer和Cache,
