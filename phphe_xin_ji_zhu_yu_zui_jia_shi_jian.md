@@ -150,4 +150,4 @@ $str_arr = serialize($student_arr);
 MySQL单表达到千万级以上,无论如何优化,查询都会很慢.
 
 1. 增加MySQL配置的buffer和Cache,这样需要增加CPU个数和内存的大小,这是最简单的优化
-2. 
+2. 对数据库进行分区,分表.
