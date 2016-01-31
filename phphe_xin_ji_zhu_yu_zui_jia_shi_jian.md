@@ -96,6 +96,8 @@ $str_arr = serialize($student_arr);
 7. 避免使用NULL
 8. 不要使用count(id),而是count(*)
 9. 不要做无谓排序,应该在索引时中完成排序.
+10. 多explain select * ..查询,
 
 ###2.2 MySQL服务器调整优化措施
 
+1. 关闭不必要
