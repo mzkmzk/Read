@@ -207,3 +207,5 @@ foo#p#foo_1.idb
 foo#p#foo_2.idb
 ```
 
+后续也可以通过先insert 然后explain查询执行的分区
+
