@@ -103,11 +103,11 @@ $str_arr = serialize($student_arr);
     ```
     ![explain](QQ20160131-2.png)
     ```sql
-    explain select id from patients where id =8868;
+    explain select id from patients where id > 0 ;
     ```
-    ![explain](QQ20160131-1.png)
+    ![explain](QQ20160131-3.png)
     
-    注意,主要优化一般都看type,
+    注意,主要优化一般都看type,索引和没索引
 ###2.2 MySQL服务器调整优化措施
 
 1. 关闭不必要
