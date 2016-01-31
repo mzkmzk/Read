@@ -76,6 +76,9 @@ $str_arr = serialize($student_arr);
 3. 模糊like查询,避免%%
 
     ```sql
+    select * from t where name like = '%de%';
+    
+    //优化为:
     
     ```
 4. 
