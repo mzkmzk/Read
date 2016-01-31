@@ -137,3 +137,10 @@ $str_arr = serialize($student_arr);
     //定期打开慢查询条数,方便优化.
     show global status like '%slow%';
     ```
+2. 增加MySQL允许最大连接数
+
+    ```sql
+    //查看最大连接数
+    show variables like 'max_connections';
+    ```
+    
