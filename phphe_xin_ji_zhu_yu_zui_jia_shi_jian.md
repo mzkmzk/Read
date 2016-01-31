@@ -93,4 +93,7 @@ $str_arr = serialize($student_arr);
     ```
     
     但是between也有缺陷,如果id中间有断行,或者中间部分id不读取的话,总读取的数量会少于预计数量,在取比较厚的数据用desc方向查找.
-7. 避免使用NULL    
+7. 避免使用NULL
+8. 不要使用count(id),而是count(*)
+9. 不要做无谓排序,应该在索引时中完成排序.
+
