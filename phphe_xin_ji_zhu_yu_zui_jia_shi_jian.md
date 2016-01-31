@@ -168,3 +168,14 @@ show variables like '%partition%'
 
 分区创建表,分区类型包括Range,List,Hash,Key,Range最常用
 
+```sql
+create table foo(
+id int not null auto_increment,
+created datetime,
+primay key(id,created)
+) engine = innodb partition by range (to_days(created))(
+partition foo_1 values less than (to_days('2009-01-01')),
+partition foo_2 values less than (to_days('2010-01-01'))
+)
+```
+
