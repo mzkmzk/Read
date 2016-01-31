@@ -65,4 +65,12 @@ $str_arr = serialize($student_arr);
     //优化为
     select  * from t where d > = '2011-01-01';
     ```
-2. 
+2. 使用JOIN时,应该用小结果集驱动大结果集,同时把复杂的JOIN查询拆分为多个Query,因为JOIN多个表,可能导致更多的锁定和堵塞.
+    
+    ```sql
+    select * from a join on a.id = b.id
+    left join c on c.time = a.date
+    left join d on c.pid = b.aid
+    left join e on e.cid = a.did
+    ```
+3. 
