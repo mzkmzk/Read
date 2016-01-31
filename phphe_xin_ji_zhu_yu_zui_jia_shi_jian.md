@@ -86,5 +86,10 @@ $str_arr = serialize($student_arr);
 6. limit的基数比较大的使用使用between.
 
     ```sql
+    select * from t order by id limit 1000000,10;
     
+    //优化为
+    select * from t where id between 1000000 and 1000010 order by id;
     ```
+    
+    但是between也有缺陷,如果id中间有断行,或者中间部分id不读取的话,总读取的数量会少于预计数量,在取比较厚的数据用desc方向查找.
