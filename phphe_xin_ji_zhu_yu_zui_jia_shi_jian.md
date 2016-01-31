@@ -99,10 +99,12 @@ $str_arr = serialize($student_arr);
 10. 多explain select * ..查询
 
     ```sql
-    explain select * from patients
+    explain select id from patients where created_at > '2015-11-11';
     ```
     
-    ![explain](QQ20160131-0.png)
+    ```sql
+    explain select id from patients where id =8868;
+    ```
 
     注意,主要优化一般都看type,
 ###2.2 MySQL服务器调整优化措施
