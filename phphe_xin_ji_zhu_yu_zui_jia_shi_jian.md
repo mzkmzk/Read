@@ -81,4 +81,5 @@ $str_arr = serialize($student_arr);
     //优化为: 但是中文就不知道怎么玩了......
     select  * from t where name > = 'de' and name < 'df';
     ```
-4. 
+4. 仅列出所需的查询字段,少用*号,对速度不会有明显影响,但会影响内存.
+5. 
