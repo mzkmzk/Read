@@ -185,6 +185,25 @@ partition foo_2 values less than (to_days('2010-01-01'))
 alter table foo add partition(
 partition foo_3 values less than(to_days('2011-01-01'));
 )
-
-
 ```
+删除分区
+```sql
+alter table foo drop partition foo_3;
+```
+
+检索information_schema数据库,查看分区信息
+```sql
+select * from partitions where partition_name is not null
+```
+
+```sql
+show variables like 'datadir'
+```
+
+如果MySQL设置innodb file per table为on的话就会
+
+```sql
+foo#p#foo_1.idb
+foo#p#foo_2.idb
+```
+
