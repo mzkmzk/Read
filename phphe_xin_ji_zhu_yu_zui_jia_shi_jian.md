@@ -109,7 +109,7 @@ $str_arr = serialize($student_arr);
     
     注意,主要优化一般都看type,索引和没索引,查询时最少应该达到range级别,最好达到ref,下面列举下type从好到坏的结果
     
-    system(系统表)>const(读常量)>eq_ref(最多一条匹配结果,通过是通过主键访问)>ref(被驱动表索引引用)>fulltext(全文索引检索)>ref_or_null(带有空值的索引查询)>index_merge(合并索引结果集)>unique_subquery(子查询中返回的字段是唯一组合或索引)>index_subquery(子查询返回的是索引,但非主键)
+    system(系统表)>const(读常量)>eq_ref(最多一条匹配结果,通过是通过主键访问)>ref(被驱动表索引引用)>fulltext(全文索引检索)>ref_or_null(带有空值的索引查询)>index_merge(合并索引结果集)>unique_subquery(子查询中返回的字段是唯一组合或索引)>index_subquery(子查询返回的是索引,但非主键)>range(索引范围扫描)>index(全索引扫描)>ALL(全表扫描).
 ###2.2 MySQL服务器调整优化措施
 
 1. 关闭不必要
