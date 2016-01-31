@@ -131,6 +131,7 @@ $str_arr = serialize($student_arr);
 1. 关闭不必要的日志
 
     ```sql
+    //查看日志的打开情况.
     show variables like '%slow%';
     
     //定期打开慢查询条数,方便优化.
