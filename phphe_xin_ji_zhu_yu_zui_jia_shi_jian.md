@@ -134,5 +134,5 @@ $str_arr = serialize($student_arr);
     show variables like '%slow%';
     
     //定期打开慢查询条数,方便优化.
-    
+    show global status like '%slow%';
     ```
