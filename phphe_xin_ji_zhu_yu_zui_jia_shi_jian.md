@@ -78,7 +78,7 @@ $str_arr = serialize($student_arr);
     ```sql
     select * from t where name like = '%de%';
     
-    //优化为:
-    
+    //优化为: 但是中文就不知道怎么玩了......
+    select  * from t where name > = 'de' and name < 'df';
     ```
 4. 
