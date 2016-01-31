@@ -107,7 +107,9 @@ $str_arr = serialize($student_arr);
     ```
     ![explain](QQ20160131-3.png)
     
-    注意,主要优化一般都看type,索引和没索引
+    注意,主要优化一般都看type,索引和没索引,查询时最少应该达到range级别,最好达到ref,下面列举下type从好到坏的结果
+    
+    
 ###2.2 MySQL服务器调整优化措施
 
 1. 关闭不必要
