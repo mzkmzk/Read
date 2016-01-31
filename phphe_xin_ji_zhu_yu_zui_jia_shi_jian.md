@@ -102,7 +102,7 @@ $str_arr = serialize($student_arr);
     explain select * from patients
     ```
     
-    
+    ![explain](QQ20160131-0.png)
 
 ###2.2 MySQL服务器调整优化措施
 
