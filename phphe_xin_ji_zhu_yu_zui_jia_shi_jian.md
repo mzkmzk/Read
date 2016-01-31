@@ -73,4 +73,9 @@ $str_arr = serialize($student_arr);
     left join d on c.pid = b.aid
     left join e on e.cid = a.did
     ```
-3. 
+3. 模糊like查询,避免%%
+
+    ```sql
+    
+    ```
+4. 
