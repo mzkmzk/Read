@@ -166,4 +166,5 @@ MySQL单表达到千万级以上,无论如何优化,查询都会很慢.
 show variables like '%partition%'
 ```
 
-分区创建表
+分区创建表,分区类型包括Range,List,Hash,Key,Range最常用
+
