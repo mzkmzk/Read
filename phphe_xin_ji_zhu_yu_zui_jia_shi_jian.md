@@ -101,11 +101,12 @@ $str_arr = serialize($student_arr);
     ```sql
     explain select id from patients where created_at > '2015-11-11';
     ```
-    
+    ![explain](QQ20160131-2.png)
     ```sql
     explain select id from patients where id =8868;
     ```
-
+    ![explain](QQ20160131-1.png)
+    
     注意,主要优化一般都看type,
 ###2.2 MySQL服务器调整优化措施
 
