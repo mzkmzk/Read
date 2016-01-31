@@ -182,5 +182,9 @@ partition foo_2 values less than (to_days('2010-01-01'))
 创建完表后,谈价分区
 
 ```sql
+alter table foo add partition(
+partition foo_3 values less than(to_days('2011-01-01'));
+)
+
 
 ```
