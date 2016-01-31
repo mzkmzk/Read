@@ -57,4 +57,12 @@ $str_arr = serialize($student_arr);
 
 ###2.1 SQL基本优化
 
-1. 避免在列上,
+1. 避免在列上,会导致索引失败
+
+    ```sql
+    select * from t where year(d) >=2011;
+    
+    //优化为
+    select  * from t where d > = '2011-01-01';
+    ```
+2. 
