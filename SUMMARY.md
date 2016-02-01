@@ -28,7 +28,7 @@
    * [BootStrap实战](bootstrapshi_zhan.md)
    * [JavaScript设计模式与开发实践](javascriptshe_ji_mo_shi_yu_kai_fa_shi_jian.md)
    * [JavaScript高级程序设计](javascriptgao_ji_cheng_xu_she_ji.md)
-   * Web前端黑客技术揭秘
+   * [Web前端黑客技术揭秘](webqian_duan_hei_ke_ji_zhu_jie_mi.md)
 * [服务器端](fu_wu_qi_duan.md)
    * [系统分析师UML项目实战](xi_tong_fen_xi_shi_uml_xiang_mu_shi_zhan.md)
    * [深入php面向对象、模式与实践](shen_ru_php_mian_xiang_dui_xiang_3001_mo_shi_yu_sh.md)
