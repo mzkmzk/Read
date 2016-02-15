@@ -128,7 +128,7 @@ s.toUpperCase();
 s                // hello
 
 var a =[];
-var b = 啊;
+var b = a;
 b[0] = 1;
 a[0]  // 1
 a === b //true
