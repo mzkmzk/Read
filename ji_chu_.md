@@ -113,8 +113,8 @@ String(),Number(),Boolean(),构造函数就是用来显示创建包装对象的.
 ```javascript
 var s = "test"; //字符串值
 var S = new String(s); //字符串对象
-s == S //false;
-s === S //true;
+s == S //true;
+s === S //false;
 ```
 
 ##9 不可变的原始值和可变的对象引用
