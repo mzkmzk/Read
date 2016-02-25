@@ -33,6 +33,7 @@
    * [系统分析师UML项目实战](xi_tong_fen_xi_shi_uml_xiang_mu_shi_zhan.md)
    * [深入php面向对象、模式与实践](shen_ru_php_mian_xiang_dui_xiang_3001_mo_shi_yu_sh.md)
    * [PHP核心技术与最佳实践](phphe_xin_ji_zhu_yu_zui_jia_shi_jian.md)
+   * 单元测试的艺术
 * [Utils](utils.md)
    * [Pro_Git](progit.md)
 
