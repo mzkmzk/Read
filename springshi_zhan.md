@@ -52,6 +52,6 @@ Spring要做什么
     <bean id="poeticDuke"
       class="com.springinaction.springidol.PoeicJuggler"
       <constructor-arg value="15" />
-      <constructor-arg ref="sonnect20" /> 
+      <constructor-arg ref="sonnect29" /> 
     />
     ```
