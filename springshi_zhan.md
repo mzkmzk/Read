@@ -9,6 +9,7 @@ Spring要做什么
 
 ##1. 装配Bean
 
+###1.1 声明Bean
 要实例化一个会朗诵诗歌的杂技员
 
 1.  杂技员:
@@ -100,3 +101,6 @@ public class Stage {
     factory-method="getInstance"
 />
 ```
+
+###1.2 Bean的作用域
+
