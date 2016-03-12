@@ -69,8 +69,7 @@ Spring要做什么
     ```xml
     <bean id="sonnet29" class="com.springinaction.springidol.Sonnet29">
     
-    <bean id="poeticDuke"
-      class="com.springinaction.springidol.PoeicJuggler"
+    <bean id="poeticDuke" class="com.springinaction.springidol.PoeicJuggler"
       <constructor-arg value="15" />
       <constructor-arg ref="sonnect29" /> 
     />
