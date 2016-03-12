@@ -32,16 +32,26 @@ Spring要做什么
 
   ```java
   public interface Poem{
-      void recite();
+        void recite();
   }
   
-  publi class Sonnet29 implements Poem {
-      private static String[] LINES = {"诗歌"};
-      
-      public Sonnet29(){}
-      
-      public void recite() {
-        System.out.println(LINES[0]);
-      }
+  public class Sonnet29 implements Poem {
+        private static String[] LINES = {"诗歌"};
+
+        public Sonnet29(){}
+
+        public void recite() {
+          System.out.println(LINES[0]);
+        }
   }
   ```
+  
+3. Bean装载
+    
+    ```xml
+    <bean id="poeticDuke"
+      class="com.springinaction.springidol.PoeicJuggler"
+      <constructor-arg value="15" />
+      <constructor-arg ref="sonnect20" /> 
+    />
+    ```
