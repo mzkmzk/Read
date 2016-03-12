@@ -45,8 +45,9 @@ Spring要做什么
         }
   }
   ```
+3. 会朗诵诗歌的杂技师  
   
-3. Bean装载
+4. Bean装载
     
     ```xml
     <bean id="poeticDuke"
