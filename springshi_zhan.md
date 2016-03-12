@@ -95,7 +95,8 @@ public class Stage {
 使用工厂方法创建Bean
 
 ```xml
-<bean id="theStage" class="com.springinaction.springidol.Stage"
-factory-method="getInstance"
+<bean id="theStage" 
+    class="com.springinaction.springidol.Stage"
+    factory-method="getInstance"
 />
 ```
