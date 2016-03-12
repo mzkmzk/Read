@@ -112,3 +112,5 @@ Spring Bean默认都是单例 修改作用域只需修改scope属性
 4. session: 在一个HttpSession钟 每个Bean为一个实例
 5. global-session: 在一个全局的HTTP session中,每个Bean对应一个实例
 
+###1.3 初始化和销毁Bean
+
