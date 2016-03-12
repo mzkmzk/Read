@@ -45,11 +45,30 @@ Spring要做什么
         }
   }
   ```
-3. 会朗诵诗歌的杂技师  
+3. 会朗诵诗歌的杂技师
+
+  ```java
+  public class PoeticJuggler extends Juggler {
+      private Poem poem ;
+
+      public PoeticJuggler(Poem poem) {
+          super();
+          this.poem = poem
+      }
+
+      public perform() throws PerformanceException {
+          super.perform();
+          System.out.println("while reciting..");
+          poem.recite();
+      } 
+  }
+  ```
   
 4. Bean装载
     
     ```xml
+    <bean id="sonnet29" class="com.springinaction.springidol.Sonnet29">
+    
     <bean id="poeticDuke"
       class="com.springinaction.springidol.PoeicJuggler"
       <constructor-arg value="15" />
