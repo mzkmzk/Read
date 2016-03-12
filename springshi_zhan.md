@@ -120,6 +120,7 @@ Spring Bean默认都是单例 修改作用域只需修改scope属性
 <bean id="auditorium" 
     class="..."  
     init-method="turnOnLights" 
-    destory-method="turnOffLights"/>
+    destory-method="turnOffLights"
+/>
 
 ```
