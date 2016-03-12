@@ -114,3 +114,12 @@ Spring Bean默认都是单例 修改作用域只需修改scope属性
 
 ###1.3 初始化和销毁Bean
 
+例如一个演唱会Bean,在实例化之前需要开灯,摧毁前关灯.
+
+```xml
+<bean id="auditorium" 
+    class="..."  
+    init-method="turnOnLights" 
+    destory-method="turnOffLights"/>
+
+```
