@@ -122,5 +122,14 @@ Spring Bean默认都是单例 修改作用域只需修改scope属性
     init-method="turnOnLights" 
     destory-method="turnOffLights"
 />
+```
+
+假如在一个上下文中,所有bean都需要在初始化/销毁前执行异议的方法
+
+```xml
+<beans ...
+    default-init-method="turnOnLights" 
+    default-destory-method="turnOffLights"
+/>    
 
 ```
