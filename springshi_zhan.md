@@ -11,3 +11,21 @@ Spring要做什么
 
 要实例化一个会朗诵诗歌的杂技员
 
+1.  杂技员:
+```java
+public class Juggler implements Performer {
+  private int beanBags = 3;
+  
+  public Juggler(){}
+  
+  public Juggler (int beanBags) {
+    this.beanBags = beanBags;
+  }
+  
+  public void perform throws PerformanceException {
+    System.out.println("juggling " + beanBags + " beanbags");
+  }
+}
+```
+
+2. 
