@@ -1,4 +1,4 @@
-# Spring实战
+# Spripublng实战
 
 Spring要做什么
 
@@ -12,8 +12,8 @@ Spring要做什么
 要实例化一个会朗诵诗歌的杂技员
 
 1.  杂技员:
-```java
-public class Juggler implements Performer {
+  ```java
+  public class Juggler implements Performer {
         private int beanBags = 3;
 
         public Juggler(){}
@@ -25,17 +25,23 @@ public class Juggler implements Performer {
         public void perform throws PerformanceException {
             System.out.println("juggling " + beanBags + " beanbags");
         }
-}
-```
+  }
+  ```
 
 2.  朗诵诗歌员
-```java
-public interface Poem{
-    void recite();
-}
-publi class Sonnet29 implements Poem {
-    private static String[] LINES = ["诗歌"];
-    
-    
-}
-```
+
+  ```java
+  public interface Poem{
+      void recite();
+  }
+  
+  publi class Sonnet29 implements Poem {
+      private static String[] LINES = {"诗歌"};
+      
+      public Sonnet29(){}
+      
+      public void recite() {
+        System.out.println(LINES[0]);
+      }
+  }
+  ```
