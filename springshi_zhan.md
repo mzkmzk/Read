@@ -67,7 +67,7 @@ Spring要做什么
 4. Bean装载
     
     ```xml
-    <bean id="sonnet29" class="com.springinaction.springidol.Sonnet29" />
+    <bean id="sonnet29"  class="com.springinaction.springidol.Sonnet29"/>
     
     <bean id="poeticDuke" class="com.springinaction.springidol.PoeicJuggler"
       <constructor-arg value="15" />
