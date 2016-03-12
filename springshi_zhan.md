@@ -28,4 +28,14 @@ public class Juggler implements Performer {
 }
 ```
 
-2. 
+2.  朗诵诗歌员
+```java
+public interface Poem{
+    void recite();
+}
+publi class Sonnet29 implements Poem {
+    private static String[] LINES = ["诗歌"];
+    
+    
+}
+```
