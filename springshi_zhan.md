@@ -239,3 +239,14 @@ carl要改变注意了,有一个帮忙选择歌曲的类songSelector,carl要根�
 <property name="song" value="songSelector.selectSong()" />
 ```
 
+carl,只看得懂大写的歌啊.....
+
+```xml
+<property name="song" value="songSelector.selectSong().toUpperCase()"
+```
+
+Doctor麦说过啥..不要相信任何程序员写的东西....这里selectSong返回的可能是个null,这样再调用toUpperCase明显会报空指针啊..
+
+```xml
+<property name="song" value="songSelector.selectSong()?.toUpperCase()"
+```
