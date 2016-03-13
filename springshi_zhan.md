@@ -137,6 +137,7 @@ Spring Bean默认都是单例 修改作用域只需修改scope属性
 ###1.4 给set属性注入Bean/普通值
 
 ```xml
+<bean id="piano" class="com.springinaction.springidol.Piano"/>
 <bean id="kenny" 
   class="com.springinaction.springidol.Instrumentalist"
   <property name="song" value="Jingle Bells"/>
