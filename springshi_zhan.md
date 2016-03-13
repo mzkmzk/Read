@@ -299,3 +299,11 @@ SpEl支持简单的运算符和正则表达式
 1. 自动装配--减少`<property />`和`<constructor-arg/ >`
 2. 自动检测--减少`<bean/>`
 
+###2.1 自动装配
+
+4种类型的自动装配
+
+1. byName: 与Bean有相同的名字/ID进行自动装配
+2. byType: 与Bean的属性具有相同类似的其他Bean自动装配
+3. constructor: 把与Bean的构造器入参具有相同类似的其他Bean自动装配到Bean构造器中
+4. autodetect: 首次尝试使用constructor进行自动装配,如果失败,使用byType进行自动装配 
