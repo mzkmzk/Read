@@ -257,5 +257,5 @@ Doctor麦说过啥..不要相信任何程序员写的东西....这里selectSong�
 
 ```xml
 <property name="multiplier" value="#{T(java.lang.Math).PI}" />
-<property name="randomNumber" value="#{T(java.lang.Math).random)()}"
+<property name="randomNumber" value="#{T(java.lang.Math).random()}"
 ```
