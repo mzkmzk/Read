@@ -201,3 +201,9 @@ List,set:
   </property>
 />
 ```
+###1.7 装配空值
+
+```xml
+<property name="someNonNullProperty"><null/></property>
+```
+
