@@ -374,13 +374,20 @@ spring默认关系注解装配
          @Target({ElementType.FIELD, ElementType.PARAMETER,ElementType.TYPE})
          @Retenction(RetentionPolicy.RUNTIME)
          @Qualifier
-         public @interface StringedInstrument {...}
+         public @interface StringedInstrument {}
          ```
          
          在其他类中就可以用限定器标记类
          ```java
          @StringedInstrument
          public class Guitar implements Instrument{...}
+         ```
+         
+         在需要的属性中使用
+         ```java
+         @Autowired
+         @StringedInstrument
+         private Instrument instrument;
          ```
 2. JSR-330的@Inject
 3. JSR-250的@Resource
