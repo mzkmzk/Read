@@ -251,5 +251,5 @@ Doctor麦说过啥..不要相信任何程序员写的东西....这里selectSong�
 <property name="song" value="songSelector.selectSong()?.toUpperCase()"
 ```
 
-?用来判断非空值才继续执行后面的方法.
+?.用来判断非空值才继续执行后面的方法
 
