@@ -518,3 +518,15 @@ AOP术语
 8. @within(): 限制连接点匹配指定注解所标注的类型(使用Spring AOP时,方法定义在指定的注解所标注的类里)
 9. @annotation: 限制匹配带有指定注解连接点
 
+###3.3 编写切点
+
+`execute(* com.springinaction.springidol.Instrument.play(..) && within(com.spring.idol.springidol.*))`
+
+上面语句限制的切点范围:
+
+1. * 代表不限定返回类型
+2. .. 嗲表不限定参数
+3. 当`com.springinaction.springidol.Instrument`执行play方法时
+4. 当方法所在类在`com.spring.idol.springidol`包中.
+
+
