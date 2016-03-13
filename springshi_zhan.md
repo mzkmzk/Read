@@ -214,6 +214,21 @@ List,set:
 引用Bean
 
 ```xml
+<property name="instrument" value="#{saxophone}" />
+```
+
+等价于
+
+```xml
 <property name="instrument" ref="saxophone" />
 ```
 
+额,就是可以用value来注入Bean
+
+可以这么玩,有两名格式kenny和carl,kenny唱啥,carl也会跟着唱啥
+
+```xml
+<bean id="carl" class="com.springinaction.springidol.Inturmentalist"
+    <property name="song" value="#{kenny.song}" />
+</bean>
+```
