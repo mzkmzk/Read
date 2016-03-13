@@ -354,9 +354,20 @@ spring默认关系注解装配
         
         ```java
          @Autowired
-         @Qualifie("guitar") //指定ID
+         @Qualifier("guitar") //指定ID
          private Instrument instrument;
         ```    
+    6. 使用@Qualifier("名称")缩小范围,第5点用指定ID来过滤,其实也可以通过其他名称来过滤.以下两者方法同效
+         ```xml
+         <bean class="com.springinaction.springidol.Guitar">
+           <qualifier value="stringed" />
+         </bean>
+         ```
+         同作用
+         ```java
+         @Qualifier("stringed")
+         publicclass Guitar implements Instrument{...}
+         ```
 2. JSR-330的@Inject
 3. JSR-250的@Resource
 
@@ -398,8 +409,8 @@ spring默认关系注解装配
 
 但是type的属性有哪一些?
 
-1. annotation: 
-2. assignable:
-3. aspectj:
-4. custom:
-5. regex:
+1. annotation: 扫描expression指定的类
+2. assignable:扫描expression指定的类及其派生类
+3. aspectj: 扫描与扫描expression指定的AspectJ表达式匹配的类
+4. custom: 使用自定义org.springframework.core.type.TyoeFilter实现类.由expression指定
+5. regex: 过滤与expression正则匹配的类
