@@ -311,7 +311,7 @@ SpEl支持简单的运算符和正则表达式
 
   其他Bean的类型与本Bean属性类型一致,即可匹配,
   
-  但这肯定会引起多个Bean都可匹配,可以为其他不需要的Bean都配置`primay="false",`而首选的可匹配Bean配置`primay="true"`.
+  但这肯定会引起多个Bean都可匹配,可以为其他不需要的Bean都配置`primay="false",`而首选的可匹配Bean配置`primay="true"`.(默认Bean的primay都为true)
   
 3. constructor: 把与Bean的构造器入参具有相同类似的其他Bean自动装配到Bean构造器中
 
