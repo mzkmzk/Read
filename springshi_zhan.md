@@ -360,3 +360,5 @@ spring默认关系注解装配
 2. JSR-330的@Inject
 3. JSR-250的@Resource
 
+###2.3 自动检测Bean
+
