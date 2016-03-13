@@ -156,3 +156,48 @@ Spring Bean默认都是单例 修改作用域只需修改scope属性
   </property>
  />
 ```
+
+###1.6 装配集合
+
+之前装配都是Bean/基本类型,那么List,map,set,props这些怎么办
+
+List,set:
+
+```xml
+<bean
+  id="hank"
+  class="com.springinaction.springidol.OneManBand"
+  <property name="instruments">
+      <list>
+        <ref bean="guitar" />
+        <ref bean="cymbal" />
+      </list>
+  </property>
+/>
+```
+
+装配Map,Map的key和value都是任意类型的,所以对应的有`key`,`key-ref`,`value`,`value-ref`
+```xml
+<bean
+  id="hank"
+  class="com.springinaction.springidol.OneManBand"
+  <property name="instruments">
+      <map>
+        <entry key="grutar" value-ref="guitar"/>
+      </map>
+  </property>
+/>
+```
+装配props,key和value都必须是string
+
+```xml
+<bean
+  id="hank"
+  class="com.springinaction.springidol.OneManBand"
+  <property name="instruments">
+      <props>
+        <prop key="grutar">guitar</prop>
+      </props>
+  </property>
+/>
+```
