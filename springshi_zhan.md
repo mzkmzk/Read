@@ -232,3 +232,10 @@ List,set:
     <property name="song" value="#{kenny.song}" />
 </bean>
 ```
+
+carl要改变注意了,有一个帮忙选择歌曲的类songSelector,carl要根据他来选择歌
+
+```xml
+<property name="song" value="songSelector.selectSong()" />
+```
+
