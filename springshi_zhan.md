@@ -143,3 +143,5 @@ Spring Bean默认都是单例 修改作用域只需修改scope属性
   <property name="instrument" ref="piano" />
  />
 ```
+###1.5 注入内部Bean
+
