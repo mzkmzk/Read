@@ -350,6 +350,13 @@ spring默认关系注解装配
     2. 不受限于private和set方法/构造函数,可直接在属性上方属性装配
     3. 可设置`@Autowired(required=false)`当装配不成功时,则不装配.但构造器中,只能有一个构造器设置`@Autowired(required=true)`
     4. 当`@Autowired设置多个构造器时`,Spring会从满足装配条件参数最多的构造器.
+    5. 当可装配多个Bean时候,可配置`@Qualifier设置特定的bean`
+        
+        ```java
+         @Autowired
+         @Qualifie("guitar") //指定ID
+         private Instrument instrument;
+        ```    
 2. JSR-330的@Inject
 3. JSR-250的@Resource
 
