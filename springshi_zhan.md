@@ -138,10 +138,20 @@ Spring Bean默认都是单例 修改作用域只需修改scope属性
 
 ```xml
 <bean id="kenny" 
-  class="..."
+  class="com.springinaction.springidol.Instrumentalist"
   <property name="song" value="Jingle Bells"/>
   <property name="instrument" ref="piano" />
  />
 ```
 ###1.5 注入内部Bean
 
+假如kenny想用自己的piano,需要注入内部Bean如何做?
+```xml
+<bean id="kenny" 
+  class="com.springinaction.springidol.Instrumentalist"
+  <property name="song" value="Jingle Bells"/>
+  <property name="instrument" >
+    <bean class="com.springinaction.springidol.Piano">
+  </property>
+ />
+```
