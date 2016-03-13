@@ -482,3 +482,16 @@ private String song;
 
 ##3 面向切面的Spring
 
+场景 电力公司查电表.
+AOP术语
+
+1. 通知(Advice)
+
+    Spring定义的通知
+    
+    1. Before
+    2. After
+    3. After-returning
+    4. After-throwing
+    5. Around: 在被通知的方法调用前和调用后的行为
+2. 连接点(Joinpoint)
