@@ -372,3 +372,12 @@ spring默认关系注解装配
 </beans>
 ```
 
+默认下Spring扫描一下注解
+
+1. @Component: 通用的构造型注解,标识该类为Spring组件
+
+    在声明类的语句上方@Component(可选:指定ID,默认为类名)
+2. @Controller: 标识该类为Spring MVC Controller
+3. @Repository: 标识将该类定义为数据仓库
+4. @Service: 标识将该类定义为服务
+5. 使用@Component标注的任意自定义注解
