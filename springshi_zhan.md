@@ -296,7 +296,7 @@ SpEl支持简单的运算符和正则表达式
 
 ##2. 最小化Spring XML配置
 
-1. 自动装配--减少`<property />`和`<constructor-arg/ >`
+1. 自动装配(autowire)--减少`<property />`和`<constructor-arg/ >`
 2. 自动检测--减少`<bean/>`
 
 ###2.1 自动装配
@@ -304,6 +304,8 @@ SpEl支持简单的运算符和正则表达式
 4种类型的自动装配
 
 1. byName: 与Bean有相同的名字/ID进行自动装配
+
+   即其他Bean的id与本Bean的属性的name匹配即可.
 2. byType: 与Bean的属性具有相同类似的其他Bean自动装配
 3. constructor: 把与Bean的构造器入参具有相同类似的其他Bean自动装配到Bean构造器中
 4. autodetect: 首次尝试使用constructor进行自动装配,如果失败,使用byType进行自动装配 
