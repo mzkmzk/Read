@@ -400,6 +400,12 @@ spring默认关系注解装配
     3. @Qualifier和@Autowired的一样,引用的包不一样而已.
 3. JSR-250的@Resource
 
+如何为注解注入表达式
+
+```java
+@Value(SpEl表达式)
+private String song;
+```
 ###2.3 自动检测Bean
 
 配置文件
@@ -443,3 +449,33 @@ spring默认关系注解装配
 3. aspectj: 扫描与扫描expression指定的AspectJ表达式匹配的类
 4. custom: 使用自定义org.springframework.core.type.TyoeFilter实现类.由expression指定
 5. regex: 过滤与expression正则匹配的类
+
+###2.4 Java代码代替xml配置
+
+1. 定义spring指定配置代码
+      ```xml
+      <beans ...>
+          <context:component-scan 
+              base-package="com.springinaction.springidol"
+      </beans>
+    ```
+2. 配置java文件
+
+    ```java
+    @Configuration
+    public class SpringIdolConfig {
+        
+        //声明ID为duke的JugglerBean
+        @Bean
+        public Performer duke() {
+            return new Juggler();
+        }
+        
+        //依赖注入set
+        public Performer kenny() {
+            Instrumentalist kenny = new Instrumentalist();
+            kenny.setSong("Jiggle Bells");
+            return kenny
+        }
+    }
+    ```
