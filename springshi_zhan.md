@@ -508,6 +508,8 @@ AOP术语
   
 ###3.2 使用切点选择连接点
 
+AspectJ切点表达式
+
 1. arg(): 限制连接点匹配参数为指定类型的执行方法
 2. @arg(): 限制连接点匹配参数由指定注解标注的执行方法
 3. execution(): 用于匹配是连接点的执行方法
@@ -518,6 +520,8 @@ AOP术语
 8. @within(): 限制连接点匹配指定注解所标注的类型(使用Spring AOP时,方法定义在指定的注解所标注的类里)
 9. @annotation: 限制匹配带有指定注解连接点
 
+Spring自带表达式
+bean(可指定id)
 ###3.3 编写切点
 
 `execute(* com.springinaction.springidol.Instrument.play(..) && within(com.spring.idol.springidol.*))`
@@ -528,5 +532,7 @@ AOP术语
 2. .. 嗲表不限定参数
 3. 当`com.springinaction.springidol.Instrument`执行play方法时
 4. 当方法所在类在`com.spring.idol.springidol`包中.
+
+
 
 
