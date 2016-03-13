@@ -366,7 +366,15 @@ spring默认关系注解装配
          同作用
          ```java
          @Qualifier("stringed")
-         publicclass Guitar implements Instrument{...}
+         public class Guitar implements Instrument{...}
+         ```
+    7. 自定义限定器
+
+         ```java
+         @Target({ElementType.FIELD, ElementType.PARAMETER,ElementType.TYPE})
+         @Retenction(RetentionPolicy.RUNTIME)
+         @Qualifier
+         public @interface StringedInstrument {}
          ```
 2. JSR-330的@Inject
 3. JSR-250的@Resource
