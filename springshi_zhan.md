@@ -334,3 +334,11 @@ SpEl支持简单的运算符和正则表达式
 
 而constructor则不能,必须让spring自己去匹配.
 
+###2.2 使用注解装配
+
+spring默认关系注解装配
+
+使用前需要在context命名空间设置
+
+<context: annotation-config>
+
