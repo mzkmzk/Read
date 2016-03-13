@@ -327,3 +327,10 @@ SpEl支持简单的运算符和正则表达式
   default-autowire="byType"
 />
 ```
+
+混合使用自动装配和显式装配
+
+当byType出现冲突时,可以在本bean中显示的调用其他bean.
+
+而constructor则不能,必须让spring自己去匹配.
+
