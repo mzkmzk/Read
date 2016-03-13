@@ -296,3 +296,7 @@ SpEl支持简单的运算符和正则表达式
 
 ##2. 最小化Spring XML配置
 
+1. 自动装配--减少`<property />`和`<constructor-arg/ >`
+2. 自动检测--减少`<bean/>`
+
+
