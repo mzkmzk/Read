@@ -211,3 +211,9 @@ List,set:
 
 语法: `#{Spel表达式}`
 
+引用Bean
+
+```xml
+<property name="instrument" ref="saxophone" />
+```
+
