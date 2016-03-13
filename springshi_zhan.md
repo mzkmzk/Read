@@ -392,8 +392,9 @@ spring默认关系注解装配
     </context:component-scan>
 </beans>
 ```
-这就把指定的包内都自动识别为加上了`@Component`的Spring Bean
-当然我们也可以使用`context:exclude-filter`进行相关的关铝
+识别expression指定路径的类及其派生出来的类为Spring Bean
+
+当然我们也可以使用`context:exclude-filter`进行相关的操作
 
 但是type的属性有哪一些?
 
