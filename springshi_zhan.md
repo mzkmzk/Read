@@ -207,3 +207,7 @@ List,set:
 <property name="someNonNullProperty"><null/></property>
 ```
 
+###1.8 SpEl表达式
+
+语法: `#{Spel表达式}`
+
