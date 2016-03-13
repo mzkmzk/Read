@@ -317,4 +317,4 @@ SpEl支持简单的运算符和正则表达式
 
   与byType类似,构造器找到对应的Bean就注入,但仍可能出现多个Bean都适合.
   
-4. autodetect: 首次尝试使用constructor进行自动装配,如果失败,使用byType进行自动装配 
+4. autodetect: 首次尝试使用constructor进行自动装配,如果失败(没有发现与构造器匹配的Bean),使用byType进行自动装配 
