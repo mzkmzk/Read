@@ -319,7 +319,7 @@ SpEl支持简单的运算符和正则表达式
   
 4. autodetect: 首次尝试使用constructor进行自动装配,如果失败(没有发现与构造器匹配的Bean),使用byType进行自动装配 
 
-设置默认装配方式
+改变默认装配方式,默认为none;
 
 ```xml
 <beans 
