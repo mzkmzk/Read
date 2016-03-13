@@ -362,3 +362,13 @@ spring默认关系注解装配
 
 ###2.3 自动检测Bean
 
+配置文件
+
+```xml
+<beans ...>
+    <context:component-scan
+        base-pachage="com.springinaction.springidol"><!--指定扫描包路径-->
+    </context:component-scan>
+</beans>
+```
+
