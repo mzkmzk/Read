@@ -253,9 +253,18 @@ Doctor麦说过啥..不要相信任何程序员写的东西....这里selectSong�
 
 ?.用来判断非空值才继续执行后面的方法
 
-操作类的静态方法和变量
+操作类的静态方法和变量 `T()`
 
 ```xml
 <property name="multiplier" value="#{T(java.lang.Math).PI}" />
 <property name="randomNumber" value="#{T(java.lang.Math).random()}"
 ```
+
+SpEl支持简单的运算符和正则表达式
+
+例如验证email,matches返回一个布尔
+
+```xml
+<property name="validEmail" value="#{admin.email matches  '[a-zA-Z0-9._%+-]+@[a-zA-z0-9.-]+\\.com'}"
+```
+
