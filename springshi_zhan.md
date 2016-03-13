@@ -381,3 +381,24 @@ spring默认关系注解装配
 3. @Repository: 标识将该类定义为数据仓库
 4. @Service: 标识将该类定义为服务
 5. 使用@Component标注的任意自定义注解
+
+但是使用`@Component`来标注所有Spring Bean会显得很麻烦,有什么过滤方法吗
+
+```xml
+<beans ...>
+    <context:component-scan
+        base-pachage="com.springinaction.springidol"><!--指定扫描包路径-->
+        <context:include-filer type="assignable" expression="com.springinaction.springidol.Instrument"
+    </context:component-scan>
+</beans>
+```
+这就把指定的包内都自动识别为加上了`@Component`的Spring Bean
+当然我们也可以使用`context:exclude-filter`进行相关的关铝
+
+但是type的属性有哪一些?
+
+1. annotation: 
+2. assignable:
+3. aspectj:
+4. custom:
+5. regex:
