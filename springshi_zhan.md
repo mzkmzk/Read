@@ -268,3 +268,20 @@ SpEl支持简单的运算符和正则表达式
 <property name="validEmail" value="#{admin.email matches  '[a-zA-Z0-9._%+-]+@[a-zA-z0-9.-]+\\.com'}"
 ```
 
+查询集合成员
+
+查询人口大于10000的城市
+
+```xml
+<property name="bigCities" value="#{cities.?[population > 10000]}" />
+```
+
+匹配第一个符合条件的城市
+```xml
+<property name="bigCities" value="#{cities.^[population > 10000]}" />
+```
+
+匹配最后一个符合条件的城市
+```xml
+<property name="bigCities" value="#{cities.$[population > 10000]}" />
+```
