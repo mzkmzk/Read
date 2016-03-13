@@ -533,6 +533,19 @@ bean(可指定id)
 3. 当`com.springinaction.springidol.Instrument`执行play方法时
 4. 当方法所在类在`com.spring.idol.springidol`包中.
 
+###3.4 在XML中声明切面
+
+1. `<aop:advisor>`: 定义AOP通知器
+2. `<aop:after>`: 定义后置通知
+3. `<aop:after-returning>`
+4. `<aop:after-throwing>`
+5. `<aop:around>`
+6. `<aop:aspect>`:定义切面
+7. `<aop:aspectj-autoproxy>`:启动@AspectJ注解驱动的切面
+8. `<aop:before>`
+9. `<aop:config>`: 顶层的AOP配置元素
+10. `<aop:declare-parents>`: 为被通知的对象引入额外的接口,并透明地实现
+11. `<aop:pointcut>`:定义切点     
 
 
 
