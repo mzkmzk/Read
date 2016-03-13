@@ -397,7 +397,7 @@ spring默认关系注解装配
     
     1. 没有required属性,匹配不上Bean,选择报错
     2. @Named和@Qualifier对应,但@Named只选择Bean ID筛选.
-    3. @
+    3. @Qualifier和@Autowired的一样,引用的包不一样而已.
 3. JSR-250的@Resource
 
 ###2.3 自动检测Bean
