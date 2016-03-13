@@ -285,3 +285,14 @@ SpEl支持简单的运算符和正则表达式
 ```xml
 <property name="bigCities" value="#{cities.$[population > 10000]}" />
 ```
+
+投影集合
+
+若只需获得人口城市的名字和状态属性
+
+```xml
+<property name="bigCities" value="#{cities.![name+','+static]}" />
+```
+
+##2. 最小化Spring XML配置
+
