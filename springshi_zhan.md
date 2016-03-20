@@ -737,6 +737,15 @@ public class CriticismEngineImple implements CriticismEngine {
 ### 5. 1 定义事务属性
 
 1. 传播行为
+
+     传播规则说明:新事务应该被启动还是被挂起,方法是否要在事务环境中运行.
+     1. PROPAGATION_MANDATORY: 表示该方法必须要在事务中运行
+     2. PROPAGATION_NESTED: 表示如果当前已经存在一个事务,那么该方法将会在嵌套事务中运行,嵌套事务可以独立于当前事务进行单独的提交/回滚.
+     3. PROPAGATION_NEVER: 表示当前方法不应该运行在事务上下文中.
+     4. PROPAGATION_NOT_SUPPORTED: 表示该方法不应该运行在事务中,如果存在当前事务,在该方法运行期间,当前事务将会被挂起.
+     5. PROPAGATION_REQUIRED: 表示当前方法必须运行在事务中.
+     6. PROPAGATION_REQUIRES_NEW: 表示当前方法必须运行在自己的事务中,一个新的事务将会被启动,如果存在当前事务,在该方法执行期间,当前事务会被挂起
+     7. PROPAGATION_SUPPORTS: 表示当前方法不需要事务上下文,如果存在当前事务的话,那么该方法会在这个事务中运行.
 2. 隔离级别
 3. 回滚规则
 4. 事务超时
