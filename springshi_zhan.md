@@ -802,6 +802,32 @@ public class CriticismEngineImple implements CriticismEngine {
 <tx:annotation-driven transaction-manager="txManager" />
 ```
 
+```java
+@Transactional(propagation="Propagation.SUPPORTS, readOnly=true")
+public class SpitterServiceImpl implements SpitterSevice {
+   
+   @Transactional(propagation=Progation.REQUIRED,readOnly=false)
+    public vod addSpitter(Spitter spitter) {...}
+}
+```
+
+## 6. 使用Spring MVC
+
+本章主要讲解视图层的各种标签使用.
+
+但是笔者比较推崇前后端分离,严重拒绝这种前后端紧紧耦合的设计.
+
+所以这里没细读.
+
+## 7. Spring Web Flow
+
+这里主要介绍了`Spring Web Flow`框架.
+
+其主要实现是把一个模块的逻辑都编写在xml中,发送的情况可以在xml文件中一目了然,这种方式其实有点模块化,就是把特定的一系列行为封装起来.
+
+还是很不错的.
+
+## 8. 保护Spring应用
 
 
 
