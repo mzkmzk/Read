@@ -857,5 +857,9 @@ REST(Pepresentational State Transfer)表述性状态转移
 
 ## 13. 其他Spring技巧
 
-
+1. 外部化配置
+2. 将JNDI资源装配到Spring
+3. 发送Email
+4. 调度任务
+5. 异步方法
 
