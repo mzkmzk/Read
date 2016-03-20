@@ -608,4 +608,109 @@ bean(可指定id)
 3. `delegate-ref`: 指定由什么类来实现`implement-interface`接口.
 4. `delegate-impl`: 和`delegate-ref`类似,`delegate-ref`指定的Spring Bean,而`delegate-impl`指定特定的类.
 
+###3.4.3 注解切面
 
+```java
+@Aspect
+public class Audienct {
+    @Pointcut(execution(* com.springinaction.springidol.Performer.perform(..)) *)//定义切点.
+    public void performance(){}//方法内容并不重要,主要用于给@Pointcut注解
+    
+    @Before("performance()")
+    public void task_seats() {
+        System.out.println("表演前");
+    }
+    
+    @AfterReturning("performance()")
+    public void applaud() {
+        System.out.println("表演之后");
+    }
+    
+    @AfterThrowing("performance()")
+    public vod demandRefund() {
+        System.out.println("出异常拉")
+    }
+}
+```
+
+###3.4.5 给注解添加方法
+```java
+@Aspect
+public class ContestanIntroducer {
+    @DeclareParents(
+        value = "com.springinaction.springidol.Performer+",
+        defaultImpl = GraciousContestanct.class
+    )
+    public static Contestanct contestant;
+}
+```
+
+###3.5 注入Aspectj切面
+
+注入Aspectj切面比Spring AOP要强大,Aspectj不用依赖Spring.
+
+当Spring无法解决我们的问题,请用更强大的Aspectj.
+```java
+public aspect JudgeAspect {
+    public JudgeAspect(){}
+    
+    pointcut performance() : execution(* perform(..));
+    
+    after returning() : performance() {
+        System.out.println(criticism_engine_get_criticism());
+    }
+    
+    //injected
+    private CriticismEngine criticism_engine;
+    
+    public void setCriticismEngine(CriticismEngine criticism_engine) {
+        this.criticism_engine = criticism_engine;
+    }
+}
+```
+
+`Judge_Aspect`主要用于比赛后发表言论,言论从`CriticismEngine`中随机获取...
+
+```java
+public class CriticismEngineImple implements CriticismEngine {
+    public CriticismEngineImpl(){}
+    
+    public String getCriticism() {
+    int i = (int)(Math.random() * criticismPool.length);
+    return criticismPool[i];
+    }
+    
+    //injected
+    private String criticismPool;
+    public void setCriticismPool(String[] criticismPool) {
+        this .criticismPool = criticismPool;
+    }
+} 
+
+```
+
+在Bean注入言论
+```xml
+<bean id="criticismEngine"
+    class="com.springinaction.springidol.CriticismEngineImpl">
+       <property name="criticisms">
+           <list>
+               <value>麦哥牛逼</value>
+               <value>麦哥好帅</value>
+           </list>
+       </property>
+ </bean>
+```
+
+但是我们的Spring可以使用`Aspect`切面
+
+```xml
+<bean class="com.springinaction.springidol.JudgeAspect"
+      factory-method="aspectOf">
+      <property name="critismEngine" ref="criticismEngine"> 
+</bean>
+```
+
+因为Aspect切面由AspectJ运行时创建,所以Spring有机会为JudgeAspect注入CriticismEngine时候,JudgeAspect已经被实例化.所以就无法声明JudgeAspect声明为一个Bean.
+
+但是AspectJ提供了静态的`aspectOf()`方法返回切面的实例.
