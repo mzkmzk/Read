@@ -746,10 +746,53 @@ public class CriticismEngineImple implements CriticismEngine {
      5. PROPAGATION_REQUIRED: 表示当前方法必须运行在事务中.
      6. PROPAGATION_REQUIRES_NEW: 表示当前方法必须运行在自己的事务中,一个新的事务将会被启动,如果存在当前事务,在该方法执行期间,当前事务会被挂起
      7. PROPAGATION_SUPPORTS: 表示当前方法不需要事务上下文,如果存在当前事务的话,那么该方法会在这个事务中运行.
-2. 隔离级别
-3. 回滚规则
-4. 事务超时
-5. 是否只读
+2. 隔离级别: 定义一个事务可能受其他并发事务的影响程度
+
+  并发可能引起的问题
+    
+    1. 脏读(Dirty reads): 一个事务读取了另外一个事务改写但尚未提交的数据,如果另一个事务回滚了,那么本身的事务数据是无效的
+    2. 不可重复读(Nonrepeatable read): 一个事务执行相同的查询两次或两次以上,但是每次得到都是不同的数据时,通常因为有其他并发事务在更新数据.
+    3. 幻读(Phantom read): 与不可重复读类似,例如T1事务读取了几行数据,接着T2事务插入了数据,而随后的查询中,T1会发现原本不存在的记录.
+    
+ 隔离级别的定义 
+
+    1. ISOLATION_DEFAULT: 使用数据库默认的隔离级别
+    2. ISOLATION_READ_UNCOMMITTED: 允许读取尚未提交的数据变更
+    3. ISOLATION_READ_COMMITTED: 允许读取并发事务已经提交的数据,可以防止脏读,但是不可重复读和幻读仍有可能.
+    4. ISOLATION_PEPEATABLE_READ: 对统一字段的多次读取结果是一致的,除非数据是被本身事务所修改,可以防止脏读和不可重复读,但是幻读仍有可能.
+    5. ISOLATION_SERIALIZABLE: 完成服从ACID级别,可防止脏读、不可重复读和幻读,但是这是最慢的,因为它通常通过完全锁定事务相关的数据库表来实现.
+3. 是否只读: 只对数据库进行读操作,可以用于优化,因为只读优化实在事务启动时由数据库实施的,所以只对启动一个新事务的传播行为(PROPAGATION_REQUIRED、PROPAGATION_REQUIRES_NEW以及PROPAGATION_NESTED)才有意义
+4. 事务超时: 事务超时,超过特定秒数就会回滚,只对启动一个新事务的传播行为(PROPAGATION_REQUIRED、PROPAGATION_REQUIRES_NEW以及PROPAGATION_NESTED)才有意义
+5. 回滚规则: 默认发生运行时异常,会回滚,也可指定特定异常回滚/不回滚
+
+配置文件指定隔离级别
+
+```xml
+<tx:advice id="txAdvice">
+  <tx:attributes>
+      <tx:method name="save" propagation="REQUIRED" read-only="true"/>
+      ...
+  </tx:attributes>
+</tx:advice>
+```
+
+在`<tx:method>`定义隔离级别
+
+1. isolation: 指定事务隔离级别
+2. propagation: 定义事务传播规则
+3. read-only: 是否只读
+4. rollback-for/no-rollback-for: 指定特定异常回滚/不回滚
+5. timeout: 指定超时时间
+
+在AOP中设定事务
+
+```xml
+<aop:config>
+  <aop:advisor
+    pointcut="execution(* *..SpitterService.*(..))"
+    advice-ref="txAdvice" />
+</aop:config>
+```
 
 
 
