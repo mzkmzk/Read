@@ -727,4 +727,20 @@ public class CriticismEngineImple implements CriticismEngine {
 
 全有或全无的操作称为事务.
 
+事务的ACID
+
+1. 原子性(Atomic): 全部发送/全部不发送
+2. 一致性(Consistent): 一旦事务完成,系统涉及到的业务状态一致
+3. 隔离性(Isolated): 用户的操作不会与其他用户纠缠在一起
+4. 持久性(Durable): 事务完成,数据库也要完成持久化
+
+### 5. 1 定义事务属性
+
+1. 传播行为
+2. 隔离级别
+3. 回滚规则
+4. 事务超时
+5. 是否只读
+
+
 
