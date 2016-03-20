@@ -717,3 +717,14 @@ public class CriticismEngineImple implements CriticismEngine {
 
 ## 4.征服数据库
 
+这里主要讲解了Spring对JDBC模板,Hibernate和JPA的集成应用.
+
+主要讲配置文件如何使用.
+
+本文,主要想探讨AOP的应用方式,所以这部分略过.
+
+## 5. 事务管理
+
+全有或全无的操作称为事务.
+
+
