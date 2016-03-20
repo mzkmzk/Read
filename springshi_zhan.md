@@ -572,7 +572,7 @@ bean(可指定id)
 10. `<aop:declare-parents>`: 为被通知的对象引入额外的接口,并透明地实现
 11. `<aop:pointcut>`:定义切点     
 
-### 3.4.1 为通知传递参数
+#### 3.4.1 为通知传递参数
 
 假如现在有一名正在想东西的人,我们有一个读心者,需要获取他正在想的东西
 
@@ -592,7 +592,7 @@ bean(可指定id)
 
 ```
 
-### 3.4.2 为切面新增新方法
+#### 3.4.2 为切面新增新方法
 
 ```xml
 <aop:aspect>
@@ -608,7 +608,7 @@ bean(可指定id)
 3. `delegate-ref`: 指定由什么类来实现`implement-interface`接口.
 4. `delegate-impl`: 和`delegate-ref`类似,`delegate-ref`指定的Spring Bean,而`delegate-impl`指定特定的类.
 
-###3.4.3 注解切面
+#### 3.4.3 注解切面
 
 ```java
 @Aspect
@@ -633,7 +633,7 @@ public class Audienct {
 }
 ```
 
-###3.4.5 给注解添加方法
+#### 3.4.5 给注解添加方法
 ```java
 @Aspect
 public class ContestanIntroducer {
@@ -645,7 +645,7 @@ public class ContestanIntroducer {
 }
 ```
 
-###3.5 注入Aspectj切面
+### 3.5 注入Aspectj切面
 
 注入Aspectj切面比Spring AOP要强大,Aspectj不用依赖Spring.
 
@@ -714,3 +714,6 @@ public class CriticismEngineImple implements CriticismEngine {
 因为Aspect切面由AspectJ运行时创建,所以Spring有机会为JudgeAspect注入CriticismEngine时候,JudgeAspect已经被实例化.所以就无法声明JudgeAspect声明为一个Bean.
 
 但是AspectJ提供了静态的`aspectOf()`方法返回切面的实例.
+
+## 4.政府数据库
+
