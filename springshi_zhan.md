@@ -606,5 +606,6 @@ bean(可指定id)
 1. `aop:declare-parents`: 透明的给被通知Bean引入额外的接口
 2. `types-matching`: 哪些类会实现`implement-interface`指定的接口.
 3. `delegate-ref`: 指定由什么类来实现`implement-interface`接口.
+4. `delegate-impl`: 和`delegate-ref`类似,`delegate-ref`指定的Spring Bean,而`delegate-impl`指定特定的类.
 
 
