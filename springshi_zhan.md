@@ -843,5 +843,7 @@ public class SpitterServiceImpl implements SpitterSevice {
 
 ## 10.为Srping添加REST功能
 
+REST(Pepresentational State Transfer)表述性状态转移
+
 
 
