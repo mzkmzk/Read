@@ -794,5 +794,14 @@ public class CriticismEngineImple implements CriticismEngine {
 </aop:config>
 ```
 
+### 5.2 注解事务
+
+指定事务管理器,查找Spring上下文查找`@Transactional`注解的Bean
+
+```xml
+<tx:annotation-driven transaction-manager="txManager" />
+```
+
+
 
 
