@@ -572,7 +572,7 @@ bean(可指定id)
 10. `<aop:declare-parents>`: 为被通知的对象引入额外的接口,并透明地实现
 11. `<aop:pointcut>`:定义切点     
 
-为通知传递参数
+### 3.4.1 为通知传递参数
 
 假如现在有一名正在想东西的人,我们有一个读心者,需要获取他正在想的东西
 
@@ -591,5 +591,20 @@ bean(可指定id)
 </aop:config>
 
 ```
+
+### 3.4.2 为切面新增新方法
+
+```xml
+<aop:aspect>
+    <aop:declare-parents 
+        types-matching="com.sprintinaction.springidol.Performer+"
+        implement-interface="com.springinaction.springidol.Contestant"
+        delegate-ref="contestantDelegate"
+    />
+</aop:aspect>
+```
+1. `aop:declare-parents`: 透明的给被通知Bean引入额外的接口
+2. `types-matching`: 哪些类会实现`implement-interface`指定的接口.
+3. `delegate-ref`: 指定由什么类来实现`implement-interface`接口.
 
 
