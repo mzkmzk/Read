@@ -835,5 +835,13 @@ public class SpitterServiceImpl implements SpitterSevice {
 2. 基于数据库和LDAP进行认证
 3. 透明地对方法调用进行保护
 
+## 9. 使用远程服务
+
+里面罗列了RMI,Hessian,Burlap等远程服务.
+
+笔者对这些并不怎么感冒,,为啥不直接通过HTTP API访问.....
+
+## 10.为Srping添加REST功能
+
 
 
