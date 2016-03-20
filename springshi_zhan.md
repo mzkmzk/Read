@@ -829,5 +829,11 @@ public class SpitterServiceImpl implements SpitterSevice {
 
 ## 8. 保护Spring应用
 
+介绍了`Spring Security`,主要通过注解方式对系统进行维护,主要介绍了
+
+1. 使用Servlet过滤器波阿虎WEB应用
+2. 基于数据库和LDAP进行认证
+3. 透明地对方法调用进行保护
+
 
 
