@@ -528,8 +528,8 @@ bean(可指定id)
 
 上面语句限制的切点范围:
 
-1. * 代表不限定返回类型
-2. .. 嗲表不限定参数
+1. `*` 代表不限定返回类型
+2. `..` 嗲表不限定参数
 3. 当`com.springinaction.springidol.Instrument`执行play方法时
 4. 当方法所在类在`com.spring.idol.springidol`包中.
 
@@ -537,9 +537,34 @@ bean(可指定id)
 
 1. `<aop:advisor>`: 定义AOP通知器
 2. `<aop:after>`: 定义后置通知
-3. `<aop:after-returning>`
-4. `<aop:after-throwing>`
-5. `<aop:around>`
+3. `<aop:after-returning>`: 定义运行后返回返回值,触发的方法 
+4. `<aop:after-throwing>`: 定义运行后异常的处理方法
+5. `<aop:around>` :定义AOP环绕通知
+  
+    环绕的通知作用是:当执行前和执行后有共同变量需要获取,例如要获取方法执行所耗费的时间.
+    
+    ```java
+    public void watch_performance(ProceedingJoinPoint joinpoint) {
+        try {
+             long start = System.currentTimeMillis();//方法执行前
+             joinpoint.proceed();//执行被通知的方法
+             long end =System.currentTimeMillis();//方法执行后
+        } catch (Throwable t) {
+            System.out.println("异常");//表演失败后.
+        }
+    }
+    ```
+    
+    声明环绕通知
+    
+    ```xml
+    <aop:config>
+        <aop:aspect ref="audience">
+            <aop:pointcut id="performance2" expression ="execution (* com.springinaction.springidol.Performer.perform(//)) *" />
+            <aop:around pointcut-ref="performance2" method ="watch_performace()" />
+        </aop:aspece>
+    </aop:config>
+    ```
 6. `<aop:aspect>`:定义切面
 7. `<aop:aspectj-autoproxy>`:启动@AspectJ注解驱动的切面
 8. `<aop:before>`
@@ -547,5 +572,24 @@ bean(可指定id)
 10. `<aop:declare-parents>`: 为被通知的对象引入额外的接口,并透明地实现
 11. `<aop:pointcut>`:定义切点     
 
+为通知传递参数
+
+假如现在有一名正在想东西的人,我们有一个读心者,需要获取他正在想的东西
+
+```xml
+<aop:config>
+    <aop:aspect ref="magician"
+        <aop:pointcut id="thinking"
+            expression="execution(* com.springincation.springidol.Thinker.think_of_something(String)) and (thoughts)"
+        />
+    <aop:before 
+        pointcut-ref="thinking"
+        method="interceptThoughts"
+        arg-names="thoughts">    
+    /aop:aspect>
+
+</aop:config>
+
+```
 
 
