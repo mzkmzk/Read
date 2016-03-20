@@ -849,5 +849,9 @@ REST(Pepresentational State Transfer)表述性状态转移
 
 ## 11. Spring消息
 
+主要介绍Spring 的JMS invoker 和 Lingo 配置Spring消息
+
+## 12. 使用JXM管理Spring Bean
+
 
 
