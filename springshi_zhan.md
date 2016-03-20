@@ -853,5 +853,9 @@ REST(Pepresentational State Transfer)表述性状态转移
 
 ## 12. 使用JXM管理Spring Bean
 
+将Spring Bean 导出为JMX Mbean.....这章的作用不详...
+
+## 13. 其他Spring技巧
+
 
 
