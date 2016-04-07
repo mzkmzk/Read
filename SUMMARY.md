@@ -37,7 +37,7 @@
    * [Spring实战](springshi_zhan.md)
 * [Utils](utils.md)
    * [Pro_Git](progit.md)
-   * 重构改善既有代码的设计
+   * [重构改善既有代码的设计](zhong_gou_gai_shan_ji_you_dai_ma_de_she_ji.md)
 * [安全](an_quan.md)
    * [白帽子讲WEB安全](bai_mao_zi_jiang_web_an_quan.md)
 
