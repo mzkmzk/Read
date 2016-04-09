@@ -7,9 +7,9 @@ Javascript组成
 3. BOM(浏览器对象模型)
 
 
-##1. 基础
+#1. 基础
 
-#1.1 `<script>`元素
+##1.1 `<script>`元素
 
 1. async: 下载脚本时,异步执行,不阻塞其他页面渲染.
 2. defer: 是否延迟到文档完全解析和显示完再执行(但下载还是会顺序下载).
@@ -177,9 +177,9 @@ var num = selectFrom(2,10);//获取包括2和10的一个数值.
 
 1. 原型继承:如何取决在prototype还是在构造方法中定义哪些属性,构造函数定义实例间不同的属性,而prototype定义实例间共享的属性和方法
 
-##2. 继承
+#2. 继承
 
-###2.1 组合继承
+##2.1 组合继承
 
 ```javascript
 function SuperType(name){
@@ -216,7 +216,7 @@ instance2.sayName();/404
 instance2.sayAge(); //22
 ```
 
-###2.2 寄生组合继承
+##2.2 寄生组合继承
 
 ```javascript
 function inheritPrototype(subType,superType){
@@ -246,7 +246,7 @@ SubType.prototype.sayAge = function(){
 };
 ```
 
-##3. 函数表达式
+#3. 函数表达式
 
 递归保险的写法
 
@@ -272,4 +272,8 @@ var factorial = (function f(num){
 第一个大的()代表包含的函数表达式,后面的()代表调用这个函数.和普通函数一样,可以在里面放参数,里面的函数即可访问到这些参数
 
 这样做也可以防止闭包占用内存问题.因为函数一旦完成,里面的作用域链就会销毁.
+
+# 4. 客户端检测
+
+
 
