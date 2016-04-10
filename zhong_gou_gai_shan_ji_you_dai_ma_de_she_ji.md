@@ -111,3 +111,7 @@
 
 ### 7.3 Extract Class
 
+### 7.4 Inline Class
+
+### 7.5 Hide Delegate
+
