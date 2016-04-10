@@ -101,4 +101,4 @@
 
 ### 6.8 Replace Method with Method Object
 
-
+### 6.9 Substitute Algorithm
