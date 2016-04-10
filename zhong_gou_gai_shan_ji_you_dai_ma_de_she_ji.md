@@ -95,3 +95,6 @@
 
 ### 6.5 Introduce Explaining Variable
 
+### 6.6 Split Temporary Variable
+
+
