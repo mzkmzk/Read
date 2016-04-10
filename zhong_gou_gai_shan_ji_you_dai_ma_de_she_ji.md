@@ -115,5 +115,9 @@
 
 ### 7.5 Hide Delegate
 
-### 7.6 Introduce Foreign Method
+### 7.6 Remove Middle Man
+
+### 7.7 Introduce Foreign Method
+
+### 7.8 Introduce Local Extension
 
