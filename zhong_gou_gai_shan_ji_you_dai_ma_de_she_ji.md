@@ -99,4 +99,6 @@
 
 ### 6.7 Remove Assignments toPrameters
 
+### 6.8 Replace Method with Method Object
+
 
