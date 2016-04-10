@@ -102,3 +102,6 @@
 ### 6.8 Replace Method with Method Object
 
 ### 6.9 Substitute Algorithm
+
+## 7. 在对象之间搬移特性
+
