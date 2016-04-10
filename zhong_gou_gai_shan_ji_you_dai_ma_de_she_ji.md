@@ -93,5 +93,5 @@
 
 ### 6.4 Replace Temp with Query
 
-
+### 6.5 Introduce Explaining Variable
 
