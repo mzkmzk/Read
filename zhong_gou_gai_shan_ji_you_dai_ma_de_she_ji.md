@@ -91,5 +91,7 @@
 
 ### 6.3 Inline Temp
 
+### 6.4 Replace Temp with Query
+
 
 
