@@ -97,4 +97,6 @@
 
 ### 6.6 Split Temporary Variable
 
+### 6.7 Remove Assignments toPrameters
+
 
