@@ -115,3 +115,5 @@
 
 ### 7.5 Hide Delegate
 
+### 7.6 Introduce Foreign Method
+
