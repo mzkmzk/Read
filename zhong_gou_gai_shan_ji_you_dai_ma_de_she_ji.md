@@ -105,6 +105,9 @@
 
 ## 7. 在对象之间搬移特性
 
-### 7.1 MoveMethod
+### 7.1 Move Method
 
-### 7.2 MoveField 
+### 7.2 Move Field 
+
+### 7.3 Extract Class
+
