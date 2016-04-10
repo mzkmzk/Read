@@ -121,3 +121,27 @@
 
 ### 7.8 Introduce Local Extension
 
+## 8. 重新组织数据
+
+### 8.1 Self Encapsulate Field
+
+### 8.2 Replace Data Value with Object
+
+### 8.3 Change Value to Reference 
+
+### 8.4 Change Reference to Value
+
+### 8.5 Replace Array with Object 
+
+### 8.6 Duplicate Observed Date
+
+### 8.7 Change Unidirectional Association to Bidirectional
+
+### 8.8 Change Bidirectional Association toUnidirectional 
+
+###8.9 Replace Magic Number with Symbolic Constant
+
+### 8.10 Encapsulate Field
+
+### 8.11 Encapsulate Collection
+
