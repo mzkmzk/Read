@@ -165,5 +165,9 @@
 
 ### 9.4 Remove Control Flag(移除控制标记)
 
+### 9.5 Replace Nested Conditional with Guard Clauses(以卫语句取代嵌套条件表达式)
+
+### 9.6 Replace Conditional with Polymorphism (以多态取代条件表达式)
+
 
 
