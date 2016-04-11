@@ -171,3 +171,7 @@
 
 ### 9.7 Introduce Null Object(引入NULL)
 
+### 9.8 Introduce Assertion (引入断言)
+
+
+
