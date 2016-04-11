@@ -235,5 +235,9 @@
 
 ### 12.1 Tease Apart Inheritance (梳理并分解继承体系)
 
-### 12.
+### 12.2 Convert Design to Object (将过程设计转换为对象设计)
+
+### 12.3 Seprate Domain from Presentation (将领域和表述/显示分离)
+
+
 
