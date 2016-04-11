@@ -181,5 +181,59 @@
 
 ### 10.3 Remove Parameter (移除参数)
 
+### 10.4 Separate Query from Modifier(将查询函数和修改函数分离)
+
+### 10.5 Parameter Method(令函数携带参数)
+
+### 10.6 Replace Parameter with Explicit Methods(以明确函数取代参数)
+
+### 10.7 Preserve Whole Object(保持对象完整)
+
+### 10.8 Replace Parameter with Methods(以函数取代参数)
+
+### 10.9 Introduce Parameter Object(引入参数对象)
+
+### 10.10 Remove Setting Method(移除设置函数)
+
+### 10.11 Hide Method(隐藏函数)
+
+### 10.12 Replace Constructor with Factory Method(以工厂函数取代构造函数)
+
+### 10.13  Encapsulate Downcast (封装向下转型)
+
+### 10.14 Replace Error Code with Exception (以异常取代错误码)
+
+### 10.15 Replace Exception with Test(以测试取代异常)
+
+## 11 处理概括关系
+
+### 11.1 Pull Up Field(字段上移)
+
+### 11.2 Pull Up Method(函数上移)
+
+### 11.3 Pull Up Constructor Body(构造函数本体上移)
+
+### 11.4 Push Down Method(函数下移)
+
+### 11.5 Push Down Field (字段下移)
+
+### 11.6 Extract Subclass(提炼子类)
+
+### 11.7 Extract Superclass(提炼超类)
+
+### 11.8 Extract Interface(提炼接口)
+
+### 11.9 Collapse Hierachy(折叠继承体系)
+
+### 11.10 Form Template Method(塑造模板函数)
+
+### 11.11 Replace Inheritaance with Delegation (以委托取代继承)
+
+### 11.12 Replace Deletegation with Inheritance(以继承取代委托)
+
+## 12 大型重构
+
+### 12.1 Tease Apart Inheritance (梳理并分解继承体系)
+
 
 
