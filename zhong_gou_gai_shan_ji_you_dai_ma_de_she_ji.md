@@ -153,5 +153,13 @@
 
 ### 8.15 Replace Type Code with State/Strategy(以State/Strategy取代类型码)
 
+### 8.16 Replace Sbuclass with Fields(以字段取代子类)
 
+## 9 简化条件表达式
+
+### 9.1 Decompose Conditional(分解条件表达式)
+
+### 9.2  Consolidate Conditional Expression(合并条件表达式)
+
+### 9.3 Consolidate Duplicate Conditional Fragments (合并重复的条件片段)
 
