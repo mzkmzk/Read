@@ -147,7 +147,11 @@
 
 ### 8.12 Replace Record with Data Class
 
-### 8.13
+### 8.13 Replace Type Code with Class(以类取代类型码)
 
 ### 8.14 Replace Type Code with Subclasses(以子类取代类型码)
+
+### 8.15 Replace Type Code with State/Strategy(以State/Strategy取代类型码)
+
+
 
