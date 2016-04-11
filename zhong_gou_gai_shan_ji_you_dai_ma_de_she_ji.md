@@ -177,5 +177,9 @@
 
 ### 10.1 Rename Method (函数改名)
 
+### 10.2 Add Parameter(添加函数)
+
+### 10.3 Remove Parameter (移除参数)
+
 
 
