@@ -239,5 +239,8 @@
 
 ### 12.3 Seprate Domain from Presentation (将领域和表述/显示分离)
 
+### 12.4 Extract Hierachy(提炼继承体系)
+
+### 13 重构,复用与实现
 
 
