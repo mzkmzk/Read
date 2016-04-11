@@ -173,5 +173,9 @@
 
 ### 9.8 Introduce Assertion (引入断言)
 
+## 10 简化函数调用
+
+### 10.1 Rename Method (函数改名)
+
 
 
