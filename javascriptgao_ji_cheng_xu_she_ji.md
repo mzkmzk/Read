@@ -275,5 +275,5 @@ var factorial = (function f(num){
 
 # 4. 客户端检测
 
-
+# 5. DOM
 
