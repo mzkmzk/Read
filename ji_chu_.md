@@ -415,7 +415,6 @@ var p =Object.definePropery({},{
 
 ##24 数组
 
-
 ###24.1 数组方法
 1. 遍历数组之forEach
 
