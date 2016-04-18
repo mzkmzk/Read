@@ -27,7 +27,8 @@
 4. find: 接受集合和返回Boolean的函数,返回第一个为true的元素   
 5. reject: 与find反向查找
 6. all: 接受一个集合和return Boolean的函数,全部true则最终返回true
-7. any: 接受一个集合和return Boolean的函数,有一个true则返回true       
+7. any: 接受一个集合和return Boolean的函数,有一个true则返回true
+8. sortBy:        
 
 用100个函数操作一个数据结构,要比10个函数控制10个数据结构要好
  
