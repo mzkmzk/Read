@@ -28,7 +28,29 @@
 5. reject: 与find反向查找
 6. all: 接受一个集合和return Boolean的函数,全部true则最终返回true
 7. any: 接受一个集合和return Boolean的函数,有一个true则返回true
-8. sortBy:        
+8. sortBy: 接受一个集合和一个返回比较条件的函数
+9. groupBy: 接受一个集合和一个条件函数,并返回一个对象,键为传入函数所返回的条件,值为与其对应的元素
+
+      ```javascript
+      var albums = [
+        {title: "K_title_1",genre: "Metal"},
+        {title: "K_title_2",genre: "Metal"},
+        {title: "F_Title_1",genre: "Fuck"},
+      ]
+      _.groupBy(albums,function(a){ return a.genre});
+      //返回值为 =>
+      {
+        Metal: [
+          {title: "K_title_1",genre: "Metal"},
+          {title: "K_title_2",genre: "Metal"},
+        ]
+        Fuck: [
+          {title: "F_Title_1",genre: "Fuck"},
+        ]
+      }
+      
+      ```
+10. countBy:        
 
 用100个函数操作一个数据结构,要比10个函数控制10个数据结构要好
  
