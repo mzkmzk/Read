@@ -98,5 +98,9 @@
      return "The local was: "+ CAPTURED;
    }
  }
- 
+ var reportLocal = whatWasTheLocal();
+ reportLocal(); //"The local was oh hai"
  ```
+ 
+简单地说: 在调用完whatWasTheLocal后,还能使用她内部定义的变量
+
