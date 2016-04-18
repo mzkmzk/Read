@@ -105,3 +105,21 @@
 简单地说: 在调用完whatWasTheLocal后,还能使用她内部定义的变量
 
 闭包作用: 闭包允许你在创建函数时做一些配置
+
+例如
+
+```javascript
+function createScaleFunction(FACTOR) {
+  return function(v) {
+    return _.map(v.function(n)) {
+      return (n * FACTOR);
+    });
+  }
+}
+
+var scale10 = createScaleFunction(10);
+scale10([1,2]); //=>[10,20]
+
+var scale20 = createScaleFunction(20);
+scale10([1,2]); //=>[20,40]
+```
