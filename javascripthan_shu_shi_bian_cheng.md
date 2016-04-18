@@ -125,3 +125,5 @@ scale10([1,2]); //=>[10,20]
 var scale20 = createScaleFunction(20);
 scale10([1,2]); //=>[20,40]
 ```
+
+## 4. 高阶函数
