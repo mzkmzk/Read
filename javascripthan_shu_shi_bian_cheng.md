@@ -24,6 +24,10 @@
 1. map: 遍历集合并对每一个值调用一个函数,返回结果的集合
 2. reduce: 利用函数将值的集合合并成一个值,该函数接受一个累计值和本次处理的值
 3. filter: 对集合每一个值调用一个返回boolean的函数,抽取返回true的值的集合
+4. find: 接受集合和返回Boolean的函数,返回第一个为true的元素   
+5. reject: 与find反向查找
+6. all: 接受一个集合和return Boolean的函数,全部true则最终返回true
+7. any: 接受一个集合和return Boolean的函数,有一个true则返回true       
 
 用100个函数操作一个数据结构,要比10个函数控制10个数据结构要好
  
