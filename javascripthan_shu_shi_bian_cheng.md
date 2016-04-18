@@ -52,7 +52,12 @@
       }
       
       ```
-10. countBy:        
+10. countBy:  返回groupBy对象的结果总和数
+
+      ```javascript
+      _.countBy(alums, function(a) {return a.genre});
+      //=> {Metal: 2,Fuck: 1}
+      ```
 
 
  
