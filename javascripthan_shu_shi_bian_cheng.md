@@ -58,7 +58,11 @@
       _.countBy(alums, function(a) {return a.genre});
       //=> {Metal: 2,Fuck: 1}
       ```
-
+11. keys: 获取所有key
+12. values: 获取所有value
+13. pluck: 获取指定字段
+14. omit: 筛选不要的字段
+15. pick: 获取要的指定的一个/多个字段
 
  
  
