@@ -142,4 +142,13 @@ function always(VALUE) {
 }
 ```
 
-可以在创建
+可以在调用闭包时传递不一样的函数
+
+```javascript
+var f = always(function(){});
+var g = always(function(){});
+
+f() === f() //true
+f() === g() //false
+```
+
