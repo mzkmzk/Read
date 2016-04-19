@@ -132,3 +132,12 @@ scale10([1,2]); //=>[20,40]
 
 最常用的函数式编程设计
 
+忽略其参数并只返回一个常量的函数
+
+```javascript
+function always(VALUE) {
+  return function() {
+    return VALUE;
+  }
+}
+```
