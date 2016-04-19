@@ -144,6 +144,7 @@ function always(VALUE) {
 
 可以在调用闭包时传递不一样的函数
 
+每一个新的闭包都会捕获不一样的值
 ```javascript
 var f = always(function(){});
 var g = always(function(){});
