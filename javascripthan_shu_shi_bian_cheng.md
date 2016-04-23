@@ -177,3 +177,17 @@ var divide10By = rightCurryDiv(10);
 divide10By(2); //0.2
 ```
 
+深度柯里化
+
+```javascript
+function curry2(fun) {
+  return function(secondArg) {
+    return function (firstArg) {
+      return fun(firstArg,secondArg);
+    }
+  }
+}
+```
+
+对之前的`divideBy10`柯里化
+
