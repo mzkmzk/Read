@@ -155,6 +155,23 @@ f() === g() //false
 
 ## 5.由函数构建函数
 
+### 5.1 柯里化
 
-### 
+柯里化方向只和参数有关系
+
+```javascript
+function leftCurryDiv(n) {
+  return function(d) {
+    return n/d;
+  });
+}
+
+function rightCurryDiv(d) {
+
+  return function(n) {
+    return n/d;
+  }
+  
+};
+```
 
