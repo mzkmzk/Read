@@ -191,3 +191,10 @@ function curry2(fun) {
 
 对之前的`divideBy10`柯里化
 
+```javascript
+function div(n,d) {return n / d}
+
+var div10 =curry2(div)(10);
+
+div(50); //5
+```
