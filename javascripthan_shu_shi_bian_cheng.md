@@ -157,8 +157,6 @@ f() === g() //false
 
 ### 5.1 柯里化
 
-柯里化方向只和参数有关系
-
 ```javascript
 function leftCurryDiv(n) {
   return function(d) {
@@ -167,14 +165,15 @@ function leftCurryDiv(n) {
 }
 
 var divide10By = leftCurryDiv(10);
-divide10By(2); //
+divide10By(2); //5
 
 function rightCurryDiv(d) {
-
   return function(n) {
     return n/d;
   }
-  
 };
+
+var divide10By = rightCurryDiv(10);
+divide10By(2); //0.2
 ```
 
