@@ -166,7 +166,8 @@ function leftCurryDiv(n) {
   });
 }
 
-leftCurryDiv(10); //
+var divide10By = leftCurryDiv(10);
+divide10By(2); //
 
 function rightCurryDiv(d) {
 
