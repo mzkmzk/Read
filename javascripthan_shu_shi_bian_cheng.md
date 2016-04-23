@@ -166,6 +166,8 @@ function leftCurryDiv(n) {
   });
 }
 
+leftCurryDiv(10); //
+
 function rightCurryDiv(d) {
 
   return function(n) {
