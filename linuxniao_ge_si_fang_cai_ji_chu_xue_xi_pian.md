@@ -36,7 +36,7 @@ crontab [-u username] [-l|-e|-r]
 -l: 列出所有crontab
 -r: 删除所有crontab
 ```
-
+命令设置
 
 
 
