@@ -159,7 +159,7 @@ linux开机自启动atd: `chkconfig atd on`
 crontab [-u username] [-l|-e|-r]
 
 -u: 只有root才能执行/帮其他用户新建/删除crontab
--e: 编辑crontab
+-e: 编辑crontab,指定编辑器`EDITOR=vim crontab -e`
 -l: 列出所有crontab
 -r: 删除所有crontab
 ```
