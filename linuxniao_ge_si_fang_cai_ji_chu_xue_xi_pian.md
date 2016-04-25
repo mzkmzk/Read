@@ -24,7 +24,9 @@ grep分析的是一行,当一行中有我们想要的东西,就把该行抽取�
 `--color=auto`是一个很爽的东西,但是每次都要输入吗?.在Mac上改一下`~/.bash_profile`吧
 
 1. ` vim ~/.bash_profile`: 添加`alias grep='grep --color=auto'`
-2. 编译: `source ~/.bash_profile`
+2. 编译: `source ~/.bash_profile`,OK
+
+
 
 
 
