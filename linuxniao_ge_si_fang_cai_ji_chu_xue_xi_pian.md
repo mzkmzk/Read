@@ -13,4 +13,8 @@ linux检查有无atd服务: `/etc/init.d/atd status`
 
 linux开机自启动atd: `chkconfig atd on`
 
+这里发现at在ubuntu和书籍中很多不符,暂不研究
+
+
+
 
