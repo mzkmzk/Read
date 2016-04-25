@@ -26,6 +26,17 @@ linux开机自启动atd: `chkconfig atd on`
 
 优先性: cron.allow>cron.deny
 
+命令说明
+
+```shell
+crontab [-u username] [-l|-e|-r]
+
+-u: 只有root才能执行/帮其他用户新建/删除crontab
+-e: 编辑crontab
+-l: 列出所有crontab
+-r: 删除所有crontab
+```
+
 
 
 
