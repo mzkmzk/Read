@@ -17,14 +17,14 @@ linux开机自启动atd: `chkconfig atd on`
 
 ## 16.3 循环执行的例行性工作调度
 
+### 16.3.1 用户的设置
+
 限制用户
 
 1. 设置允许的用户: /etc/cron.allow
 2. 设置不允许的用户: /etc/cron.deny
 
 优先性: cron.allow>cron.deny
-
-### 16.3.1 
 
 
 
