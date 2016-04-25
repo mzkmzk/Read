@@ -9,3 +9,5 @@
 
 ### 16.2 仅执行一次的工作调度
 
+linux检查有无atd服务: `/etc/init.d/atd status`
+
