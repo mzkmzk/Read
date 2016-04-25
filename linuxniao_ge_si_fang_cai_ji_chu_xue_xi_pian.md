@@ -26,7 +26,9 @@ grep分析的是一行,当一行中有我们想要的东西,就把该行抽取�
 1. ` vim ~/.bash_profile`: 添加`alias grep='grep --color=auto'`
 2. 编译: `source ~/.bash_profile`,OK
 
+正则注意点
 
+1. `^`在`[]`外表示匹配行首,在`[]`内部表示反义
 
 
 
