@@ -36,7 +36,7 @@
    * [PHP核心技术与最佳实践](phphe_xin_ji_zhu_yu_zui_jia_shi_jian.md)
    * [单元测试的艺术](dan_yuan_ce_shi_de_yi_zhu.md)
    * [Spring实战](springshi_zhan.md)
-   * Linux鸟哥私房菜基础学习篇
+   * [Linux鸟哥私房菜基础学习篇](linuxniao_ge_si_fang_cai_ji_chu_xue_xi_pian.md)
 * [Utils](utils.md)
    * [Pro_Git](progit.md)
    * [重构改善既有代码的设计](zhong_gou_gai_shan_ji_you_dai_ma_de_she_ji.md)
