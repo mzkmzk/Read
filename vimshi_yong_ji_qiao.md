@@ -33,3 +33,5 @@
 | 执行替换               | :s/target/replacement | &    | u    |
 | 执行一系列修改         | qx{changes}q          | &x   | u    |
 
+技巧五: 查找并手动替换
+
