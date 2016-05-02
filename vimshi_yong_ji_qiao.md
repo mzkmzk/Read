@@ -113,4 +113,6 @@
 
 查询二合字母表: h digraphs-default/:h digraph-table
 
+### 6. 用替换模式已有文本
+
 
