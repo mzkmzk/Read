@@ -105,6 +105,12 @@
 
 ### 5. 用字符编码插入非常用字符
 
-1. `<C-v>{code}`: 假如
+1. `<C-v>0xx`: 假如a:<C-v>065
+2. `<C-v>u{xxxx}`
+
+
+### 5. 用二合字母插入非常用字符
+
+查询二合字母表: h digraphs-default/:h digraph-table
 
 
