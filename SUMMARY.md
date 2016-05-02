@@ -40,7 +40,7 @@
 * [Utils](utils.md)
    * [Pro_Git](progit.md)
    * [重构改善既有代码的设计](zhong_gou_gai_shan_ji_you_dai_ma_de_she_ji.md)
-   * [VIM使用技巧](vimshi_yong_ji_qiao.md)
+   * [Vim使用技巧](vimshi_yong_ji_qiao.md)
 * [安全](an_quan.md)
    * [白帽子讲WEB安全](bai_mao_zi_jiang_web_an_quan.md)
 
