@@ -139,4 +139,5 @@
 
 1. `:set shiftwidth=4 softtabstop=4 expandtab`: 设置缩进为4
 
+### 4. 只要可能,最好用操作符命令,而不是可视命令
 
