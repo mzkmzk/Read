@@ -137,5 +137,5 @@
 
 ### 3.重复执行面向行的可视命令
 
-
+1. `:set shifwidth=4 softtabstop=4 expandtab`: 设置缩进为4
 
