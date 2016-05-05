@@ -350,3 +350,8 @@ reset和checkout的危险性
 
 ![reset和checkout的危险性](QQ20160117-1.png)
 
+
+## 11. 分布式Git
+
+### 11.2 向一个项目贡献
+
