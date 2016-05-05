@@ -361,6 +361,21 @@ reset和checkout的危险性
 
 ### 12.2 对项目作出贡献
 
+方法一:
+
+1. fork
+2. git clone下来自己刚fork的
+3. 在master新建分支
+4. 修改并push
+5. 在githu上提出合并请求
+
+方法二:
+
+1. 在源版本`git remote add upstream 仓库名`
+2. git fetch upstream
+3. git merge upstream/master
+4. 修改 push
+
 ## 13. Git工具
 
 ### 13.2 交互式缓存
