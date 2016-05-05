@@ -364,3 +364,17 @@ reset和checkout的危险性
 ### 13.2 交互式缓存
 
 作用: 修改一组文件后,把一个提交放到若干个提交
+
+1. git add -i 
+
+    ```javascript
+    What now> 5
+           staged     unstaged path
+  1:        +0/-1        +0/-1 trunk/grouplus-user/resources/assets/js/containers/InfluenceListInvitation.js
+Patch update>>
+*** Commands ***
+  1: status	  2: update	  3: revert	  4: add untracked
+  5: patch	  6: diff	  7: quit	  8: help
+    ```
+    
+    会大概有这么些操作,如果只想改部分可以选择5,然后e,把不要提交的部分的+/-号去掉
