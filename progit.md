@@ -350,9 +350,6 @@ git init --bare,可以生成一个空的仓库,初始化仓库时不会创建工
 3. git merge upstream/master
 4. 修改 push
 
-
-
-
 ##7 Git工具
 
 ### 7.2 交互式缓存
@@ -385,6 +382,19 @@ Patch update>>
     Index 预期的下一次提交的快照
     
     Working Directory 沙盒
+
+查看HEAD
+
+```shell
+404-K:grouplus_front maizhikun$ git cat-file -p HEAD
+tree 65c7a29302b4a9c19784472a5c7a69de8676df9c
+parent 6527dc1391777b062aa3221fca59aefa89f19356
+parent 7991a32b2e0f7f0d77a5dffcb1137270e561ec10
+author Mai ZhiKun <maizk@haplox.com> 1462779643 +0800
+committer Mai ZhiKun <maizk@haplox.com> 1462779643 +0800
+
+fix both
+```
 
 查看Index(下次准备push的)
 
