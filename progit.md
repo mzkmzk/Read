@@ -1,15 +1,15 @@
 >感谢相关翻译组,此文主要参考<http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-Git-%E5%9F%BA%E7%A1%80>
 
-# 基础
+##1.起步
 
-##1 Git的优势
+###1.1 Git的优势
 
 1. `SVN`和`Git`,因为`SVN`要是主机挂了.所有记录都GG了.而`Git`是分布式的.而且`Git`平台比较多,`GitLab`,`coding.net`,`GitHub`等等
 
 2. `Git`可以现在本地执行,可以在本地进行`commit`,而`SVN`每次`commit`都必须是提交到主机.(虽然笔者推荐多push,但是可以本地`commit`有时也是不错的,主要是保证本地能有备份)
 3. `Git`能保证数据完整性,Git中所有数据在存储前都计算校验和,然后以校验来引用,所以你在传送过程中丢失文件,Git都知道(笔者试过一个push断了4次,但是最后还是每次增量的提交了上去.)
 
-##2. Git和SVN存储方式的不同
+###1.2 Git和SVN存储方式的不同
 
 SVN :
 
@@ -27,7 +27,7 @@ Git的每个版本的文件是独立存在的,是直接记录快照.
 
 
 
-##3. Git的三个工作区域和三种状态
+###1.3 Git的三个工作区域和三种状态
 
 ![Git三个工作区域](QQ20160103-2.png)
 
@@ -53,14 +53,14 @@ Git的每个版本的文件是独立存在的,是直接记录快照.
 以上状态都可以通过`git status`查看 or 紧凑一点的`git status -s`
 
 
-##4. 安装Git
+### 1.4安装Git
 
     //ubuntu
     apt-get install git
     
 其他版本系统 :<http://git-scm.com/downloads>   
 
-##5. Git配置
+###1.5 Git配置
 
 1. 全局系统配置 : `/etc/gitconfig` git config --system ...
 2. 用户`~/.gitconfig` or `~/.config/git/config` git config --global ...
@@ -77,7 +77,9 @@ Git的每个版本的文件是独立存在的,是直接记录快照.
     
 详情输入`git config`查看 or `git help config`
 
-##6 获取Git仓库
+##2. Git基础
+
+###2.1获取Git仓库
 
 1. 初始化仓库
 
@@ -88,10 +90,7 @@ Git的每个版本的文件是独立存在的,是直接记录快照.
 
     `git clone https://github.com/mzkmzk/Read.git [重命名本地目录]
 `
-
-##7 Git 基础
-
-##7.1 .gitignore
+###2.2 .gitignore
 
 1. 所有空行或者以 ＃ 开头的行都会被 Git 忽略。
 
@@ -105,18 +104,18 @@ Git的每个版本的文件是独立存在的,是直接记录快照.
 
 详细可参考<https://github.com/github/gitignore>
 
-##7.2 git diff 
+###2.3 git diff 
 
 1. git diff : 查看尚未暂存的文件更新了哪些部分,比较工作目录和暂存区的差异
 2. git diff --staged 查看已暂存的下次将要提交的.
 
-##7.2 git commit 
+###2.4 git commit 
 
 1. git commit : 进入编译器,里面包含更改信息
 2. git commit -m "内容" :直接提交内容,不进入编译器
 3. git commit -a : 提交所有已跟踪的文件,包括未add到缓存区的.(但不会提交未跟踪的)
 
-##7.3 git rm
+###2.4 git rm
 
 要从Git移除文件,必须git rm 掉已跟踪文件,并且commit到缓存区.并且在工作目录中删除指定文件.
 
@@ -135,7 +134,7 @@ git rm 后面可跟`glob`
 
 git rm *~ ,所以~结尾的文件.
 
-##7.4 git mv
+###2.5 git mv
 
 git mv README.md README 
 
@@ -147,7 +146,7 @@ git mv README.md README
     git rm RADME.md
     git add README
 
-##7.5 git log
+###2.6 git log
 
 `git log`参数说明
 
@@ -175,7 +174,7 @@ git log 限制输出
 | --grep      | 显示关键字                        |
 | -S          | 只显示添加/删除了某个关键字的提交 |
 
-##7.6 撤销操作
+###2.7 撤销操作
 
 1. 当你先commit了一次,后面发现少add了一些文件/commit的信息写错了
 
@@ -204,7 +203,7 @@ git log 限制输出
 
     `git checkout -- README.md`,注意这会把git仓库中的文件覆盖掉你本地的文件.
 
-##7.7 git remote
+##2.8 git remote
 
 1. git remote -v 可以看到当前远程仓库的名字和url
 2. git remote add <自定义远程仓库名称> url : 添加分支
@@ -213,7 +212,7 @@ git log 限制输出
 5. git pull是抓取所有分支的更改下来
 6. git remote rename 更新后的仓库名称 需要更新名称的仓库
 
-##7.8 git tag 
+##2.9 git tag 
 
 标签分为两种附注标签和轻量标签
 
@@ -239,7 +238,9 @@ git log 限制输出
 
     git checkout -b 分支名称 标签名称 
 
-##8. Git分支
+##3 Git分支
+
+###3.1 分支新建与合并
 
 ` git log --oneline --decorate`可以查看分支父节点
 
@@ -277,7 +278,7 @@ git fetch从服务器上抓本地没有的数据,它不会修改工作目录的�
 
 git push origin --delete 远程分支名称
 
-##8.1 变基
+###3.6 变基
 
 变基的作用是让开发线的注释会像串行一样显示,而非merge那样并行的显示.
 
@@ -305,7 +306,9 @@ rebase: 现在有两个并行的开发分支C3和C4,先把C4rebase到C3中,然�
 
 因为变基相当于丢弃现有的提交然后进行不同的提交,如果你已经把这个分支提交到仓库,别人抓了下来,你再向rebase修改,其他开发者必须和你进行合并修改.
 
-##9.服务器上的Git协议
+##4. 服务器上的Git协议
+
+###4.1 协议
 
 git init --bare,可以生成一个空的仓库,初始化仓库时不会创建工作空间.
 
@@ -313,21 +316,68 @@ git init --bare,可以生成一个空的仓库,初始化仓库时不会创建工
 
 第三方git托管<https://git.wiki.kernel.org/index.php/GitHosting>
 
-##9.1 生成key
+###4.3 生成key
 
 `ssh-keygen`通过设定以后,就会在`~/.ssh发现公钥(.pub)和密钥了.`
 
 一般使用
 
     ssh-keygen -t rsa -b 4096 -C "your_email@404mzk.com"
-    
-##10 Git工具
 
-##10.1 重写历史
+##5. 分布式Git
+
+### 5.2 向一个项目贡献
+
+1. 注意空白错误(行尾空格、Tab制表符、行首空格后跟Tab制表符的行为): `git diff --check` 找出这类错误
+
+
+## 6. GitHub
+
+### 6.2 对项目作出贡献
+
+方法一:
+
+1. fork
+2. git clone下来自己刚fork的
+3. 在master新建分支
+4. 修改并push
+5. 在githu上提出合并请求
+
+方法二:
+
+1. 在源版本`git remote add upstream 仓库名`
+2. git fetch upstream
+3. git merge upstream/master
+4. 修改 push
+
+
+
+
+##7 Git工具
+
+### 7.2 交互式缓存
+
+作用: 修改一组文件后,把一个提交放到若干个提交
+
+1. git add -i 
+
+    ```javascript
+    What now> 5
+           staged     unstaged path
+  1:        +0/-1        +0/-1 trunk/grouplus-user/resources/assets/js/containers/InfluenceListInvitation.js
+Patch update>>
+*** Commands ***
+  1: status	  2: update	  3: revert	  4: add untracked
+  5: patch	  6: diff	  7: quit	  8: help
+    ```
+    
+    会大概有这么些操作,如果只想改部分可以选择5,然后e,把不要提交的部分的+/-号去掉
+
+##7.6 重写历史
 
 1. 修改最近一次commit的消息`$ git commit --amend`
 
-##10.2 重置
+##7.7 重置
 
     树	用途
     HEAD 上一次提交的快照，下一次提交的父结点
@@ -349,49 +399,3 @@ git init --bare,可以生成一个空的仓库,初始化仓库时不会创建工
 reset和checkout的危险性
 
 ![reset和checkout的危险性](QQ20160117-1.png)
-
-
-## 11. 分布式Git
-
-### 11.2 向一个项目贡献
-
-1. 注意空白错误(行尾空格、Tab制表符、行首空格后跟Tab制表符的行为): `git diff --check` 找出这类错误
-
-## 12. GitHub
-
-### 12.2 对项目作出贡献
-
-方法一:
-
-1. fork
-2. git clone下来自己刚fork的
-3. 在master新建分支
-4. 修改并push
-5. 在githu上提出合并请求
-
-方法二:
-
-1. 在源版本`git remote add upstream 仓库名`
-2. git fetch upstream
-3. git merge upstream/master
-4. 修改 push
-
-## 13. Git工具
-
-### 13.2 交互式缓存
-
-作用: 修改一组文件后,把一个提交放到若干个提交
-
-1. git add -i 
-
-    ```javascript
-    What now> 5
-           staged     unstaged path
-  1:        +0/-1        +0/-1 trunk/grouplus-user/resources/assets/js/containers/InfluenceListInvitation.js
-Patch update>>
-*** Commands ***
-  1: status	  2: update	  3: revert	  4: add untracked
-  5: patch	  6: diff	  7: quit	  8: help
-    ```
-    
-    会大概有这么些操作,如果只想改部分可以选择5,然后e,把不要提交的部分的+/-号去掉
