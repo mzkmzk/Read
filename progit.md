@@ -390,21 +390,30 @@ Patch update>>
 tree 65c7a29302b4a9c19784472a5c7a69de8676df9c
 parent 6527dc1391777b062aa3221fca59aefa89f19356
 parent 7991a32b2e0f7f0d77a5dffcb1137270e561ec10
-author Mai ZhiKun <maizk@haplox.com> 1462779643 +0800
-committer Mai ZhiKun <maizk@haplox.com> 1462779643 +0800
+author Mai ZhiKun  1462779643 +0800
+committer Mai ZhiKun 1462779643 +0800
 
 fix both
+
+$ git ls-tree -r HEAD
+100644 blob a906cb2a4a904a152...   README
+100644 blob 8f94139338f9404f2...   Rakefile
+040000 tree 99f1a6d12cb4b6f19...   lib
 ```
 
 查看Index(下次准备push的)
 
     git ls-files -s
 
-重置命名 reset,原理
+重置命令 reset,原理
 
 1. 移动HEAD(若指定了 --soft，则到此停止）
 2. 更新索引(--mixed),HEAD指向当前快照内容更新索引.
 3. 更新工作目录(--hard)
+
+checkout
+
+1. 改变HEAD
 
 reset和checkout的危险性
 
