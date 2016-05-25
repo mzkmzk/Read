@@ -20,7 +20,7 @@ window.requestAnimFrame = (
             };
   }
 )();
-//应用时
+//应用时 感觉这样会爆栈?
 (
   function animploop(){
     requestAnimFrame(animploop);
