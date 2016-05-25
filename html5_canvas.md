@@ -1,6 +1,6 @@
 # HTML5 Canvas
 
-## 1.HTML5 Canvas简介
+# 1.HTML5 Canvas简介
 
 这章就是扯了下蛋,讲了几个demo.
 
@@ -29,9 +29,9 @@ window.requestAnimFrame = (
 )();
 ```
 
-## 2. 在Canvas上绘图
+# 2. 在Canvas上绘图
 
-###2.4 使用路径创建线段
+##2.4 使用路径创建线段
 
 ### 2.4.1 设置路径的开始和结束
 
@@ -51,3 +51,13 @@ window.requestAnimFrame = (
    1. miter: 默认值,在连接处边缘延长相接
    2. bevel: 连接处是一个对角线斜角
    3. round: 连接处是一个圆
+
+## 2.7简单画布变换
+
+1. context.setTransform(a,b,c,d,e,f)
+    1. a: 水平旋转绘图
+    2. b: 水平倾斜绘图
+    3. c: 垂直倾斜绘图
+    4. d: 垂直缩放绘图
+    5. e: 水平移动绘图
+    6. f: 垂直移动绘图
