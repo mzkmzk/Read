@@ -4,4 +4,29 @@
 
 这章就是扯了下蛋,讲了几个demo.
 
+比平常用定时器,设定动画效果
+
+更优的做法为
+
+```javascript
+window.requestAnimFrame = (
+  function(){
+    return window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            function (callback) {
+              window.setTimeout(callback,1000/60);
+            };
+  }
+)();
+//应用时
+(
+  function animploop(){
+    requestAnimFrame(animploop);
+    render();
+  }
+)();
+```
+
 ## 2. 
