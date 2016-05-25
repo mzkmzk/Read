@@ -31,3 +31,5 @@ window.requestAnimFrame = (
 
 ## 2. 在Canvas上绘图
 
+###2.4 使用路径创建线段
+
