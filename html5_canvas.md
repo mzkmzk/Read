@@ -29,4 +29,5 @@ window.requestAnimFrame = (
 )();
 ```
 
-## 2. 
+## 2. 在Canvas上绘图
+
