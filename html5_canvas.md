@@ -97,3 +97,8 @@ window.requestAnimFrame = (
 
 #3 HTML5 Canvas的文本API
 
+##3.1 显示基本文本
+
+### 3.1.4 使用measureText
+
+1. ctx.measureText('文本') 获取一个文本的宽度.
