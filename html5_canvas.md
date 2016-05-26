@@ -54,6 +54,8 @@ window.requestAnimFrame = (
 
 ## 2.7简单画布变换
 
+旋转变化等,要先把中心点用translate,然后再进行绘图和变换.
+
 1. context.setTransform(a,b,c,d,e,f),重置并创建新的变换矩阵,再次绘制矩形.
     
     该方法和transform的区别主要在于,setTransform不会相对于其他变换来发送行为.即执行多次相同参数,效果一直,而transform会一直效果累加
@@ -66,3 +68,6 @@ window.requestAnimFrame = (
 2. translate: 重新映射画布在(0,0)的位置
 3. rotate: 旋转当前绘图
 4. scale: 缩放
+
+## 2.8 用颜色和渐变填充对象
+
