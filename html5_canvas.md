@@ -71,3 +71,11 @@ window.requestAnimFrame = (
 
 ## 2.8 用颜色和渐变填充对象
 
+### 2.8.2 填充渐变形状
+
+1. 线性渐变: 创建水平/垂直/对角线的填充图案
+
+    1. gr = ctx.createLiearGradient(x1,y1,x2,y2): 创建线性渐变
+    2. gr.addColorStop(0~1,颜色值)
+2. 径向: 中心点散发
+    1. ctx.createRedialGradient(x1,y1,半径1,x2,y2,半径2)
