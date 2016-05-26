@@ -91,3 +91,6 @@ window.requestAnimFrame = (
 3. shadowBlur: 模糊程度
 4. shadowColor: 颜色
 
+##2.12 检查一个点是否在当前路径
+
+1. isPointInpath(x,y): 判断该点是否在当前路径中
