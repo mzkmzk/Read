@@ -54,7 +54,9 @@ window.requestAnimFrame = (
 
 ## 2.7简单画布变换
 
-1. context.setTransform(a,b,c,d,e,f)
+1. context.setTransform(a,b,c,d,e,f),重置并创建新的变换矩阵,再次绘制矩形.
+    
+    该方法和transform的区别主要在于,setTransform不会相对于其他变换来发送行为.
     1. a: 水平旋转绘图
     2. b: 水平倾斜绘图
     3. c: 垂直倾斜绘图
