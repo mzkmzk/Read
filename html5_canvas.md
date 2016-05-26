@@ -64,3 +64,5 @@ window.requestAnimFrame = (
     5. e: 水平移动绘图
     6. f: 垂直移动绘图
 2. translate: 重新映射画布在(0,0)的位置
+3. rotate: 旋转当前绘图
+4. scale: 缩放
