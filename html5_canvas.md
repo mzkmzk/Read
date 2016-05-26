@@ -94,3 +94,6 @@ window.requestAnimFrame = (
 ##2.12 检查一个点是否在当前路径
 
 1. isPointInpath(x,y): 判断该点是否在当前路径中
+
+#3 HTML5 Canvas的文本API
+
