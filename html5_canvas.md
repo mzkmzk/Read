@@ -102,3 +102,6 @@ window.requestAnimFrame = (
 ### 3.1.4 使用measureText
 
 1. ctx.measureText('文本') 获取一个文本的宽度.
+
+#4 Canvas图像
+
