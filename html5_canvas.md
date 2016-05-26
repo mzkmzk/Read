@@ -79,3 +79,15 @@ window.requestAnimFrame = (
     2. gr.addColorStop(0~1,颜色值)
 2. 径向: 中心点散发
     1. ctx.createRedialGradient(x1,y1,半径1,x2,y2,半径2)
+
+## 2.9 用图案填充形状
+
+1. createPattern(实体Image,重复方式repeat)
+
+## 2.10 创建阴影
+
+1. shadowOffsetX: x偏移量
+2. shadowOffsetY: y偏移量
+3. shadowBlur: 模糊程度
+4. shadowColor: 颜色
+
