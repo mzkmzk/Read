@@ -123,3 +123,6 @@ window.requestAnimFrame = (
 
 重力
 
+弹力
+
+弹力+重力
