@@ -131,3 +131,5 @@ window.requestAnimFrame = (
 
 Box2D框架
 
+#6 HTML5对视频的支持
+
