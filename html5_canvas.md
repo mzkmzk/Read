@@ -126,3 +126,5 @@ window.requestAnimFrame = (
 弹力
 
 弹力+重力
+
+缓冲
