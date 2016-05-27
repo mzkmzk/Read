@@ -117,3 +117,9 @@ window.requestAnimFrame = (
 
 圆周运动
 
+螺旋运动
+
+多种贝塞尔
+
+重力
+
