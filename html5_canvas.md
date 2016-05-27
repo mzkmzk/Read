@@ -105,3 +105,7 @@ window.requestAnimFrame = (
 
 #4 Canvas图像
 
+地图绘制软件 Tiled Mappy Tile Studio
+
+裁剪等图像处理和碰撞检测
+
