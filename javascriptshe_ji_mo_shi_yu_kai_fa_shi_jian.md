@@ -29,7 +29,7 @@ typeof 类.方法 === 'function'
 
 如果`true`那就放心的调用吧.
 
-##1. 原型模式
+#1. 原型模式
 
 原型模式是吧本身克隆一下,然后在原型加功能
 
@@ -50,7 +50,7 @@ var obj = {};
 Object.getPrototypeOf(obj) === Object.prototype; //true
 ```
 
-##2 this call apply
+#2 this call apply
 
 ##2.1 构造器
 
@@ -100,7 +100,7 @@ var func = function(a,b,c,d){
 
 func(3,4);
 ```
-##3 闭包
+#3 闭包
 
 ```javascript
 for(var index = nodes.length ;index--;){
@@ -123,7 +123,9 @@ for (var index = nodes.length;index--;){
 }
 ```
 
-###2.1 延长局部变量寿命
+## 3.1闭包
+
+##3.1.3 延长局部变量寿命
 
 ```javascript
 var report = function(src){
@@ -143,7 +145,7 @@ var report = function(){
 }
 ```
 
-###2.2 面向闭包开发
+##3.1.4 面向闭包开发
 
 ```javascript
 var Extent =function (){
