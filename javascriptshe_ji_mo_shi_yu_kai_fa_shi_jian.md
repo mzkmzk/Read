@@ -176,11 +176,11 @@ extent.call(); //3
 ## 15.5 用AOP装饰函数
 
 ```javascript
-Function.prototype.befort = function(beforn_fn){
+Function.prototype.before = function(beforn_fn){
   var __self = this; //保存原函数的引用
   return function(){
-    beforn_fn.apply(this,arguments); //执行新函数
-    return __self.apply(this.arguments); //返回原函数并返回原函数的执行结果.
+    before_fn.apply(this,arguments); //执行新函数
+    return __self.apply(this,arguments); //返回原函数并返回原函数的执行结果.
   }
 }
 
@@ -193,3 +193,5 @@ Function.prototype.after = function(after_fn) {
   }
 }
 ```
+
+这种AOP,因为before和原来执行的函数公用arguments,那么before还可以动态给原函数添加参数.
