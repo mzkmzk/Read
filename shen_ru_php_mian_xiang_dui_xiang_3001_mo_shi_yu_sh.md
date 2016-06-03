@@ -87,7 +87,8 @@
 5. `回调函数`
 
 	应用场景:	3个类,`Product类`,`Product_Sale类`,`Product_Totalizer类`,要实现:当卖出Product总共价格超过指定金额时,输出警告.
-	
+    
+```php	
 		//Product
 		class Product {
 			public $name;
@@ -159,6 +160,7 @@
 	
 	`get_class_vars('类名')`:获取类中所有public参数;		
 8. 反射API
+```
 
 #2 模式 
 
@@ -171,6 +173,7 @@
 解决方案2: 运用组合,将处理计费和输出计算方式单独封装为一个计费策略类.
 ![组合模式](QQ20160121-1.png)
 
+```php
 	abstract class Cost_Strategy {
 		protected $duration;
 		abstract function cost ();
@@ -231,7 +234,8 @@
 	
 	leason charge 20. charge_type : 多次课结算;
 	leason charge 30. charge_type : 一次课结算;
-		
+```
+
 组合既委托.同级委托.
 
 继承既父子关系.
@@ -250,6 +254,7 @@
 
 ![单例模式](QQ20151118-1.png)
 
+```php
 	class Preferences {
 		private static $instance;
 		private function __construct(){ ... }
@@ -265,7 +270,8 @@
 	
 	//使用
 	$preferences = Preferences::get_instance();
-	
+```
+
 ##3.2 工厂模式
 
 通过一个父类,生产处多个不同功能的子类.
@@ -285,7 +291,7 @@ RLGL!!!.印象笔记不只要显示新浪微博内容!!!还要显示我的新浪
 ![抽象模式](2015-11-19-01副本.png)
 
 代码: 
-
+```php
 	abstract class Show_Evernote {
 		abstract function get_header_text();
 		abstract function get_context();
@@ -307,7 +313,7 @@ RLGL!!!.印象笔记不只要显示新浪微博内容!!!还要显示我的新浪
 	印象笔记控件类->内容 = 显示新浪微博->get_context;
 	印象笔记控件类->账号 = 显示新浪微博->get_context;
 	...
-
+```
 ##3.4 平行模式
 
 当使用工厂/抽象模式必须要制定具体的创建者(需求方).
