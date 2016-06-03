@@ -58,7 +58,7 @@
 		__call很有用,但要慎用,因为太灵活.
 		
 		应用场景:有一个专门打印Person类信息的Person_Writer类,如果通过Person类调用Person_Writer类.
-		
+```php
 			//Person委托Person_Writer类处理打印事务.
 			class Person {
 				private $writer;
@@ -82,7 +82,8 @@
 				}
 				
 			}		
-
+```
+            
 5. `回调函数`
 
 	应用场景:	3个类,`Product类`,`Product_Sale类`,`Product_Totalizer类`,要实现:当卖出Product总共价格超过指定金额时,输出警告.
