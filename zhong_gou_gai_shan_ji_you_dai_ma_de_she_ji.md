@@ -156,7 +156,9 @@
 
 某个类做了过多的简单委托动作
 
-## 7.7 Introduce Foreign Method
+## 7.7 Introduce Foreign Method (引入外加函数)
+
+
 
 ## 7.8 Introduce Local Extension
 
