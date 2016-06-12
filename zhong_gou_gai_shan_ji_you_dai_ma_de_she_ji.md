@@ -192,7 +192,9 @@
 
 你有一些领域数据置身于GUI控件中,而领域函数需要这些数据
 
-## 8.7 Change Unidirectional Association to Bidirectional
+## 8.7 Change Unidirectional Association to Bidirectional (将单向关联改为双向关联)
+
+
 
 ## 8.8 Change Bidirectional Association toUnidirectional 
 
