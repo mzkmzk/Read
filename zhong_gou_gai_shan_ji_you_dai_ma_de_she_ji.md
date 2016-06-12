@@ -214,9 +214,9 @@
 
 ##8.9 Replace Magic Number with Symbolic Constant (以字面量取代魔法数)
 
+## 8.10 Encapsulate Field (封装字段)
 
 
-## 8.10 Encapsulate Field
 
 ## 8.11 Encapsulate Collection
 
