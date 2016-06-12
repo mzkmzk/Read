@@ -166,7 +166,9 @@
 
 # 8. 重新组织数据
 
-## 8.1 Self Encapsulate Field
+## 8.1 Self Encapsulate Field (自封装字段)
+
+
 
 ## 8.2 Replace Data Value with Object
 
