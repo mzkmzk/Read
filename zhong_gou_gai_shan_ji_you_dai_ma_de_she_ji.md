@@ -99,7 +99,9 @@
 
 将这个表达式提炼到一个独立函数中,将这个临时变量的所有引用点替换为对新函数的调用,此后新函数就可被其他函数使用
 
-## 6.5 Introduce Explaining Variable
+## 6.5 Introduce Explaining Variable (引入解释性变量)
+
+
 
 ## 6.6 Split Temporary Variable
 
