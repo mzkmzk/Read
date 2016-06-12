@@ -220,7 +220,7 @@
 
 ## 8.11 Encapsulate Collection (封装集合)
 
-
+有个函数返回一个集合
 
 ## 8.12 Replace Record with Data Class
 
