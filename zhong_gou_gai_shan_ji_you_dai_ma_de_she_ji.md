@@ -158,7 +158,7 @@
 
 ## 7.7 Introduce Foreign Method (引入外加函数)
 
-
+你需要为提供服务的类增加一个函数,但你无法修改这个类
 
 ## 7.8 Introduce Local Extension
 
