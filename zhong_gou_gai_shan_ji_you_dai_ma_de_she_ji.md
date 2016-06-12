@@ -142,6 +142,8 @@
 
 ## 7.3 Extract Class (提炼类)
 
+某个类做了应该两个类做的事情
+
 
 
 ## 7.4 Inline Class
