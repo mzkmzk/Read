@@ -154,7 +154,7 @@
 
 ## 7.6 Remove Middle Man (移除中间人)
 
-
+某个类做了过多的简单委托动作
 
 ## 7.7 Introduce Foreign Method
 
