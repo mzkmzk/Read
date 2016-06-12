@@ -170,6 +170,8 @@
 
 你直接访问一个字段,但与字段之间的耦合关系逐渐变得笨拙
 
+为了方便自己/子类对该属性进行特殊化处理
+
 ## 8.2 Replace Data Value with Object
 
 ## 8.3 Change Value to Reference 
