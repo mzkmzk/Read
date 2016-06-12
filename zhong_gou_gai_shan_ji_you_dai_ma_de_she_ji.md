@@ -168,7 +168,7 @@
 
 ## 8.1 Self Encapsulate Field (自封装字段)
 
-
+你直接访问一个字段,但与字段之间的耦合关系逐渐变得笨拙
 
 ## 8.2 Replace Data Value with Object
 
