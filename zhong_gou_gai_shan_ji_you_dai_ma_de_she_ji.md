@@ -144,9 +144,9 @@
 
 某个类做了应该两个类做的事情
 
+## 7.4 Inline Class (将类内联化)
 
 
-## 7.4 Inline Class
 
 ## 7.5 Hide Delegate
 
