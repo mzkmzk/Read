@@ -190,7 +190,7 @@
 
 ## 8.6 Duplicate Observed Date (复制被监视的数据)
 
-
+你有一些领域数据置身于GUI控件中,而领域函数需要这些数据
 
 ## 8.7 Change Unidirectional Association to Bidirectional
 
