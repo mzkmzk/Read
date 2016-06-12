@@ -240,6 +240,8 @@
 
 ## 9 简化条件表达式
 
+
+
 ### 9.1 Decompose Conditional(分解条件表达式)
 
 ### 9.2  Consolidate Conditional Expression(合并条件表达式)
