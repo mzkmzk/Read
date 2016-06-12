@@ -27,6 +27,12 @@
 
 # 2 第一个单元测试
 
+测试的命名
+1. UnitOfWork_Scenario_ExpectedBehavior
+2. UnitOfWork: 被测试的方法、一组方法或者一组类
+3. Scenario: 测试进行的假设条件
+4. ExpectedBehavior: 在测试场景指定的条件下,你对呗测试方法行为的预期
+
 单元测试主要的三个行为
 
 1. 准备(Arrange)对象,创建对象,进行必要的设置
