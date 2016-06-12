@@ -160,7 +160,9 @@
 
 你需要为提供服务的类增加一个函数,但你无法修改这个类
 
-## 7.8 Introduce Local Extension
+## 7.8 Introduce Local Extension (引入本地拓展)
+
+
 
 # 8. 重新组织数据
 
