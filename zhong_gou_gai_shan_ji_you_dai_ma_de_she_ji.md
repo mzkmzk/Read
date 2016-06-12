@@ -138,6 +138,8 @@
 
 ## 7.2 Move Field 
 
+某个字段被其他所驻类之外的另一个类更多地用到
+
 ## 7.3 Extract Class
 
 ## 7.4 Inline Class
