@@ -109,7 +109,9 @@
 
 ## 6.7 Remove Assignments toPrameters (移除对参数赋值)
 
-## 6.8 Replace Method with Method Object
+
+
+## 6.8 Replace Method with Method Object (以函数对象取代函数)
 
 ## 6.9 Substitute Algorithm
 
