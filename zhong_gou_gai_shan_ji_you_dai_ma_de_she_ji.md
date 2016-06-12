@@ -107,7 +107,7 @@
 
 一个变量只应该负责一个用途
 
-## 6.7 Remove Assignments toPrameters
+## 6.7 Remove Assignments toPrameters (移除对参数赋值)
 
 ## 6.8 Replace Method with Method Object
 
