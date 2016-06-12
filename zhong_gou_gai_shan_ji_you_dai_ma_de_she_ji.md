@@ -95,7 +95,9 @@
 
 你有一个临时变量,只被一个简单的表达式赋值一次,而它妨碍了其他重构手法
 
-## 6.4 Replace Temp with Query ()
+## 6.4 Replace Temp with Query (以查询取代临时变量)
+
+
 
 ## 6.5 Introduce Explaining Variable
 
