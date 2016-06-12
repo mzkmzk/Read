@@ -222,6 +222,8 @@
 
 有个函数返回一个集合
 
+让这个函数返回该集合的一个只读副本,并在这个类中提供添加/移除集合元素的函数
+
 ## 8.12 Replace Record with Data Class
 
 ## 8.13 Replace Type Code with Class(以类取代类型码)
