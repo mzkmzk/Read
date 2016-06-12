@@ -2,7 +2,7 @@
 
 重构是在不改变软件可观察行为的前提下改善其内部结构
 
-## 1.重构第一个案例
+# 1.重构第一个案例
 
 重构步骤
 
@@ -14,7 +14,7 @@
 5. 去除临时变量
 6. 对于常改复杂的switch,建立多态取代switch
 
-## 2. 重构原则
+# 2. 重构原则
 
 重构: 对软件内部结果的一种调整,目的是在不改变软件可观察行为的前提下,提高其理解性,降低其修改成本
 
@@ -39,7 +39,7 @@
 1. 新旧接口: 尽量让旧接口调用新接口
 2. 数据库: 苦逼的数据迁移吧
 
-## 3.代码的坏味道
+# 3.代码的坏味道
 
 1. 重复代码
 2. 过长函数
@@ -63,17 +63,17 @@
 20. 被拒绝的遗赠: 子类只使用极少的父类功能
 21. 过多的注释
 
-## 4.构筑测试体系
+# 4.构筑测试体系
 
 测试: 测试你最担心出错的部分
 
-## 5. 重构列表
+# 5. 重构列表
 
 以下就是我的重构手法了
 
-## 6. 重新组织函数
+# 6. 重新组织函数
 
-### 6.1 Exract Method
+### 6.1 Exract Method (提炼函数)
 
 要诀就是短短短,一个函数实现的功能尽量原子化.
 
@@ -85,71 +85,73 @@
 
 1. 如果想不出有意义的函数名,就别动了
 
-### 6.2 Inline Method
+## 6.2 Inline Method (内联函数)
+
+
 
 发现内部代码和函数名称同样清晰易读,非必要的间接性调用
 
-### 6.3 Inline Temp
+## 6.3 Inline Temp
 
-### 6.4 Replace Temp with Query
+## 6.4 Replace Temp with Query
 
-### 6.5 Introduce Explaining Variable
+## 6.5 Introduce Explaining Variable
 
-### 6.6 Split Temporary Variable
+## 6.6 Split Temporary Variable
 
-### 6.7 Remove Assignments toPrameters
+## 6.7 Remove Assignments toPrameters
 
-### 6.8 Replace Method with Method Object
+## 6.8 Replace Method with Method Object
 
-### 6.9 Substitute Algorithm
+## 6.9 Substitute Algorithm
 
-## 7. 在对象之间搬移特性
+# 7. 在对象之间搬移特性
 
-### 7.1 Move Method
+## 7.1 Move Method
 
-### 7.2 Move Field 
+## 7.2 Move Field 
 
-### 7.3 Extract Class
+## 7.3 Extract Class
 
-### 7.4 Inline Class
+## 7.4 Inline Class
 
-### 7.5 Hide Delegate
+## 7.5 Hide Delegate
 
-### 7.6 Remove Middle Man
+## 7.6 Remove Middle Man
 
-### 7.7 Introduce Foreign Method
+## 7.7 Introduce Foreign Method
 
-### 7.8 Introduce Local Extension
+## 7.8 Introduce Local Extension
 
-## 8. 重新组织数据
+# 8. 重新组织数据
 
-### 8.1 Self Encapsulate Field
+## 8.1 Self Encapsulate Field
 
-### 8.2 Replace Data Value with Object
+## 8.2 Replace Data Value with Object
 
-### 8.3 Change Value to Reference 
+## 8.3 Change Value to Reference 
 
-### 8.4 Change Reference to Value
+## 8.4 Change Reference to Value
 
-### 8.5 Replace Array with Object 
+## 8.5 Replace Array with Object 
 
-### 8.6 Duplicate Observed Date
+## 8.6 Duplicate Observed Date
 
-### 8.7 Change Unidirectional Association to Bidirectional
+## 8.7 Change Unidirectional Association to Bidirectional
 
-### 8.8 Change Bidirectional Association toUnidirectional 
+## 8.8 Change Bidirectional Association toUnidirectional 
 
-###8.9 Replace Magic Number with Symbolic Constant
+##8.9 Replace Magic Number with Symbolic Constant
 
-### 8.10 Encapsulate Field
+## 8.10 Encapsulate Field
 
-### 8.11 Encapsulate Collection
+## 8.11 Encapsulate Collection
 
-### 8.12 Replace Record with Data Class
+## 8.12 Replace Record with Data Class
 
-### 8.13 Replace Type Code with Class(以类取代类型码)
+## 8.13 Replace Type Code with Class(以类取代类型码)
 
-### 8.14 Replace Type Code with Subclasses(以子类取代类型码)
+## 8.14 Replace Type Code with Subclasses(以子类取代类型码)
 
 ### 8.15 Replace Type Code with State/Strategy(以State/Strategy取代类型码)
 
