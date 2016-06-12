@@ -136,11 +136,13 @@
 
 或者说,这个函数应该在另外一个类中
 
-## 7.2 Move Field 
+## 7.2 Move Field (搬移字段)
 
 某个字段被其他所驻类之外的另一个类更多地用到
 
-## 7.3 Extract Class
+## 7.3 Extract Class (提炼类)
+
+
 
 ## 7.4 Inline Class
 
