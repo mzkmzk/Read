@@ -244,6 +244,7 @@
 ### 8.16 Replace Sbuclass with Fields(以字段取代子类)
 
 你的各个子类的唯一差别只在返回常量数据的函数身上
+
 ## 9 简化条件表达式
 
 ### 9.1 Decompose Conditional(分解条件表达式)
