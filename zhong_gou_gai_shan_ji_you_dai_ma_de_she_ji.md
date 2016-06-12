@@ -194,7 +194,13 @@
 
 ## 8.7 Change Unidirectional Association to Bidirectional (将单向关联改为双向关联)
 
+两个类都需要双方的特性
 
+做法
+
+1. 在被引用类中增加一个字段,用以保存反向指针
+2. 决定由哪个类: 引用段还是被引用段--控制关联关系
+3. 
 
 ## 8.8 Change Bidirectional Association toUnidirectional 
 
