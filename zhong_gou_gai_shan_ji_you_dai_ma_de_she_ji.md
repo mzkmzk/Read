@@ -218,7 +218,9 @@
 
 你的一个类存在publi字段
 
-## 8.11 Encapsulate Collection
+## 8.11 Encapsulate Collection (封装集合)
+
+
 
 ## 8.12 Replace Record with Data Class
 
