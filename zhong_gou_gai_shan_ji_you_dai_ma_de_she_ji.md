@@ -176,7 +176,9 @@
 
 你有一个数据项,与其他数据和行为一起使用才有意义
 
-## 8.3 Change Value to Reference 
+## 8.3 Change Value to Reference (将值对象改为引用对象)
+
+
 
 ## 8.4 Change Reference to Value
 
