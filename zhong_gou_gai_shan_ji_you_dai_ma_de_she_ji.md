@@ -188,7 +188,9 @@
 
 你有一个数组,其中的元素各自代表不同的东西
 
-## 8.6 Duplicate Observed Date
+## 8.6 Duplicate Observed Date (复制被监视的数据)
+
+
 
 ## 8.7 Change Unidirectional Association to Bidirectional
 
