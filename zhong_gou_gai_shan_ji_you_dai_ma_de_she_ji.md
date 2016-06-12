@@ -91,7 +91,9 @@
 
 发现内部代码和函数名称同样清晰易读,非必要的间接性调用.
 
-## 6.3 Inline Temp
+## 6.3 Inline Temp (内联临时变量)
+
+
 
 ## 6.4 Replace Temp with Query
 
