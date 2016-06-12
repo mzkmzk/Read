@@ -172,7 +172,9 @@
 
 为了方便自己/子类对该属性进行特殊化处理
 
-## 8.2 Replace Data Value with Object
+## 8.2 Replace Data Value with Object (以对象取代数据值)
+
+
 
 ## 8.3 Change Value to Reference 
 
