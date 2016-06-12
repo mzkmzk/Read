@@ -152,7 +152,9 @@
 
 客户通过一个委托类来调用另一个对象
 
-## 7.6 Remove Middle Man
+## 7.6 Remove Middle Man (移除中间人)
+
+
 
 ## 7.7 Introduce Foreign Method
 
