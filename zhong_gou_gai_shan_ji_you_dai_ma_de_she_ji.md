@@ -101,7 +101,7 @@
 
 ## 6.5 Introduce Explaining Variable (引入解释性变量)
 
-
+将复杂的表达式的结果放入一个临时变量中,以变量名来解释表达式用途
 
 ## 6.6 Split Temporary Variable
 
