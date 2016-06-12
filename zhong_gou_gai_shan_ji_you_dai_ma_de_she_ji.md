@@ -212,9 +212,9 @@
 
 两个类之间有双向关联,但其中一个类如今不需要另外一个类的特性
 
+##8.9 Replace Magic Number with Symbolic Constant (以字面量取代魔法数)
 
 
-##8.9 Replace Magic Number with Symbolic Constant
 
 ## 8.10 Encapsulate Field
 
