@@ -182,7 +182,9 @@
 
 ## 8.4 Change Reference to Value (将引入对象改为值对象)
 
-## 8.5 Replace Array with Object 
+你有一个引用对象,很少且不可变,而且不易管理(这里不懂....)
+
+## 8.5 Replace Array with Object (以对象取代数组)
 
 ## 8.6 Duplicate Observed Date
 
