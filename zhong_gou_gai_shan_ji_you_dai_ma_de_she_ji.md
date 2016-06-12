@@ -232,6 +232,10 @@
 
 ## 8.13 Replace Type Code with Class(以类取代类型码)
 
+类之中有一个数值类型码,但它并不影响类的行为
+
+
+
 ## 8.14 Replace Type Code with Subclasses(以子类取代类型码)
 
 ### 8.15 Replace Type Code with State/Strategy(以State/Strategy取代类型码)
