@@ -174,7 +174,7 @@
 
 ## 8.2 Replace Data Value with Object (以对象取代数据值)
 
-
+你有一个数据项,与其他数据和行为一起使用才有意义
 
 ## 8.3 Change Value to Reference 
 
