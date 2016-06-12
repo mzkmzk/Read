@@ -103,7 +103,7 @@
 
 将复杂的表达式的结果放入一个临时变量中,以变量名来解释表达式用途
 
-## 6.6 Split Temporary Variable
+## 6.6 Split Temporary Variable (分解临时变量)
 
 ## 6.7 Remove Assignments toPrameters
 
