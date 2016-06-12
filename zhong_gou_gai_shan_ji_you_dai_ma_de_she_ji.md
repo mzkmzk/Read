@@ -180,9 +180,7 @@
 
 你从一个类衍生出许多彼此相等的实例,希望他们替换为同一对象
 
-
-
-## 8.4 Change Reference to Value
+## 8.4 Change Reference to Value (将引入对象改为值对象)
 
 ## 8.5 Replace Array with Object 
 
