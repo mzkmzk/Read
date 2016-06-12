@@ -148,7 +148,9 @@
 
 某个类没有做太多的事情
 
-## 7.5 Hide Delegate
+## 7.5 Hide Delegate (隐藏委托关系)
+
+客户通过一个委托类来调用另一个对象
 
 ## 7.6 Remove Middle Man
 
