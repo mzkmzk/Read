@@ -146,7 +146,7 @@
 
 ## 7.4 Inline Class (将类内联化)
 
-
+某个类没有做太多的事情
 
 ## 7.5 Hide Delegate
 
