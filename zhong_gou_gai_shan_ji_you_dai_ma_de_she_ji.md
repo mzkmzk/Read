@@ -208,7 +208,11 @@
 4. 如果既有的修改函数在控制端,让他辅助更新反向指针
 5. 如果既有的修改函数在被控端,就在控制端建立一个控制函数,并让既有修改函数调用这个新建的控制函数
 
-## 8.8 Change Bidirectional Association toUnidirectional 
+## 8.8 Change Bidirectional Association toUnidirectional (将双向关联改为单向关联)
+
+两个类之间有双向关联,但其中一个类如今不需要另外一个类的特性
+
+
 
 ##8.9 Replace Magic Number with Symbolic Constant
 
