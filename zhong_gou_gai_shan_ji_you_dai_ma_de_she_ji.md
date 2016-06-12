@@ -105,6 +105,8 @@
 
 ## 6.6 Split Temporary Variable (分解临时变量)
 
+一个变量只应该负责一个用途
+
 ## 6.7 Remove Assignments toPrameters
 
 ## 6.8 Replace Method with Method Object
