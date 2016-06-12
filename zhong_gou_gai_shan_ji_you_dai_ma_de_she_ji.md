@@ -216,7 +216,7 @@
 
 ## 8.10 Encapsulate Field (封装字段)
 
-
+你的一个类存在publi字段
 
 ## 8.11 Encapsulate Collection
 
