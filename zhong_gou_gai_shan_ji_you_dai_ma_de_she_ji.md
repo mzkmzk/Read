@@ -109,7 +109,7 @@
 
 ## 6.7 Remove Assignments toPrameters (移除对参数赋值)
 
-
+不要对代码参数进行赋值
 
 ## 6.8 Replace Method with Method Object (以函数对象取代函数)
 
