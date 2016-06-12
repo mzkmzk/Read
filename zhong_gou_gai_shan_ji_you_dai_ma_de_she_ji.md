@@ -113,6 +113,12 @@
 
 ## 6.8 Replace Method with Method Object (以函数对象取代函数)
 
+有一个大型函数,其中对局部变量的使用使你无法采用提炼函数
+
+步骤
+
+1. 
+
 
 
 ## 6.9 Substitute Algorithm
