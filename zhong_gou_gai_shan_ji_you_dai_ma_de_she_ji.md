@@ -350,6 +350,8 @@
 
 ## 10.15 Replace Exception with Test(以测试取代异常)
 
+面对一个调用者可以预先检查条件,你抛出一个异常
+
 # 11 处理概括关系
 
 ## 11.1 Pull Up Field(字段上移)
