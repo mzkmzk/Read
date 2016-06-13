@@ -329,6 +329,7 @@
 
 类中的某个字段应该在对象创建时被设值,然后就不再改变
 
+
 ## 10.11 Hide Method(隐藏函数)
 
 ## 10.12 Replace Constructor with Factory Method(以工厂函数取代构造函数)
