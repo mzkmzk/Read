@@ -305,9 +305,9 @@
 
 某个函数即返回对象状态值,又修改对象状态
 
-
-
 ## 10.5 Parameter Method(令函数携带参数)
+
+
 
 ## 10.6 Replace Parameter with Explicit Methods(以明确函数取代参数)
 
