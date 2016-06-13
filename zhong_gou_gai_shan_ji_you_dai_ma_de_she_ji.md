@@ -413,6 +413,7 @@
 1. 将各个子类中分解目标函数,使分解后的各个函数要不完全相同,要不完全不同
 2. 运用pull up method将各子类内完全相同的函数上移到超类
 3. 对于那些完全不同的函数实施Rename Method
+4. 将原函数上移到超类
 
 ## 11.11 Replace Inheritaance with Delegation (以委托取代继承)
 
