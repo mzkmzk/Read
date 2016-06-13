@@ -390,6 +390,10 @@
 
 ## 11.8 Extract Interface(提炼接口)
 
+若干客户使用接口中的同一子集,或者两个类的接口有部分相同
+
+
+
 ## 11.9 Collapse Hierachy(折叠继承体系)
 
 ## 11.10 Form Template Method(塑造模板函数)
