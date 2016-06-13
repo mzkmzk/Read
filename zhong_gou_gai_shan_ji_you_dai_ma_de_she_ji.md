@@ -396,8 +396,6 @@
 
 与提炼超类类似,但是接口只提炼方法
 
-
-
 ## 11.9 Collapse Hierachy(折叠继承体系)
 
 ## 11.10 Form Template Method(塑造模板函数)
