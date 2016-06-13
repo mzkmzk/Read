@@ -356,6 +356,8 @@
 
 ## 11.1 Pull Up Field(字段上移)
 
+两个子类拥有相同的字段
+
 ## 11.2 Pull Up Method(函数上移)
 
 ## 11.3 Pull Up Constructor Body(构造函数本体上移)
