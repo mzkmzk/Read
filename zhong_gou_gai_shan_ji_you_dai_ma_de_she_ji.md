@@ -314,8 +314,11 @@
 你有一个函数,其中完全取决于参数值而采取不同的行为
 
 
-
 ## 10.7 Preserve Whole Object(保持对象完整)
+
+你从某个对象取出若干值,将他们作为某一次函数调用时的参数
+
+
 
 ## 10.8 Replace Parameter with Methods(以函数取代参数)
 
