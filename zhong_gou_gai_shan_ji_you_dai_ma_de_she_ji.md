@@ -382,8 +382,6 @@
 
 类中的某些特性纸杯某些实例用到
 
-
-
 ## 11.7 Extract Superclass(提炼超类)
 
 ## 11.8 Extract Interface(提炼接口)
