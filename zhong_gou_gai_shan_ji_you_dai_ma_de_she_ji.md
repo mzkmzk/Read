@@ -318,8 +318,6 @@
 
 你从某个对象取出若干值,将他们作为某一次函数调用时的参数
 
-
-
 ## 10.8 Replace Parameter with Methods(以函数取代参数)
 
 ## 10.9 Introduce Parameter Object(引入参数对象)
