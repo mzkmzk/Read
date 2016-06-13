@@ -418,6 +418,10 @@
 
 ## 11.11 Replace Inheritaance with Delegation (以委托取代继承)
 
+某个子类只使用超累接口的一部分,或者根本不需要继承而来的数据
+
+在子类中新建一个字段用来保存超累,调用子类函数,令他改为委托超类,去掉两者之间的继承关系
+
 ## 11.12 Replace Deletegation with Inheritance(以继承取代委托)
 
 # 12 大型重构
