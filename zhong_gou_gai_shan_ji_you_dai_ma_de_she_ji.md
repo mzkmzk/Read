@@ -307,6 +307,8 @@
 
 ## 10.5 Parameter Method(令函数携带参数)
 
+若干函数做了类似的工作,但在函数本体中却包含了不同的值
+
 
 
 ## 10.6 Replace Parameter with Explicit Methods(以明确函数取代参数)
