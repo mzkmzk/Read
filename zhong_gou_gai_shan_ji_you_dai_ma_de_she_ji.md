@@ -249,7 +249,17 @@
 
 ### 9.1 Decompose Conditional(分解条件表达式)
 
+你有一个复杂的条件语句
+
+做法
+
+1. 将if提炼出来为函数
+
 ### 9.2  Consolidate Conditional Expression(合并条件表达式)
+
+你有一系列条件测试,都得到相同的结果
+
+
 
 ### 9.3 Consolidate Duplicate Conditional Fragments (合并重复的条件片段)
 
