@@ -278,6 +278,10 @@
 
 ### 9.7 Introduce Null Object(引入NULL)
 
+你需要再三检查某对象是否为NULL
+
+
+
 ### 9.8 Introduce Assertion (引入断言)
 
 ## 10 简化函数调用
