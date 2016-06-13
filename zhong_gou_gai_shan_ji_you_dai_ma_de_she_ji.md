@@ -274,6 +274,8 @@
 
 ### 9.6 Replace Conditional with Polymorphism (以多态取代条件表达式)
 
+你手上有个条件表达式,它根据对象类型的不同选择不同的行为
+
 ### 9.7 Introduce Null Object(引入NULL)
 
 ### 9.8 Introduce Assertion (引入断言)
