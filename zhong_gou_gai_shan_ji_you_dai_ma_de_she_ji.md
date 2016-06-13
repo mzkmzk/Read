@@ -295,6 +295,8 @@
 
 ## 10.2 Add Parameter(添加函数)
 
+某个函数需要从调用端得到更多信息
+
 ## 10.3 Remove Parameter (移除参数)
 
 ## 10.4 Separate Query from Modifier(将查询函数和修改函数分离)
