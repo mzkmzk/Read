@@ -337,7 +337,7 @@
 
 ## 10.13  Encapsulate Downcast (封装向下转型)
 
-### 10.14 Replace Error Code with Exception (以异常取代错误码)
+## 10.14 Replace Error Code with Exception (以异常取代错误码)
 
 ## 10.15 Replace Exception with Test(以测试取代异常)
 
