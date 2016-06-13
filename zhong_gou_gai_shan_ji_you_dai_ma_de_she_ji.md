@@ -299,6 +299,8 @@
 
 ## 10.3 Remove Parameter (移除参数)
 
+函数本地不再需要某个参数
+
 ## 10.4 Separate Query from Modifier(将查询函数和修改函数分离)
 
 ### 10.5 Parameter Method(令函数携带参数)
