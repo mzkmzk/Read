@@ -323,6 +323,8 @@
 
 ## 10.9 Introduce Parameter Object(引入参数对象)
 
+某些参数总是很自然的同时出现
+
 ## 10.10 Remove Setting Method(移除设置函数)
 
 ## 10.11 Hide Method(隐藏函数)
