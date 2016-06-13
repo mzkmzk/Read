@@ -366,6 +366,10 @@
 
 ## 11.3 Pull Up Constructor Body(构造函数本体上移)
 
+你在各个子类中拥有一些构造函数,他们的本体几乎是一样的
+
+
+
 ## 11.4 Push Down Method(函数下移)
 
 ## 11.5 Push Down Field (字段下移)
