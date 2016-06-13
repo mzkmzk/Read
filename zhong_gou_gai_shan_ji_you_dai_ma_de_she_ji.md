@@ -404,6 +404,12 @@
 
 ## 11.10 Form Template Method(塑造模板函数)
 
+你有一些子类,其中相应的某些函数以相同顺序执行类似的操作,但各个操作的细节上有所不同
+
+将这些操作分别放进独立的函数里,并保持他们都有相同的签名,于是原函数也就变得相同了,然后将相同函数上移到超类
+
+
+
 ## 11.11 Replace Inheritaance with Delegation (以委托取代继承)
 
 ## 11.12 Replace Deletegation with Inheritance(以继承取代委托)
