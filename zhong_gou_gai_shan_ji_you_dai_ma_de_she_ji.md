@@ -398,7 +398,9 @@
 
 ## 11.9 Collapse Hierachy(折叠继承体系)
 
+超类和子类之间无太大区别
 
+将他们合为一体
 
 ## 11.10 Form Template Method(塑造模板函数)
 
