@@ -360,6 +360,8 @@
 
 ## 11.2 Pull Up Method(函数上移)
 
+有些函数,在各个子类中产生完全相同的结果
+
 ## 11.3 Pull Up Constructor Body(构造函数本体上移)
 
 ## 11.4 Push Down Method(函数下移)
