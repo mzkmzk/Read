@@ -270,6 +270,8 @@
 
 ### 9.5 Replace Nested Conditional with Guard Clauses(以卫语句取代嵌套条件表达式)
 
+函数中的条件逻辑使人难以看清正常的执行路径
+
 ### 9.6 Replace Conditional with Polymorphism (以多态取代条件表达式)
 
 ### 9.7 Introduce Null Object(引入NULL)
