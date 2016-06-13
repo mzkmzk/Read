@@ -402,7 +402,7 @@
 
 将他们合为一体
 
-## 11.10 Form Template Method(塑造模板函数)
+## 11.10 Form Template Method(塑造模板函数)(强烈推荐)
 
 你有一些子类,其中相应的某些函数以相同顺序执行类似的操作,但各个操作的细节上有所不同
 
@@ -414,6 +414,7 @@
 2. 运用pull up method将各子类内完全相同的函数上移到超类
 3. 对于那些完全不同的函数实施Rename Method
 4. 将原函数上移到超类
+5. 其余子类相同做法
 
 ## 11.11 Replace Inheritaance with Delegation (以委托取代继承)
 
