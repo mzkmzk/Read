@@ -325,9 +325,9 @@
 
 某些参数总是很自然的同时出现
 
-## 10.10 Remove Setting Method(移除设置函数)
+## 10.10 Remove Setting Method(移除设值函数)
 
-l
+类中的某个字段应该在对象创建时被设值,然后就不再改变
 
 ## 10.11 Hide Method(隐藏函数)
 
