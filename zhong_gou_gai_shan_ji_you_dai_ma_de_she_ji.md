@@ -384,13 +384,17 @@
 
 ## 11.7 Extract Superclass(提炼超类)
 
+两个类有相似的特性
+
+为这两个类建立一个超类,将相同特性移至超类
+
 ## 11.8 Extract Interface(提炼接口)
 
 ## 11.9 Collapse Hierachy(折叠继承体系)
 
-### 11.10 Form Template Method(塑造模板函数)
+## 11.10 Form Template Method(塑造模板函数)
 
-### 11.11 Replace Inheritaance with Delegation (以委托取代继承)
+## 11.11 Replace Inheritaance with Delegation (以委托取代继承)
 
 ## 11.12 Replace Deletegation with Inheritance(以继承取代委托)
 
