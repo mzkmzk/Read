@@ -398,6 +398,8 @@
 
 ## 11.9 Collapse Hierachy(折叠继承体系)
 
+
+
 ## 11.10 Form Template Method(塑造模板函数)
 
 ## 11.11 Replace Inheritaance with Delegation (以委托取代继承)
