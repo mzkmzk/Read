@@ -327,6 +327,8 @@
 
 ## 10.10 Remove Setting Method(移除设置函数)
 
+
+
 ## 10.11 Hide Method(隐藏函数)
 
 ## 10.12 Replace Constructor with Factory Method(以工厂函数取代构造函数)
