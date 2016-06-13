@@ -303,9 +303,13 @@
 
 ## 10.4 Separate Query from Modifier(将查询函数和修改函数分离)
 
-### 10.5 Parameter Method(令函数携带参数)
+某个函数即返回对象状态值,又修改对象状态
 
-### 10.6 Replace Parameter with Explicit Methods(以明确函数取代参数)
+
+
+## 10.5 Parameter Method(令函数携带参数)
+
+## 10.6 Replace Parameter with Explicit Methods(以明确函数取代参数)
 
 ## 10.7 Preserve Whole Object(保持对象完整)
 
