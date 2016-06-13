@@ -262,6 +262,8 @@
 
 ### 9.3 Consolidate Duplicate Conditional Fragments (合并重复的条件片段)
 
+在条件表达式的每个分支上有着相同的一段代码
+
 ### 9.4 Remove Control Flag(移除控制标记)
 
 ### 9.5 Replace Nested Conditional with Guard Clauses(以卫语句取代嵌套条件表达式)
