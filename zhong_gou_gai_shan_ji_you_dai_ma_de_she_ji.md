@@ -331,7 +331,7 @@
 
 ## 10.11 Hide Method(隐藏函数)
 
-有一个函数,从来没有被其他任何类用到
+有一个函数,从来没有被其他任何类用到,改为private
 
 ## 10.12 Replace Constructor with Factory Method(以工厂函数取代构造函数)
 
