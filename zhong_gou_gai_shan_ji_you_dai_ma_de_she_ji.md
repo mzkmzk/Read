@@ -335,6 +335,8 @@
 
 ## 10.12 Replace Constructor with Factory Method(以工厂函数取代构造函数)
 
+你希望在创建对象时,不仅仅是做简单的建构动作
+
 ## 10.13  Encapsulate Downcast (封装向下转型)
 
 ## 10.14 Replace Error Code with Exception (以异常取代错误码)
