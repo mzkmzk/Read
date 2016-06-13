@@ -309,9 +309,11 @@
 
 若干函数做了类似的工作,但在函数本体中却包含了不同的值
 
-
-
 ## 10.6 Replace Parameter with Explicit Methods(以明确函数取代参数)
+
+你有一个函数,其中完全取决于参数值而采取不同的行为
+
+
 
 ## 10.7 Preserve Whole Object(保持对象完整)
 
