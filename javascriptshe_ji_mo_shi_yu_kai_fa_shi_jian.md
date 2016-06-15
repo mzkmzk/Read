@@ -264,7 +264,18 @@ extent.call(); //3
     eg: 一次性加载1000000次循环时(实时不应该怎么)
     
     ```javascript
-    
+    var timeChunk = function(ary,fn,count){
+      var obj,
+        t,
+        len = ary.length;
+        
+        var start = function() {
+          for (var i = 0;i< Math.min(count || 1 ,arr.length);i++) {
+            var obj =ary,shift();
+            fn(obj);
+          }
+        }
+    };
     ```
 
 #15 装饰者模式
