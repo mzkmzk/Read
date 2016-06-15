@@ -275,8 +275,18 @@ extent.call(); //3
             fn(obj);
           }
         }
+        
+        return function(){
+          t = setInterval(function(){
+            if (ary.length === 0) { //假如数组已经执行完毕
+              return clearInterval(t);
+            }
+            start();
+          },200)
+        }
     };
     ```
+    //估计如果fn里含有this,会有问题.
 
 #15 装饰者模式
 
