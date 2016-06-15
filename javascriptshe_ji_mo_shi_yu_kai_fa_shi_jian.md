@@ -219,6 +219,8 @@ extent.call(); //3
       return self.apply(obj,arguments);
     }
   }
+  
+  
   ```
 
 #15 装饰者模式
