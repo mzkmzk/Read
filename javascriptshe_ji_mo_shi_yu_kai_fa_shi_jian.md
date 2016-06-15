@@ -223,8 +223,10 @@ extent.call(); //3
   var push = Array.prototype.push.uncurring();
   var obj = {
     "length": 1,
-    "o": 1
+    "0": 1
   };
+  push(obj,2);
+  console.log(obj);//{0: 1,1: 2,length: 2}
   ```
 
 #15 装饰者模式
