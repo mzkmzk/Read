@@ -228,6 +228,27 @@ extent.call(); //3
   push(obj,2);
   console.log(obj);//{0: 1,1: 2,length: 2}
   ```
+3. 函数节流
+
+   例如,resize函数触发N多次,但是我们可能只需1或0.5秒执行一次
+   
+   ```javascript
+   var throttle = function (fn,interval) {
+     var __self = fn,
+     timer,
+     fisrtTime = true,
+     
+     return function() {
+       var args = arguments,
+       __me = this,
+       
+       if(firstTime) {
+         __self.apply(_me,args);
+         return firstTime = false;
+       }
+     }
+   }
+   ```
 
 #15 装饰者模式
 
