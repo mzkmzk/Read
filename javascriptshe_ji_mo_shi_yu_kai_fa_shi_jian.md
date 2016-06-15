@@ -219,8 +219,12 @@ extent.call(); //3
       return self.apply(obj,arguments);
     }
   }
-  
-  
+  //运用
+  var push = Array.prototype.push.uncurring();
+  var obj = {
+    "length": 1,
+    "o": 1
+  };
   ```
 
 #15 装饰者模式
