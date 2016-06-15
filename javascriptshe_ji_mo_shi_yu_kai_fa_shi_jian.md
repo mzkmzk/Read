@@ -182,6 +182,9 @@ extent.call(); //3
     return function(){
       if (arguments.length === 0) {
         return fn.apply(this,args);
+      } else {
+        [].push.apply(args,arguments);
+        return argumets.callee;
       }
     };
   }
