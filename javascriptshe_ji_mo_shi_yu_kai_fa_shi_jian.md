@@ -242,10 +242,20 @@ extent.call(); //3
        var args = arguments,
        __me = this,
        
-       if(firstTime) {
+       if(firstTime) { //第一次不延迟
          __self.apply(_me,args);
          return firstTime = false;
        }
+       
+       if (timer) { //如果有定时器,则说明上次没完成,取消这次行为
+         return false;
+       }
+       
+       timer = setTimeout(function() {
+         clearTimeout(timer);
+         timer = null;
+         __self.apply(__me,args);
+       }, interval || 500)
      }
    }
    ```
