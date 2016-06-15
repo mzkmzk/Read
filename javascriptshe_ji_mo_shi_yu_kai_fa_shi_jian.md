@@ -173,6 +173,20 @@ extent.call(); //3
 
 1. currying 函数柯里化
 
+  例如每日都会记录利润,然后需要总利润输出时,再输出.
+  
+  ```javascript
+  //令函数柯里化
+  var curring =function(fn) {
+    var args = [];
+    return function(){
+      if (arguments.length === 0) {
+        return fn.apply(this,args);
+      }
+    };
+  }
+  ```
+
 #15 装饰者模式
 
 装饰者模式: 往对象动态添加职责
