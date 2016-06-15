@@ -210,6 +210,17 @@ extent.call(); //3
   ```
 2. uncurrying: 反柯里化  
 
+  ```javascript
+  //实现
+  Function.prototype.uncurring = function() {
+    var self = this ;
+    return function() {
+      var obj = Array.prototype.shift.call(arguments);
+      return self.apply(obj,arguments);
+    }
+  }
+  ```
+
 #15 装饰者模式
 
 装饰者模式: 往对象动态添加职责
