@@ -287,6 +287,30 @@ extent.call(); //3
     };
     ```
     //这个方法如果fn里含有this,会有问题.
+    
+5. 惰性加载函数
+
+     例如绑定时间时,不同浏览器要使用window.addEventListener(正常刘看齐) || window
+     .attachEvent(IE8及其以下浏览器)
+     
+     ```javascript
+     var addEvent = function(elem,type,handler) {
+       if (winodw.addEventListener) {
+         addEvent = function(elem,type,handler) {
+           elem.addEventListener(type,handler,false);
+         }
+       } else if (window.attachEvent) {
+         addEvent = function(elem,type,handler) {
+           elem.attachEvent('on'+type,handler);
+         }
+       }     
+       addEvent(elem,type,handler); 
+     }
+     ```
+     
+     这样以后执行addEvent都不需要再去判断IE还是其他浏览的绑定方式
+     
+     
 
 #15 装饰者模式
 
