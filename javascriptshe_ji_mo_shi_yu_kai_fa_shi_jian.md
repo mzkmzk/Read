@@ -186,8 +186,27 @@ extent.call(); //3
         [].push.apply(args,arguments);
         return argumets.callee;
       }
-    };
+    }
   }
+  
+  var cost = ( function() {
+    var money = 0 ;
+    
+    return function(){
+      for (var i = 0; l = arguments.length;i < 1 ; i++){
+        money +=arguments[i];
+      }
+      return money
+    }
+  })();
+  
+  //应用
+  var cost = curring(cost);
+  cost(100);
+  cost(200);
+  cost(300);
+  
+  const(); //600
   ```
 
 #15 装饰者模式
