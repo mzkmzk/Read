@@ -181,10 +181,10 @@ extent.call(); //3
     var args = []; // 用于保存调用过的参数.
     return function(){
       if (arguments.length === 0) {
-        return fn.apply(this,args);
+        return fn.apply(this,args); //把历史性的参数都调用起来
       } else {
         [].push.apply(args,arguments);
-        return argumets.callee; //返回函数本身,即return的这个闭包 ES5已不允许使用该方法
+        return argumets.callee; //返回函数本身,即return的这个闭包 ES5严格模式已不允许使用该方法
       }
     }
   }
