@@ -271,7 +271,7 @@ extent.call(); //3
         
         var start = function() {
           for (var i = 0;i< Math.min(count || 1 ,arr.length);i++) {
-            var obj =ary,shift();
+            var obj =ary.shift();
             fn(obj);
           }
         }
