@@ -213,9 +213,9 @@ extent.call(); //3
   ```javascript
   //实现
   Function.prototype.uncurring = function() {
-    var self = this ;
+    var self = this ; //保存当时的this这里是Array.prototype.push
     return function() {
-      var obj = Array.prototype.shift.call(arguments);
+      var obj = Array.prototype.shift.call(arguments);//去除并返回第一个参数
       return self.apply(obj,arguments);
     }
   }
