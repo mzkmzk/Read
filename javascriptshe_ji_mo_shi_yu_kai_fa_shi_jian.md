@@ -208,7 +208,7 @@ extent.call(); //3
   
   const(); //600
   ```
-2. uncurrying: 去柯里化  
+2. uncurrying: 反柯里化  
 
 #15 装饰者模式
 
