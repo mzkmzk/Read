@@ -177,14 +177,14 @@ extent.call(); //3
   
   ```javascript
   //令函数柯里化通用方法
-  var curring =function(fn) {
+  var curring = function(fn) {
     var args = []; // 用于保存调用过的参数.
     return function(){
       if (arguments.length === 0) {
         return fn.apply(this,args);
       } else {
         [].push.apply(args,arguments);
-        return argumets.callee;
+        return argumets.callee; //返回函数本身,即return的这个闭包 ES5已不允许使用该方法
       }
     }
   }
