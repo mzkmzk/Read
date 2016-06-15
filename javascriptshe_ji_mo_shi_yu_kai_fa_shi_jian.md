@@ -176,9 +176,9 @@ extent.call(); //3
   例如每日都会记录利润,然后需要总利润输出时,再输出.
   
   ```javascript
-  //令函数柯里化
+  //令函数柯里化通用方法
   var curring =function(fn) {
-    var args = [];
+    var args = []; // 用于保存调用过的参数.
     return function(){
       if (arguments.length === 0) {
         return fn.apply(this,args);
@@ -209,7 +209,9 @@ extent.call(); //3
   const(); //600
   ```
   
+  这里需要注意的几个点
   
+  1. 
 
 #15 装饰者模式
 
