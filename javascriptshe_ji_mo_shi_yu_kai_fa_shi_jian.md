@@ -366,7 +366,7 @@ document.getElementById("loginBtn").onclick = function(){
      return shell;
  }
 
- //缓存
+ //缓存 factorial是
  var memfactorial =memoize(factorial,{"0":1,"1":1});
  var fact6 =memfactorial(6);
  var fact5 =memfactorial(5);
