@@ -317,7 +317,14 @@ extent.call(); //3
 
 用于创建一次,但是又不需要刚打开页面就执行的函数
 
-
+```javascript
+var getSingle = function(fn) {
+  var result;
+  return function(){
+    return result || (result = fn.apply(this.arguments));
+  }
+}
+```
      
 
 #15 装饰者模式
