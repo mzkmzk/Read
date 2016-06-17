@@ -344,6 +344,8 @@ document.getElementById("loginBtn").onclick = function(){
 
 # 5 策略模式
 
+策略模式: 定义一系列的算法,把他们一个个封装起来,并且使他们可以相互切换
+
 
 
      
