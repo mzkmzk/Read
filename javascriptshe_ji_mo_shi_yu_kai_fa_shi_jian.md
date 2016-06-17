@@ -337,7 +337,7 @@ var createLiginLayer = function(){
 var createSingleLoginLayer = getSingle(createLiginLayer);
 
 document.getElementById("loginBtn").onclick = function(){
-  var loginLayer = createSingleLoginLayer();
+  var loginLayer = createSingleLoginLayer(); //第一次点击 创建div,第二次点击返回第一次的div
   loginLayer.style.display = 'block';
 }
 ```
