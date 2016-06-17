@@ -319,12 +319,30 @@ extent.call(); //3
 
 ```javascript
 var getSingle = function(fn) {
-  var result;
+  var result; //形成闭包,在return后的函数仍可访问result
   return function(){
     return result || (result = fn.apply(this.arguments));
   }
 }
+
+//例如全局只有一个的登陆弹出框
+var createLiginLayer = function(){
+  var div = document.createElements("div");
+  div.innerHTML = "我是登录框";
+  div.style.display = 'none';
+  document.body.appendChild('div');
+  return div;
+}
+
+var createSingleLoginLayer = getSingle(createLiginLayer);
+
+document.getElementById("loginBtn").onclick = function(){
+  var loginLayer = createSingleLoginLayer();
+  loginLayer.style.display = 'block';
+}
 ```
+
+
      
 
 #15 装饰者模式
