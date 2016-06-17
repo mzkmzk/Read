@@ -355,6 +355,27 @@ document.getElementById("loginBtn").onclick = function(){
 你要约明显啪啪啪.你不可能直接约到她啊..先找它的经理人(代理),谈好价格后,然后上.ok,这就是代理模式
 
 
+```javascript
+ function memoize(fundamental,cahce){
+     cache = cache || {};
+     var shell = function(arg){
+         if(!cache.hasOwnProperty(arg)){
+             cache[arg] = fundamental(arg);
+         }
+     }
+     return shell;
+ }
+
+ //缓存
+ var memfactorial =memoize(factorial,{"0":1,"1":1});
+ var fact6 =memfactorial(6);
+ var fact5 =memfactorial(5);
+ var fact4 =memfactorial(4);
+```
+
+
+
+
 
 #15 装饰者模式
 
