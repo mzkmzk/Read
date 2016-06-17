@@ -405,6 +405,9 @@ Event.trigger("click",1);
 Event.listen('click',function(a){
   console.log(a);
 })
+
+//使用命名空间
+
 ```
 
 
