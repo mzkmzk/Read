@@ -375,11 +375,7 @@ document.getElementById("loginBtn").onclick = function(){
 
 在这里我们没有显示的调用factorial算法,
 
-而是给它加了一层缓存
-
-
-
-
+而是给它加了一层缓存,递归到以前查询过的数字,直接读缓存即可.
 
 #15 装饰者模式
 
