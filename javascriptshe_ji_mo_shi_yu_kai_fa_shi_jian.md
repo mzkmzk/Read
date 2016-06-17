@@ -480,9 +480,71 @@ var Event = (function(){
           var namespace || _default;
           var cache = {},
           offlineStack = [], //离线事件
+          ret = {
+            listen: function( key, fn, last) {
+              _listen(key,fn,last);
+              if(offlineStack === null ) {
+                return ;
+              }
+              if( last === 'last') {
+                offlineStack.length ** offlineStack.pop(){};
+              } else {
+                each( offlineStack, function(){
+                  this();
+                });
+              }
+              offlineStack = null;
+            },
+            one: function(key,fn,last) {
+              _remove(key,cache);
+              this.listen(key,cachemfn);
+            },
+            remove: function(key,fn) {
+              _remove(key,cache,fn);
+            },
+            tigger: function() {
+              var fn,
+                  args,
+                  _self = this;
+                  
+                  _unshift.call(arguments,cache);
+                  args = arguments;
+                  fn = function() {
+                    return _trigger.apply(_self,args);
+                  };
+                  
+                  if (offlineStack) {
+                    return offlineStack.push(fn);
+                  }
+                  return fn();
+            }
+          };
           
-        }
+          return namespace ? 
+                ( namespaceCache[namespace] ? namespaceCache[namespace] : namespaceCache[ namespace] = ret) : ret;
+        };
+        
+  return {
+    create: _Create,
+    one : function(key,fn,last){
+      var event = this .create();
+      event.one(key,fn,last);
+    },
+    remove: function (key,fn) {
+      var event = this.create();
+      event.remove(key,fn);
+    },
+    listen: function(key,fn,last) {
+      var event = this.create();
+      event.listen(key,fn,last);
+    },
+    tigger: function(){
+      var event = this.create();
+      event.trigger.apply(this,arguments);
+    }
+  };      
   }();
+  return Event;
 })()
 ```
 
