@@ -366,12 +366,16 @@ document.getElementById("loginBtn").onclick = function(){
      return shell;
  }
 
- //缓存 factorial是
+ //缓存 factorial是具体的实现方法
  var memfactorial =memoize(factorial,{"0":1,"1":1});
  var fact6 =memfactorial(6);
  var fact5 =memfactorial(5);
  var fact4 =memfactorial(4);
 ```
+
+在这里我们没有显示的调用factorial算法,
+
+而是给它加了一层缓存
 
 
 
