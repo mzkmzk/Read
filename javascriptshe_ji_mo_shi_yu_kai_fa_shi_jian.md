@@ -377,6 +377,9 @@ document.getElementById("loginBtn").onclick = function(){
 
 而是给它加了一层缓存,递归到以前查询过的数字,直接读缓存即可.
 
+# 7 迭代器模式
+
+
 #15 装饰者模式
 
 装饰者模式: 往对象动态添加职责
