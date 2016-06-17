@@ -527,7 +527,7 @@ var Event = (function(){
   return {
     create: _create,
     one : function(key,fn,last){
-      var event = this .create();
+      var event = this.create();
       event.one(key,fn,last);
     },
     remove: function (key,fn) {
