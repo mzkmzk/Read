@@ -421,7 +421,7 @@ var Event = (function(){
   var global = this,
   Event,
   _default = 'default';
-  Event = function(){
+  Event = function(){ //初始化
     var _listen,
         _trigger,
         _remove,
@@ -525,7 +525,7 @@ var Event = (function(){
         };
         
   return {
-    create: _Create,
+    create: _create,
     one : function(key,fn,last){
       var event = this .create();
       event.one(key,fn,last);
@@ -575,3 +575,4 @@ Function.prototype.after = function(after_fn) {
 ```
 
 这种AOP,因为before和原来执行的函数公用arguments,那么before还可以动态给原函数添加参数.
+
