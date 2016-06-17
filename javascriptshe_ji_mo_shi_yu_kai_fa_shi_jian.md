@@ -387,7 +387,10 @@ document.getElementById("loginBtn").onclick = function(){
 
 ajax,当ajax有返回后,需要执行多个任务,就可以触发一个发布,其他函数订阅即可
 
+下面代码支持
 
+1. 全局事件
+2. 可先发布,后订阅
 
 
 #15 装饰者模式
