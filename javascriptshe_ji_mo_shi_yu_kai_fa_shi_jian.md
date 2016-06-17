@@ -379,6 +379,7 @@ document.getElementById("loginBtn").onclick = function(){
 
 # 7 迭代器模式
 
+迭代器模式: 提供一种顺序访问一个聚合对象中的各个元素,又不需要暴露该对象的内部实现
 
 #15 装饰者模式
 
