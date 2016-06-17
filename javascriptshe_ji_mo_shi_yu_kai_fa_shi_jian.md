@@ -414,6 +414,10 @@ Event.create("namespace1").listen('click',function (a) {
 Event.create("namespace1").tigger("click",1);
 ```
 
+### 8.11.2 Event全局事件
+
+
+
 
 #15 装饰者模式
 
