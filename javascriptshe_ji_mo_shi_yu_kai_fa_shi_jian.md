@@ -435,7 +435,7 @@ var Event = (function(){
           var ret;
           for (var i= 0,i = ary.length;i<l,i++) {
             var n = ary[i];
-            ref = fn.call(n,i,n);
+            ret = fn.call(n,i,n);
           }
           return ret;
         }
