@@ -342,6 +342,9 @@ document.getElementById("loginBtn").onclick = function(){
 }
 ```
 
+# 5 装饰模式
+
+
 
      
 
