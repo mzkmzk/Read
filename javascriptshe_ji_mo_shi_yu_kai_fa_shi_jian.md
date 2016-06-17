@@ -383,6 +383,11 @@ document.getElementById("loginBtn").onclick = function(){
 
 # 8 发布-订阅模式
 
+一般可以用于
+
+ajax,当ajax有返回后,需要执行多个任务,就可以触发一个发布,其他函数订阅即可
+
+
 
 
 #15 装饰者模式
