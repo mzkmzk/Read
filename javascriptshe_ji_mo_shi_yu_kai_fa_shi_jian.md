@@ -487,7 +487,7 @@ var Event = (function(){
                 return ;
               }
               if( last === 'last') {
-                offlineStack.length ** offlineStack.pop(){};
+                offlineStack.length && offlineStack.pop(){};
               } else {
                 each( offlineStack, function(){
                   this();
