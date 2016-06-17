@@ -421,7 +421,9 @@ var Event = (function(){
   var global = this,
   Event,
   _default = 'default',
-  
+  Event = function(){
+    
+  }();
 })()
 ```
 
