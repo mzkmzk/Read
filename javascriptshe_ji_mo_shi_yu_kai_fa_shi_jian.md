@@ -407,7 +407,11 @@ Event.listen('click',function(a){
 })
 
 //使用命名空间
+Event.create("namespace1").listen('click',function (a) {
+  console.log(a);//1
+})
 
+Event.create("namespace1").tigger("click",1);
 ```
 
 
