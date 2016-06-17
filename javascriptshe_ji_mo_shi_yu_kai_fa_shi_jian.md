@@ -416,7 +416,14 @@ Event.create("namespace1").tigger("click",1);
 
 ### 8.11.2 Event全局事件
 
-
+```javascript
+var Event = (function(){
+  var global = this,
+  Event,
+  _default = 'default',
+  
+})()
+```
 
 
 #15 装饰者模式
