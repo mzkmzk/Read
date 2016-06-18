@@ -615,8 +615,6 @@ iframe.src = "http://baidu.com"
 
 var iframe2 = iframeFactory.create();
 iframe.src = "http://qq.com"
-
-
 ```
 
 
