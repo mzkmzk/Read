@@ -425,8 +425,8 @@ var Event = (function(){
     var _listen,
         _trigger,
         _remove,
-        _slice = Array.prototype.slice,
-        _shift = Array.prototype.shift,
+        _slice = Array.prototype.slice, //截取数组
+        _shift = Array.prototype.shift, //去除第一个元素并返回第一个元素
         _unshift = Array.prototype.unshift,
         namespaceCache = {},
         _create,
@@ -549,6 +549,7 @@ var Event = (function(){
 ```
 
 #9 命令模式
+
 
 
 
