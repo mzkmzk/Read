@@ -678,4 +678,5 @@ Function.prototype.after = function(after_fn) {
 
 lod,有依赖时,尽量只提供接口
 
-# 20 
+# 20 开放-封闭原则
+
