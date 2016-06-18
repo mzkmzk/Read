@@ -676,3 +676,6 @@ Function.prototype.after = function(after_fn) {
 
 # 19 最少知识原则
 
+lod,有依赖时,尽量只提供接口
+
+# 20 
