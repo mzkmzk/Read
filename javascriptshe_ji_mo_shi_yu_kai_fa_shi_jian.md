@@ -665,3 +665,5 @@ Function.prototype.after = function(after_fn) {
 把状态的各种行为封装为状态类,而本体只记录相关的状态,当本体状态改变时,触发想对应的行为
 
 状态机库: github: javascript-state-machine
+
+# 17 适配器模式
