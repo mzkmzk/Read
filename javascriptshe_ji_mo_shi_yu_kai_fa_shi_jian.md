@@ -671,3 +671,6 @@ Function.prototype.after = function(after_fn) {
 主要用于解决接口不合适的问题,经过包装/加工使其适配
 
 # 单一职责原则
+
+一个对象/方法只做一件事情
+
