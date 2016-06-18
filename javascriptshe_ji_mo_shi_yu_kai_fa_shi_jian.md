@@ -597,7 +597,29 @@ var objectPoolFactory =  function(createObjFn) {
     }
   }
 };
+
+//应用
+装在一些iframe对象池
+var iframeFactory = objectPoolFacotry(function(){
+  var iframe = document.createElements("iframe");
+    document.body.appendChild(iframe);
+    
+    iframe.onload = function(){
+      iframe.onload = null //防止iframe重复加载
+      iframeFactory.recover(iframe); // iframe加载完成后回收节点
+    }
+});
+
+var iframe1 = iframeFacotry.create();
+iframe.src = "http://baidu.com"
+
+var iframe2 = iframeFactory.create();
+iframe.src = "http://qq.com"
+
+
 ```
+
+
 
 #15 装饰者模式
 
