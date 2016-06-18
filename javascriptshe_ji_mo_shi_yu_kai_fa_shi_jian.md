@@ -667,3 +667,5 @@ Function.prototype.after = function(after_fn) {
 状态机库: github: javascript-state-machine
 
 # 17 适配器模式
+
+主要用于解决接口不合适的问题,经过包装/加工使其适配
