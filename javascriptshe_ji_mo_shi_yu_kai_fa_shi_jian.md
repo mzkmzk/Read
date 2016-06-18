@@ -617,6 +617,8 @@ var iframe2 = iframeFactory.create();
 iframe.src = "http://qq.com"
 ```
 
+#13 职责链模式
+
 
 
 #15 装饰者模式
