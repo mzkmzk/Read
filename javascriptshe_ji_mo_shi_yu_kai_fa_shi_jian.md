@@ -661,3 +661,6 @@ Function.prototype.after = function(after_fn) {
 ## 16 状态模式
 
 状态模式的关键是区分事务内部的状态,事务内部状态的改变往往会带来事物的行为改变
+
+React!
+
