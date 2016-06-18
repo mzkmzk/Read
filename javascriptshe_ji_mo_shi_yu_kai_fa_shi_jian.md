@@ -584,7 +584,20 @@ var Event = (function(){
 
 示例: 对象池
 
-
+```javascript
+var objectPoolFactory =  function(createObjFn) {
+  var objectPool = [];
+  return {
+    create: function(){
+      var obj = objectPool.length === 0 ?
+        createObjFn.apply(this,arguments) : objectPool.shift();
+    },
+    recover: function(obj) {
+      objectPool.push(obj);
+    }
+  }
+};
+```
 
 #15 装饰者模式
 
