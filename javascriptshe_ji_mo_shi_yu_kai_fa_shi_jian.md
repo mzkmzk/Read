@@ -658,3 +658,4 @@ Function.prototype.after = function(after_fn) {
 
 这种AOP,因为before和原来执行的函数公用arguments,那么before还可以动态给原函数添加参数.
 
+## 16 状态模式
