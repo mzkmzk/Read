@@ -20,3 +20,4 @@ LiveReload: 自动刷新浏览器
 
 # 4. 发布、部署和监控
 
+优化图片使用`grunt-contrib-imagemin`,能实现隔行扫描图像
