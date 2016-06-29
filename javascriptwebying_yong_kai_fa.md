@@ -6,3 +6,5 @@
 
 # 2. 编写构建任务,指定流程
 
+介绍了下Grunt下使用less,jslint,babel编译等
+
