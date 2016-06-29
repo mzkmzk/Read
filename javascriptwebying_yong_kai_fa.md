@@ -34,3 +34,11 @@ LiveReload: 自动刷新浏览器
 
 使用winston处理日志
 
+### 4.5.2调试弄得
+
+node-inspector
+
+### 4.5.3分析性能
+
+node: nodetime-register
+
