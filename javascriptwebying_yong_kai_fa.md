@@ -34,11 +34,15 @@ LiveReload: 自动刷新浏览器
 
 使用winston处理日志
 
-### 4.5.2调试弄得
+### 4.5.2 调试弄得
 
-node-inspector
+node-inspector/IDE
 
-### 4.5.3分析性能
+### 4.5.3 分析性能
 
 node: nodetime-register
+
+### 4..5.4运行时间和进程管理
+
+cluster,类似于集群配置,但还不稳定
 
