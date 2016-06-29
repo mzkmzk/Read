@@ -25,3 +25,4 @@ LiveReload: 自动刷新浏览器
 使用更改日志`grunt-conventional-changelog`
 
 提交git时,使用`fix:`,`feat: `,`BREAKING`,为commit的开头,该插件能自动生成changelog
+
