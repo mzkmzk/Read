@@ -42,7 +42,7 @@ node-inspector/IDE
 
 node: nodetime-register
 
-### 4..5.4运行时间和进程管理
+### 4.5.4运行时间和进程管理
 
 cluster,类似于集群配置,但还不稳定
 
