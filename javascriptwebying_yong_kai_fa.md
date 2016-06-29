@@ -46,3 +46,6 @@ node: nodetime-register
 
 cluster,类似于集群配置,但还不稳定
 
+# 5 理解模块化和依赖管理
+
+
