@@ -42,11 +42,11 @@ node-inspector/IDE
 
 node: nodetime-register
 
-### 4.5.4运行时间和进程管理
+### 4.5.4 运行时间和进程管理
 
 cluster,类似于集群配置,但还不稳定
 
-# 5 理解模块化和依赖管理
+# 5. 理解模块化和依赖管理
 
 主要管理依赖方式
 
@@ -54,4 +54,4 @@ cluster,类似于集群配置,但还不稳定
 2. CommonJs,使用Browserify编译
 3. AngularJS,自动解析依赖图
 
-
+# 6. 理解Javascript的异步流程控制方法
