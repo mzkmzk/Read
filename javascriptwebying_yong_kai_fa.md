@@ -68,5 +68,7 @@ cluster,类似于集群配置,但还不稳定
 
 讲了Rendr,Backbone实现MVC.
 
+其实我觉得该被React替代了
+
 
 
