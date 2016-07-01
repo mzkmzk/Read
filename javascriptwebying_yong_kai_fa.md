@@ -70,5 +70,7 @@ cluster,类似于集群配置,但还不稳定
 
 其实我觉得该被React替代了
 
+# 8. 测试JavaScript组件
+
 
 
