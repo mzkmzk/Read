@@ -66,5 +66,7 @@ cluster,类似于集群配置,但还不稳定
 
 # 7. 使用模型-视图-控制器
 
+讲了Rendr,Backbone实现MVC.
+
 
 
