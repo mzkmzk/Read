@@ -80,3 +80,5 @@ Proxyquire可以模拟数据等返回数据,专门用于造数据
 
 外观测试推荐Grunt-photobox
 
+性能测试tuijian1Goole PageSpeed 或 YahooYslow
+ 
