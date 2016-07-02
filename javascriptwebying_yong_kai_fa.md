@@ -72,5 +72,9 @@ cluster,类似于集群配置,但还不稳定
 
 # 8. 测试JavaScript组件
 
+Sinon.js可以用来测试setTimeout、XHR等请求,
+
+Proxyquire可以模拟数据等返回数据,专门用于造数据
+
 
 
