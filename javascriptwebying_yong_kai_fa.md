@@ -78,5 +78,5 @@ Proxyquire可以模拟数据等返回数据,专门用于造数据
 
 集成测试推荐Selenium
 
-外观测试
+外观测试推荐Grunt-photobox
 
