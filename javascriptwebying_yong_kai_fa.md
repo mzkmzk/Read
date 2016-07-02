@@ -76,5 +76,7 @@ Sinon.js可以用来测试setTimeout、XHR等请求,
 
 Proxyquire可以模拟数据等返回数据,专门用于造数据
 
+集成测试推荐Selenium
 
+外观测试
 
