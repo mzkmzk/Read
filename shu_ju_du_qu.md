@@ -119,7 +119,9 @@ book.hasOwnProperty('toString') //false
 
 ###2.4.1 原型链
 
-原型对象为所有对象实例所共享
+1. 原型对象为所有对象实例所共享
+2. 对象通过`__proto__`绑定到它的原型
+3. 
 
 ```javascript
 function K (name){
