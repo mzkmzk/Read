@@ -119,6 +119,8 @@ book.hasOwnProperty('toString') //false
 
 ###2.4.1 原型链
 
+原型对象为所有对象实例所共享
+
 ```javascript
 function K (name){
     this.name = name;
