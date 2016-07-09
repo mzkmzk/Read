@@ -47,4 +47,5 @@
 * [安全](an_quan.md)
    * [白帽子讲WEB安全](bai_mao_zi_jiang_web_an_quan.md)
 * [企业管理](qi_ye_guan_li.md)
+   * 只有偏执狂才能生存
 
