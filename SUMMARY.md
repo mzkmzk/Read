@@ -46,5 +46,5 @@
    * [Vim使用技巧](vimshi_yong_ji_qiao.md)
 * [安全](an_quan.md)
    * [白帽子讲WEB安全](bai_mao_zi_jiang_web_an_quan.md)
-* 企业管理
+* [企业管理](qi_ye_guan_li.md)
 
