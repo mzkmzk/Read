@@ -59,7 +59,7 @@ var now = new Date();
 ```
 ## 3.2 文本
 
-##4. 模式匹配
+模式匹配
 
 ```javascript
 var text = "texting : 1 ,2, 3";
