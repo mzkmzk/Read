@@ -57,6 +57,7 @@ var then =new Date(2011,0,1);
 var later =new Date(2011,0,1,17,10,30);
 var now = new Date();
 ```
+## 3.2 文本
 
 ##4. 模式匹配
 
