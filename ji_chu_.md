@@ -50,7 +50,7 @@ var x =.3 -.2;
 x == .1 //false
 ```
 
-##3. 日期和时间
+日期和时间
 
 ```javascript
 var then =new Date(2011,0,1);
