@@ -151,7 +151,8 @@ n + "object" //NaN object
 
 数组转String 会使用join()方法
 
-##11 转换和相等性
+
+## 3.8.1 转换和相等性
 
 ```javascript
 null == undefined //true 以下皆为true
@@ -167,7 +168,7 @@ null == undefined //true 以下皆为true
 undefined == false //false
 ```
 
-##12 显示的类型转换
+## 3.8.2 显示的类型转换
 
 ```javascript
 Number("3");
