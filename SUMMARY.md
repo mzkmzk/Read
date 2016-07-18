@@ -33,7 +33,7 @@
    * [HTML5 Canvas](html5_canvas.md)
    * [编写可测试的JavaScript代码](bian_xie_ke_ce_shi_de_javascript_dai_ma.md)
    * [JavaScriptWeb应用开发](javascriptwebying_yong_kai_fa.md)
-   * 白帽子讲Web
+   * 白帽子讲Web安全
 * [服务器端](fu_wu_qi_duan.md)
    * [系统分析师UML项目实战](xi_tong_fen_xi_shi_uml_xiang_mu_shi_zhan.md)
    * [深入php面向对象、模式与实践](shen_ru_php_mian_xiang_dui_xiang_3001_mo_shi_yu_sh.md)
