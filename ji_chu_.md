@@ -1,8 +1,6 @@
 # 基础
 
-#2. 词法结构
-
-## 2.5 可选的分号
+##1. 可选的分号
 
 只有在缺少了分号就无法正确解析代码的时候,`javascript`,才会在一行的最后自动添加`;`
 
@@ -37,12 +35,8 @@ y
 //解析为 : x; ++y;
 
 ```
-#3. 类型、值和变量
 
-## 3.1 数字
-
-二进制浮点数和四舍五入错误
-
+##2. 二进制浮点数和四舍五入错误
 `javascript`只能表示1/2,1/8,1/1024等浮点数,但是1/10等是不精确的
 
 ```javascript
@@ -50,16 +44,15 @@ var x =.3 -.2;
 x == .1 //false
 ```
 
-日期和时间
+##3. 日期和时间
 
 ```javascript
 var then =new Date(2011,0,1);
 var later =new Date(2011,0,1,17,10,30);
 var now = new Date();
 ```
-## 3.2 文本
 
-模式匹配
+##4. 模式匹配
 
 ```javascript
 var text = "texting : 1 ,2, 3";
@@ -71,7 +64,7 @@ text.replace(pattern,"#"); // =>"testing: #,#,#"
 text.split(/\D+/); // =>["","1","2","3"]:用非数字字符截取字符串.
 ```
 
-## 3.3 布尔值
+##5. 布尔值
 
 ```javascript
 undefined
@@ -86,7 +79,7 @@ NaN
 
 其他所有值,包括对象和数组都为转为`true`
 
-## 3.4 null和undefined
+##6 null和undefined
 
 ```javascript
 alert(typeof null) //=>object
@@ -97,11 +90,11 @@ null === undefined // => false
 
 只有`null`和`undefined`无法拥有方法的值
 
-## 3.5 全局对象
+##7 全局对象
 
 Window对象定义了核心全局属性,它也针对浏览器和客户端`javascript`定义了一少部分其他全局属性.
 
-## 3.6 包装对象
+##8 包装对象
 
 ```javascript
 var s = "test"
@@ -124,7 +117,7 @@ s == S //true;
 s === S //false;
 ```
 
-## 3.7 不可变的原始值和可变的对象引用
+##9 不可变的原始值和可变的对象引用
 
 原始值 : undefined null 布尔值 数字 字符串
 对象引用 : 对象 数组
@@ -141,7 +134,7 @@ a[0]  // 1
 a === b //true
 ```
 
-## 3.8 类型转换
+##10 类型转换
 
 ```javascript
 "7" * "4" //28
@@ -151,8 +144,7 @@ n + "object" //NaN object
 
 数组转String 会使用join()方法
 
-
-## 3.8.1 转换和相等性
+##11 转换和相等性
 
 ```javascript
 null == undefined //true 以下皆为true
@@ -168,7 +160,7 @@ null == undefined //true 以下皆为true
 undefined == false //false
 ```
 
-## 3.8.2 显示的类型转换
+##12 显示的类型转换
 
 ```javascript
 Number("3");
@@ -228,20 +220,7 @@ d.valueOf(); //1262332800000
 
 数组转字符串,同理.不过先尝试valueOf
 
-### 3.8.3 对象转换为原始值
-
-对象到字符串: 对象调用
-
-1. 有toString方法并调用,若得到原始值,则转变为字符串
-2. 没有toString方法或者这个方法没有返回原始值,则调用valueOf,若得到原始值,则转换为字符串
-3. 否则,爆出类型异常
-
-对象到数字,则先valueOf后toString
-
-
-## 3.10 变量作用域
-
-### 3.10.2 作用属性的变量
+##13作用属性的变量
 
 声明一个全局变量时,用var声明的话是不可配置的
 
