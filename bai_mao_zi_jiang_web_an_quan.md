@@ -21,3 +21,4 @@ XSS根据效果不同分类
 
    把恶意的javascript存储在数据库
 
+加以开启HTTPOnly
