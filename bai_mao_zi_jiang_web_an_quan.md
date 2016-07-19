@@ -22,3 +22,8 @@ XSS根据效果不同分类
    把恶意的javascript存储在数据库
 
 加以开启HTTPOnly
+
+成功获取XSS漏洞后
+
+可以`帮`用户发出GET/POST请求
+
