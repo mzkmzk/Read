@@ -35,6 +35,6 @@ location.hash不会被服务器记载,能很好的达到隐藏的功能
 
 ## 3.3 XSS的防御
 
-
+### 3.3.1 四两拨千斤: HTTPOnly
 
 可以针对某一key开启HttpOnloy
