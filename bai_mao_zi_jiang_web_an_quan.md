@@ -33,4 +33,4 @@ XSS根据效果不同分类
 
 location.hash不会被服务器记载,能很好的达到隐藏的功能
 
-
+可以针对某一key开启HttpOnloy
