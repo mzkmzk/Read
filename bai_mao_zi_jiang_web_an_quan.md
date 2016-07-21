@@ -1,4 +1,4 @@
-#白子WEB安全
+#白帽子将Web的安全
 
 # 1. 基础
 
@@ -68,6 +68,8 @@ location.hash不会被服务器记载,能很好的达到隐藏的功能
 
 例如富文本肯定不包含 iframe script base form等
 
-我们应该尽量使用白名单`a img div`
+我们应该尽量使用白名单`a img div span`等比较`安全的标签`
+
+
 
 
