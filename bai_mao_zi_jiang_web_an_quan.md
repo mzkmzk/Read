@@ -66,4 +66,8 @@ location.hash不会被服务器记载,能很好的达到隐藏的功能
 
 遵循白名单而非黑名单
 
+例如富文本肯定不包含 iframe script base form等
+
+我们应该尽量使用白名单`a img div`
+
 
