@@ -60,6 +60,6 @@ location.hash不会被服务器记载,能很好的达到隐藏的功能
 ```
 
 1. PHP有htmlentities和htmlspecialchars
-2. javascript有
+2. javascript有JavascriptEncode
 
 
