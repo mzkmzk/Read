@@ -70,6 +70,8 @@ location.hash不会被服务器记载,能很好的达到隐藏的功能
 
 我们应该尽量使用白名单`a img div span`等比较`安全的标签`
 
+php腿脚使用的XSS Filter<https://github.com/ezyang/htmlpurifier>
+
 
 
 
