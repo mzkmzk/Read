@@ -47,4 +47,19 @@ location.hash不会被服务器记载,能很好的达到隐藏的功能
 
 ### 3.3.3 输出检查
 
+相应的html转义方法
+
+```
+& -> &amp;
+< -> &lt;
+> -> &gt;
+" -> &quot;
+' -> &#27; //不建议&aops;
+/ -> &#x2F; //以防闭合HTML entity
+
+```
+
+1. PHP有htmlentities和htmlspecialchars
+2. javascript有
+
 
