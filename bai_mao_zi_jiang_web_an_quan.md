@@ -1,4 +1,4 @@
-#白子WEB安全
+#白帽子将Web的安全
 
 # 1. 基础
 
@@ -32,5 +32,46 @@ XSS根据效果不同分类
 可以通过 visited属性判断用户是否浏览过某些网站
 
 location.hash不会被服务器记载,能很好的达到隐藏的功能
+
+## 3.3 XSS的防御
+
+### 3.3.1 四两拨千斤: HTTPOnly
+
+可以针对某一key开启HttpOnloy
+
+### 3.3.2 输入检查
+
+过滤黑名单
+
+前后端共同校验
+
+### 3.3.3 输出检查
+
+相应的html转义方法
+
+```
+& -> &amp;
+< -> &lt;
+> -> &gt;
+" -> &quot;
+' -> &#27; //不建议&aops;
+/ -> &#x2F; //以防闭合HTML entity
+
+```
+
+1. PHP有htmlentities和htmlspecialchars
+2. javascript有JavascriptEncode
+
+### 3.3.5 处理富文本
+
+遵循白名单而非黑名单
+
+例如富文本肯定不包含 iframe script base form等
+
+我们应该尽量使用白名单`a img div span`等比较`安全的标签`
+
+php腿脚使用的XSS Filter<https://github.com/ezyang/htmlpurifier>
+
+
 
 
