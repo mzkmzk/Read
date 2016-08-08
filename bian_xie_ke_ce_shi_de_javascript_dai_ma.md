@@ -33,6 +33,8 @@ function sum(a, b) {
 
 有人说: 任何方法的圈复杂度都不应该大于10
 
+可以使用jscheckstyle && Jenkins把圈JS文件的圈复杂度计算出来
+
 
 
 
