@@ -70,5 +70,7 @@ function sum(a, b) {
 YUIdocjs 可以转注释为HTML
 
 
+# 3. 基于事件的架构
+
 
 
