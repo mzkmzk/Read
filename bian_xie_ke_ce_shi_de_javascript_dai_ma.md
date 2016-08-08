@@ -1,4 +1,4 @@
-# 编写可测试的javascript代码
+# 编写可测试的javas
 
 # 1. 可测试的JavaScript
 
@@ -29,6 +29,8 @@ function sum(a, b) {
   }
 }
 ```
+这里的话圈复杂度为2
+
 
 
 
