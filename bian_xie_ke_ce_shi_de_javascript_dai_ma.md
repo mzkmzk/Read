@@ -20,7 +20,15 @@
 
 圈复杂度是表示代码中独立现行路径的数量
 
-
+```javascript
+function sum(a, b) {
+  if (typeof(a) !== typeof(b)) {
+    throw new Error('Cannot sum different types!');
+  } else {
+    return a + b ;
+  }
+}
+```
 
 
 
