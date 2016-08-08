@@ -35,6 +35,6 @@ function sum(a, b) {
 
 可以使用jscheckstyle && Jenkins把圈JS文件的圈复杂度计算出来
 
-
+如果发现代码被编写了两遍,就应该抽取出来了
 
 
