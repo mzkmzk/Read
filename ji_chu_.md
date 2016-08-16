@@ -85,7 +85,7 @@ NaN
 
 其他所有值,包括对象和数组都为转为`true`
 
-##6 null和undefined
+## 6 null和undefined
 
 ```javascript
 alert(typeof null) //=>object
