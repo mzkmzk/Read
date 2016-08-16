@@ -85,7 +85,7 @@ NaN
 
 其他所有值,包括对象和数组都为转为`true`
 
-## 6 null和undefined
+## 3.4 null和undefined
 
 ```javascript
 alert(typeof null) //=>object
@@ -150,7 +150,7 @@ n + "object" //NaN object
 
 数组转String 会使用join()方法
 
-##11 转换和相等性
+转换和相等性
 
 ```javascript
 null == undefined //true 以下皆为true
