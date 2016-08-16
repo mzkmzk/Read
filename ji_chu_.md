@@ -166,7 +166,7 @@ null == undefined //true 以下皆为true
 undefined == false //false
 ```
 
-##12 显示的类型转换
+### 3.8.2显示的类型转换
 
 ```javascript
 Number("3");
