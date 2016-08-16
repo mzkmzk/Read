@@ -96,11 +96,11 @@ null === undefined // => false
 
 只有`null`和`undefined`无法拥有方法的值
 
-##7 全局对象
+## 3.5 全局对象
 
 Window对象定义了核心全局属性,它也针对浏览器和客户端`javascript`定义了一少部分其他全局属性.
 
-##8 包装对象
+## 3.6 包装对象
 
 ```javascript
 var s = "test"
