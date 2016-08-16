@@ -48,7 +48,7 @@ var x =.3 -.2;
 x == .1 //false
 ```
 
-##3. 日期和时间
+日期和时间
 
 ```javascript
 var then =new Date(2011,0,1);
@@ -56,7 +56,9 @@ var later =new Date(2011,0,1,17,10,30);
 var now = new Date();
 ```
 
-##4. 模式匹配
+## 3.2 文本
+
+模式匹配
 
 ```javascript
 var text = "texting : 1 ,2, 3";
@@ -68,7 +70,7 @@ text.replace(pattern,"#"); // =>"testing: #,#,#"
 text.split(/\D+/); // =>["","1","2","3"]:用非数字字符截取字符串.
 ```
 
-##5. 布尔值
+## 3.3 布尔值
 
 ```javascript
 undefined
