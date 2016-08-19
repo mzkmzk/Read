@@ -41,7 +41,7 @@
    * [Spring实战](springshi_zhan.md)
    * [Linux鸟哥私房菜基础学习篇](linuxniao_ge_si_fang_cai_ji_chu_xue_xi_pian.md)
    * [Linux内核设计与实现](linux.md)
-   * 大型网站技术架构核心原理与案例分析
+   * [大型网站技术架构核心原理与案例分析](da_xing_wang_zhan_ji_zhu_jia_gou_he_xin_yuan_li_yu.md)
 * [Utils](utils.md)
    * [Pro\_Git](progit.md)
    * [重构改善既有代码的设计](zhong_gou_gai_shan_ji_you_dai_ma_de_she_ji.md)
