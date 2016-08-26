@@ -111,7 +111,23 @@ php -S 0.0.0.0:4000
 
 这样phpWEB服务器监听所有接口
 
+php使用初始化文件
 
+php -S localhost:8000 -c app\config\php.ini
+
+php内置服务器遗落了支持.htaccess文件的功能
+
+需要使用路由补充
+
+php -S localhost:8000 router.php
+
+查找是否为内置服务器
+
+```php
+if(php_sapi_name() === 'cli-server') {
+  ...
+}
+```
 
 
 
