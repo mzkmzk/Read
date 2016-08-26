@@ -140,6 +140,7 @@ if(php_sapi_name() === 'cli-server') {
 4. 测试良好
 5. 文档完善
 
+业内比较认可的php组件,https://github.com/ziadoz/awesome-php
 
 
 
