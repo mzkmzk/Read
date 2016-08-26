@@ -2,7 +2,11 @@
 
 # 2. 特性
 
-以下use为PHP5.6开始
+
+
+>use
+
+PHP5.6开始
 
 use导入函数: use func Namespace\functionName;
 
@@ -43,9 +47,7 @@ foreach (makeRange(1000000) as $i) {
 }
 ```
 
-闭包:
-
-闭包实现
+>闭包:
 
 ```php
 var $closure = function($name) {
@@ -74,3 +76,40 @@ $app->addRoute('users/josh',function(){...});
 ```
 
 这样闭包里就可以使用运行时的app
+
+>Zned OPcache
+
+在php5.5.0开始 php才内置字节码缓存
+
+如果没开字节码缓存,每次HTTP请求PHP解析器把php变成字节码
+
+如果自己编译PHP
+
+执行`./configure`时必须包含`zend_extension=/path/to/opcache.so`
+
+编译后,可以查看PHP拓展所在目录
+
+php-config --extension-dir
+
+配置ZendOPcache在php.in中
+
+```shell
+opcache.validate_timestamps = 1 //生产环境设为0
+...其他
+```
+
+validate_timestamps设为0后,Zend OPcache会感觉不到PHP脚本的编号,必须手动清空Zend OPcache缓存的字节码
+
+>内置的HTTP服务器
+
+PHP5.4.0开始,PHP内置WEB服务器
+
+1. cd到项目根目录
+2. php -S localhost:4000
+
+
+
+
+
+
+
