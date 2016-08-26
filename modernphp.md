@@ -1,8 +1,6 @@
-# ModernPHP
+# Modern PHP
 
 # 2. 特性
-
-
 
 >use
 
