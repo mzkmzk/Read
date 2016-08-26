@@ -8,7 +8,7 @@ use导入函数: use func Namespace\functionName;
 
 use导入变量 use constant Namespace\CONST_NAME;
 
-生成器(PHP5.5.0):
+生成器(PHP5.5.0及其以上):
 
 可以用于优化,不用先占用内存
 
