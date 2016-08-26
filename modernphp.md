@@ -56,3 +56,21 @@ echo $closure('K');
 ```
 
 闭包其实就是对闭包对象`\Closure`实现了`__invoke()`魔术方法,只要变量后有`()`,PHP就会查找并调用__invoke()方法
+
+关于闭包的另外一个函数bindTo
+
+例如在处理路由时
+
+```php
+class App {
+  public function addRoute($routePath,$routeCallback) {
+    $this->routes[$routePath] = $routeCallback->bindTo($this,__CLASS__);
+  }
+}
+
+//调用
+$app = new App();
+$app->addRoute('users/josh',function(){...});
+```
+
+这样闭包里就可以使用运行时的app
