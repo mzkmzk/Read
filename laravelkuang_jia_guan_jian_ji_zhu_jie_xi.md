@@ -114,3 +114,7 @@ trait特性
 
 # 5. Laravel框架初识
 
+简单来说就把官网中的controller route view的东西讲了一讲
+
+# 6. Laravel框架中的设计模式
+
