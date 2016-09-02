@@ -47,3 +47,50 @@
 8. `__NAMESPACE__`
 
 ## 3.5 后期静态绑定
+
+简单来说,在类中有两种方式调用静态方法
+
+1. self::静态方法()
+2. static:: 静态方法()
+
+static只有在运行时才能确定调用的是谁的方法,static调用的可以是静态方法...也可以是非静态方法
+
+```php
+class A {
+  public static function call() {
+    echo 'A ';
+  }
+  public static function test() {
+    self::call();
+    static::call();
+  }
+}
+class B extends A {
+  public static function call() {
+    echo 'B';
+  }
+}
+//调用B::test()
+输出 A B
+```
+
+Laravel常用的模式
+
+```php
+class A {
+  public static function create() {
+    $self = new self();
+    $static = new static();
+    return array($self,$static)
+  }
+}
+
+class B extends A {
+  
+}
+
+//调用
+$arr = B::create();
+// $arr 为 object(A)[1] object(B)[2]
+```
+
