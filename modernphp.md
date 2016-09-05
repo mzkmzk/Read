@@ -196,3 +196,20 @@ error_reporting = E_ALL & ~E_NOTICE
 
 log_errors =On
 ```
+
+## 错误处理程序
+
+```php
+set_error_handler(function ($errno, $errstr, $errfile, $errline){
+  if (!(error_reporting() & $errno)) {
+    return;
+  }
+  throw new ErrorException($errstr, $errno,0,$errfile,$errline);
+});
+
+...编写其他代码
+
+//还原之前的错误处理程序
+restore_error_handler();
+
+```
