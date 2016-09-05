@@ -130,7 +130,7 @@ if(php_sapi_name() === 'cli-server') {
 ```
 
 
-# 4 组件
+# 4. 组件
 
 组件特征
 
@@ -142,6 +142,57 @@ if(php_sapi_name() === 'cli-server') {
 
 业内比较认可的php组件,https://github.com/ziadoz/awesome-php
 
+# 5. 良好实践
 
+## 过滤输入
 
+简单的可以使用`htmlentities()`函数把特殊的HTML转换为HTML实体
 
+但是htmlentities默认不会转义单引号和识别字符集
+
+所以一般这么用
+
+`htmlentities(字符串,ENT_QUOTES,'UTF-8')`
+
+如果需要更严格的过滤,可以使用HTMLpurifier库,但是速度慢和难以配置
+
+## SQL查询
+
+可以对前端得到的属性值进行过滤
+
+`$email = filter_val(前端email,FILTER_SANITIZE_EMAIL);`
+
+一般过滤单个属性,可以采用filter_val和filter_input函数
+
+## 转义输出
+
+可以试试smarty/smarty 默认会转义输出,除非明确表明不要转义
+
+## 密码
+
+业界认为比较安全的是bcrypt算法,特点是故意很慢......让你不好破
+
+## 错误
+
+一般的php.ini关于错误的设置
+
+开发
+```
+dispaly_startup_errors = On
+display_errors = On
+
+error_reporting = -1
+
+log_errors =On
+```
+
+生产
+
+```php
+dispaly_startup_errors = Off
+display_errors = Off
+
+error_reporting = E_ALL & ~E_NOTICE
+
+log_errors =On
+```
