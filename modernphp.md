@@ -207,7 +207,7 @@ set_error_handler(function ($errno, $errstr, $errfile, $errline){
   throw new ErrorException($errstr, $errno,0,$errfile,$errline);
 });
 
-...编写其他代码
+//...编写其他代码 触发错误
 
 //还原之前的错误处理程序
 restore_error_handler();
