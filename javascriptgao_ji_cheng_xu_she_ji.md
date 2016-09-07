@@ -412,7 +412,7 @@ this,currentTarget和target的关系
 5. mouseleave: 鼠标移除到元素之外时触发,不冒泡
 6. mousemove: 当鼠标指针在元素内部移动时重复触发,键盘不能触发
 7. mouseout: 当鼠标原本在一个元素上,然后用户移动到另一个元素时触发,这另一个函数可能是外部的元素也可能是子元素,键盘不能触发
-8. mouseover: 当指针位于一个元素外部,首次移入另一个元素便捷之内时触发,键盘不能触发
+8. mouseover: 当指针位于一个元素外部,首次移入另一个元素之内时触发,键盘不能触发
 9. mouseup: 鼠标松开时触发,键盘不能触发
 
 注意只有 mouseenter和mouseleave不会冒泡
@@ -446,6 +446,8 @@ btn.addEventListener('click',function(event){
 ```
 
 IE8不支持metaKey
+
+相关元素
 
 
 
