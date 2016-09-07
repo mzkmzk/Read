@@ -319,3 +319,12 @@ btn.onclick = function(){};
 //取消绑定事件 除了可以取消DOM0事件,还可以取消HTML事件
 btn.onclick = null;
 ```
+
+### 13.2.3 DOM2级事件处理程序
+
+DOM2的话主要有addEventListener()和removeEventListener
+
+第一个参数为要绑定的事件,第二个是处理函数,第三个为`true(捕获阶段处理函数)|false(冒泡阶段执行函数)`
+
+通过`addEventListener`添加的事件只能通过和removeEventListener移除
+
