@@ -393,4 +393,38 @@ this,currentTarget和target的关系
 
 1. load: window在加载完所有外部支援时触发,img元素、link元素和object元素也支持onload方法,IE9和其他高级浏览器支持script元素
 2. unload: 一般绑定在window对象上,离开页面时起作用(但是笔者亲测无效)
-3. resize: 当窗口发生变化时,触发,包括最小化和最大化
+3. resize: 当窗口发生变化时,触发,包括最小化和最大化(mac下最小最大化无触发)
+4. scroll: window被滚动时触发
+
+### 13.4.2 焦点事件
+
+1. blur: 元素失去焦点时触发,但不冒泡
+2. foucs: 获得焦点时触发,但不冒泡
+3. focusin: 获得焦点时触发,冒泡
+4. focusout: 失去焦点时触发
+
+### 13.4.3 鼠标和滚轮事件
+
+1. click: 当用户点击,或者点击后的按entor默认都为点击上次点击的地方
+2. dbclick: 双击,DOM3标准
+3. mousedown: 用户按下鼠标按钮时触发,不能通过键盘触发
+4. mouseenter: 鼠标首次进入元素时触发,不冒泡
+5. mouseleave: 鼠标移除到元素之外时触发,不冒泡
+6. mousemove: 当鼠标指针在元素内部移动时重复触发,键盘不能触发
+7. mouseout: 当鼠标原本在一个元素上,然后用户移动到另一个元素时触发,这另一个函数可能是外部的元素也可能是子元素,键盘不能触发
+8. mouseover: 当指针位于一个元素外部,首次移入另一个元素便捷之内时触发,键盘不能触发
+9. mouseup: 鼠标松开时触发,键盘不能触发
+
+注意只有 mouseenter和mouseleave不会冒泡
+
+点击顺序,当其中一个被取消就执行不下去
+
+1. mousedown
+2. mouseup
+3. click
+4. mousedown
+5. mouseup
+6. click
+7. dbclcik
+
+
