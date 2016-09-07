@@ -449,5 +449,12 @@ IE8不支持metaKey
 
 相关元素
 
+对于mouseover,主目标是获得光标的元素,相关目标是刚离开的元素
 
+对于mouseout,住目标是被移走光标的元素,相关目标是刚进入的元素
 
+event.relatedTarget|toElement|fromElement
+
+代表的是一个元属性,只不过是兼容不同的浏览器,
+
+只有mouseover和mouseout含有这个属性
