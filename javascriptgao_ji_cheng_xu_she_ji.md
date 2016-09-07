@@ -433,7 +433,7 @@ this,currentTarget和target的关系
 
 IE8不知道页面坐标位置,可以通过scrollTop计算
 
-修改键
+> 4.修改键
 
 当鼠标点下的时候,是否有按其他键
 ```
@@ -447,7 +447,7 @@ btn.addEventListener('click',function(event){
 
 IE8不支持metaKey
 
-相关元素
+> 5.相关元素
 
 对于mouseover,主目标是获得光标的元素,相关目标是刚离开的元素
 
@@ -459,7 +459,7 @@ event.relatedTarget|toElement|fromElement
 
 只有mouseover和mouseout含有这个属性
 
-滚轮事件
+> 8.滚轮事件
 
 其他浏览器的滚轮事件名称都是mousewheel
 
@@ -469,4 +469,20 @@ event.whellDelta 向上滚是正120的倍数,而Opera9.5是相反的
 
 滚轮信息在event.detail 而向上方向都是-3的倍数
 
+> 9.触屏设备
+
+Android和iOS的特殊
+
+1. 不支持dbclick
+2. 如果mousemove事件导致内容变化,将不会有其他事发生,如果没改变,则依次发生mousedown,mouseup,click
+3. mousemove事件也会触发mouseover和mouseout
+4. 两个手指放在屏幕上且页面随手指一动而滚动时触发mousewheel和scroll事件
+
+### 13.4.4 键盘与文本事件
+
+1. keydown: 当用户按下任意键时触发,若不放开,重复执行
+2. keypress: 用户按下字母或ESC时触发,若不放开,重复执行
+3. keyup: 用户释放键盘时触发
+
+键盘事件也有shiftKey ctrlKey altKey metaKey 等
 
