@@ -311,6 +311,8 @@ html里写JS事件弊端主要有,当html刚显示出来,但当时事件处理�
 
 但是这种绑定事件不能在chrome的`EventListeners`面板中看到
 
+但是这个好像跟加载的时机有关,第一次打开页面的话,加载事件没问题,但是刷新后再加就加不上了
+
 ```javascript
 //绑定事件
 btn.onclick = function(){};
