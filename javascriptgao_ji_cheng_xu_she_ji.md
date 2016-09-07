@@ -427,4 +427,10 @@ this,currentTarget和target的关系
 6. click
 7. dbclcik
 
+客户端坐标位置(event.clientX,event,ClientY),不包括滚动的位置
+页面坐标位置(event.pageX,evnet.pageY)
+屏幕坐标位置(event.screenX,event.screenY)
+
+IE8不知道页面坐标位置,可以通过scrollTop计算
+
 
