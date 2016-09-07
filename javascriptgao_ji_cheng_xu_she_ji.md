@@ -484,5 +484,37 @@ Android和iOS的特殊
 2. keypress: 用户按下字母或ESC时触发,若不放开,重复执行
 3. keyup: 用户释放键盘时触发
 
-键盘事件也有shiftKey ctrlKey altKey metaKey 等
+键盘事件也有shiftKey ctrlKey altKey metaKey
+
+当发生keydown和keyup时,event对象会包含一个keyCode属性,其值为ASCII
+
+但是FF和Opera中分号键的keyCode为59,也就是ASCII码,但是IE和Safari返回186,即按键的键码
+
+keypress事件被触发时,会包含一个charCode属性,
+
+取得值后,通过String.fromCharCode()转换为实际字符
+
+DOM3的变化
+
+DOM3不再支持charCode属性
+
+而是新增两个属性 key char
+
+IE9支持了key属性
+
+Chrome和Safari5增加了keyIdentifier属性
+
+textInput事件智能放在可编辑区域,event中新增了data为用户输入的字符,还有inputMethod属性,其值为
+
+1. 0: 浏览器不知道他怎么输入的
+2. 1: 键盘输入
+3. 2: 粘贴
+4. 3: 拖放
+5. 4: IME输入的
+6. 5: 表单中选择一项输入的
+7. 6: 手写
+8. 7: 语音
+9. 8: 几种方法组合
+10. 9: 通过脚本输入的
+
 
