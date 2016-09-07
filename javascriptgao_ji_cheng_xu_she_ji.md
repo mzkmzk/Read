@@ -433,4 +433,14 @@ this,currentTarget和target的关系
 
 IE8不知道页面坐标位置,可以通过scrollTop计算
 
+修改键
 
+当鼠标点下的时候,是否有按其他键
+```
+btn.addEventListener('click',function(event){
+  if(event.shiftKey) {}
+  if(event.ctrlKey) {}
+  if(event.altKey) {}
+  if(event.meta) {}//window下是wind Mac下是cmd
+});
+```
