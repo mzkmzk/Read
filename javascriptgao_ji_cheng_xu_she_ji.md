@@ -363,4 +363,9 @@ attachEvent和detachEvent方法
 | type                     | String       | 只读  | 被触发事件的类型                                                                       |
 | view                     | AbstractView | 只读  | 与事件关联的抽象视图,等同于发生事件的window对象                                        |
 
+this,currentTarget和target的关系
+
+1. this和currentTarget永远相等
+2. target指的是具体点击的最底层的标签.
+
 
