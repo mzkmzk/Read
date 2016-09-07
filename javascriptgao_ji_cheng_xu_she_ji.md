@@ -308,3 +308,12 @@ html里写JS事件弊端主要有,当html刚显示出来,但当时事件处理�
 ### 13.2.2 DOM0级事件处理程序
 
 这个是直接指定属性,优势有两: 1.简单,2: 浏览器兼容较好
+
+但是这种绑定事件不能在chrome的`EventListeners`面板中看到
+
+```javascript
+//绑定事件
+btn.onclick = function(){};
+//取消绑定事件
+btn.onclick = null;
+```
