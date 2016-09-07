@@ -328,3 +328,20 @@ DOM2的话主要有addEventListener()和removeEventListener
 
 通过`addEventListener`添加的事件只能通过和removeEventListener移除
 
+这意味着,addEventListener中的第二个参数如果是匿名函数,则无法移除
+
+绑定多个事件,会按绑定顺序来触发
+
+IE9及FF Chrome Opera都支持DOM2
+
+### 13.2.4 IE事件处理程序
+
+attachEvent和detachEvent方法
+
+注意点
+
+1. 这两个方法的this是window,而不是元素本身
+2. 绑定多个事件,是按倒序来触发的
+
+支持性 IE和Opera
+
