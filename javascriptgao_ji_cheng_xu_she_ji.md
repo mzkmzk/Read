@@ -277,3 +277,7 @@ var factorial = (function f(num){
 
 # 5. DOM
 
+# 13. 事件
+
+
+
