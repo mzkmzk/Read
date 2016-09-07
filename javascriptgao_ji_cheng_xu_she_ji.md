@@ -368,4 +368,8 @@ this,currentTarget和target的关系
 1. this和currentTarget永远相等
 2. target指的是具体点击的最底层的标签.
 
+### 13.3.2 IE中的事件对象
+
+
+
 
