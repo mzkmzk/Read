@@ -458,3 +458,15 @@ event.relatedTarget|toElement|fromElement
 代表的是一个元属性,只不过是兼容不同的浏览器,
 
 只有mouseover和mouseout含有这个属性
+
+滚轮事件
+
+其他浏览器的滚轮事件名称都是mousewheel
+
+event.whellDelta 向上滚是正120的倍数,而Opera9.5是相反的
+
+而FF的叫DOMMouseScroll
+
+滚轮信息在event.detail 而向上方向都是-3的倍数
+
+
