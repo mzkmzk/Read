@@ -314,6 +314,6 @@ html里写JS事件弊端主要有,当html刚显示出来,但当时事件处理�
 ```javascript
 //绑定事件
 btn.onclick = function(){};
-//取消绑定事件
+//取消绑定事件 除了可以取消DOM0事件,还可以取消HTML事件
 btn.onclick = null;
 ```
