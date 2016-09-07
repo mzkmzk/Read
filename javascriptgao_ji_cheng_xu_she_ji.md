@@ -457,7 +457,7 @@ event.relatedTarget|toElement|fromElement
 
 代表的是一个元属性,只不过是兼容不同的浏览器,
 
-只有mouseover和mouseout含有这个属性
+只有mouseover、mouseout和变动事件含有这个属性
 
 > 8.滚轮事件
 
@@ -504,6 +504,8 @@ IE9支持了key属性
 
 Chrome和Safari5增加了keyIdentifier属性
 
+> 4.textInput事件
+
 textInput事件智能放在可编辑区域,event中新增了data为用户输入的字符,还有inputMethod属性,其值为
 
 1. 0: 浏览器不知道他怎么输入的
@@ -517,4 +519,47 @@ textInput事件智能放在可编辑区域,event中新增了data为用户输入�
 9. 8: 几种方法组合
 10. 9: 通过脚本输入的
 
+支持textInput有IE9+ Safari Chrome
+
+只有IE支持inputMethod
+
+> 5.设备中的键盘事件
+
+### 13.4.6 变动事件
+
+> 1.删除事件
+
+当removeChild replaceChild删除节点时,会触发DOMNodeRemoved事件,会冒泡
+
+其中event.target代表被删除节点 event.relatedNode为其父节点的引用
+
+> 2.插入节点
+
+当appendChild replaceChild insertBefore 插入节点节点时 会冒泡
+
+会触发DOMNodeInserted
+
+其中event.target代表被新增节点 event.relatedNode为其父节点的引用
+
+### 13.4.7 HTML5事件
+
+> 1.contextmenu事件
+
+用于window右键和Mac ctrl+单击可以触发上下文菜单
+
+contextmenu是冒泡的
+
+兼容性良好
+
+> 2.beforeunload
+
+只可以设置一个文案,在用户退出前弹出一次
+
+设置方法 event.returnValue设置,同时函数返回相同的提示语
+
+> 3.DOMContentLoaded
+
+刚形成DOM树就会触发
+
+不理会图形 CSS 和js
 
