@@ -441,7 +441,7 @@ btn.addEventListener('click',function(event){
   if(event.shiftKey) {}
   if(event.ctrlKey) {}
   if(event.altKey) {}
-  if(event.meta) {}//window下是wind Mac下是cmd
+  if(event.metaKey) {}//window下是wind Mac下是cmd
 });
 ```
 
