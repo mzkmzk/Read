@@ -345,3 +345,22 @@ attachEvent和detachEvent方法
 
 支持性 IE和Opera
 
+## 13.3 事件对象
+
+| 属性/方法                | 类型         | 读/写 | 说明                                                                                   |
+|--------------------------|--------------|-------|----------------------------------------------------------------------------------------|
+| bubbles                  | Boolean      | 只读  | 是否为冒泡                                                                             |
+| cancelable               | Boolean      | 只读  | 表明是否可以取消事件的默认行为                                                         |
+| currentTarget            | Element      | 只读  | 其事件处理程序当前正在处理事件的那个元素                                               |
+| defaultPrevented         | Boolean      | 只读  | 为true表明已经调用了preventDefault(),DOM3级事件中新增                                  |
+| detail                   | Integer      | 只读  | 与事件相关的细节信息                                                                   |
+| eventPhase               | Integer      | 只读  | 调用事件处理程序的阶段: 1表示捕获阶段, 2 表示"处理目标", 3 表示冒泡阶段                |
+| preventDefault           | Function     | 只读  | 取消事件的默认行为,如果cancelable是true,则可以使用这个方法                             |
+| stopImmediatePropagation | Function     | 只读  | 取消事件进一步的捕获或冒泡,同时阻止任何事件处理程序被调用(DOM3级事件中新增)            |
+| stopPropagation          | Function     | 只读  | 取消事件进一步的捕获或冒泡,如果bubbles为true,可以使用这个方法                          |
+| target                   | Element      | 只读  | 事件的目标                                                                             |
+| trusted                  | Boolean      | 只读  | 为true表示事件是浏览器生成的,为false表示事件时有开发者通过javascript创建的(DOM3级新增) |
+| type                     | String       | 只读  | 被触发事件的类型                                                                       |
+| view                     | AbstractView | 只读  | 与事件关联的抽象视图,等同于发生事件的window对象                                        |
+
+
