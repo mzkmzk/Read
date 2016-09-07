@@ -445,3 +445,7 @@ btn.addEventListener('click',function(event){
 });
 ```
 
+IE8不支持metaKey
+
+
+
