@@ -289,7 +289,7 @@ IE9 FF Chrome Safari 都是将事件一直冒泡到window对象
 
 ### 13.1.2 事件捕获
 
-捕获是从window开始捕获事件,从window一直捕获到具体的节点,但是老版本的IE不太兼容
+捕获是从window开始捕获事件,从window一直捕获到具体的节点,但是IE8及其更早的版本不兼容
 
 规范要求是从ducmnent开始捕获,但是浏览器一般从window就开始获取了
 
