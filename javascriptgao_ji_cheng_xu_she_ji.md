@@ -563,3 +563,61 @@ contextmenu是冒泡的
 
 不理会图形 CSS 和js
 
+> 4.readystatechange
+
+感觉没啥用
+
+> 5.pageshow和pagehide
+
+当浏览器例如FF和Opera有`往返缓存`时.不会执行onload,而会监听window上的pageshow
+
+pageshow具有persitsted属性,表名页面是否保存在bfcache里了
+
+pagehide则相反,也有persiststed属性
+
+IE10 和其他浏览器支持
+
+> 6.hashchange
+
+hashchange要绑定在window上,表名#后字符串有变化
+
+event.oldURL和newURL
+
+分别保存变化前后的完整url
+
+IE8+和其他都支持hashchange,但是oldURL和newURL只有FF和Chrome和Opera支持,所以最好使用locaition保存
+
+### 13.4.8 设备事件
+
+> 1.orientationchange
+
+移动的Safari有orientationchange事件表明iPhone的查看模式
+
+要绑定在window上
+
+window.orientation的值
+
+1. 0: 正常竖屏
+2. 90: 左90
+3. -90: 右90
+4. 180: 头朝下
+
+> 2.MozOrientation
+
+当FF检测到设备方向变化时,触发此事件,但是和orientationchange不同的是,这只提供一个平面的方向变化
+
+要绑定在window上
+
+event有x,y,z 值为-1到1
+
+> 3.deviceorientation
+
+要识别设备空间中朝向哪里
+
+deviceorientation也要绑定在window上
+
+event包含以下属性
+
+1. alpha: 
+
+支持性 Safari CHrome 和Android的webkit
