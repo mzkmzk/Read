@@ -575,6 +575,8 @@ pageshow具有persitsted属性,表名页面是否保存在bfcache里了
 
 pagehide则相反,也有persiststed属性
 
+使用onunload处理意味着页面不会被bfcache.
+
 IE10 和其他浏览器支持
 
 > 6.hashchange
@@ -683,3 +685,11 @@ event事件有以下属性
 1. rotation: 变化引起的旋转角度,负表示逆时针旋转
 2. scale: 两个手指的距离变化,从1开始,拉大则变大,缩小则变小
 
+## 13.5 内存和性能
+
+### 13.5.2 移除事件委托
+
+小心空事件处理程序
+
+1. 当为一个节点绑定了事件,而被父元素innertHTML改掉了,这个事件是无法移除的
+2. 
