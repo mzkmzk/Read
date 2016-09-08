@@ -714,3 +714,25 @@ DOM2没有键盘事件,IE9只唯一支持DOM3键盘事件的浏览器
 
 触发事件通过dispatchEvent
 
+> 1.模拟鼠标事件
+
+```javascript
+var mouseEvent = createEvent('MouseEvents');
+mouseEvent.initMouseEvent(
+  type,
+  bubles
+  cancelable
+  view(基本都是document.defaultView)
+  detail(一般为0)
+  screeX(整数)
+  screeY(整数)
+  clientX(整数)
+  clientY(整数)
+  ctrlKey(默认false)
+  altKey(默认false)
+  shiftKey(默认false)
+  metaKey(默认false)
+  button(整数,默认0,按下哪个鼠标键)
+  relatedTarget(对象只有mouseovew和mouseout可用)
+);
+```
