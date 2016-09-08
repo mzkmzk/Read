@@ -741,3 +741,13 @@ mouseEvent.initMouseEvent(
 
 支持下比较弱,先不记载
 
+>4.自定义DOM
+
+```javascript
+var customEvent = document.createEvent('CustomEvent');
+customEvent.initCustomEvent(自定义type,bubbles,cancelable,detail)
+
+```
+
+支持自定义事件有FF6+和IE9+
+
