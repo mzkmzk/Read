@@ -751,3 +751,9 @@ customEvent.initCustomEvent(自定义type,bubbles,cancelable,detail)
 
 支持自定义事件有FF6+和IE9+
 
+### 13.6.2 IE中的模拟事件
+
+IE8及其以下用document.createEventObject()创建event
+
+返回的event通过直接通过赋值设置对应的属性
+
