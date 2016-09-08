@@ -736,3 +736,8 @@ mouseEvent.initMouseEvent(
   relatedTarget(对象只有mouseovew和mouseout可用)
 );
 ```
+
+> 2.模拟键盘事件和模拟其他事件
+
+支持下比较弱,先不记载
+
