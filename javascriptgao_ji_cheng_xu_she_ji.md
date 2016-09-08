@@ -618,6 +618,24 @@ deviceorientation也要绑定在window上
 
 event包含以下属性
 
-1. alpha: 
+1. alpha: 在围绕z轴转动时(左右转动),y轴的度数差,是一个0~360之间的浮点数
+2. beta: 在围绕x轴转动时(前后转动),z轴的度数差,是一个-180~180之间的浮点数
+3. absolute: 在围绕7轴转动时(旋转设备时),z轴的度数差,是一个-90到90的浮点数 
 
 支持性 Safari CHrome 和Android的webkit
+
+> 4.devicemotion
+
+告诉开发者设备什么时候移动,可以检测手机是否在往下掉
+
+需要绑定在window
+
+event事件有以下属性
+
+1. acceleration: 保护x,y,z三个属性,在不考虑重力的情况下,告诉你每个方向的加速度
+2. accelerationIncludingGravity: 一个包含x,y,z属性的对象,考虑z上的加速度,告诉你每个方向的加速度
+3. interval: 以毫秒表示时间值,必须在另一个devicemotion事件触发前传入,这个值在每个事件中应该是一个常量
+4. rotationRate: 一个包含alpha beta gamma属性的对象
+
+Safari Chrome 和android的webkit都支持了
+
