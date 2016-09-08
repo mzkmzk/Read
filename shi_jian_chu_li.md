@@ -12,3 +12,5 @@
 4. `attachEvent`注册的处理程序可能按任何顺序调用(~_~!!!!),`addEventListener`按照注册顺序调用.
 5. `addEventListener`第三个参数为true,则注册为捕获事件处理,作为事件传播第一个阶段调用.
 
+
+
