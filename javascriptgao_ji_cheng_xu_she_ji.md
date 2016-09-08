@@ -692,4 +692,25 @@ event事件有以下属性
 小心空事件处理程序
 
 1. 当为一个节点绑定了事件,而被父元素innertHTML改掉了,这个事件是无法移除的
-2. 
+
+## 13.6 模拟事件
+
+支持的浏览器IE9 和其他浏览器
+
+### 13.6.1 DOM中的事件模拟
+
+可以在document通过createEvent方法创建event对象
+
+DOM2中createEvent的参数为事件类型字符串的英文复数
+
+DOM3又变回了单数
+
+1. UIEventys
+2. MouseEvents
+3. MutationEvents
+4. HTMLEvents
+
+DOM2没有键盘事件,IE9只唯一支持DOM3键盘事件的浏览器
+
+触发事件通过dispatchEvent
+
