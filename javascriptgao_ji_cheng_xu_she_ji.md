@@ -635,7 +635,40 @@ event事件有以下属性
 1. acceleration: 保护x,y,z三个属性,在不考虑重力的情况下,告诉你每个方向的加速度
 2. accelerationIncludingGravity: 一个包含x,y,z属性的对象,考虑z上的加速度,告诉你每个方向的加速度
 3. interval: 以毫秒表示时间值,必须在另一个devicemotion事件触发前传入,这个值在每个事件中应该是一个常量
-4. rotationRate: 一个包含alpha beta gamma属性的对象
 
-Safari Chrome 和android的webkit都支持了
+### 13.4.9 触摸与手势事件
+
+1. touchstart: 当手指触摸到屏幕时触发,即使已经有一个手指放在屏幕上了
+2. touchmove: 当手指在屏幕上滑动时连续地触发,可以通过preventDefault阻止滚动
+3. touchend: 当手指从屏幕上移开时触发
+4. toucancel: 当系统停止跟踪触摸时触发,
+
+以上事件都会冒泡,也都可以取消
+
+1. touches: 表示当前跟踪的触摸操作的Touch对象的数组
+2. targetTouchs: 特定于事件目标的Touch对象的数组
+3. changeTouches: 表示自上次触摸以来发生了什么改变的Touch对象的数组.
+
+每个Touch对象包含下列属性
+
+1. clientX: 触摸目标在视口中的x坐标
+2. clientY: 触摸目标在视口中的y坐标
+3. identifier: 标示触摸的唯一ID
+4. pageX: 触摸目标在页面中的x坐标
+5. pageY: 触摸目标在页面中的y坐标
+6. screenX: 触摸目标在屏幕中的x坐标
+7. screenY: 触摸目标在屏幕中的y坐标
+8. target: 触摸的DOM节点目标
+
+事件顺序
+
+1. touchstart
+2. mouseover
+3. mousemove(一次)
+4. mousedown
+5. mouseup
+6. click
+7. touchend
+
+支持触摸的有Safari 和Android的Webkit
 
