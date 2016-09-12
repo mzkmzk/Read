@@ -275,7 +275,11 @@ var factorial = (function f(num){
 
 # 4. 客户端检测
 
-# 5. DOM
+# 5. 引用类型
+
+## 5.4 RegExp类型
+
+
 
 # 13. 事件
 
