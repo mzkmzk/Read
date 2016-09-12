@@ -213,3 +213,8 @@ set_error_handler(function ($errno, $errstr, $errfile, $errline){
 restore_error_handler();
 
 ```
+
+## 在生产环境中处理错误和异常
+
+可以尝试Monolog
+
