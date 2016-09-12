@@ -344,6 +344,14 @@ var pattern = /mon( and dad( and baby)?)?/gi
 
 var matches = pattern.exec(text);
 
+//控制台输出
+matches
+["mon and dad and baby", " and dad and baby", " and baby"]
+matches.input
+"mon and dad and baby"
+matches.index
+0
+
 ```
 
 
