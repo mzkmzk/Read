@@ -218,3 +218,17 @@ restore_error_handler();
 
 可以尝试Monolog
 
+# 7. 配置
+
+## SSH密钥对认证
+
+在本地设备中
+
+```shell
+输入ssh-keygen
+
+//然后把生成的.pub文件上传到服务器, 带最后的: 会传输到账号的家目录中
+scp ~/.ssh/id_rsa.pub 账号@IP:
+
+
+```
