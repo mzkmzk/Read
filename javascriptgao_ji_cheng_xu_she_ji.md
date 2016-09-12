@@ -308,7 +308,7 @@ flags标志
     var re = null,
     for(var i=0; i<10;i++) {
       re = /cat/g;
-      re.test('cat12345');
+      console.log(re.test('cat12345'));
     }
   ```
 
