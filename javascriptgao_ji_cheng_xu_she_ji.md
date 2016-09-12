@@ -305,12 +305,50 @@ flags标志
 2. 是否每次重新创建表达式
 
   ```javascript
-    var re = null,
+    var re = null;
     for(var i=0; i<10;i++) {
       re = /cat/g;
       console.log(re.test('cat12345'));
     }
   ```
+  
+  在IE9+和其他浏览器都是输出10次true
+  
+  但是在部分IE.只有第一次输出true,之后都是false,因为循环中没有重新创建正则
+  
+### 5.4.1 RegExp实例属性
+
+1. global: 是否设置了g
+2. ignoreCase: 是否设置了i
+3. lastIndex: 下次开始搜索的位置
+4. multiline: 是否设置了m
+5. source: 正则表达式的字符串表示,即使是构造函数创建,返回的是字面量形式的字符串
+
+### 5.4.2 RegExp实例方法
+
+主要方法有exec,接受一个待匹配的string
+
+若没匹配项直接返回null
+
+返回的是一个匹配的数组,和input和index
+
+index表示匹配项在字符串中的位置
+
+input表示应用正则表达式的字符串
+
+
+```javascript
+var text = "mon and dad and baby";
+
+var pattern = /mon( and dad( and baby)?)?/gi
+
+var matches = pattern.exec(text);
+
+```
+
+
+
+  
 
 
 
