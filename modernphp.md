@@ -230,5 +230,5 @@ restore_error_handler();
 //然后把生成的.pub文件上传到服务器, 带最后的: 会传输到账号的家目录中
 scp ~/.ssh/id_rsa.pub 账号@IP:
 
-
+#AuthorizedKeysFile     %h/.ssh/authorized_keys
 ```
