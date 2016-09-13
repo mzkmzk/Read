@@ -708,4 +708,30 @@ winodw.location === document.location //true
 
 document也有一个属性URL,但是该属性在扎入文档后就不会改变,而Location对象会因为`#`片段识别符而变化
 
+# 22. 客户端存储
+
+## 20.2 cookie
+
+### 20.2.1 cookie属性: 有效期和作用域
+
+有效期
+
+当浏览器进程被彻底杀死时,会话cookie就没有了
+
+作用域
+
+1. path属性: 默认作用域为path同级页面和子页面有效
+2. domain属性: 设置可以访问的域名,只能是当前服务器的域
+3. secure: 表明是否只允许https或其他安全协议传输
+
+### 20.2.2 保存cookie
+
+cookie的名/值不允许包含分号 逗号 空白符
+
+所以存的时候一般需要encodeURIComponent
+
+取出来的时候需要decodeURIComponent
+
+
+
 
