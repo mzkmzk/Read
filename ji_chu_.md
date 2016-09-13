@@ -732,6 +732,8 @@ cookie的名/值不允许包含分号 逗号 空白符
 
 取出来的时候需要decodeURIComponent
 
+### 20.2.3 读取cookie
 
+只有ducoument.cookie获取
 
 
