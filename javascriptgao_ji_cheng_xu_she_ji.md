@@ -354,9 +354,40 @@ matches.index
 
 ```
 
+# 8 BOM
+
+## 8.1 window对象
+
+### 8.1.2 窗口关系及框架
+
+注意 chrome下默认会选择较后的window作为控制台的当前对象....这个点被坑了还久
 
 
-  
+主要获取子frame的window对象
+
+获取方法
+
+1. window.frames['索引值']
+2. window.frames[对应的name]
+
+还有就是top: 最外层的window
+
+和每个window都有一个parent属性指定上层window
+
+self表示当前window
+
+## 8.1.3 窗口位置
+
+一般获取窗口位置属性方法
+
+```javascript
+var leftPos = (typeof window.screenLeft == "number")?
+                window.screenLeft : window.screenX;
+var topPos = (typeof window.screenTop == "number") ? 
+                window.screenTop : window.screenY
+```
+
+1. FireFox Safari Chrome支持screenX,screenY,IE Safari Chrome支持: 支持screenLeft和screenTop,
 
 
 
