@@ -387,7 +387,8 @@ var topPos = (typeof window.screenTop == "number") ?
                 window.screenTop : window.screenY
 ```
 
-1. FireFox Safari Chrome支持screenX,screenY,IE Safari Chrome支持: 支持screenLeft和screenTop,
+1. FireFox Safari Chrome支持screenX,screenY,IE Safari Chrome支持: 支持screenLeft和screenTop
+2. 这两个值表示浏览器窗口离屏幕的距离,可以用于分析浏览器窗口在分屏的情况下的哪一屏...如果在正屏的左屏中,会显示负值....
 
 
 
