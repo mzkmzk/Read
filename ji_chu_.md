@@ -750,4 +750,10 @@ cookie的名/值不允许包含分号 逗号 空白符
 
 应用场景应该是在不支持localStroge的IE8及其以下
 
+最好这样使用
 
+```javascript
+<!--[if IE]>
+<script src="UserDatStorage.js"></script>
+<![endif]-->
+```
