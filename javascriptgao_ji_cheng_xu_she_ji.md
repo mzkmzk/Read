@@ -397,7 +397,7 @@ var topPos = (typeof window.screenTop == "number") ?
 参数有4
 
 1. 加载的url
-2. 窗口目标: 和a标签的target作用一样
+2. 窗口目标: 和a标签的target作用一样,(如果要指定重新加载页面的iframe,可以写为iframe的name,但是笔者亲测无效)
 3. 一个特性字符串:属性用=赋值,用`,`分割,最常用的有top width height left,还有
 
   1. fullscreen: 是否全屏,仅限IE
@@ -413,6 +413,11 @@ var topPos = (typeof window.screenTop == "number") ?
 ```javascript
 window.open('http://baidu.com','wroxWidnow',"height=400,width=400,top=10,left=10,resizable=yes");
 ```
+
+
+笔者想着: 通过window.open出一个baidu.com,然后通过window.open返回的window对象来操作刚打开的baidu.com的DOM,却发现
+
+`VM4424:1 Uncaught DOMException: Blocked a frame with origin "当前允许的iframe" from accessing a cross-origin frame.(…)`
 
 关闭当前url
 
