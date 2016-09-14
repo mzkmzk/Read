@@ -414,6 +414,10 @@ var topPos = (typeof window.screenTop == "number") ?
 window.open('http://baidu.com','wroxWidnow',"height=400,width=400,top=10,left=10,resizable=yes");
 ```
 
+关闭当前url
+
+window.close();
+
 # 13. 事件
 
 ## 13.1 事件流
