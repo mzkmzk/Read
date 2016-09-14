@@ -736,4 +736,10 @@ cookie的名/值不允许包含分号 逗号 空白符
 
 只有ducoument.cookie获取
 
+### 20.2.4 cookie的局限性
+
+现在大部分浏览器允许cookie总数超过300个,但是部分浏览器对单个cookie大小仍有4kb的限制
+
+## 20.3 利用IE的userdata持久化数据
+
 
