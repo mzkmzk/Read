@@ -376,7 +376,7 @@ matches.index
 
 self表示当前window
 
-## 8.1.3 窗口位置
+### 8.1.3 窗口位置
 
 一般获取窗口位置属性方法
 
@@ -390,7 +390,29 @@ var topPos = (typeof window.screenTop == "number") ?
 1. FireFox Safari Chrome支持screenX,screenY,IE Safari Chrome支持: 支持screenLeft和screenTop
 2. 这两个值表示浏览器窗口离屏幕的距离,可以用于分析浏览器窗口在分屏的情况下的哪一屏...如果在正屏的左屏中,会显示负值....
 
+### 8.1.5 导航和打开窗口
 
+主要使用window.open()
+
+参数有4
+
+1. 加载的url
+2. 窗口目标: 和a标签的target作用一样
+3. 一个特性字符串:属性用=赋值,用`,`分割,最常用的有top width height left,还有
+
+  1. fullscreen: 是否全屏,仅限IE
+  2. height: 不能少于100
+  3. left: 不能是负值
+  4. location: 是否显示地址栏,默认为no,取决于浏览器是否允许,chrome无效
+  5. meubar: 是否显示菜单栏 默认为 no,chrome无效
+  6. 还有其他一些没啥用的
+4. 一个表示新页面是否取代浏览器历史记录中当前加载页面的布尔值
+
+尝试打开一个新窗口
+
+```javascript
+window.open('http://baidu.com','wroxWidnow',"height=400,width=400,top=10,left=10,resizable=yes");
+```
 
 # 13. 事件
 
