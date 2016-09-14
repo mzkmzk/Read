@@ -757,3 +757,5 @@ cookie的名/值不允许包含分号 逗号 空白符
 <script src="UserDatStorage.js"></script>
 <![endif]-->
 ```
+
+使用得比较少,就不写代码了,书上/网上有对应写好的API的JS
