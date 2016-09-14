@@ -416,7 +416,9 @@ window.open('http://baidu.com','wroxWidnow',"height=400,width=400,top=10,left=10
 
 关闭当前url
 
-window.close();
+window.close(); 只能关闭弹出窗口,不然会爆`Scripts may close only the windows that were opened by it`
+
+
 
 # 13. 事件
 
