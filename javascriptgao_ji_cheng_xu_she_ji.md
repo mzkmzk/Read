@@ -423,6 +423,22 @@ window.open('http://baidu.com','wroxWidnow',"height=400,width=400,top=10,left=10
 
 window.close(); 只能关闭弹出窗口,不然会爆`Scripts may close only the windows that were opened by it`
 
+可以通过open时返回的window对象,判断弹窗是否被关闭
+
+```javascript
+var wroxWin = window.open('http://baidu.com','wroxWidnow',"height=400,width=400,top=10,left=10,resizable=yes");
+
+wroxWin.closed //false;
+wroxWin.close(); 
+wroxWin.closed; //true 但是窗口没关闭,,这个close方法啥用没有
+
+wroxWin.opener = null;//断开弹出窗口和源窗口的联系,让新窗口运行在自己的进程里,关系一旦切断,无法还原
+```
+
+有些浏览器会屏蔽window.open弹窗,最好try catch一下在window.open方法外面
+
+
+
 
 
 # 13. 事件
