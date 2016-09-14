@@ -742,4 +742,12 @@ cookie的名/值不允许包含分号 逗号 空白符
 
 ## 20.3 利用IE的userdata持久化数据
 
+和cookie有点像,不过比cookie的局限性更大,作用域限制在当前文档同目录的文档中
+
+优势就是IE下5.5就支持了,而且不会像cookie那样要给服务器发请求的时候都带上吧.
+
+存储的容量比cookie要大,比localStroge要小
+
+应用场景应该是在不支持localStroge的IE8及其以下
+
 
