@@ -921,3 +921,10 @@ IE8及其以下用document.createEventObject()创建event
 
 返回的event通过直接通过赋值设置对应的属性
 
+# 23. 离线应用与客户端存储
+
+## 23.3 数据存储
+
+### 23.3.1 Cookie
+
+cookie的疑问有,当页面中有iframe,documen.cookie会把所有可用的cookie都拿出来,当iframe和本身网页中存在相同name,则document.cookie会有两个name,并且你没有办法区分她的域,除非你通过windiw.frames把对应的window拿出来
