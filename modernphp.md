@@ -232,3 +232,53 @@ scp ~/.ssh/id_rsa.pub 账号@IP:
 
 #AuthorizedKeysFile     %h/.ssh/authorized_keys
 ```
+
+## 升级软件
+
+Ubuntu
+
+apt-get update
+apt-get upgrade
+
+CentOS
+
+yum update
+
+## 非根用户
+
+Ubuntu
+
+adduser work
+
+添加sudo权限
+
+usermod -a -G sudo work
+
+CentOS
+
+adduser work
+
+passwd work
+
+usermod -a -G wheel work
+
+## 禁止密码 禁止根用户登录
+
+修改`/etc/ssh/sshd_config`
+
+```shell
+PasswordAuthentication设为no
+PermitRootLogin设为no
+```
+
+重启ssh
+
+Ubuntu
+
+sudo service ssh restart
+
+CentOS
+
+sudo systemctl restart sshd.service
+
+
