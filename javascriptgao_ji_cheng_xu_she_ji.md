@@ -921,6 +921,10 @@ IE8及其以下用document.createEventObject()创建event
 
 返回的event通过直接通过赋值设置对应的属性
 
+# 21 Ajax与Comet
+
+
+
 # 23. 离线应用与客户端存储
 
 ## 23.3 数据存储
