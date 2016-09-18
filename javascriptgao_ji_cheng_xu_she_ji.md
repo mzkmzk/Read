@@ -966,6 +966,14 @@ xhr.abort() 可以终止请求
 8. Referer: 发出请求的页面url
 9. User-Agent: 浏览器的用户代理字符串
 
+最好使用自定义头部信息
+
+通过xhr.getResponseHeader(对应的响应头部信息的key)获取单个头部信息
+
+或xhr.getAllResponseHeaders(); 获取一个多行的字符串,包含所有头部信息
+
+
+
 
 # 23. 离线应用与客户端存储
 
