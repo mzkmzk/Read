@@ -952,7 +952,19 @@ xhr.abort() 可以终止请求
 
 由于内存原因,不建议重用xhr对象
 
+### 21.1.2 HTTP头信息
 
+可以设置HTTP头信息,在open方法之后和send之前
+
+1. Accept: 浏览器能够处理的内容类型
+2. Accept-Charset: 浏览器能显示的字符集
+3. Accept-Encoding: 浏览器能够处理的压缩编码
+4. Accept-Language: 浏览器当前设置的语言
+5. Connection: 浏览器与服务器之间连接的类型
+6. Cookie: 当前页面设置的任何Cookie
+7. Host: 发出请求的页面所在的域
+8. Referer: 发出请求的页面url
+9. User-Agent: 浏览器的用户代理字符串
 
 
 # 23. 离线应用与客户端存储
