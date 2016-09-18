@@ -948,6 +948,8 @@ readyState在请求中会变化的值,每次改变会触发readystatechange事�
   4. 3: 接受,已经接受到部分响应数据
   5. 4: 完成
 
+xhr.abort() 可以终止请求
+
 
 
 
