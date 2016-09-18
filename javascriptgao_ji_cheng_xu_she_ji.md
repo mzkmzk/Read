@@ -923,6 +923,32 @@ IE8及其以下用document.createEventObject()创建event
 
 # 21 Ajax与Comet
 
+## 21.1 XMLHttpRequest对象
+
+### 21.1.1 xhr的用法
+
+xhr.send(null),没有实体内容传输时,必须传递null
+
+要在调用xhr.open前设置好onreadystatechange事件,否则有些浏览器有问题
+
+xhr在得到响应后会填充的属性
+
+1. reponseText
+2. reponseXML: 当类型是text/html或application/xml,会被填充
+3. status
+4. statusText: 状态说明
+
+readyState在请求中会变化的值,每次改变会触发readystatechange事件
+
+1. readyState: 
+
+  1. 0: 未调用open
+  2. 1: 启动调用了oepn,未调用send
+  3. 2: 调用了send,但未得到返回
+  4. 3: 接受,已经接受到部分响应数据
+  5. 4: 完成
+
+
 
 
 # 23. 离线应用与客户端存储
