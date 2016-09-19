@@ -272,7 +272,20 @@ true + true //2
 
 # 16 脚本化CSS
 
+## 16.2 重要的CSS属性
 
+### 16.2.1 用CSS定位元素
+
+positon: 
+
+1. static: 默认值,top、left等属性无用
+2. absolute: 会找最近的定位祖先元素
+3. fixed
+4. relative: 按照正常的文档流
+
+z-index: 
+
+z-index的设置只对兄弟元素起作用
 
 ##17 `delete`运算符
 
