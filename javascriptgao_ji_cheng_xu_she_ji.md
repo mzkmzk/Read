@@ -1082,6 +1082,23 @@ FF Safari4+ Opera10.5 Chrome
 2. 不能发送和接受Cookie,但是服务器还是会发送SetCookie字段.这里要做优化,把设置Cookie干掉
 3. getAllReponseHeaders总是得到空字符串,但是getResponseHeader呢?能获取吗(笔者疑问,未测试,应该不行)
 
+### 21.4.3 Preflighted Request
+
+CORS通过Preflighted Requests的透明服务器验证自定义头部
+
+请求需要设置
+
+1. Origin
+2. Access-Control-Request-Method: 请求自身使用的方法POST
+3. Access=Control-Request-Headers: (可选)自定义头部,多个头部以逗号分隔,
+
+响应收不设置
+
+1. Access-Control-Allow-Origin
+2. Access-Control-Allow-Methods: 允许的方法,多个方法逗号分隔
+3. Access-Control-Allow-Headers: 允许的头部,多个以逗号分隔
+4. Access-Control-Max-Age: 应该将这个Preflight请求缓存多长时间(以秒显示)
+
 
 
 
