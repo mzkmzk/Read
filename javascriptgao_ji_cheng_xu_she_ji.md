@@ -982,7 +982,26 @@ xhr.abort() 可以终止请求
 
 POST请求比GET请求消耗要大,最夸张的时候GET比POST快两倍
 
+## 21.2 XMLHttpRequest 2级
 
+### 21.2.1 FormData
+
+可以
+```javascript
+var data = new FormData();
+data.append('key','value');
+
+//直接传入form
+var data = new FormData(document.forms[0])
+
+//xhr可以直接发送form
+...
+xhr.send(new FormData(document.getElementById('form')));
+```
+
+好处在于不用我们设置表单头
+
+支持该对象的有 FF4+ Safari5+ Chrome Android3+的webkit
 
 
 # 23. 离线应用与客户端存储
