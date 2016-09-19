@@ -281,4 +281,13 @@ CentOS
 
 sudo systemctl restart sshd.service
 
+## PHP-FPM
+
+Ubuntu
+
+1. sudo apt-get install python-software-properties
+2. sudo apt-get install software-properties-common
+3. sudo LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php
+4. sudo apt-get install php5-fpm php5-cli php5-curl php5-gd php5-json php5-mcrypt php5-mysqlnd
+
 
