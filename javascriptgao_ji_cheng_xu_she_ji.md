@@ -1018,6 +1018,21 @@ xhr.ontimeout = function() {
 
 ```
 
+### 21.2.3 overrideMimeType
+
+如果服务器返回的MIME是text/plain,即使返回的数据是XML,reponseXML还是为null
+
+可以通过iverrideMimeType强行设置为XML类型
+
+```javascript
+xhr.open(...);
+xhr.overrideMimeType('text/xml');
+xhr.send(null)
+```
+
+支持的浏览器有
+
+FF Safari4+ Opera10.5 Chrome
 
 
 # 23. 离线应用与客户端存储
