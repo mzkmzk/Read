@@ -1224,6 +1224,7 @@ id: 1
 
 未加密是`ws://` 加密是`wss://`
 
+浏览器兼容性: FF6+ Safari5+ Chrome iOS4+的Safari
 
 
 
