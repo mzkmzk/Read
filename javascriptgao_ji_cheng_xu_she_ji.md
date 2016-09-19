@@ -1036,6 +1036,25 @@ FF Safari4+ Opera10.5 Chrome
 
 ## 21.3 进度事件
 
+主要的API
+
+1. loadstart: 接受到响应数据的第一个字节时触发
+2. progress: 在接受响应时不断触发
+3. error: 请求错误时触发
+4. abort: 调用abort时触发
+5. load: 接受完数据时触发,用于替代readystatechange,会返回一个event对象,target指向当时的xhr,FF,Opera,Chrome和Safari支持load事件
+6. loadend: 接受完事件 | error | abort 事件触发, 但没有浏览器支持这个
+
+### 21.3.2 progress事件
+
+触发时函数包含event对象
+
+包含
+
+1. target: 指向当时的xhr
+2. lengthComputable: 表示进度信息是否可用的布尔
+3. position: 已接受的bytes
+4. totalSize: 总共bytes
 
 
 
