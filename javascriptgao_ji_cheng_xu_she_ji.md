@@ -1,4 +1,4 @@
-# JavaScript高级程序设计
+ # JavaScript高级程序设计
 
 Javascript组成
 
@@ -1115,7 +1115,7 @@ Access-Control-Allow-Credentials: true
 2. status为0
 3. 触发onerror
 
-
+支持withCredentials属性的有 FF3.5+ Safari4+ Chrome和IE11
 
 
 
