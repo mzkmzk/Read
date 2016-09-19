@@ -1155,7 +1155,7 @@ createCORSRequest: function(method, url) {
 
 ### 21.5.2 JSONP
 
-
+往DOM里面插入script,然后请求url一般会带个callback表示函数名,表示回调函数
 
 
 
