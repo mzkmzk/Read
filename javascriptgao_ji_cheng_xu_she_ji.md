@@ -1196,7 +1196,27 @@ source.close();
 
 > 2.事件流
 
-因为响应的是纯文本,所以可以在每个数据项后带qian
+因为响应的是纯文本,所以可以在每个数据项后带前缀data:
+
+eg:
+
+```shell
+data: f00
+
+data: bar
+```
+注意对多个连续的以data:开头的行时,在包含data:的数据行后面加空行时,才会触发message事件
+
+通过添加id:前缀关联特定的ID,ID行可以在data:行前或后
+
+例如
+
+```shell
+data: foo
+id: 1
+```
+
+设置ID后,EventSource对象会跟踪上一次的触发事件,如果连接断开,会向服务器发送一个包含`Last-Event-ID`的特殊HTTP头部请求,以便服务器知道下次该触发什么事件
 
 
 
