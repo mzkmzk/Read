@@ -270,6 +270,10 @@ true + true //2
 | 任意内置对象(非函数) | "object"                                               |
 | 任意宿主对象         | 编译器各自实现,但不是"undefined boolean number string" |
 
+# 16 脚本化CSS
+
+
+
 ##17 `delete`运算符
 
 ```javascript
