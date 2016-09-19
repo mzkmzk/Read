@@ -1163,7 +1163,29 @@ createCORSRequest: function(method, url) {
 
 长轮询和短轮训类似,区别在于服务器会故意把返回时间拖长
 
+而流的话,通过onreadystatechange时间,监听status是否为3,然后不断的报错reponseText
 
+但是流会需要花比较多精力维护它
+
+### 21.5.4 服务器发送事件
+
+SSE(Server-Send Events 服务器发送事件)是围绕Coment推出的API
+
+SSE API用于创建服务器的单向连接,服务器响应类型必须是text/event-stream
+
+SSE支持长轮询 短轮询和流
+
+EventSource对象还有3个事件
+
+1. open: 在建立连接时触发
+2. message: 从服务器接受到新消息时触发
+3. error
+
+```javascript
+var source = new EventSource(url);//必须同源
+//EventSource对象有readyState属性 0为正在连接服务器 1为打开了连接 2表示为关闭了连接
+
+```
 
 
 
