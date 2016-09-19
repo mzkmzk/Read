@@ -1263,6 +1263,18 @@ WebSocket事件
   2. code: 服务器返回的状态码
   3. reason: 服务器返回的消息
 
+### 21.5.6 SSE和WebSockets
+
+使用SSE
+
+1. 只要从服务器接受数据
+2. 必须依赖HTTP
+3. 结合XHR和SSE模仿WebSocket
+
+WebSockets
+
+1. 有自己能力搭建服务器
+
 
 
 
