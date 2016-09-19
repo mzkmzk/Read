@@ -1058,6 +1058,32 @@ FF Safari4+ Opera10.5 Chrome
 
 必须在调用oepn前添加onprogress事件
 
+## 21.4 跨域资源共享
+
+请求如果是GET/POST 一般会给予Origin头
+
+然后服务器返回的Access-Control-Allow-Origin: 与请求时的Origin匹配,则可以跨域资源共享
+
+### 21.4.1 IE对CORS的实现
+
+主要通过XDR对象,这个应用比较少
+
+限制也很多,这里就不阐述了
+
+### 21.4.2 其他浏览器对CORS的实现
+
+也是通过xhr
+
+主要服务器的Access-Control-Allow-Origin做配合
+
+注意点有
+
+1. 不能使用setRequestHeader设置头部
+2. 不能发送和接受Cookie,但是服务器还是会发送SetCookie字段.这里要做优化,把设置Cookie干掉
+3. getAllReponseHeaders总是得到空字符串,但是getResponseHeader呢?能获取吗(笔者疑问,未测试,应该不行)
+
+
+
 
 
 # 23. 离线应用与客户端存储
