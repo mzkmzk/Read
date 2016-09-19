@@ -1056,6 +1056,8 @@ FF Safari4+ Opera10.5 Chrome
 3. position: 已接受的bytes
 4. totalSize: 总共bytes
 
+必须在调用oepn前添加onprogress事件
+
 
 
 # 23. 离线应用与客户端存储
