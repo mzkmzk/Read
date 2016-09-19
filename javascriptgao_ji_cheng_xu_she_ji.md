@@ -1226,6 +1226,43 @@ id: 1
 
 浏览器兼容性: FF6+ Safari5+ Chrome iOS4+的Safari
 
+特点
+
+1. WebSocket无同源策略
+2. 实例化后,浏览器会立马尝试创建连接
+3. WebSocket不支持DOM2
+
+  会带有readyState属性
+  
+  1. WebSocket.OPENING(0): 正在建立连接
+  2. WebSocket.OPEN(1): 已经创建连接
+  3. WebSocket.CLOSING(2): 正在关闭连接
+  4. WebSocket.CLOSE(3): 已经关闭连接
+
+```javascript
+//实例化WebSocket 
+var socket = new WebSocket('ws://www.example.com/server.php');
+
+//发送数据
+socket.send('Hello World');
+
+//接受数据
+socket.onmessage = function(event) {
+  var data = event.data;
+}
+
+```
+
+WebSocket事件
+
+1. open: 成功连接时触发
+2. error: 发生错误时触发
+3. close: 关闭连接时 close的event会包含
+
+  1. wasClean: 是否明确关闭
+  2. code: 服务器返回的状态码
+  3. reason: 服务器返回的消息
+
 
 
 
