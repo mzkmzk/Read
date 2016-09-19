@@ -1117,6 +1117,10 @@ Access-Control-Allow-Credentials: true
 
 支持withCredentials属性的有 FF3.5+ Safari4+ Chrome和IE11
 
+### 21.4.5 跨浏览器的CORS
+
+
+
 
 
 # 23. 离线应用与客户端存储
