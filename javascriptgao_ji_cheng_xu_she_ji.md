@@ -1185,7 +1185,14 @@ EventSource对象还有3个事件
 var source = new EventSource(url);//必须同源
 //EventSource对象有readyState属性 0为正在连接服务器 1为打开了连接 2表示为关闭了连接
 
+source.onmessage = function(event) {
+  var data = event.data;
+}
+
+source.close();
 ```
+
+
 
 
 
