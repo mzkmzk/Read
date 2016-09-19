@@ -1101,6 +1101,22 @@ CORS通过Preflighted Requests的透明服务器验证自定义头部
 
 支持的有FF3.5 Safari4+ Chrome IE11及+
 
+### 21.4.4 带凭证的请求
+
+跨域资源是不带cookie HTTP认证和SSL的
+
+如果服务器接受凭证,可以设置请求头
+
+Access-Control-Allow-Credentials: true
+
+但是如果服务器响应没有包含这个头部会
+
+1. reponseText为空
+2. status为0
+3. 触发onerror
+
+
+
 
 
 # 23. 离线应用与客户端存储
