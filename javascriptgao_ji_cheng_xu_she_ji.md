@@ -1003,6 +1003,22 @@ xhr.send(new FormData(document.getElementById('form')));
 
 支持该对象的有 FF4+ Safari5+ Chrome Android3+的webkit
 
+### 21.2.2 超时设定
+
+只有IE8支持的timeout属性,被纳入了XMLHttpRequest 2中
+
+tiemout之后不能再访问status,否则会报错,最好写在try-catch里
+
+```javascript
+...
+xhr.time = 1000;
+xhr.ontimeout = function() {
+  
+}
+
+```
+
+
 
 # 23. 离线应用与客户端存储
 
