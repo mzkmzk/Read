@@ -980,7 +980,9 @@ xhr.abort() 可以终止请求
 
 把请求头设置为 Content-Type: application/x-www-form-urlencoded,可以模拟表单提交
 
-POST请求比GET请求消耗要大,
+POST请求比GET请求消耗要大,最夸张的时候GET比POST快两倍
+
+
 
 
 # 23. 离线应用与客户端存储
