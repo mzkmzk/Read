@@ -1080,9 +1080,6 @@ XDR和XHR不同的地方
 
 使用该对象,最好写好onerror
 
-触发onerror的条件
-
-1. 
 
 ### 21.4.2 其他浏览器对CORS的实现
 
@@ -1134,6 +1131,29 @@ Access-Control-Allow-Credentials: true
 ### 21.4.5 跨浏览器的CORS
 
 写了一个通用的方法
+
+```javascript
+
+createCORSRequest: function(method, url) {
+    var xhr = new XMLHttpRequest();
+    if ('withCredentials' in xhr) {
+        xhr.open(method,url, true);
+    } else if (typeof XDomainRequest != "undefiend") {
+        xhr = new XDomainRequest();
+        xhr.open(method, url);
+    } else {
+        xhr = null;
+    }
+}
+```
+
+## 21.5 其他跨域技术
+
+### 21.5.1 图像Ping
+
+浏览器得不到任何数据,监听load和error确定是否响应了
+
+### 21.5.2 JSONP
 
 
 
