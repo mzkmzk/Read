@@ -1099,7 +1099,7 @@ CORS通过Preflighted Requests的透明服务器验证自定义头部
 3. Access-Control-Allow-Headers: 允许的头部,多个以逗号分隔
 4. Access-Control-Max-Age: 应该将这个Preflight请求缓存多长时间(以秒显示)
 
-
+支持的有FF3.5 Safari4+ Chrome IE11及+
 
 
 
