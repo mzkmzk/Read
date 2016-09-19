@@ -1171,6 +1171,8 @@ createCORSRequest: function(method, url) {
 
 SSE(Server-Send Events 服务器发送事件)是围绕Coment推出的API
 
+> 1.SSE API
+
 SSE API用于创建服务器的单向连接,服务器响应类型必须是text/event-stream
 
 SSE支持长轮询 短轮询和流
@@ -1192,6 +1194,9 @@ source.onmessage = function(event) {
 source.close();
 ```
 
+> 2.事件流
+
+因为响应的是纯文本,所以可以在每个数据项后带qian
 
 
 
