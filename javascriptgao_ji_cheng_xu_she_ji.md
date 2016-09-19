@@ -1157,6 +1157,14 @@ createCORSRequest: function(method, url) {
 
 往DOM里面插入script,然后请求url一般会带个callback表示函数名,表示回调函数
 
+### 21.5.3 Comet
+
+有两种实现Coment的方式: 长轮询和流
+
+长轮询和短轮训类似,区别在于服务器会故意把返回时间拖长
+
+
+
 
 
 # 23. 离线应用与客户端存储
