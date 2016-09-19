@@ -1066,9 +1066,23 @@ FF Safari4+ Opera10.5 Chrome
 
 ### 21.4.1 IE对CORS的实现
 
-主要通过XDR对象,这个应用比较少
+主要通过XDR(XDomainRequest)
 
-限制也很多,这里就不阐述了
+XDR和XHR不同的地方
+
+1. cookie不会随请求发生和响应返回
+2. 只能设置头部的Content-Type
+3. 不能访问响应头消息
+4. 只支持GET和POST请求
+5. 只能是异步的
+6. 返回消息存储在reponseText中,并且只能访问这个属性
+7. 响应值触发load事件,无法访问state
+
+使用该对象,最好写好onerror
+
+触发onerror的条件
+
+1. 
 
 ### 21.4.2 其他浏览器对CORS的实现
 
@@ -1118,6 +1132,8 @@ Access-Control-Allow-Credentials: true
 支持withCredentials属性的有 FF3.5+ Safari4+ Chrome和IE11
 
 ### 21.4.5 跨浏览器的CORS
+
+写了一个通用的方法
 
 
 
