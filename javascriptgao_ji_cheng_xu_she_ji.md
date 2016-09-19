@@ -972,7 +972,15 @@ xhr.abort() 可以终止请求
 
 或xhr.getAllResponseHeaders(); 获取一个多行的字符串,包含所有头部信息
 
+### 21.1.3 GET请求
 
+传入URL末尾的查询字符串必须经过正常编码才行
+
+### 21.1.4 POST请求
+
+把请求头设置为 Content-Type: application/x-www-form-urlencoded,可以模拟表单提交
+
+POST请求比GET请求消耗要大,
 
 
 # 23. 离线应用与客户端存储
