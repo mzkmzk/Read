@@ -330,6 +330,24 @@ a.length //3 会留个洞
 
 # 18. 脚本化HTTP
 
+## 18.1 使用XMLHttpRequest
+
+### 18.1.1 指定请求 
+
+不能设定Content-Length Date Referrer User-Agent头,XMLHttpRequest会自动添加这些头而防止伪造他们
+
+对相同的头信息设置SetRequestHeader,新值不会覆盖旧值,而是HTTP请求包含这个头的多个副本或这个头指定多个值
+
+### 18.1.2 取得响应
+
+如果返回有cookie相关的头信息,浏览器会自动处理并过滤掉他们
+
+
+
+
+
+
+
 
 
 ##19 对象
