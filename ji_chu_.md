@@ -328,6 +328,10 @@ a.length //3 会留个洞
 10. 不允许不进制速
 11. 严格模式下arguments.caller和arguments.callee,会报错.
 
+# 18. 脚本化HTTP
+
+
+
 ##19 对象
 
 对象类型
