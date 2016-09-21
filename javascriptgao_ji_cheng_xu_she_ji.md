@@ -452,7 +452,7 @@ wroxWin.opener = null;//断开弹出窗口和源窗口的联系,让新窗口运�
 4. previousElementSibling: 指向前一个同辈元素,取代previousSibling
 5. nextElementSibling: 指向后一个同辈元素,取代nextSibling
 
-
+支持新的Element Traversal有IE9+ FF3.5 Safari4+ Chrome和Opera10+
 
 # 13. 事件
 
