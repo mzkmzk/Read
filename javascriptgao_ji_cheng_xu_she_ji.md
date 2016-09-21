@@ -444,6 +444,16 @@ wroxWin.opener = null;//断开弹出窗口和源窗口的联系,让新窗口运�
 1. querySelector: 返回匹配的元素,若无找到元素,返回null
 2. querySelectorAll: 返回NodeList,若无找到元素,返回空NodeList,表面看上去是个空数组
 
+## 11.2元素遍历
+
+1. childElementCount: 返回子元素的个数,不包含注释和文本节点
+2. firstElementChild: 第一个子元素,取代firstChild
+3. lastElementChild: 返回最后一个子元素,取代lastChild
+4. previousElementSibling: 指向前一个同辈元素,取代previousSibling
+5. nextElementSibling: 指向后一个同辈元素,取代nextSibling
+
+
+
 # 13. 事件
 
 ## 13.1 事件流
