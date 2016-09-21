@@ -558,6 +558,37 @@ scrollIntoView(boolean)
 1. true: (默认),元素顶部和浏览器顶部对齐
 2. false: 元素的底端将和其所在滚动区的可视区域的底端对齐。
 
+### 11.4 专有拓展
+
+### 11.4.1 文档模式
+
+IE专有
+
+可以设置meta标记设定什么文档模式
+
+```html
+<meta http-rquiv='X-UA-Compatible' content='IE-IEVersion'
+```
+
+content的值
+
+1. Edge: 始终以最新的文档模式俩渲染页面,对于IE8,始终保持以IE8的标志模式渲染页面,对于IE9,则以IE9标志模式渲染页面
+2. EmulateIE9: 若有文档说明,则以IE9标志模式渲染页面,否则文档设置为IE5
+3. EmulateIE8: 若有文档说明,则以IE8标志模式渲染页面,否则文档设置为IE5
+4. EmulateIE7: 若有文档说明,则以IE7标志模式渲染页面,否则文档设置为IE5
+5. 9 强制IE9标志模式渲染页面,忽略文档类型声明
+6. 8 强制IE8标志模式渲染页面,忽略文档类型声明
+7. 7 强制IE7标志模式渲染页面,忽略文档类型声明
+8. 5 强制IE5标志模式渲染页面,忽略文档类型声明
+
+js获取文档模式 document.documentMode
+
+### 11.4.2 children属性
+
+IE8和更早本本 children包含注释节点,
+
+children是HTMLCOllection的实例
+
 
 
 # 13. 事件
