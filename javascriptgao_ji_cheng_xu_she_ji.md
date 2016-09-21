@@ -454,6 +454,82 @@ wroxWin.opener = null;//断开弹出窗口和源窗口的联系,让新窗口运�
 
 支持新的Element Traversal有IE9+ FF3.5 Safari4+ Chrome和Opera10+
 
+## 11.3 HTML5
+
+### 11.3.1 与类相关的托扩充
+
+> classList属性
+
+可以用来改变节点的class引用
+
+className是新集合类型DOMTOkenList的实例
+
+属性和方法
+
+1. length
+2. add(value)
+3. remove(value)
+4. contains(value)
+5. toggle(value)
+
+但是注意这些属性和方法浏览器兼容性在IE11也不太好
+
+### 11.3.3 HTMLDocument的变化
+
+> 1.readyState属性
+document.readyState
+
+1. loading: 正在加载文档
+2. complete: 已经加载完文档
+
+> 3.head属性
+
+获取head
+
+```javascript
+var head = document.head || document.getElementByTagName('head')[0]
+```
+
+### 13.3.4 字符集属性
+
+document.charset //可以设置和查看当前字符集
+
+获取浏览器默认字符集 document.defaultCharset
+
+### 13.3.5 自定义数据属性
+
+在节点上加data-属性
+
+可以这样获取/设置值
+
+div.dataset.属性
+
+### 13.3.6 插入标记
+
+当需要插入大量DOM的时候,可以考虑字符串插入
+
+> 1.innerHTML属性
+
+返回所有子节点对应的HTML标记
+
+不过在这里加script标签,好像是不会执行的
+
+作者说可以通过给script添加defer 和在script前面加一个`_`(为了添加有作用域)就可以,但是笔者测了下不行
+
+作者还说style和script一样是个没作用域的元素,所以要在前面加一个有作用域的元素浏览器才会处理(例如随便的字符串`_`)
+
+但是笔者在Chrome52中测试了结果如下
+
+```javascript
+//有效
+document.body.innerHTML = "<style>body{ background: blue}<\/style>"
+
+//无效
+document.body.innerHTML = "_<script defer>alert('hi');<\/script>"
+```
+
+
+
 # 13. 事件
 
 ## 13.1 事件流
