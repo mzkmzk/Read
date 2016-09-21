@@ -528,6 +528,36 @@ document.body.innerHTML = "<style>body{ background: blue}<\/style>"
 document.body.innerHTML = "_<script defer>alert('hi');<\/script>"
 ```
 
+> 2.outerHTML 
+
+读模式下: outerHTML返回调用它的元素及所有子节点的HTML标签
+
+写模式下: outerHTML会根据指定的HTML字符串创建新的DOM子树,然后这个DOM子数会完全替换调用元素
+
+> 3.insertAdjacentHTML
+
+该方法有两个参数
+
+第一个参数 : position
+
+1. beforebegin: 在当前元素之前插入一个同辈元素
+2. afterbegin: 在当前元素中插入一个新的子元素或在第一个子元素之前再插入一个新的子元素
+3. beforeend: 在当前元素中插入一个新的子元素或在最后一个子元素之后插入新的子元素
+4. afterend: 在当前元素之后插入一个同辈元素
+
+> 4.性能
+
+注意,如果以上方法有干掉节点,而节点有事件绑定,该事件会一直存在内存里,所以需要在干掉前把事件取消掉
+
+## 11.3.7 scrollIntView
+
+可以让浏览器滚动到某个HTML元素上
+
+scrollIntoView(boolean)
+
+1. true: (默认),元素顶部和浏览器顶部对齐
+2. false: 元素的底端将和其所在滚动区的可视区域的底端对齐。
+
 
 
 # 13. 事件
