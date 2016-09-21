@@ -437,9 +437,12 @@ wroxWin.opener = null;//断开弹出窗口和源窗口的联系,让新窗口运�
 
 有些浏览器会屏蔽window.open弹窗,最好try catch一下在window.open方法外面
 
+# 11. DOM拓展
 
+## 11.1 选择API
 
-
+1. querySelector: 返回匹配的元素,若无找到元素,返回null
+2. querySelectorAll: 返回NodeList,若无找到元素,返回空NodeList,表面看上去是个空数组
 
 # 13. 事件
 
