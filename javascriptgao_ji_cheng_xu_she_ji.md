@@ -589,6 +589,16 @@ IE8和更早本本 children包含注释节点,
 
 children是HTMLCOllection的实例
 
+# 12 DOM2和DOM3
+
+## 12.2 样式
+
+style属性只能访问指定的样式,不能访问外部样式表或嵌入样式表层叠而来的样式
+
+大部分都是驼峰访问,而特殊的是float,IE叫styleFloat,其他浏览器都叫cssFloat
+
+在混乱模式下,假如设定width为20,而在标准模式下,会因为没有度量单位而不起作用
+
 
 
 # 13. 事件
