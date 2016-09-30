@@ -43,3 +43,9 @@
 当然这个数字太长,可以默认初始值都为0
 
 `Perferences->Protocols->TCP->勾选Relative Seq`
+
+这样设置后,成功的握手都是一样的,但是失败的握手就不一样了
+
+一般获取失败握手的表达式可以设置为
+
+`(tcp.flags.reset===1) && (tcp.seq ===1)`
