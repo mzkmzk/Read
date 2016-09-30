@@ -32,3 +32,14 @@
 
 客户端->Seq=X+1 ACK=Y+1->服务器
 
+![tcp](QQ20160930-0.png)
+
+这个是我打开一个网页.然后捕抓src和dst为访问网页的IP
+
+然后前3个就是3次握手
+
+可以看看 Seq和ACK值的变化和我刚的描述变化是一样的
+
+当然这个数字太长,可以默认初始值都为0
+
+`Perferences->Protocols->TCP->勾选Relative Seq`
