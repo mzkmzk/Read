@@ -102,7 +102,26 @@ Wireshark性能三把虎
 
 1. 查看平均流量速度: Statistics->Summary
 2. 查看建议: Analyze->Expert Infos
-3. 查看数据传输: 选中某个包,Statistics->Tcp StreamGraph->TCP Sequence Graph(Stevents)
+3. 查看数据传输: 选中某个包,Statistics->Tcp StreamGraph->TCP Sequence Graph(Stevents),正常的传输是一条直线,中间无中断过程
+
+纳格(Nagle)算法
+
+```javascript
+if 有新数据要发
+  if 数据量超过MMS(即一个TCP包所能携带的最大数据量)
+    立即发送
+  else
+    if 之前发出去的数据尚未确认
+      把数据缓存亲来,凑够MSS或等待确认到达再发送
+    else
+      立即发送
+    else if
+  else if
+else if  
+```
+
+
+
 
 
 
