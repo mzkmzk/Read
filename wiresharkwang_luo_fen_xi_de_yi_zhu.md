@@ -42,7 +42,7 @@
 
 当然这个数字太长,可以默认初始值都为0
 
-`Perferences->Protocols->TCP->勾选Relative Seq`
+`Perferences->Protocols->TCP->勾选Relative Sequence Numbers`
 
 这样设置后,成功的握手都是一样的,但是失败的握手就不一样了
 
@@ -53,4 +53,33 @@
 
 一般获取失败握手的表达式可以设置为
 
-`(tcp.flags.reset===1) && (tcp.seq ===1)`
+`(tcp.flags.reset==1) && (tcp.seq ==1)`
+
+或者
+
+过滤重传的握手请求: `(tcp.flags.syn == 1) && (tcp.analysis.retransmission)`
+
+找到了之后,右键追踪TCP流
+
+这是我的一个被拒绝得TCP流
+
+![被拒绝的tcp](QQ20161008-0.png)
+
+但是这样没办法判断丢包是
+
+1. 没传到服务器就丢了
+2. 还是服务器接受到了,但是回传的时候丢了
+
+所以最好在客户端和服务器同时抓包
+
+说说DDoS
+
+原理就是大量主机发送SYN请求给服务器,假装建立TCP,这些SYN请求可能包含假的源地址,所以服务器永远收不到Ack,就会留下half-open的连接,每个TCP占用一定的系统资源,建立多了服务器资源就会被耗光
+
+### 被误解的TCP
+
+TCP并非每一个数据包都有对应的Ack
+
+因为延迟确认可以多个包对应一个Ack
+
+
