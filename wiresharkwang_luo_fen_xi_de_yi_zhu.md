@@ -96,4 +96,13 @@ TCP效率低因为要往返确认Ack
 
 而在传输小包时,本来一个往返就能完成的,却要耗费3次握手和4次挥手,效率的确很低
 
+### 最经典的网络问题
+
+Wireshark性能三把虎
+
+1. 查看平均流量速度: Statistics->Summary
+2. 查看建议: Analyze->Expert Infos
+3. 查看数据传输: 选中某个包,Statistics->Tcp StreamGraph->TCP Sequence Graph(Stevents)
+
+
 
