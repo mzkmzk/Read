@@ -155,8 +155,16 @@ Linux用户访问挂载文件夹
 
 ### Wireshark的提示
 
+后一个包的Seq号为前一个包的Seq+Len(除了三次握手和四次挥手)
 
+如果后一个包的Seq大于前一个包的Seq+Len,证明确实了一段数据
 
+如果整个网络包都找不到(排除错乱),就会提示TCP Previous segment not captured
+
+丢包分两种情况
+
+1. 真的丢了
+2. 抓包工具没抓到
 
 
 
