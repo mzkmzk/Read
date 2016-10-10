@@ -444,4 +444,6 @@ ip.src == ip 或者 id.addr 过滤
 
 ## 假装产品经理
 
+把IP变成域名
 
+`View->Name Resolution-> Enable for Network layer`
