@@ -413,8 +413,12 @@ TCP建立太多了,把链路占得过满,导致
 
 ## 假带宽的真相
 
+Wireshark->Statistics菜单->Conversations,可以得到当前的会话
+
+![流量](QQ20161010-0.png)
 
 
+## 手机抓包
 
 
 
