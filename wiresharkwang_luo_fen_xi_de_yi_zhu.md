@@ -434,4 +434,6 @@ http://www.ipip.net/ 查询IP
 
 ##谁动了我的网络
 
+ip.src == ip 或者 id.addr 过滤
+
 
