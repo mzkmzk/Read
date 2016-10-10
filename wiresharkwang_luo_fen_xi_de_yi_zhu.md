@@ -447,3 +447,9 @@ ip.src == ip 或者 id.addr 过滤
 把IP变成域名
 
 `View->Name Resolution-> Enable for Network layer`
+
+可以通过wireshark分析网络交互
+
+##自学窍门
+
+
