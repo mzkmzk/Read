@@ -428,4 +428,10 @@ Wireshark->Statistics菜单->Conversations,可以得到当前的会话
 
 http://www.ipip.net/ 查询IP
 
+被骗的作者,实验失败,并没有找到
+
+原理是通过自己的服务器找DNS
+
+##谁动了我的网络
+
 
