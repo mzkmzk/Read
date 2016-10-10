@@ -420,7 +420,11 @@ Wireshark->Statistics菜单->Conversations,可以得到当前的会话
 
 ## 手机抓包
 
+## 我的微博为什么会卡
 
+抓包发现每次连接依赖DNS查询,解决方案为缓存DNS
+
+##寻找HttpDNS
 
 
 
