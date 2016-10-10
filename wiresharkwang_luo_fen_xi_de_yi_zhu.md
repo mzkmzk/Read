@@ -436,4 +436,6 @@ http://www.ipip.net/ 查询IP
 
 ip.src == ip 或者 id.addr 过滤
 
+服务器每发一个包,Identification就会加一
+
 
