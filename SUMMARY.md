@@ -57,7 +57,7 @@
    * [只有偏执狂才能生存](zhi_you_pian_zhi_kuang_cai_neng_sheng_cun.md)
 * [设计](she_ji.md)
    * [至美用户人本设计剖析](zhi_mei_yong_hu_ren_ben_she_ji_pou_xi.md)
-   * 移动设计
+   * [移动设计](yi_dong_she_ji.md)
 * [效率](xiao_lv.md)
    * [番茄工作法图解](fan_qie_gong_zuo_fa_tu_jie.md)
 
