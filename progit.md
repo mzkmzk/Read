@@ -231,8 +231,7 @@ git log 限制输出
 
     git push origin 标签名称
     //or 提交多个标签
-    git push origin
-     --tags
+    git push origin --tags
      
 检出标签
 
