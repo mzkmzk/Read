@@ -58,6 +58,7 @@
 * [设计](she_ji.md)
    * [至美用户人本设计剖析](zhi_mei_yong_hu_ren_ben_she_ji_pou_xi.md)
    * [移动设计](yi_dong_she_ji.md)
+   * 设计心理学一
 * [效率](xiao_lv.md)
    * [番茄工作法图解](fan_qie_gong_zuo_fa_tu_jie.md)
 
