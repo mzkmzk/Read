@@ -72,5 +72,11 @@ YUIdocjs 可以转注释为HTML
 
 # 3. 基于事件的架构
 
+可以参考基于socket.io的样例实现
+
+npm install EventHub
+
+启动 npm start EventHub
+
 
 
