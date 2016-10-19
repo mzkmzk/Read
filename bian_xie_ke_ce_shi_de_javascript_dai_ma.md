@@ -78,5 +78,13 @@ npm install EventHub
 
 启动 npm start EventHub
 
+# 4. 单元测试
+
+最难编写的的单元是第一个单元测试
+
+
+
+
+
 
 
