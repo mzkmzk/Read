@@ -818,6 +818,7 @@ Android和iOS的特殊
 
 1. keydown: 当用户按下任意键时触发,若不放开,重复执行
 2. keypress: 用户按下字母或ESC时触发,若不放开,重复执行
+3. textInput: textInput是对keypress的补充,用意在将文本显示给用户之前更容易拦截文本.在文本插入文本框时会先触发textInput
 3. keyup: 用户释放键盘时触发
 
 键盘事件也有shiftKey ctrlKey altKey metaKey
