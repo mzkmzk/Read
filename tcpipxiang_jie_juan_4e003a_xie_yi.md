@@ -22,6 +22,17 @@ TCP为两台主机提供高可高性的数据通信,它所做的工作包括
 
 而运输层的TCP协议,采用了超时重传,发送和接受端到端的确认分组机制
 
+
+因为有TCP UDP ICMP 和IGMP都要给IP传送数据
+
+所以IP必须在首部添加一个长度为8bit的数值,称为协议域
+
+1. 1 表示ICMP
+2. 2 表示IGMP
+3. 6 表示TCP
+4. 17 表示UDP
+
+
 # 参考链接
 
 1. 电子版: http://wweir.github.io/it/TCP_IP%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3.html
