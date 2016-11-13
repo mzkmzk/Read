@@ -43,3 +43,9 @@ chrome://view-http-cache/
 一次DNS查询平均时间大概60~120ms
 
 三次握手平均也是30ms+
+
+可以通过预dns加载
+
+```
+<link rel="dns-prefetch" href="http://404mzk.com"
+```
