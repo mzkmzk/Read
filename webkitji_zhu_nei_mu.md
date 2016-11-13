@@ -30,3 +30,6 @@ HTML解释器 CSS解释器 布局(layout) JavaScript引擎
 
 # 4.3 网络栈
 
+chrome://net-internals/#dns 可以查看dns的缓存记录
+
+有时候切换hosts,即使情况缓存也没清掉dns的,就可以来这里clear hosts cache掉
