@@ -33,3 +33,13 @@ HTML解释器 CSS解释器 布局(layout) JavaScript引擎
 chrome://net-internals/#dns 可以查看dns的缓存记录
 
 有时候切换hosts,即使情况缓存也没清掉dns的,就可以来这里clear hosts cache掉
+
+chrome://view-http-cache/
+
+能看到缓存结构
+
+# 4.3.6 高性能网站栈
+
+一次DNS查询平均时间大概60~120ms
+
+三次握手平均也是30ms+
