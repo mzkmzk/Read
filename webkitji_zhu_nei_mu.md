@@ -26,3 +26,5 @@ HTML解释器 CSS解释器 布局(layout) JavaScript引擎
 
 ### 4.1.5 资源的生命周期
 
+资源池采用LRU
+
