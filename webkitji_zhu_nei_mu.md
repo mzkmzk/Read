@@ -50,5 +50,7 @@ chrome://view-http-cache/
 <link rel="dns-prefetch" href="http://404mzk.com"
 ```
 
+chrome://dns/可以查看预取得dns域名
+
 
 
