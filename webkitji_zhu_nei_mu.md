@@ -54,7 +54,31 @@ chrome://dns/可以查看预取得dns域名
 
 # 5. HTML解析器和DOM模型
 
-## 5.2 JavaScript的执行
+## 5.2 HTML解析器
 
+### 5.2.8 JavaScript的执行
+
+在HTML解析器的工作过程中,可能会有javascript代码(全局作用域的代码)需要执行,它发生在将字符串解析成词语后、创建各种节点的时候,这也是为什么全局执行的javascript不能访问DOM树,因为DOM还没创建完
+
+## 5.4 影子(Shadow)DOM
+
+例如video audioy一些元素,里面的dom是不可见的,但JS无法访问
+
+# 6. CSS解释器和样式布局
+
+chrome默认的样式
+
+```css
+html,body,div{display: block}
+
+body{margin: 8px}
+
+div:focus,span:focus{outline:auto 5px -webkit-focus-ring-color}
+
+a:-webkit-any-link{color:-webkit-linkl text-decoration:underline}
+
+a:-webkit-any-link:active{color:-webkit-activelink}
+
+```
 
 
