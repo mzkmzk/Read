@@ -81,4 +81,10 @@ a:-webkit-any-link:active{color:-webkit-activelink}
 
 ```
 
+# 8. 硬件加速机制
+
+## 8.2 Chromium的硬件加速机制
+
+
+
 

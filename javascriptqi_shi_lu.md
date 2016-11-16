@@ -58,3 +58,11 @@ var numNew = new Number('111')
 
 numNew instanceof Number //true
 ```
+
+# 2 对象与属性
+
+## 2.4 删除对象属性
+
+delete不会删除在原型上找到的属性
+
+
