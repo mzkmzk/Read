@@ -87,6 +87,12 @@ a:-webkit-any-link:active{color:-webkit-activelink}
 
 ### 8.2.5 实践: 减少重绘
 
+网页加载后,每当重新绘制新的一帧的时候,一般需要三个阶段
+
+1. 布局
+2. 绘图
+3. 合成
+
 
 
 
