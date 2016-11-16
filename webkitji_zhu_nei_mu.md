@@ -93,6 +93,14 @@ a:-webkit-any-link:active{color:-webkit-activelink}
 2. 绘图
 3. 合成
 
+网页分层问题
+
+假设开发一个游戏,通常有背景和人物
+
+如果把背景和人物都放在一个canvas里,那么人物动,则canvas整个都需要重新绘制
+
+而如果把背景和人物分开两个canvas,然后合成在一块,那么重绘人物时,背景就不用动了
+
 
 
 
