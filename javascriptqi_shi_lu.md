@@ -12,5 +12,14 @@
 
 ```javascript
 
+typeof null //object
+
+var myFunction = new Function('x','y','return x* y')
+typeof myFunction //function 
+
+var myRegExp = new RegEXP('\abc\')
+typeof myRegExp // function
 
 ```
+
+其他一般情况下 typeof基本类型 返回的是基本类型 非基本类型的都是object
