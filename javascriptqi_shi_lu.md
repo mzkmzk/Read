@@ -23,3 +23,9 @@ typeof myRegExp // function
 ```
 
 其他一般情况下 typeof基本类型 返回的是基本类型 非基本类型的都是object
+
+基本类型一般是指非new出来的基本类型例如
+
+1. var a = String('123') //基本类型 typeof 后为string
+2. var b = new String('123') //复杂类型 typeof 后为object
+
