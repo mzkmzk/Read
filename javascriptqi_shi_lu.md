@@ -1,4 +1,4 @@
-# JavaScript启示录
+# JavaScripte启o示f录
 
 # 1. JavaScript对象
 
@@ -45,4 +45,16 @@ myNumberL.constructor ===Number //true
 
 和constructor的验证不一样
 
+自变量的instanceof 不会对应着包装类
 
+```javascript
+111 instanceof Number //fasle
+
+var num = Number(111)
+
+num instanceof Number //false
+
+var numNew = new Number('111')
+
+numNew instanceof Number //true
+```
