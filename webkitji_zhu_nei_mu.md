@@ -101,6 +101,10 @@ a:-webkit-any-link:active{color:-webkit-activelink}
 
 而如果把背景和人物分开两个canvas,然后合成在一块,那么重绘人物时,背景就不用动了
 
+# 9 Javascript引擎
+
+## 9.4 实践-高效的javascript代码
+
 
 
 
