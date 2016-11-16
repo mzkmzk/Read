@@ -85,6 +85,8 @@ a:-webkit-any-link:active{color:-webkit-activelink}
 
 ## 8.2 Chromium的硬件加速机制
 
+### 8.2.5 实践: 减少重绘
+
 
 
 
