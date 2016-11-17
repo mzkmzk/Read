@@ -65,4 +65,21 @@ numNew instanceof Number //true
 
 delete不会删除在原型上找到的属性
 
+# 4 Function
 
+## 4.10 函数实例的length属性和arguments.length
+
+```javascript
+var myFunction = function (a,b,c) {
+  return arguments.length
+}
+
+muFunction() //0
+
+var myFunction1 = function (a,b,c) {
+  return myFunction1.length 
+}
+
+myFunction1() //3
+
+```

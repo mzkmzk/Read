@@ -105,6 +105,16 @@ a:-webkit-any-link:active{color:-webkit-activelink}
 
 ## 9.4 实践-高效的javascript代码
 
+在设置setTimeout和setInterval,会有以下问题
+
+1. 时间间隔设置多少?跟屏幕分辨率有关系吗
+2. 设置的时间间隔会安装预想中的执行吗,动画会被平滑的显示出来吗
+3. 回调函数式复杂化还是简单呢
+4. 与平台浏览器有关系吗?
+
+requestAnimationFrame就出来了
+
+因为requestAnimationFrame会告诉浏览器javascript想发起一个动画帧,然后在动画帧回执之前,需要做一些动作,原理就是申请绘制下一帧
 
 
 
