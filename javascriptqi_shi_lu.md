@@ -95,3 +95,9 @@ var a= function () {
       }
     }
 }
+
+其实这个比较好懂 如果在最外层
+
+a的this是window
+
+而后面this就一直没变
