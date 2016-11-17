@@ -83,3 +83,15 @@ var myFunction1 = function (a,b,c) {
 myFunction1() //3
 
 ```
+
+## 4.18 函数可以嵌套
+
+在ES3和javascript1.5的函数嵌套中的this是window
+
+var a= function () {
+    var b= function (){
+      var c = function (){
+        console.log(this)/window
+      }
+    }
+}
