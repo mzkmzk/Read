@@ -88,13 +88,23 @@ myFunction1() //3
 
 在ES3和javascript1.5的函数嵌套中的this是window
 
+```javascript
 var a= function () {
+   console.log('a')
+   console.log(this)//window
     var b= function (){
+      console.log('b')
+        console.log(this)//window
       var c = function (){
-        console.log(this)/window
+        console.log('c')
+        console.log(this)//window
       }
+      c()
     }
+     b()
+     
 }
+```
 
 其实这个比较好懂 如果在最外层
 
