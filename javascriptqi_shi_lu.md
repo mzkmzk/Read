@@ -181,10 +181,12 @@ new Person()//Person{}
 
 var a = {
   b: function(){
+  console.log(this) //Object{} 
     Person() //window 
   }
 }
 
+a.b()
 
 ```
 
