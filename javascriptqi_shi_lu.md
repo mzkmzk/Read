@@ -219,6 +219,8 @@ console.log(myArray.__proto__ === Array.prototype) //true
 console.log(myArray.__proto__.foo) //foo
 ```
 
+## 8.6 原型链的最后是Object.prototype
+
 
 
 
