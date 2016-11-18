@@ -129,3 +129,13 @@ var sum2 = function(){
   return 2
 }
 ```
+
+# 5. 全局对象
+
+显示调用全局对象方法比隐式要慢
+
+```javascript
+window.alert(1)//慢
+alert(2)//快
+```
+
