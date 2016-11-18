@@ -210,7 +210,14 @@ console.log(myFunction.prototype) //object{}
 
 原型链将每个实例都链接至构造函数的prototype属性
 
+即实例.__proto === 构造函数.prototype
 
+```javascript
+Array.prototype.foo = 'foo';
+var myArray = [];
+console.log(myArray.__proto__ === Array.prototype) //true
+console.log(myArray.__proto__.foo) //foo
+```
 
 
 
