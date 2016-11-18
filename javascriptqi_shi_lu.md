@@ -206,6 +206,11 @@ myFunction.prototype = {} //浏览器自动执行的
 console.log(myFunction.prototype) //object{}
 ```
 
+## 8.5 讲构造函数创建的实例链接至构造函数的prototype属性
+
+
+
+
 
 
 
