@@ -208,6 +208,7 @@ console.log(myFunction.prototype) //object{}
 
 ## 8.5 讲构造函数创建的实例链接至构造函数的prototype属性
 
+原型链将每个实例都链接至构造函数的prototype属性
 
 
 
