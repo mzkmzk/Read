@@ -148,4 +148,43 @@ alert(2)//快
 这点性能应该可以忽略
 
 
+# 6. this
+
+## 6.3 在嵌套函数中的this关键引用head对象
+
+在ES3中函数嵌套容易丢失this
+
+```javascript
+var myObject = {
+  func1: function() {
+    console.log(this) //myObject
+    var func2 = function() {
+      console.log(this)//ES3: window /ES5 :myObject 
+    }();
+  }
+}
+myObject.func1()
+```
+但是笔者在chrome试还是丢失了this的,
+
+## 6.6 在自定义构造函数中使用this
+
+如果没有使用new 构造函数(),this将变成window
+
+```javascript
+
+var Person = function (){console.log(this)}
+
+Person()//window
+
+new Person()//Person{}
+
+var a = {
+  b: function(){
+    Person() //window 
+  }
+}
+
+
+```
 
