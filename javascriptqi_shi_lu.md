@@ -111,3 +111,21 @@ var a= function () {
 a的this是window
 
 而后面this就一直没变
+
+## 4.19 函数提升
+
+被定义为函数表达式的函数没有被提升,只有函数语句被提升
+
+
+```javascript
+sum() //1
+function sum (){
+  return 1
+}
+
+sum2() //Uncaught TypeError: sum2 is not a function(…)
+
+var sum2 = function(){
+  return 2
+}
+```
