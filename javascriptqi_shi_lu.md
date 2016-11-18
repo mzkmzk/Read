@@ -221,6 +221,8 @@ console.log(myArray.__proto__.foo) //foo
 
 ## 8.6 原型链的最后是Object.prototype
 
+任何添加到Object.prototype都会出现在for in中
+
 
 
 
