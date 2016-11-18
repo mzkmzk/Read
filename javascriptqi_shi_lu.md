@@ -1,4 +1,4 @@
-# JavaScripte启o示f录
+# JavaScripte启示录
 
 # 1. JavaScript对象
 
