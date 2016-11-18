@@ -194,5 +194,20 @@ a.b()
 
 ## 7.6 函数定义时确定作用域,而非调用时确定
 
+# 8. 函数原型属性
+
+## 8.4 默认的prototype属性是object对象
+
+```javascript
+var myFunction = function(){}
+
+myFunction.prototype = {} //浏览器自动执行的
+
+console.log(myFunction.prototype) //object{}
+```
+
+
+
+
 
 
