@@ -223,6 +223,8 @@ console.log(myArray.__proto__.foo) //foo
 
 任何添加到Object.prototype都会出现在for in中
 
+## 8.8 用新对象替换prototype属性会删除默认构造函数属性
+
 
 
 
