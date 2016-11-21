@@ -1,5 +1,13 @@
 # JavaScripte启示录
 
+# 0 总结
+
+这本书适合初级和中级的JSer
+
+主要讲他this prototype constructor 这几个概念讲得比较多,讲解的水平适中,没涉及到特别复杂的情况,实在讲基础性的东西
+
+后面讲基础对象的章节基本可以一带而过
+
 # 1. JavaScript对象
 
 ## 1.2 JavaScript构造函数并返回对象实例
@@ -249,6 +257,8 @@ console.log(FooInstance1.constructor) //Foo1()
 ```
 
 ## 8.9 继承原型属性的实例总是能够获取最新值
+
+## 8.10 用新对象替换prototype属性不会更新以前的实例
 
 
 
