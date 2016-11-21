@@ -225,7 +225,16 @@ console.log(myArray.__proto__.foo) //foo
 
 ## 8.8 用新对象替换prototype属性会删除默认构造函数属性
 
+```javascript
+var Foo =function Foo(){}
 
+Foo.prototype = {} 
+
+var FooInstance = new Foo()
+
+cosole.log(FooInstance.constructor) //Object()
+
+```
 
 
 
