@@ -225,6 +225,8 @@ console.log(myArray.__proto__.foo) //foo
 
 ## 8.8 用新对象替换prototype属性会删除默认构造函数属性
 
+用一个新值替换prototype属性,这样的话其构造函数也会变为新值的构造函数
+
 ```javascript
 var Foo =function Foo(){}
 
@@ -233,6 +235,16 @@ Foo.prototype = {}
 var FooInstance = new Foo()
 
 cosole.log(FooInstance.constructor) //Object()
+
+//手动把她还原
+
+var Foo1 = function(){}
+
+Foo.prototype = { constructor:Foo1}
+
+var FooInstance1= new Foo1()
+
+console.log(FooInstance1.constructor) //Foo1()
 
 ```
 
