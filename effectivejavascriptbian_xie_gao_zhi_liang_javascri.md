@@ -1,6 +1,6 @@
 # EffectiveJavaScript编写高质量JavaScript的68个有效方法
 
-# 让自己习惯JavaScript
+# 第一章 让自己习惯JavaScript
 
 ## 第3条 当心隐式的强制转换
 
@@ -38,4 +38,6 @@ function isReallyNaN(x) {
 4. 当脚本连接时,在脚本之间显式地插入分号
 5. 在return throw break continue ++ --参数之前决不能换行
 6. 分号不能作为for循环的头部或空语句的分隔符而被推导出
+
+# 第二章 变量作用域
 
