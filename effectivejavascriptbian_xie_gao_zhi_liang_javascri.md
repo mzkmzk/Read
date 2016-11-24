@@ -49,4 +49,29 @@ function isReallyNaN(x) {
 
 使用全局对象来做平台特性检测
 
+## 第12条 理解变量声明提升
+
+把变量理解为两个部分 声明和赋值
+
+```javascript
+function k (){
+
+  ...
+  if (...) {
+    var a = 2 
+  }
+}
+
+//等效于
+
+function k (){
+  var a;
+  ...
+  if (...) {
+    a = 2 
+  }
+}
+
+
+```
 
