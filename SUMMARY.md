@@ -39,7 +39,7 @@
    * [CSS揭秘](cssjie_mi.md)
    * [JavaScript启示录](javascriptqi_shi_lu.md)
    * [EffectiveJavaScript编写高质量JavaScript的68个有效方法](effectivejavascriptbian_xie_gao_zhi_liang_javascri.md)
-   * Web前端开发最佳实践
+   * [Web前端开发最佳实践](webqian_duan_kai_fa_zui_jia_shi_jian.md)
 * [服务器端](fu_wu_qi_duan.md)
    * [系统分析师UML项目实战](xi_tong_fen_xi_shi_uml_xiang_mu_shi_zhan.md)
    * [深入php面向对象、模式与实践](shen_ru_php_mian_xiang_dui_xiang_3001_mo_shi_yu_sh.md)
