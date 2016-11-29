@@ -101,7 +101,15 @@ test('var y = local') //global
 # 第17条 间接调用eval优于直接调用
 
 
+直接调用eval,编译器需要确保执行程序具有完全访问调用者作用域的权限,我们可以通过间接调用令eval失去所有局部作用域的访问能力
 
+```javascript
+var x = 'global'
+function test() {
+  
+}
+
+```
 
 
 
