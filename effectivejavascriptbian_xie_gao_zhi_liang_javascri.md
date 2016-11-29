@@ -79,9 +79,65 @@ function k (){
 如果eval函数代码可能创建全局变量,将此调用封装到嵌套函数中以防止作用域污染
 
 ```javascript
+var y = 'global'
+function test(src) {
+  eval(src);
+  return y
+}
 
+test('var y = local') //local
+
+//防止域污染
+var y = 'global'
+function test(src) {
+  (function(){eval(src);})()
+  return y
+}
+
+test('var y = local') //global
 
 ```
+
+# 第17条 间接调用eval优于直接调用
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
