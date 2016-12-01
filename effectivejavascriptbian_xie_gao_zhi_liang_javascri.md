@@ -124,6 +124,13 @@ test()//global
 
 # 第三章 使用函数
 
+## 第23条 永远不要修改arguments对象
+
+永远不要修改arguments对象
+
+使用 [].slice.call(arguments)将arguments对象复制到一个真正的数组中再进行修改
+
+
 
 
 
