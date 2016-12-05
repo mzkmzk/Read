@@ -138,7 +138,9 @@ test()//global
 
 1. C.prototyoe: 用于建立由nuew C()创建的对象原型
 2. Object.getPrototypeOf(obj): ES5获取obj对象原型的标准方法
-3. 
+3. obj.__proto__: 获取obj对象的原型非标准方法
+
+
 
 
 
