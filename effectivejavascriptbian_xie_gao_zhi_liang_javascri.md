@@ -134,7 +134,9 @@ test()//global
 
 # 第四章 对象和原型
 
+## 第30条 理解prototype getPrototypeOf和__proto__之间的不同
 
+1. 
 
 
 
