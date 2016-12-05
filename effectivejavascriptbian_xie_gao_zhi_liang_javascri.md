@@ -136,9 +136,15 @@ test()//global
 
 ## 第30条 理解prototype getPrototypeOf和__proto__之间的不同
 
-1. C.prototyoe: 用于建立由nuew C()创建的对象原型
+1. C.prototyoe: 用于建立由new C()创建的对象原型
 2. Object.getPrototypeOf(obj): ES5获取obj对象原型的标准方法
 3. obj.__proto__: 获取obj对象的原型非标准方法
+
+```javascript
+function User(){}
+var u = new User()
+Object.prototype(u) === User.prototype
+```
 
 
 
