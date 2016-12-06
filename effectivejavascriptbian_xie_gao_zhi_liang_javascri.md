@@ -177,6 +177,29 @@ this默认为全局,而在严格模式下 this为undefined
 
 只有使用new的时,this才会变为构造函数的实例
 
+当然也有措施使使用了new和没使用new变得一样
+
+```javascript
+function User(name) {
+  var self = this instanceof User
+           ? this
+           : Object_create(User.prototype)
+  self.name = name
+  return self
+}
+
+//兼容不支持Create的浏览器
+if(typeof Object.create === 'undefined') {
+  Object.create = function(prototype) {
+    function C() {}
+    C.prototype = prototype
+    return new C()
+  }
+}
+
+
+```
+
 
 
 
