@@ -146,6 +146,43 @@ var u = new User()
 Object.prototype(u) === User.prototype
 ```
 
+## 第33条 使构造函数和new无关
+
+```javascript
+function User(){
+  this.name = 'k'
+}
+
+var u = User()
+u //undefiend
+this.name//k
+```
+
+这样不适用new的情况下
+
+this默认为全局,而在严格模式下 this为undefined
+
+所以在webpack+babel打包class的时候检查一下使用class时  是否用了new
+
+```javascript
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var KReport = function () {
+	    function KReport() {
+	        _classCallCheck(this, KReport);
+	    }
+
+```
+
+只有使用new的时,this才会变为构造函数的实例
+
+
+
+
+
+
+
 
 
 
