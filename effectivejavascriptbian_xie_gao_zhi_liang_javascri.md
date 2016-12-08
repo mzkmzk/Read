@@ -215,6 +215,12 @@ Object.getPrototypeOf(o) === Object.prototype //true
 
 ```
 
+以上这样还是已object.prototype为原型
+
+ES5提供了一个真正的null原型
+
+
+
 
 
 
