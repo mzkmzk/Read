@@ -202,7 +202,13 @@ if(typeof Object.create === 'undefined') {
 
 # 第五章 数组和字典
 
+## 第44条 使用null原型防止原型污染
 
+
+```javascript
+
+
+```
 
 
 
