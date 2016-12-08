@@ -206,9 +206,19 @@ if(typeof Object.create === 'undefined') {
 
 
 ```javascript
+function C(){}
+C.prototype = null
 
+var o = new C()
+Object.getPrototypeOf(o) === null //false
+Object.getPrototypeOf(o) === Object.prototype //true
 
 ```
+
+
+
+
+
 
 
 
