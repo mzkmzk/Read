@@ -1,4 +1,14 @@
-# EffectiveJavaScript编写高质量JavaScript的68个有效方法
+# EffectiveJavaScript编写高质量JavaScript的68方法
+
+# 第零章 总结
+
+其实这本书,可能可读性相对较差
+
+第二章说作用域和第四章说原型的时候,相对感兴趣一点
+
+其他的话,可能笔者在实践中基本也不会这么写,也就没怎么细读了
+
+总体感觉3点5星吧(满5)
 
 # 第一章 让自己习惯JavaScript
 
