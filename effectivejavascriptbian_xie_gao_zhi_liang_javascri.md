@@ -219,7 +219,11 @@ Object.getPrototypeOf(o) === Object.prototype //true
 
 ES5提供了一个真正的null原型
 
+```javascript
 
+
+
+```
 
 
 
