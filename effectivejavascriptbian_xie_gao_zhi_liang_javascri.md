@@ -226,6 +226,14 @@ Object.getPrototypeOf(x) === null //true
 Object.getPrototypeOf(x) === Object.prototype //false
 ```
 
+# 第六章 类和API设计设计
+
+## 第60条: 支持方法链
+
+通过在无状态的方法中返回新对象来支持方法链
+
+通过在有状态的方法中返回this来支持方法链
+
 
 
 
