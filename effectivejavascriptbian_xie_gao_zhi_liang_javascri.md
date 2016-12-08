@@ -236,6 +236,10 @@ Object.getPrototypeOf(x) === Object.prototype //false
 
 
 
+# 第七章 并发
+
+## 第68条 使用promise模式清洁异步逻辑
+
 
 
 
