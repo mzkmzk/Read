@@ -221,9 +221,13 @@ ES5提供了一个真正的null原型
 
 ```javascript
 
-
-
+var x = Object.create(null)
+Object.getPrototypeOf(x) === null //true
+Object.getPrototypeOf(x) === Object.prototype //false
 ```
+
+
+
 
 
 
