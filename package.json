@@ -1,0 +1,69 @@
+me": "",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "publish": "export NODE_ENV=prod&&webpack  --progress --colors",
+    "publish-win": "set NODE_ENV=prod&&webpack  --progress --colors",
+    "start": "webpack-dev-server --hot --inline --host lixian.xunlei.com --port 80" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mzkmzk/demo.git"
+  },
+  "keywords": [
+    ""
+  ],
+  "author": "K",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mzkmzk/demo/issues"
+  },
+  "homepage": "https://github.com/mzkmzk/demo#readme",
+  "dependencies": {
+    "file-loader": "0.9.0",
+    "font-awesome": "4.6.3",
+    "graceful-fs": "4.1.4",
+    "jquery": "3.0.0",
+    "k_ajax": "latest",
+    "material-ui": "0.15.1",
+    "mustache": "2.2.1",
+    "qiniu-js": "1.0.14-beta",
+    "qiniu-plugin": "0.0.7",
+    "react": "15.1.0",
+    "react-dom": "15.1.0",
+    "react-redux": "4.4.5",
+    "react-router": "^2.8.1",
+    "redux": "3.5.2",
+    "redux-thunk": "2.1.0",
+    "underscore": "1.8.3",
+    "viewerjs": "0.5.0",
+    "whatwg-fetch": "1.0.0",
+    "k-logging": "latest"
+  },
+  "devDependencies": {
+    "babel-core": "6.9.1",
+    "babel-loader": "6.2.4",
+    "babel-plugin-transform-object-assign": "6.8.0",
+    "babel-preset-es2015": "6.9.0",
+    "babel-preset-react": "6.5.0",
+    "css-loader": "0.23.1",
+    "eslint": "3.0.1",
+    "eslint-loader": "1.4.0",
+    "eslint-plugin-react": "5.2.2",
+    "file-loader": "0.9.0",
+    "html-loader": "0.4.3",
+    "html-webpack-plugin": "2.22.0",
+    "node-sass": "3.8.0",
+    "react-hot-loader": "3.0.0-alpha.8",
+    "redux-devtools": "3.3.1",
+    "redux-devtools-dock-monitor": "1.1.1",
+    "redux-devtools-log-monitor": "1.1.1",
+    "sass-loader": "3.2.1",
+    "style-loader": "0.13.1",
+    "url-loader": "0.5.7",
+    "webpack": "1.13.1",
+    "webpack-dev-server": "1.16.2"
+  }
+}
+
