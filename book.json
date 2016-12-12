@@ -3,8 +3,7 @@
   "description": "404mzk 阅读笔记",
   "language": "zh",
   "plugins": [
-    "duoshuo"
-    
+    "duoshuo"   
   ],
   "pluginsConfig": {
     "duoshuo": {
