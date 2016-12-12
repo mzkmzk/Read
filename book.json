@@ -3,12 +3,16 @@
   "description": "404mzk 阅读笔记",
   "language": "zh",
   "plugins": [
-    "duoshuo"   
+    "duoshuo",
+    "baidu"
   ],
   "pluginsConfig": {
     "duoshuo": {
       "shortName": "read404mzk",
       "theme": "default"
+    },
+   "baidu":{
+      "token": "e896671664efc07c29c08fa1f080f297"
     }
   }
 }
