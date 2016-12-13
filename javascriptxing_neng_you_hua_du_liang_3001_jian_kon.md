@@ -29,3 +29,7 @@ http://httparchive.org/trends.php
 # 3. WPTRunner
 
 github地址https://github.com/w3c/wptrunner
+
+但是没太看得懂..感觉跟作者说的不是一个东西
+
+作者也把自己的小mode放在github上https://github.com/tomjbarker/WPTRunner
