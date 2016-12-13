@@ -73,5 +73,7 @@ location.hash不会被服务器记载,能很好的达到隐藏的功能
 php腿脚使用的XSS Filter<https://github.com/ezyang/htmlpurifier>
 
 
+# 4 跨站点请求伪造(CSRF)
+
 
 
