@@ -6,7 +6,8 @@
     "duoshuo",
     "baidu",
     "tbfed-pagefooter",
-    "github-buttons"
+    "github-buttons",
+    "splitter"
   ],
   "pluginsConfig": {
     "duoshuo": {
