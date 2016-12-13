@@ -4,15 +4,31 @@
   "language": "zh",
   "plugins": [
     "duoshuo",
-    "baidu"
+    "baidu",
+    "tbfed-pagefooter",
+    "github-buttons"
   ],
   "pluginsConfig": {
     "duoshuo": {
-      "shortName": "read404mzk",
+      "short_name": "read404mzk",
       "theme": "default"
     },
    "baidu":{
       "token": "e896671664efc07c29c08fa1f080f297"
+    },
+    "tbfed-pagefooter": {
+      "copyright":"&copy 404mzk",
+      "modify_label": "该文件修订时间：",
+      "modify_format": "YYYY-MM-DD HH:mm:ss"
+    },
+    "github-buttons": {
+      "repo": "mzkmzk/Read",
+      "types": [
+        "star",
+        "watch"
+      ],
+      "size": "small"
     }
+
   }
 }
