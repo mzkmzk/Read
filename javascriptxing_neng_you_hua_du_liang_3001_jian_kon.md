@@ -28,9 +28,9 @@ http://httparchive.org/trends.php
 
 # 3. WPTRunner
 
-github地址https://github.com/w3c/wptrunner
+插件相关url: https://sites.google.com/a/webpagetest.org/docs/advanced-features/webpagetest-restful-apis
 
-但是没太看得懂..感觉跟作者说的不是一个东西
+
 
 作者也把自己的小mode放在github上https://github.com/tomjbarker/WPTRunner
 
@@ -45,6 +45,8 @@ https://github.com/tomjbarker/perfLogger
 # 5. 展望未来,性能的标准化
 
 这里主要介绍performance进行数据记录
+
+# 6. Web性能优化
 
 
 
