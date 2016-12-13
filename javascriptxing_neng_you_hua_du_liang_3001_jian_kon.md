@@ -22,3 +22,7 @@ http://httparchive.org/trends.php
 
 上面有非常多有趣的统计 例如CDN的占用率等
 
+推荐可视化入门书籍https://item.jd.com/11098788.html
+
+
+
