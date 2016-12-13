@@ -24,5 +24,5 @@ http://httparchive.org/trends.php
 
 推荐可视化入门书籍https://item.jd.com/11098788.html
 
-
+还有可视化讲解的网址 http://flowingdata.com/2016/12/12/calories-in-fast-food-menu-items/
 
