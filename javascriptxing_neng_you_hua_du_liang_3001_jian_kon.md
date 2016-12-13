@@ -36,5 +36,16 @@ github地址https://github.com/w3c/wptrunner
 
 这里面主要统计的有加载时候和请求数
 
+# 4. perfLogger --javascript基于测试和日志记录
+
+这里主要通过自己主动埋点然后通过xhr记录
+
+https://github.com/tomjbarker/perfLogger
+
+# 5. 展望未来,性能的标准化
+
+这里主要介绍performance进行数据记录
+
+
 
 
