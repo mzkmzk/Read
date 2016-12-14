@@ -120,6 +120,14 @@ CSRF攻击的成功: 重要参数都被攻击者猜测到
 
 ### 5.6.2 X-FRAMT-Options
 
+这个我觉得防止运营商插入的iframe广告还有点用..因为运营商一般放iframe广告比较多,,敢点击劫持的还是少数
+
+当值为 
+
+1. DENY: 阻止任何FRAME
+2. SAMEORIGIN: 同域
+3. ALLOW-FROM: 定义允许frame加载的网页标签
+
 
 
 
