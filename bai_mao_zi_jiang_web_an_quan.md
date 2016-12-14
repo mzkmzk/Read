@@ -75,5 +75,39 @@ php腿脚使用的XSS Filter<https://github.com/ezyang/htmlpurifier>
 
 # 4 跨站点请求伪造(CSRF)
 
+## 4.3 CSRF的防御
+
+### 4.3.1 验证码
+
+最有效的防御CSRF
+
+### 4.3.2 Referer Check
+
+验证referer
+
+但是例如HTTPS跳到HTTP,出于安全原因,浏览器不会发Referer
+
+这个方法可以辅助防止CSRF,就是有的时候验证,没有的话,让其走其他通道
+
+### 4.3.3 Anti CSRF Token
+
+### 4.3.3.1 CSRF的本质
+
+CSRF攻击的成功: 重要参数都被攻击者猜测到
+
+一般的token都是放在隐藏的input或者session当中
+
+### 4.3.3.2 Token使用原则
+
+1. 切勿放在url上,或者发出的所有请求(img),很大几率把url放在refer泄露
+2. 有XSS的情况下,CSRF形同虚设
+
+# 5. 点击劫持
+
+
+
+
+
+
 
 
