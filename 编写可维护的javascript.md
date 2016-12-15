@@ -56,10 +56,10 @@ function Person(name) {
 }
 
 function Author(name) {
-    Person.call(this, name)
+    Person.call(this, name); //继承构造器
 }
 
-Author.prototype = new Person();
+Author.prototype = new Person(); //继承原型
 
 
 ```
