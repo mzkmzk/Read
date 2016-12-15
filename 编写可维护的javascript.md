@@ -42,3 +42,10 @@ Object.create = function (parent) {
     return new F();
 };
 ```
+
+
+### 11.3.2 基于类型的继承
+
+
+
+
