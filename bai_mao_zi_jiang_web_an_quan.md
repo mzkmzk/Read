@@ -134,9 +134,12 @@ CSRF攻击的成功: 重要参数都被攻击者猜测到
 
 ### 6.1.2 iframe的sandbox
 
-HTML5为iframe添加了sanbox属性,其value可选有
+HTML5为iframe添加了sanbox属性,其value可选(多选)有
 
-1. 
+1. allow-same-origin: 允许同源访问
+2. allow-top-navigation: 允许访问顶层窗口
+3. aloow-forms: 允许提交表单
+4. allow-scripts: 允许执行脚本
 
 
 
