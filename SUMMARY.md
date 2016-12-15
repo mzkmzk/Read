@@ -43,6 +43,7 @@
     * [JavaScript性能优化度量、监控与可视化](javascriptxing_neng_you_hua_du_liang_3001_jian_kon.md)
     * [jQuery技术内幕：深入解析jQuery架构设计与实现原理](jqueryji_zhu_nei_mu_ff1a_shen_ru_jie_xi_jquery_jia.md)
     * [编写可维护的JavaScript](编写可维护的javascript.md)
+    * [JavaScript语言精粹](javascript语言精粹.md)
 * [服务器端](fu_wu_qi_duan.md)
     * [系统分析师UML项目实战](xi_tong_fen_xi_shi_uml_xiang_mu_shi_zhan.md)
     * [深入php面向对象、模式与实践](shen_ru_php_mian_xiang_dui_xiang_3001_mo_shi_yu_sh.md)
