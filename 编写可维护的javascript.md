@@ -46,6 +46,23 @@ Object.create = function (parent) {
 
 ### 11.3.2 基于类型的继承
 
+1. 原型继承
+2. 构造器继承
+
+```javascript
+
+function Person(name) {
+    this.name = name
+}
+
+function Author(name) {
+    Person.call(this, name)
+}
+
+Author.prototype = new Person();
+
+
+```
 
 
 
