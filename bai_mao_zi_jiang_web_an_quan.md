@@ -1,5 +1,16 @@
 #白帽子将Web的安全
 
+# 0 总结
+
+算是比较仔细的读前6章
+
+后面挺多服务端的章节都跳过去,因为我是个Jser
+
+一般找洞刚开始是个比较枯燥的活,后面的很多洞现在应该也不太好使,但是关键是思路
+
+我更倾向于着手当前比较流行的洞,有实践练习,可能会好点
+
+总体评价3.5星(满5)
 # 1. 基础
 
 安全三要素
@@ -139,7 +150,23 @@ HTML5为iframe添加了sanbox属性,其value可选(多选)有
 1. allow-same-origin: 允许同源访问
 2. allow-top-navigation: 允许访问顶层窗口
 3. aloow-forms: 允许提交表单
-4. allow-scripts: 允许执行脚本
+4. allow-scripts: 允许执行脚本,但有些还是不允许的,例如弹出窗口
+
+### 6.1.3 Link Types: noreferrer
+
+给a/area标签可以添加rel='noreferer'
+
+这样跳转页面时,不会带referer
+
+### 6.1.4 Canvas妙用
+
+可以用这个能破解简单的验证码
+
+
+
+
+
+
 
 
 
