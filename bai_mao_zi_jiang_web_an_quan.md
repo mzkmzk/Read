@@ -132,6 +132,12 @@ CSRF攻击的成功: 重要参数都被攻击者猜测到
 
 ## 6.1 HTML5新标签
 
+### 6.1.2 iframe的sandbox
+
+HTML5为iframe添加了sanbox属性,其value可选有
+
+1. 
+
 
 
 
