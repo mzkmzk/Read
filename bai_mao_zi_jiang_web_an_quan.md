@@ -128,6 +128,11 @@ CSRF攻击的成功: 重要参数都被攻击者猜测到
 2. SAMEORIGIN: 同域
 3. ALLOW-FROM: 定义允许frame加载的网页标签
 
+# 6 HTML5安全
+
+## 6.1 HTML5新标签
+
+
 
 
 
