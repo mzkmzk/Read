@@ -64,5 +64,7 @@ Author.prototype = new Person(); //继承原型
 
 ```
 
+## 11.4 关于Polyfill的注解
+
 
 
