@@ -66,5 +66,18 @@ Author.prototype = new Person(); //继承原型
 
 ## 11.4 关于Polyfill的注解
 
+例如 String.trim Array.foEach 这些有些浏览器没兼容的东西
+
+作者不建议使用pollfill,因为如果用了polyfills,就无法分离自己的bug和浏览器的bug
+
+# 第13章 文件和目录结构
+
+## 13.1 最佳实践
+
+1. 一个文件只包含一个对象
+2. 
+
+
+
 
 
