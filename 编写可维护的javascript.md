@@ -75,7 +75,6 @@ Author.prototype = new Person(); //继承原型
 ## 13.1 最佳实践
 
 1. 一个文件只包含一个对象
-2. 
 
 
 
