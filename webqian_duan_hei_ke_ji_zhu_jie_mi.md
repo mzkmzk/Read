@@ -2,7 +2,15 @@
 
 # 1. Web安全的关键点
 
+## 1.2 浏览器的同源策略
 
+域名 http://www.foo.com
+
+1. https://www.foo.com: 不同域
+2. http://abc.foo.com: 不同域
+3. http://foo.com: 不同域
+4. http://www.foo.com:8080: 不同域
+5. http://www.foo.com/a: 通域
 
 # 7. 漏洞利用
 
