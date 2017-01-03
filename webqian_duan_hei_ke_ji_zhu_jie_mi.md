@@ -10,7 +10,7 @@
 2. http://abc.foo.com: 不同域
 3. http://foo.com: 不同域
 4. http://www.foo.com:8080: 不同域
-5. http://www.foo.com/a: 通域
+5. http://www.foo.com/a: 同域
 
 # 7. 漏洞利用
 
