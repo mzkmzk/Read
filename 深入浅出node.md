@@ -20,3 +20,4 @@ Ryan Dahl是一名资深的c/c++程序员
 
 ## 1.3 Node给javascript带来的意义
 
+Node = Chrome - HTML - Webkit
