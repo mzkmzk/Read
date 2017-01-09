@@ -55,3 +55,7 @@ Node = Chrome - HTML - Webkit
 
 但是缺点2呢?.
 
+## 1.5 Node的应用场景
+
+### 1.5.1 I/O密集型
+
