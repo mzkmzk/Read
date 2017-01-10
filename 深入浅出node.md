@@ -80,3 +80,9 @@ Node = Chrome - HTML - Webkit
 2. .node: c/c++编写的拓展文件,通过dlopen()方法加载最后编译生成的文件
 3. .json: 通过fs同步读取,然后JSON.parse()解析返回结果
 4. 其余拓展名文件,会被当做js文件载入
+
+# 3. 异步I/0
+
+## 3.2 异步I/0实现现状
+
+
