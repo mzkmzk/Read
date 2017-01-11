@@ -87,5 +87,12 @@ Node = Chrome - HTML - Webkit
 
 ### 3.2.1 异步I/O与非阻塞I/O
 
+阻塞I/O: 
+
+![阻塞I/O调用过程](/assets/QQ20170111-0.png)
+
+与阻塞I/O对应的是非阻塞I/O
+
+
 
 
