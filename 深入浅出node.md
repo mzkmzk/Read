@@ -145,6 +145,8 @@ Api定义上,一个Promise对象只要具备then方法即可
 3. then()方法只接受function对象,其余对象将会被忽略
 4. then()方法继续返回promise对象,以实现链式调用
 
+then(fulfilledHandler, errorHandler, progressHandler)
+
 
 
 
