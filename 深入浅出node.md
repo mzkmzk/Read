@@ -147,6 +147,9 @@ Api定义上,一个Promise对象只要具备then方法即可
 
 then(fulfilledHandler, errorHandler, progressHandler)
 
+Promise是高级接口,事件是低级接口,低级接口可以构成更多更复杂的场景,高级接口一旦定义,不太容易改变,但对于解决典型问题非常有效
+
+
 
 
 
