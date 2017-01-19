@@ -128,6 +128,10 @@ node通过事件驱动方式处理请求,无需为每个请求创建额外的对
 2. Promise/Deferred模式
 3. 流程控制库
 
+### 4.3.2 Promise/Deferred模式
+
+
+
 
 
 
