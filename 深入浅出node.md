@@ -157,6 +157,27 @@ Promise是高级接口,事件是低级接口,低级接口可以构成更多更�
 
 # 5. 内存控制
 
+## 5.1 V8的垃圾回收机制与内存限制
+
+### 5.1.3 V8的对象分配
+
+查看内存分配
+```javascript
+> process.memoryUsage()
+{ rss: 21692416, heapTotal: 9587488, heapUsed: 4757408 }
+```
+
+可以在启动node时,更改内存限制
+
+```javascript
+node --max-old-space-size=1700 test.js //单位为MB
+node --max-new-space-size=1024 test.js //单位为kb
+```
+一旦设置启动后,不能更改
+
+为什么V8要限制内存? 因为1.5GB的垃圾回收,V8做一次小的垃圾回收需要50毫秒以上,做一次非增量的垃圾回收深圳要1s以上
+
+### 5.1.4 V8的垃圾回收机制
 
 
 
