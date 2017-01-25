@@ -170,8 +170,8 @@ Promise是高级接口,事件是低级接口,低级接口可以构成更多更�
 可以在启动node时,更改内存限制
 
 ```javascript
-node --max-old-space-size=1700 test.js //单位为MB
-node --max-new-space-size=1024 test.js //单位为kb
+node --max-old-space-size=1700 test.js //单位为MB 设置老生代内存空间
+node --max-new-space-size=1024 test.js //单位为kb 设置新生带内存空间
 ```
 一旦设置启动后,不能更改
 
