@@ -45,7 +45,6 @@
   * [JavaScript语言精粹](javascript语言精粹.md)
   * [JavaScript DOM 编程艺术\(第2版\)](javascript-dom-编程艺术第2版.md)
   * [深入浅出node](深入浅出node.md)
-  * javascript\_设计模式
   * [javascript\_设计模式](javascript_design.md)
 * [服务器端](fu_wu_qi_duan.md)
   * [系统分析师UML项目实战](xi_tong_fen_xi_shi_uml_xiang_mu_shi_zhan.md)
