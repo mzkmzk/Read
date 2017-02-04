@@ -181,6 +181,13 @@ node --max-new-space-size=1024 test.js //单位为kb 设置新生带内存空间
 
 V8的垃圾回收策略主要基于分代式垃圾回收机制
 
+```javascript
+回收算法     Mark-Sweep Mark-Compact Scavenge
+速度        中等        最慢          最快
+空间开销     少(有碎片)   少(有碎片)    双倍空间(无碎片)
+是否移动对象  否          否           是
+```
+
 ### 5.1.5 查看垃圾回收日志
 
 启动时添加--trace_gc参数,会在打印台输出垃圾回收信息
