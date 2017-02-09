@@ -196,6 +196,6 @@ V8的垃圾回收策略主要基于分代式垃圾回收机制
 
 可以通过linux-tick-processor(在node源码的tool里) 用于统计日志信息
 
-# 理解Buffer
+# 6. 理解Buffer
 
 
