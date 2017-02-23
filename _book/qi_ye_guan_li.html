@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>编写可维护的JavaScript | Read笔记</title>
+        <title>企业管理 | Read笔记</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.4">
@@ -45,10 +45,10 @@
         
     
     
-    <link rel="next" href="./javascript语言精粹.html" />
+    <link rel="next" href="./zhi_you_pian_zhi_kuang_cai_neng_sheng_cun.html" />
     
     
-    <link rel="prev" href="./jqueryji_zhu_nei_mu_ff1a_shen_ru_jie_xi_jquery_jia.html" />
+    <link rel="prev" href="./beirf_history_of_humankind.html" />
     
 
         
@@ -57,11 +57,11 @@
         
         
     <div class="book"
-        data-level="2.21"
-        data-chapter-title="编写可维护的JavaScript"
-        data-filepath="编写可维护的javascript.md"
+        data-level="6"
+        data-chapter-title="企业管理"
+        data-filepath="qi_ye_guan_li.md"
         data-basepath="."
-        data-revision="Wed Mar 08 2017 19:00:33 GMT+0800 (CST)"
+        data-revision="Wed Mar 08 2017 22:48:32 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -727,7 +727,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.21" data-path="编写可维护的javascript.html">
+        <li class="chapter " data-level="2.21" data-path="编写可维护的javascript.html">
             
                 
                     <a href="./编写可维护的javascript.html">
@@ -1147,7 +1147,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6" data-path="qi_ye_guan_li.html">
+        <li class="chapter active" data-level="6" data-path="qi_ye_guan_li.html">
             
                 
                     <a href="./qi_ye_guan_li.html">
@@ -1333,73 +1333,9 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x7F16;&#x5199;&#x53EF;&#x7EF4;&#x62A4;&#x7684;javascript">&#x7F16;&#x5199;&#x53EF;&#x7EF4;&#x62A4;&#x7684;JavaScript</h1>
-<h1 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h1>
-<p>1~7&#x7AE0;&#x5728;&#x8BB2;&#x5F88;&#x57FA;&#x672C;&#x5F88;&#x57FA;&#x672C;&#x7684;&#x4E1C;&#x897F;,&#x521D;&#x5B66;&#x8005;&#x53EF;&#x4EE5;&#x7A0D;&#x5FAE;&#x770B;&#x770B;,&#x5982;&#x679C;&#x4E0D;&#x662F;,&#x53EF;&#x4EE5;&#x591A;&#x8BFB;&#x8BFB;jquery,&#x6216;&#x8005;&#x6388;&#x610F;&#x66F4;&#x5927;</p>
-<p>&#x7B2C;8&#x7AE0;&#x7684;&#x907F;&#x514D;&#x7A7A;&#x6BD4;&#x8F83;,&#x8BF4;&#x4E86;&#x4E0B; typeof instanceof &#x8BB2;&#x7684;&#x8FD8;&#x53EF;&#x4EE5;,&#x53EF;&#x80FD;&#x8FD9;&#x5757;&#x6211;&#x4E4B;&#x524D;&#x4E5F;&#x5168;&#x9762;&#x7684;&#x7814;&#x7A76;&#x8FC7;</p>
-<p>&#x7B2C;10&#x7AE0;&#x629B;&#x51FA;&#x81EA;&#x5B9A;&#x4E49;&#x9519;&#x8BEF;&#x548C;&#x7B2C;11&#x7AE0;&#x4E0D;&#x662F;&#x4F60;&#x7684;&#x5BF9;&#x8C61;&#x4E0D;&#x8981;&#x52A8;,&#x5BF9;&#x6211;&#x6709;&#x7528;&#x7684;&#x611F;&#x89C9;&#x4E0D;&#x591A;,&#x57FA;&#x672C;&#x51E0;&#x6761;,&#x5DF2;&#x7ECF;&#x5199;&#x51FA;&#x6765;&#x4E86;</p>
-<p>&#x81F3;&#x4E8E;&#x540E;&#x9762;&#x7684;&#x81EA;&#x52A8;&#x5316;&#x90E8;&#x5206;,,,&#x90FD;&#x662F;&#x57FA;&#x4E8E;ant&#x8BB2;,,&#x4F46;&#x6211;&#x4E3B;&#x8981;&#x7528;webpack,&#x4E5F;&#x6CA1;&#x7EC6;&#x770B;</p>
-<p>&#x8BC4;&#x5206; 2.5(&#x603B;&#x5206;5)</p>
-<p>&#x9875;&#x6570; 226</p>
-<h1 id="&#x7B2C;10&#x7AE0;-&#x629B;&#x51FA;&#x81EA;&#x5B9A;&#x4E49;&#x9519;&#x8BEF;">&#x7B2C;10&#x7AE0; &#x629B;&#x51FA;&#x81EA;&#x5B9A;&#x4E49;&#x9519;&#x8BEF;</h1>
-<h2 id="104-&#x4F55;&#x65F6;&#x629B;&#x51FA;&#x9519;&#x8BEF;">10.4 &#x4F55;&#x65F6;&#x629B;&#x51FA;&#x9519;&#x8BEF;</h2>
-<ol>
-<li>&#x4E00;&#x65E6;&#x4FEE;&#x590D;&#x4E86;&#x4E00;&#x4E2A;&#x5F88;&#x96BE;&#x8C03;&#x8BD5;&#x7684;&#x9519;&#x8BEF;</li>
-<li>&#x5982;&#x679C;&#x5728;&#x7F16;&#x5199;&#x4EE3;&#x7801;&#x7684;&#x65F6;,&#x601D;&#x8003;&#x4E00;&#x4E0B;:&apos;&#x6211;&#x5E0C;&#x671B;&#x67D0;&#x4E9B;&#x4E8B;&#x60C5;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;,&#x5982;&#x679C;&#x53D1;&#x751F;&#x7684;&#x8BDD;,&#x6211;&#x7684;&#x4EE3;&#x7801;&#x4F1A;&#x53D8;&#x6210;&#x4E00;&#x5768;&#x5C4E;&apos;</li>
-<li>&#x5982;&#x679C;&#x5728;&#x7F16;&#x5199;&#x4EE3;&#x7801;&#x7ED9;&#x522B;&#x4EBA;&#x7528;,&#x601D;&#x8003;&#x4E00;&#x4E0B;&#x4ED6;&#x4EEC;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;,&#x5728;&#x7279;&#x5B9A;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x629B;&#x51FA;&#x9519;&#x8BEF;</li>
-</ol>
-<h1 id="&#x7B2C;11&#x7AE0;-&#x4E0D;&#x662F;&#x4F60;&#x7684;&#x5BF9;&#x8C61;&#x4E0D;&#x8981;&#x52A8;">&#x7B2C;11&#x7AE0; &#x4E0D;&#x662F;&#x4F60;&#x7684;&#x5BF9;&#x8C61;&#x4E0D;&#x8981;&#x52A8;</h1>
-<h2 id="113-&#x66F4;&#x597D;&#x7684;&#x9014;&#x5F84;">11.3 &#x66F4;&#x597D;&#x7684;&#x9014;&#x5F84;</h2>
-<h3 id="1131-&#x57FA;&#x4E8E;&#x5BF9;&#x8C61;&#x7684;&#x7EE7;&#x627F;">11.3.1 &#x57FA;&#x4E8E;&#x5BF9;&#x8C61;&#x7684;&#x7EE7;&#x627F;</h3>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> person = {
-    name: <span class="hljs-string">&apos;person_k&apos;</span>,
-    sayName: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name);
-    }
-}
-
-<span class="hljs-keyword">var</span> myPerson = <span class="hljs-built_in">Object</span>.create(person,{
-    name: {
-         value: <span class="hljs-string">&apos;myPerson_k&apos;</span>
-    }
-})
-
-person.sayName() <span class="hljs-comment">//person_k</span>
-myPerson.sayName() <span class="hljs-comment">//myPerson_k</span>
-</code></pre>
-<p>Object.create&#x7684;&#x539F;&#x7406;&#x7C7B;&#x4F3C;&#x4E8E;</p>
-<pre><code class="lang-javascript"><span class="hljs-built_in">Object</span>.create = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">parent</span>) </span>{
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">F</span>(<span class="hljs-params"></span>) </span>{}
-    F.prototype = parent;
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> F();
-};
-</code></pre>
-<h3 id="1132-&#x57FA;&#x4E8E;&#x7C7B;&#x578B;&#x7684;&#x7EE7;&#x627F;">11.3.2 &#x57FA;&#x4E8E;&#x7C7B;&#x578B;&#x7684;&#x7EE7;&#x627F;</h3>
-<ol>
-<li>&#x539F;&#x578B;&#x7EE7;&#x627F;</li>
-<li>&#x6784;&#x9020;&#x5668;&#x7EE7;&#x627F;</li>
-</ol>
-<pre><code class="lang-javascript">
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">name</span>) </span>{
-    <span class="hljs-keyword">this</span>.name = name
-}
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Author</span>(<span class="hljs-params">name</span>) </span>{
-    Person.call(<span class="hljs-keyword">this</span>, name); <span class="hljs-comment">//&#x7EE7;&#x627F;&#x6784;&#x9020;&#x5668; this&#x662F;new Author&#x7684;&#x65F6;&#x521B;&#x9020;&#x7684;this</span>
-}
-
-Author.prototype = <span class="hljs-keyword">new</span> Person(); <span class="hljs-comment">//&#x7EE7;&#x627F;&#x539F;&#x578B;</span>
-</code></pre>
-<h2 id="114-&#x5173;&#x4E8E;polyfill&#x7684;&#x6CE8;&#x89E3;">11.4 &#x5173;&#x4E8E;Polyfill&#x7684;&#x6CE8;&#x89E3;</h2>
-<p>&#x4F8B;&#x5982; String.trim Array.foEach &#x8FD9;&#x4E9B;&#x6709;&#x4E9B;&#x6D4F;&#x89C8;&#x5668;&#x6CA1;&#x517C;&#x5BB9;&#x7684;&#x4E1C;&#x897F;</p>
-<p>&#x4F5C;&#x8005;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;pollfill,&#x56E0;&#x4E3A;&#x5982;&#x679C;&#x7528;&#x4E86;polyfills,&#x5C31;&#x65E0;&#x6CD5;&#x5206;&#x79BB;&#x81EA;&#x5DF1;&#x7684;bug&#x548C;&#x6D4F;&#x89C8;&#x5668;&#x7684;bug</p>
-<h1 id="&#x7B2C;13&#x7AE0;-&#x6587;&#x4EF6;&#x548C;&#x76EE;&#x5F55;&#x7ED3;&#x6784;">&#x7B2C;13&#x7AE0; &#x6587;&#x4EF6;&#x548C;&#x76EE;&#x5F55;&#x7ED3;&#x6784;</h1>
-<h2 id="131-&#x6700;&#x4F73;&#x5B9E;&#x8DF5;">13.1 &#x6700;&#x4F73;&#x5B9E;&#x8DF5;</h2>
-<ol>
-<li>&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x53EA;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</li>
-</ol>
+                        <h1 id="&#x4F01;&#x4E1A;&#x7BA1;&#x7406;">&#x4F01;&#x4E1A;&#x7BA1;&#x7406;</h1>
 <footer class="page-footer"><span class="copyright">&#xA9; 404mzk all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2017-02-16 23:36:11
+2016-07-11 09:42:58
 </span></footer>
                     
                     </section>
@@ -1410,10 +1346,10 @@ Author.prototype = <span class="hljs-keyword">new</span> Person(); <span class="
         </div>
 
         
-        <a href="./jqueryji_zhu_nei_mu_ff1a_shen_ru_jie_xi_jquery_jia.html" class="navigation navigation-prev " aria-label="Previous page: jQuery技术内幕：深入解析jQuery架构设计与实现原理"><i class="fa fa-angle-left"></i></a>
+        <a href="./beirf_history_of_humankind.html" class="navigation navigation-prev " aria-label="Previous page: 人类简史"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="./javascript语言精粹.html" class="navigation navigation-next " aria-label="Next page: JavaScript语言精粹"><i class="fa fa-angle-right"></i></a>
+        <a href="./zhi_you_pian_zhi_kuang_cai_neng_sheng_cun.html" class="navigation navigation-next " aria-label="Next page: 只有偏执狂才能生存"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
