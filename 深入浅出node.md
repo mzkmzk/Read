@@ -206,6 +206,26 @@ V8的垃圾回收策略主要基于分代式垃圾回收机制
 
 # 6. 理解Buffer
 
+## 6.1 Buffer结构
+
+Buffer是一个像Array的对象,主要用于操作字节
+
+### 6.1.1 模块结构
+
+Buffer是一个典型的Javascript与C++结合的模块
+
+性能由C++实现,并非性能相关的javascript实现
+
+node_buffer(c++)->Buffer/SlowBuffer(javascript核心模块)
+
+## 6.2 Buffer的转换
+
+### 6.2.2 Buffer转字符串
+
+```javascript
+buf.toString([encoding], [start], [end])
+```
+
 # 7. 网络编程
 
 # 8. 构建web应用
