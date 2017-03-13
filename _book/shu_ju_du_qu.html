@@ -1,0 +1,1536 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>数据读取 | Read笔记</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.4">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-tbfed-pagefooter/footer.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-splitter/splitter.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./dombian_cheng.html" />
+    
+    
+    <link rel="prev" href="./jia_zai_yu_zhi_xing.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="2.1.2"
+        data-chapter-title="数据读取"
+        data-filepath="shu_ju_du_qu.md"
+        data-basepath="."
+        data-revision="Mon Mar 13 2017 09:57:53 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="wang_luo.html">
+            
+                
+                    <a href="./wang_luo.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        网络
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="tu_jie_http.html">
+            
+                
+                    <a href="./tu_jie_http.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        图解HTTP
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="wiresharkwang_luo_fen_xi_de_yi_zhu.html">
+            
+                
+                    <a href="./wiresharkwang_luo_fen_xi_de_yi_zhu.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Wireshark网络分析的艺术
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="tcpipxiang_jie_juan_4e003a_xie_yi.html">
+            
+                
+                    <a href="./tcpipxiang_jie_juan_4e003a_xie_yi.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        TCP\/IP详解 卷一: 协议
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="qian_duan.html">
+            
+                
+                    <a href="./qian_duan.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        前端
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="gao_xing_neng_javascript.html">
+            
+                
+                    <a href="./gao_xing_neng_javascript.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        高性能JavaScript
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="jia_zai_yu_zhi_xing.html">
+            
+                
+                    <a href="./jia_zai_yu_zhi_xing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.1.</b>
+                        
+                        加载与执行
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.2" data-path="shu_ju_du_qu.html">
+            
+                
+                    <a href="./shu_ju_du_qu.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.2.</b>
+                        
+                        数据读取
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="dombian_cheng.html">
+            
+                
+                    <a href="./dombian_cheng.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.3.</b>
+                        
+                        DOM编程
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="suan_fa_he_liu_cheng_kong_zhi.html">
+            
+                
+                    <a href="./suan_fa_he_liu_cheng_kong_zhi.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.4.</b>
+                        
+                        算法和流程控制
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="zi_fu_chuan_he_zheng_ze_biao_da_shi.html">
+            
+                
+                    <a href="./zi_fu_chuan_he_zheng_ze_biao_da_shi.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.5.</b>
+                        
+                        字符串和正则表达式
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="ui.html">
+            
+                
+                    <a href="./ui.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.6.</b>
+                        
+                        UI
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="ajax.html">
+            
+                
+                    <a href="./ajax.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.7.</b>
+                        
+                        Ajax
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="bian_cheng_shi_zhan.html">
+            
+                
+                    <a href="./bian_cheng_shi_zhan.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.8.</b>
+                        
+                        编程实战
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="javascriptquan_wei_zhi_nan.html">
+            
+                
+                    <a href="./javascriptquan_wei_zhi_nan.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        JavaScript权威指南
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="ji_chu.html">
+            
+                
+                    <a href="./ji_chu.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.1.</b>
+                        
+                        基础
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1.1" data-path="ji_chu_.html">
+            
+                
+                    <a href="./ji_chu_.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.1.1.</b>
+                        
+                        基础
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="ke_hu_duan_javascript.html">
+            
+                
+                    <a href="./ke_hu_duan_javascript.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.2.</b>
+                        
+                        客户端JavaScript
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.2.1" data-path="jiao_ben_hua_wen_dang.html">
+            
+                
+                    <a href="./jiao_ben_hua_wen_dang.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.2.1.</b>
+                        
+                        脚本化文档
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.2" data-path="shi_jian_chu_li.html">
+            
+                
+                    <a href="./shi_jian_chu_li.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.2.2.</b>
+                        
+                        事件处理
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="feng_kuang_html5__css3__javascript.html">
+            
+                
+                    <a href="./feng_kuang_html5__css3__javascript.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        疯狂Html5\/CSS3\/JavaScript
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="html5.html">
+            
+                
+                    <a href="./html5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.1.</b>
+                        
+                        HTML5
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="css3.html">
+            
+                
+                    <a href="./css3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.2.</b>
+                        
+                        CSS3
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="gao_xing_neng_wang_zhan_jian_she_zhi_nan.html">
+            
+                
+                    <a href="./gao_xing_neng_wang_zhan_jian_she_zhi_nan.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        高性能网站建设指南
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="gao_xing_neng_wang_zhan_jian_she_jin_jie_zhi_nan.html">
+            
+                
+                    <a href="./gao_xing_neng_wang_zhan_jian_she_jin_jie_zhi_nan.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        高性能网站建设进阶指南
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="bootstrapshi_zhan.html">
+            
+                
+                    <a href="./bootstrapshi_zhan.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        BootStrap实战
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="javascriptshe_ji_mo_shi_yu_kai_fa_shi_jian.html">
+            
+                
+                    <a href="./javascriptshe_ji_mo_shi_yu_kai_fa_shi_jian.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        JavaScript设计模式与开发实践
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="javascriptgao_ji_cheng_xu_she_ji.html">
+            
+                
+                    <a href="./javascriptgao_ji_cheng_xu_she_ji.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                        JavaScript高级程序设计
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="webqian_duan_hei_ke_ji_zhu_jie_mi.html">
+            
+                
+                    <a href="./webqian_duan_hei_ke_ji_zhu_jie_mi.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                        Web前端黑客技术揭秘
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="javascripthan_shu_shi_bian_cheng.html">
+            
+                
+                    <a href="./javascripthan_shu_shi_bian_cheng.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                        JavaScript函数式编程
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="html5_canvas.html">
+            
+                
+                    <a href="./html5_canvas.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.11.</b>
+                        
+                        HTML5 Canvas
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="bian_xie_ke_ce_shi_de_javascript_dai_ma.html">
+            
+                
+                    <a href="./bian_xie_ke_ce_shi_de_javascript_dai_ma.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.12.</b>
+                        
+                        编写可测试的JavaScript代码
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="javascriptwebying_yong_kai_fa.html">
+            
+                
+                    <a href="./javascriptwebying_yong_kai_fa.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.13.</b>
+                        
+                        JavaScriptWeb应用开发
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="webkitji_zhu_nei_mu.html">
+            
+                
+                    <a href="./webkitji_zhu_nei_mu.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.14.</b>
+                        
+                        WebKit技术内幕
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="cssjie_mi.html">
+            
+                
+                    <a href="./cssjie_mi.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.15.</b>
+                        
+                        CSS揭秘
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" data-path="javascriptqi_shi_lu.html">
+            
+                
+                    <a href="./javascriptqi_shi_lu.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.16.</b>
+                        
+                        JavaScript启示录
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.17" data-path="effectivejavascriptbian_xie_gao_zhi_liang_javascri.html">
+            
+                
+                    <a href="./effectivejavascriptbian_xie_gao_zhi_liang_javascri.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.17.</b>
+                        
+                        EffectiveJavaScript编写高质量JavaScript的68个有效方法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.18" data-path="webqian_duan_kai_fa_zui_jia_shi_jian.html">
+            
+                
+                    <a href="./webqian_duan_kai_fa_zui_jia_shi_jian.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.18.</b>
+                        
+                        Web前端开发最佳实践
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.19" data-path="javascriptxing_neng_you_hua_du_liang_3001_jian_kon.html">
+            
+                
+                    <a href="./javascriptxing_neng_you_hua_du_liang_3001_jian_kon.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.19.</b>
+                        
+                        JavaScript性能优化度量、监控与可视化
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.20" data-path="jqueryji_zhu_nei_mu_ff1a_shen_ru_jie_xi_jquery_jia.html">
+            
+                
+                    <a href="./jqueryji_zhu_nei_mu_ff1a_shen_ru_jie_xi_jquery_jia.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.20.</b>
+                        
+                        jQuery技术内幕：深入解析jQuery架构设计与实现原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.21" data-path="编写可维护的javascript.html">
+            
+                
+                    <a href="./编写可维护的javascript.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.21.</b>
+                        
+                        编写可维护的JavaScript
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.22" data-path="javascript语言精粹.html">
+            
+                
+                    <a href="./javascript语言精粹.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.22.</b>
+                        
+                        JavaScript语言精粹
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.23" data-path="javascript-dom-编程艺术第2版.html">
+            
+                
+                    <a href="./javascript-dom-编程艺术第2版.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.23.</b>
+                        
+                        JavaScript DOM 编程艺术\(第2版\)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.24" data-path="深入浅出node.html">
+            
+                
+                    <a href="./深入浅出node.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.24.</b>
+                        
+                        深入浅出node
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.25" data-path="javascript_design.html">
+            
+                
+                    <a href="./javascript_design.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.25.</b>
+                        
+                        javascript\_设计模式
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.26" data-path="node.js.html">
+            
+                
+                    <a href="./node.js.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.26.</b>
+                        
+                        Node.js高级编程
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="fu_wu_qi_duan.html">
+            
+                
+                    <a href="./fu_wu_qi_duan.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        服务器端
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="xi_tong_fen_xi_shi_uml_xiang_mu_shi_zhan.html">
+            
+                
+                    <a href="./xi_tong_fen_xi_shi_uml_xiang_mu_shi_zhan.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        系统分析师UML项目实战
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="shen_ru_php_mian_xiang_dui_xiang_3001_mo_shi_yu_sh.html">
+            
+                
+                    <a href="./shen_ru_php_mian_xiang_dui_xiang_3001_mo_shi_yu_sh.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        深入php面向对象、模式与实践
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="phphe_xin_ji_zhu_yu_zui_jia_shi_jian.html">
+            
+                
+                    <a href="./phphe_xin_ji_zhu_yu_zui_jia_shi_jian.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        PHP核心技术与最佳实践
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="dan_yuan_ce_shi_de_yi_zhu.html">
+            
+                
+                    <a href="./dan_yuan_ce_shi_de_yi_zhu.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        单元测试的艺术
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="springshi_zhan.html">
+            
+                
+                    <a href="./springshi_zhan.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        Spring实战
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="linuxniao_ge_si_fang_cai_ji_chu_xue_xi_pian.html">
+            
+                
+                    <a href="./linuxniao_ge_si_fang_cai_ji_chu_xue_xi_pian.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        Linux鸟哥私房菜基础学习篇
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="linux.html">
+            
+            <span><b>3.7.</b> Linux内核设计与实现</span>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="da_xing_wang_zhan_ji_zhu_jia_gou_he_xin_yuan_li_yu.html">
+            
+                
+                    <a href="./da_xing_wang_zhan_ji_zhu_jia_gou_he_xin_yuan_li_yu.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        大型网站技术架构核心原理与案例分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="laravelkuang_jia_guan_jian_ji_zhu_jie_xi.html">
+            
+                
+                    <a href="./laravelkuang_jia_guan_jian_ji_zhu_jie_xi.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        Laravel框架关键技术解析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="modernphp.html">
+            
+                
+                    <a href="./modernphp.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                        ModernPHP
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="internet_game_technology.html">
+            
+                
+                    <a href="./internet_game_technology.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.11.</b>
+                        
+                        网络游戏核心技术与实战
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="an_quan.html">
+            
+                
+                    <a href="./an_quan.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        安全
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="bai_mao_zi_jiang_web_an_quan.html">
+            
+                
+                    <a href="./bai_mao_zi_jiang_web_an_quan.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        白帽子讲WEB安全
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="utils.html">
+            
+                
+                    <a href="./utils.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Utils
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="progit.html">
+            
+                
+                    <a href="./progit.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Pro\_Git
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="zhong_gou_gai_shan_ji_you_dai_ma_de_she_ji.html">
+            
+                
+                    <a href="./zhong_gou_gai_shan_ji_you_dai_ma_de_she_ji.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        重构改善既有代码的设计
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="vimshi_yong_ji_qiao.html">
+            
+                
+                    <a href="./vimshi_yong_ji_qiao.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        Vim使用技巧
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="程序员修炼之道--从小工到专家.html">
+            
+                
+                    <a href="./程序员修炼之道--从小工到专家.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        程序员修炼之道--从小工到专家
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="鲜活的数据--数据可视化指南.html">
+            
+                
+                    <a href="./鲜活的数据--数据可视化指南.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        鲜活的数据--数据可视化指南
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="beirf_history_of_humankind.html">
+            
+                
+                    <a href="./beirf_history_of_humankind.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        人类简史
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="base_-farewell.html">
+            
+                
+                    <a href="./base_-farewell.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                        最好的告别
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="qi_ye_guan_li.html">
+            
+                
+                    <a href="./qi_ye_guan_li.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        企业管理
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="zhi_you_pian_zhi_kuang_cai_neng_sheng_cun.html">
+            
+                
+                    <a href="./zhi_you_pian_zhi_kuang_cai_neng_sheng_cun.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        只有偏执狂才能生存
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="she_ji.html">
+            
+                
+                    <a href="./she_ji.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        设计
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="zhi_mei_yong_hu_ren_ben_she_ji_pou_xi.html">
+            
+                
+                    <a href="./zhi_mei_yong_hu_ren_ben_she_ji_pou_xi.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        至美用户人本设计剖析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="yi_dong_she_ji.html">
+            
+                
+                    <a href="./yi_dong_she_ji.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        移动设计
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="she_ji_xin_li_xue_yi.html">
+            
+                
+                    <a href="./she_ji_xin_li_xue_yi.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        设计心理学一
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="网页设计创意书卷4.html">
+            
+                
+                    <a href="./网页设计创意书卷4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                        网页设计创意书\(卷4\)
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="xiao_lv.html">
+            
+                
+                    <a href="./xiao_lv.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        效率
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="fan_qie_gong_zuo_fa_tu_jie.html">
+            
+                
+                    <a href="./fan_qie_gong_zuo_fa_tu_jie.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        番茄工作法图解
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    本書使用 GitBook 釋出
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Read笔记</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x6570;&#x636E;&#x8BFB;&#x53D6;">&#x6570;&#x636E;&#x8BFB;&#x53D6;</h1>
+<h2 id="1-&#x6570;&#x636E;&#x7C7B;&#x578B;">1. &#x6570;&#x636E;&#x7C7B;&#x578B;:</h2>
+<ol>
+<li>&#x5B57;&#x9762;&#x91CF; : &#x5B57;&#x9762;&#x91CF;&#x53EA;&#x4EE3;&#x8868;&#x672C;&#x8EAB;,&#x4E0D;&#x5B58;&#x50A8;&#x5728;&#x7279;&#x5B9A;&#x7684;&#x4F4D;&#x7F6E;,&#x5305;&#x62EC;&#x5B57;&#x7B26;&#x4E32;,&#x6570;&#x5B57;,&#x6570;&#x7EC4;,&#x51FD;&#x6570;,null,undefiend&#x7B49;.</li>
+<li>&#x672C;&#x5730;&#x53D8;&#x91CF; : var &#x5B9A;&#x4E49;&#x7684;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x5355;&#x5143;;</li>
+<li>&#x6570;&#x7EC4;&#x5143;&#x7D20; : js&#x6570;&#x7EC4;&#x5BF9;&#x8C61;&#x5185;&#x90E8;,&#x4EE5;&#x6570;&#x5B57;&#x4F5C;&#x4E3A;&#x7D22;&#x5F15;</li>
+<li>&#x5BF9;&#x8C61;&#x6210;&#x5458; : &#x5B58;&#x50A8;&#x5728;js&#x5BF9;&#x8C61;&#x5185;&#x90E8;,&#x4EE5;&#x5B57;&#x7B26;&#x4E32;&#x4E3A;&#x7D22;&#x5F15;</li>
+</ol>
+<h2 id="2-&#x4F5C;&#x7528;&#x57DF;">2. &#x4F5C;&#x7528;&#x57DF;</h2>
+<h3 id="21-&#x57FA;&#x672C;&#x77E5;&#x8BC6;">2.1 &#x57FA;&#x672C;&#x77E5;&#x8BC6;</h3>
+<p>&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;<code>Function</code>&#x5BF9;&#x8C61;&#x7684;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;,&#x91CC;&#x9762;&#x5305;&#x542B;&#x7F16;&#x7A0B;&#x8BBF;&#x95EE;&#x5C5E;&#x6027;&#x548C;&#x4E00;&#x7CFB;&#x5217;&#x4E0D;&#x80FD;&#x901A;&#x8FC7;&#x4EE3;&#x7801;&#x8BBF;&#x95EE;&#x800C;&#x4EC5;&#x4F9B;js&#x5F15;&#x64CE;&#x5B58;&#x53D6;&#x7684;&#x5185;&#x90E8;&#x5C5E;&#x6027;,&#x5176;&#x4E2D;&#x5305;&#x542B;<code>[[Scope]]</code></p>
+<p><code>[[Scope]]</code>&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x88AB;&#x521B;&#x5EFA;&#x65F6;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x5BF9;&#x8C61;&#x7684;&#x96C6;&#x5408;.&#x65E2;<code>&#x4F5C;&#x7528;&#x57DF;&#x94FE;</code></p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span> (<span class="hljs-params">num1,num2</span>)</span>{
+    <span class="hljs-keyword">var</span> sum = num1 +num2;
+    <span class="hljs-keyword">return</span> sum;
+}
+
+<span class="hljs-keyword">var</span> total = add(<span class="hljs-number">5</span>,<span class="hljs-number">10</span>);
+</code></pre>
+<p>&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x65F6;,&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x73AF;&#x5883;(<code>&#x72EC;&#x4E00;&#x65E0;&#x4E8C;,&#x6267;&#x884C;&#x5B8C;&#x5C31;&#x9500;&#x6BC1;</code>)</p>
+<p>&#x6BCF;&#x4E2A;&#x6267;&#x884C;&#x73AF;&#x5883;&#x4E5F;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x94FE;,&#x7528;&#x4E8E;&#x89E3;&#x6790;&#x6807;&#x8BC6;&#x7B26;</p>
+<p>&#x521B;&#x5EFA;&#x6267;&#x884C;&#x73AF;&#x5883;&#x65F6;,&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x4F1A;&#x987A;&#x5E8F;&#x7684;&#x590D;&#x5236;&#x5230;&#x6267;&#x884C;&#x73AF;&#x5883;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x4E2D;,&#x79F0;&#x4E3A;<code>&#x6D3B;&#x52A8;&#x5BF9;&#x8C61;</code>,&#x5305;&#x542B;&#x6240;&#x6709;&#x5C40;&#x90E8;&#x4FBF;&#x5229;&#x3001;&#x547D;&#x540D;&#x53C2;&#x6570;&#x3001;&#x53C2;&#x6570;&#x96C6;&#x5408;&#x3001;<code>this</code>.</p>
+<p><img src="QQ20151223-1.png" alt="&#x4F5C;&#x7528;&#x57DF;&#x94FE;"></p>
+<p>&#x6D3B;&#x52A8;&#x5BF9;&#x8C61;&#x5728;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x7684;&#x6700;&#x9876;&#x7AEF;,&#x6BCF;&#x9047;&#x5230;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x5C31;&#x4F1A;&#x7ECF;&#x5386;<code>&#x6807;&#x8BC6;&#x7B26;</code>&#x7684;&#x89E3;&#x6790;</p>
+<p>&#x89E3;&#x6790;&#x8FC7;&#x7A0B;: &#x4ECE;&#x9876;&#x7AEF;&#x4F5C;&#x7528;&#x57DF;&#x67E5;&#x627E;&#x540C;&#x540D;&#x6807;&#x8BC6;&#x7B26;.</p>
+<p>&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x7406;&#x51FA;&#x4E24;&#x4E2A;&#x539F;&#x7406;</p>
+<ol>
+<li>&#x540C;&#x540D;&#x53D8;&#x91CF;&#x540E;&#x8005;&#x8986;&#x76D6;&#x524D;&#x8005;</li>
+<li>&#x5404;&#x4F5C;&#x7528;&#x57DF;&#x5B58;&#x5728;&#x540C;&#x540D;&#x53D8;&#x91CF;,&#x53EA;&#x53D6;&#x6700;&#x524D;&#x9762;&#x7684;&#x53D8;&#x91CF;.</li>
+<li>&#x8D8A;&#x5E95;&#x5C42;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x67E5;&#x627E;&#x53D8;&#x91CF;,&#x8017;&#x65F6;&#x6700;&#x591A;.&#x6240;&#x4EE5;&#x5F53;&#x591A;&#x6B21;&#x7528;&#x5230;&#x5E95;&#x7AEF;&#x53D8;&#x91CF;,&#x7528;&#x4E00;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF; = &#x5E95;&#x7AEF;&#x53D8;&#x91CF;.</li>
+<li><p>&#x4F7F;&#x7528;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5728;&#x58F0;&#x660E;&#x51FD;&#x6570;&#x4E4B;&#x524D;.</p>
+<p> &#x56E0;&#x4E3A;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;,&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<code>&#x6267;&#x884C;&#x73AF;&#x5883;</code>,&#x521B;&#x5EFA;&#x65F6;,&#x4F1A;&#x628A;&#x6240;&#x6709;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x653E;&#x5230;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x4E2D;,&#x5F53;<code>&#x6267;&#x884C;&#x73AF;&#x5883;</code>&#x521B;&#x5EFA;&#x5B8C;&#x4E86;&#x624D;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x4EE3;&#x7801;.</p>
+</li>
+</ol>
+<h3 id="22-&#x6539;&#x53D8;&#x4F5C;&#x7528;&#x57DF;&#x94FE;">2.2 &#x6539;&#x53D8;&#x4F5C;&#x7528;&#x57DF;&#x94FE;</h3>
+<p>&#x6539;&#x53D8;&#x4F5C;&#x7528;&#x57DF;: <code>with</code> &amp; <code>try-catch</code></p>
+<ol>
+<li><p><code>with</code></p>
+<pre><code class="lang-javascript"> <span class="hljs-keyword">with</span>(<span class="hljs-built_in">document</span>){
+     <span class="hljs-keyword">var</span> links = getElementByTagName(<span class="hljs-string">&quot;a&quot;</span>);
+ }
+</code></pre>
+<p> &#x8FD9;&#x65F6;,&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x6240;&#x5728;&#x7684;<code>&#x6D3B;&#x52A8;&#x5BF9;&#x8C61;</code>&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x4E0A;&#x591A;&#x4E86;&#x4E00;&#x5C42;,&#x5C31;&#x662F;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;(&#x8FD9;&#x91CC;&#x662F;document),&#x8FD9;&#x6837;&#x8BBF;&#x95EE;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x90FD;&#x53D8;&#x6210;&#x4E86;&#x7B2C;&#x4E8C;&#x5C42;,&#x6240;&#x4EE5;&#x4F7F;&#x7528;&#x65F6;&#x614E;&#x91CD;&#x8003;&#x8651;.</p>
+</li>
+<li><p><code>try-catch</code></p>
+<p> &#x5F53;&#x5F02;&#x5E38;&#x53D1;&#x751F;&#x540E;,<code>catch</code>&#x4E2D;&#x5F02;&#x5E38;&#x5BF9;&#x8C61;&#x5C31;&#x4F1A;&#x5728;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x7684;&#x7B2C;&#x4E00;&#x5C42;.</p>
+<p> &#x6240;&#x4EE5;&#x5982;&#x679C;&#x5728;<code>catch</code>&#x4E2D;&#x6267;&#x884C;&#x8FC7;&#x591A;&#x7684;&#x4EE3;&#x7801;,&#x4F1A;&#x5BFC;&#x81F4;&#x548C;<code>with</code>&#x4E00;&#x6837;&#x7684;&#x9519;&#x8BEF;</p>
+<p> &#x5BFB;&#x627E;&#x6BCF;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x90FD;&#x8981;&#x5148;&#x901A;&#x8FC7;<code>&#x5F02;&#x5E38;&#x5BF9;&#x8C61;</code>,&#x6240;&#x4EE5;&#x5EFA;&#x8BAE;:
+ &#x63A8;&#x8350;&#x4F7F;&#x7528;:</p>
+<pre><code class="lang-javascript"> <span class="hljs-keyword">try</span>{
+     ...
+ } <span class="hljs-keyword">catch</span>(ex){
+     handleError(ex);
+ }
+</code></pre>
+<p> &#x8FD9;&#x6837;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;,&#x90A3;&#x6837;&#x5230;&#x4E86;<code>handleError</code>&#x51FD;&#x6570;&#x4E2D;,&#x5F02;&#x5E38;&#x5BF9;&#x8C61;<code>ex</code>&#x4F1A;&#x5728;&#x6211;&#x4EEC;&#x7684;&#x6D3B;&#x52A8;&#x5BF9;&#x8C61;&#x5C42;&#x4E2D;.
+ ```</p>
+</li>
+</ol>
+<h3 id="23-&#x95ED;&#x5305;-&#x4F5C;&#x7528;&#x57DF;-&#x5185;&#x5B58;">2.3 &#x95ED;&#x5305; &#x4F5C;&#x7528;&#x57DF; &#x5185;&#x5B58;</h3>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">K_404</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">var</span> id = <span class="hljs-number">1</span>;
+    <span class="hljs-built_in">document</span>.getElementByID(<span class="hljs-string">&quot;save-btn&quot;</span>).onclick = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>)</span>{
+        k(id);
+    }
+}
+</code></pre>
+<p>&#x5F53;&#x95ED;&#x5305;&#x4EE3;&#x7801;&#x73AF;&#x5883;&#x751F;&#x6210;&#x65F6;,&#x95ED;&#x5305;&#x4E2D;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x94FE;</p>
+<ol>
+<li>&#x6D3B;&#x52A8;&#x5BF9;&#x8C61;(&#x95ED;&#x5305;);</li>
+<li>&#x6D3B;&#x52A8;&#x5BF9;&#x8C61;(K_404);</li>
+<li>&#x5168;&#x5C40;&#x5BF9;&#x8C61;;</li>
+</ol>
+<p>&#x6240;&#x4EE5;K_404&#x7684;&#x6267;&#x884C;&#x73AF;&#x5883;&#x4E00;&#x76F4;&#x4E0D;&#x80FD;&#x91CA;&#x653E;.</p>
+<h3 id="24-&#x539F;&#x578B;">2.4 &#x539F;&#x578B;</h3>
+<p>&#x539F;&#x578B;&#x5C5E;&#x4E8E;&#x5BF9;&#x8C61;&#x6210;&#x5458;.</p>
+<p>&#x539F;&#x578B;&#x4E2D;&#x4E00;&#x65E6;&#x4F60;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;</p>
+<p>&#x8BE5;&#x5BF9;&#x8C61;&#x5C31;&#x4F1A;&#x5305;&#x542B;&#x5C5E;&#x6027;<code>_proto_</code>,&#x4ECE;<code>Object</code>&#x5B9E;&#x4F8B;&#x4E2D;&#x83B7;&#x53D6;.</p>
+<p><code>_proto_</code>&#x4E2D;&#x5305;&#x542B;<code>toString()</code>&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> K = {
+    name : <span class="hljs-string">&apos;mzk&apos;</span>;
+}
+
+book.hasOwnProperty(<span class="hljs-string">&apos;name&apos;</span>) <span class="hljs-comment">//true</span>
+book.hasOwnProperty(<span class="hljs-string">&apos;toString&apos;</span>) <span class="hljs-comment">//false</span>
+
+<span class="hljs-string">&apos;name&apos;</span> <span class="hljs-keyword">in</span> book <span class="hljs-comment">//true</span>
+<span class="hljs-string">&apos;toString&apos;</span> <span class="hljs-keyword">in</span> book <span class="hljs-comment">//true</span>
+</code></pre>
+<h3 id="241-&#x539F;&#x578B;&#x94FE;">2.4.1 &#x539F;&#x578B;&#x94FE;</h3>
+<ol>
+<li>&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x4E3A;&#x6240;&#x6709;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x6240;&#x5171;&#x4EAB;</li>
+<li>&#x5BF9;&#x8C61;&#x901A;&#x8FC7;<code>__proto__</code>&#x7ED1;&#x5B9A;&#x5230;&#x5B83;&#x7684;&#x539F;&#x578B;</li>
+<li>&#x6240;&#x6709;&#x7684;function&#x51FD;&#x6570;,&#x90FD;&#x662F;Function&#x7684;&#x5B9E;&#x4F8B;</li>
+</ol>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">K</span> (<span class="hljs-params">name</span>)</span>{
+    <span class="hljs-keyword">this</span>.name = name;
+}
+
+K.protoype.say_name = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
+    ...
+}
+
+<span class="hljs-keyword">var</span> k1 = <span class="hljs-keyword">new</span> K(<span class="hljs-string">&apos;404&apos;</span>);
+<span class="hljs-keyword">var</span> k2 = <span class="hljs-keyword">new</span> K(<span class="hljs-string">&apos;404_&apos;</span>);
+
+k1 <span class="hljs-keyword">instanceof</span> K ;<span class="hljs-comment">//true</span>
+k1 <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span> <span class="hljs-comment">//true</span>
+k1.toString(); <span class="hljs-comment">//[object Object]</span>
+</code></pre>
+<p><img src="QQ20151223-2.png" alt="&#x539F;&#x578B;&#x94FE;"></p>
+<p>k1&#x7684;&#x539F;&#x578B;&#x662F;K,K&#x7684;&#x539F;&#x578B;&#x662F;Object.</p>
+<p>&#x8FD9;&#x5176;&#x5B9E;&#x53EF;&#x4EE5;&#x770B;&#x660E;&#x767D;&#x4E3A;&#x4F55;&#x53EA;&#x7ED9;&#x539F;&#x578B;&#x6DFB;&#x52A0;&#x65B9;&#x6CD5;/&#x5C5E;&#x6027;,&#x5176;&#x5B50;&#x7C7B;&#x90FD;&#x80FD;&#x5728;&#x540E;&#x7EED;&#x4E2D;&#x4F7F;&#x7528;.</p>
+<p>&#x56E0;&#x4E3A;&#x4ED6;&#x4EEC;&#x7528;&#x7684;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x539F;&#x578B;.</p>
+<p>&#x800C;K&#x539F;&#x578B;&#x4E2D;&#x7684;&#x6784;&#x9020;&#x5BF9;&#x8C61;&#x53C8;&#x5F15;&#x7528;&#x7684;&#x662F;K&#x51FD;&#x6570;,K&#x51FD;&#x6570;&#x5206;&#x522B;&#x522B;k1,k2&#x5B9E;&#x4F8B;&#x5316;.&#x6240;&#x4EE5;&#x80FD;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x5C5E;&#x6027;&#x503C;.</p>
+<h3 id="242&#x603B;&#x7ED3;">2.4.2&#x603B;&#x7ED3;</h3>
+<ol>
+<li>&#x4F7F;&#x7528;&#x591A;&#x6B21;&#x7684;&#x6DF1;&#x5C42;&#x4F5C;&#x7528;&#x57DF;,&#x653E;&#x5728;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x4E2D;.</li>
+<li><code>with</code> &amp; <code>catch</code> &#x5BF9;&#x5E94;&#x7684;&#x5BF9;&#x8C61;&#x4F1A;&#x5728;&#x6D3B;&#x52A8;&#x5BF9;&#x8C61;&#x4E0A;&#x5C42;.</li>
+</ol>
+<footer class="page-footer"><span class="copyright">&#xA9; 404mzk all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2016-07-11 09:42:58
+</span></footer>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./jia_zai_yu_zhi_xing.html" class="navigation navigation-prev " aria-label="Previous page: 加载与执行"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./dombian_cheng.html" class="navigation navigation-next " aria-label="Next page: DOM编程"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-duoshuo/duoshuo.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-baidu/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-github-buttons/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-splitter/splitter.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"duoshuo":{"short_name":"read404mzk","theme":"default"},"baidu":{"token":"e896671664efc07c29c08fa1f080f297"},"tbfed-pagefooter":{"copyright":"&copy 404mzk","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github-buttons":{"repo":"mzkmzk/Read","types":["star","watch"],"size":"small"},"splitter":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        <script>var _hmt = _hmt || [];(function() {var hm = document.createElement('script');hm.src = '//hm.baidu.com/hm.js?e896671664efc07c29c08fa1f080f297';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(hm, s);})();</script>
+    </body>
+    
+</html>
