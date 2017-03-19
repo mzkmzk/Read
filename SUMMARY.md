@@ -70,6 +70,7 @@
   * [鲜活的数据--数据可视化指南](鲜活的数据--数据可视化指南.md)
   * [人类简史](beirf_history_of_humankind.md)
   * [最好的告别](base_-farewell.md)
+  * [企业应用架构模式](qi-ye-ying-yong-jia-gou-mo-shi.md)
 * [企业管理](qi_ye_guan_li.md)
   * [只有偏执狂才能生存](zhi_you_pian_zhi_kuang_cai_neng_sheng_cun.md)
 * [设计](she_ji.md)
