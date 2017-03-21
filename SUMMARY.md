@@ -25,6 +25,7 @@
   * [疯狂Html5\/CSS3\/JavaScript](feng_kuang_html5__css3__javascript.md)
     * [HTML5](html5.md)
     * [CSS3](css3.md)
+    * [amazing\_javascript\_2](amazingjavascript-2.md)
   * [高性能网站建设指南](gao_xing_neng_wang_zhan_jian_she_zhi_nan.md)
   * [高性能网站建设进阶指南](gao_xing_neng_wang_zhan_jian_she_jin_jie_zhi_nan.md)
   * [BootStrap实战](bootstrapshi_zhan.md)
