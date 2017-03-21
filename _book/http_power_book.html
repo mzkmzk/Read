@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>JavaScript权威指南 | Read笔记</title>
+        <title>HTTP权威指南 | Read笔记</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.4">
@@ -45,10 +45,10 @@
         
     
     
-    <link rel="next" href="./ji_chu.html" />
+    <link rel="next" href="./qian_duan.html" />
     
     
-    <link rel="prev" href="./bian_cheng_shi_zhan.html" />
+    <link rel="prev" href="./tcpipxiang_jie_juan_4e003a_xie_yi.html" />
     
 
         
@@ -57,9 +57,9 @@
         
         
     <div class="book"
-        data-level="2.2"
-        data-chapter-title="JavaScript权威指南"
-        data-filepath="javascriptquan_wei_zhi_nan.md"
+        data-level="1.4"
+        data-chapter-title="HTTP权威指南"
+        data-filepath="http_power_book.md"
         data-basepath="."
         data-revision="Tue Mar 21 2017 09:15:34 GMT+0800 (CST)"
         data-innerlanguage="">
@@ -151,7 +151,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="http_power_book.html">
+        <li class="chapter active" data-level="1.4" data-path="http_power_book.html">
             
                 
                     <a href="./http_power_book.html">
@@ -328,7 +328,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.2" data-path="javascriptquan_wei_zhi_nan.html">
+        <li class="chapter " data-level="2.2" data-path="javascriptquan_wei_zhi_nan.html">
             
                 
                     <a href="./javascriptquan_wei_zhi_nan.html">
@@ -1378,9 +1378,77 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="javascript&#x6743;&#x5A01;&#x6307;&#x5357;">JavaScript&#x6743;&#x5A01;&#x6307;&#x5357;</h1>
+                        <h1 id="http&#x6743;&#x5A01;&#x6307;&#x5357;">HTTP&#x6743;&#x5A01;&#x6307;&#x5357;</h1>
+<h1 id="&#x7B2C;&#x56DB;&#x90E8;&#x5206;-&#x5B9E;&#x4F53;&#x3001;&#x7F16;&#x7801;&#x548C;&#x56FD;&#x9645;&#x5316;">&#x7B2C;&#x56DB;&#x90E8;&#x5206; &#x5B9E;&#x4F53;&#x3001;&#x7F16;&#x7801;&#x548C;&#x56FD;&#x9645;&#x5316;</h1>
+<h1 id="15-&#x5B9E;&#x4F53;&#x548C;&#x7F16;&#x7801;">15. &#x5B9E;&#x4F53;&#x548C;&#x7F16;&#x7801;</h1>
+<h2 id="156-&#x4F20;&#x8F93;&#x7F16;&#x7801;&#x548C;&#x5206;&#x5757;&#x7F16;&#x7801;">15.6 &#x4F20;&#x8F93;&#x7F16;&#x7801;&#x548C;&#x5206;&#x5757;&#x7F16;&#x7801;</h2>
+<p>&#x5185;&#x5BB9;&#x7F16;&#x7801;&#x548C;&#x4F20;&#x8F93;&#x7F16;&#x7801;&#x7684;&#x5BF9;&#x6BD4;</p>
+<ul>
+<li>&#x5185;&#x5BB9;&#x7F16;&#x7801;: &#x53EA;&#x662F;&#x5BF9;&#x62A5;&#x6587;&#x7684;&#x5B9E;&#x4F53;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x4E86;&#x53EF;&#x9006;&#x7684;&#x7F16;&#x7801;.</li>
+<li>&#x4F20;&#x8F93;&#x7F16;&#x7801;: &#x4F5C;&#x7528;&#x5728;&#x6574;&#x4E2A;&#x62A5;&#x6587;&#x4E0A;,&#x62A5;&#x6587;&#x672C;&#x8EAB;&#x7684;&#x7ED3;&#x6784;&#x53D1;&#x751F;&#x53D8;&#x5316;.</li>
+</ul>
+<h3 id="1561-&#x53EF;&#x9760;&#x4F20;&#x8F93;">15.6.1 &#x53EF;&#x9760;&#x4F20;&#x8F93;</h3>
+<p>&#x4F20;&#x8F93;&#x62A5;&#x6587;&#x4E3B;&#x4F53;&#x53EF;&#x80FD;&#x4F1A;&#x5F15;&#x53D1;&#x7684;&#x95EE;&#x9898;</p>
+<ol>
+<li>&#x672A;&#x77E5;&#x5C3A;&#x5BF8;: &#x5047;&#x5982;&#x670D;&#x52A1;&#x5668;&#x60F3;&#x5728;&#x672A;&#x77E5;&#x5927;&#x5C0F;&#x4E4B;&#x524D;&#x5C31;&#x65E0;&#x6CD5;&#x5F00;&#x59CB;&#x4F20;&#x8F93;,Content-length&#x5FC5;&#x987B;&#x58F0;&#x660E;&#x5728;&#x6570;&#x636E;&#x524D;.</li>
+<li>&#x5B89;&#x5168;&#x6027;: &#x7528;&#x4F20;&#x8F93;&#x7F16;&#x7801;&#x5C06;&#x62A5;&#x6587;&#x6253;&#x4E71;,&#x7136;&#x540E;&#x53D1;&#x9001;,&#x4F46;&#x662F;SSL&#x5DF2;&#x7ECF;&#x591F;&#x5B89;&#x5168;&#x4E86;,&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x4E0D;&#x7528;&#x8003;&#x8651;</li>
+</ol>
+<h3 id="1562-transferencoding&#x9996;&#x90E8;">15.6.2 Transfer-Encoding&#x9996;&#x90E8;</h3>
+<p>&#x6700;&#x65B0;&#x7684;HTTP&#x89C4;&#x8303;(2017-03-15)&#x53EA;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x79CD;&#x4F20;&#x8F93;&#x7F16;&#x7801;: &#x5206;&#x5757;&#x7F16;&#x7801;</p>
+<p>&#x8BF7;&#x6C42;&#x5934;&#x58F0;&#x660E;&#x5206;&#x5757;&#x7F16;&#x7801;,&#x544A;&#x77E5;&#x670D;&#x52A1;&#x5668;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x54EA;&#x79CD;&#x4F20;&#x8F93;&#x7F16;&#x7801;&#x62D3;&#x5C55;</p>
+<p>TE: trailers, chunked(HTTP1.1&#x5F3A;&#x5236;&#x9ED8;&#x8BA4;)</p>
+<p>&#x5728;&#x54CD;&#x5E94;&#x5934;&#x58F0;&#x660E;&#x5206;&#x5757;&#x7F16;&#x7801;,&#x544A;&#x77E5;&#x63A5;&#x6536;&#x65B9;&#x4F7F;&#x7528;&#x4E86;&#x54EA;&#x79CD;&#x4F20;&#x8F93;&#x7F16;&#x7801;</p>
+<p>Transfer-Enconding: chunked</p>
+<h3 id="1563-&#x5206;&#x5757;&#x7F16;&#x7801;">15.6.3 &#x5206;&#x5757;&#x7F16;&#x7801;</h3>
+<p>&#x5206;&#x5757;&#x4F20;&#x8F93;&#x54CD;&#x5E94;DEMO</p>
+<pre><code class="lang-shell">//HTTP&#x54CD;&#x5E94;
+HTTP/1.1 200 OK<CR><LF>
+Content-type: text/plain<CR><LF>
+Transfer-encoding: chunked<CR><LF>
+Trailer: Content-MD5<CR><LF>
+<CR><LF>
+
+//&#x7B2C;&#x4E00;&#x5757;
+5<CR><LF>
+01234<CR><LF>
+
+//&#x7B2C;&#x4E8C;&#x5757;
+2<CR><LF>
+01<CR><LF>
+
+//&#x6700;&#x540E;&#x4E00;&#x5757;
+0<CR><LF>
+
+//&#x62D6;&#x6302;
+Content-MD5: ****1112341***
+</LF></CR></LF></CR></LF></CR></LF></CR></LF></CR></LF></CR></LF></CR></LF></CR></LF></CR></LF></CR></code></pre>
+<blockquote>
+<ol>
+<li>&#x5206;&#x5757;&#x4E0E;&#x6301;&#x4E45;&#x8FDE;&#x63A5;</li>
+</ol>
+</blockquote>
+<ul>
+<li>&#x975E;&#x6301;&#x4E45;&#x8FDE;&#x63A5;: &#x672C;&#x8EAB;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x77E5;&#x9053;&#x957F;&#x5EA6;,&#x7B49;&#x7740;&#x670D;&#x52A1;&#x5668;&#x5173;&#x95ED;&#x4E3B;&#x4F53;&#x94FE;&#x63A5;&#x5373;&#x53EF;</li>
+<li>&#x6301;&#x4E45;&#x8FDE;&#x63A5;: &#x9759;&#x6001;&#x5185;&#x5BB9;,&#x901A;&#x8FC7;content-length&#x83B7;&#x53D6;&#x957F;&#x5EA6;,&#x800C;&#x52A8;&#x6001;&#x5185;&#x5BB9;,&#x53D1;&#x9001;&#x524D;&#x65E0;&#x6CD5;&#x77E5;&#x9053;&#x4E3B;&#x4F53;&#x7684;&#x957F;&#x5EA6;</li>
+</ul>
+<p>&#x5206;&#x5757;&#x7F16;&#x7801;&#x89C4;&#x5219;</p>
+<ol>
+<li>&#x6BCF;&#x4E2A;&#x5206;&#x5757;&#x5305;&#x62EC;&#x4E24;&#x884C;,&#x4E00;&#x884C;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x7684;&#x957F;&#x5EA6;&#x503C;,&#x7B2C;&#x4E8C;&#x884C;&#x4E3A;&#x6570;&#x636E;</li>
+<li>&#x4E24;&#x884C;&#x90FD;&#x9700;&#x8981;\r\n&#x7ED3;&#x5C3E;</li>
+<li>&#x6700;&#x540E;&#x4E00;&#x5757;&#x7684;&#x957F;&#x5EA6;&#x503C;&#x5FC5;&#x987B;&#x4E3A;0,&#x5BF9;&#x5E94;&#x7684;&#x5206;&#x5757;&#x6570;&#x636E;&#x6CA1;&#x6709;&#x5185;&#x5BB9;</li>
+</ol>
+<p>&#x5F53;&#x4F60;&#x4E0A;&#x4F20;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x60F3;&#x4F7F;&#x7528;&#x5206;&#x5757;&#x4F20;&#x8F93;&#x65F6;,&#x56E0;&#x4E3A;&#x670D;&#x52A1;&#x5668;&#x4E0D;&#x4F1A;&#x53D1;&#x9001;TE&#x8BF7;&#x6C42;</p>
+<p>&#x6240;&#x4EE5;&#x8981;&#x505A;&#x597D;&#x88AB;&#x670D;&#x52A1;&#x5668;&#x62D2;&#x7EDD;&#x5206;&#x5757;&#x4F20;&#x8F93;&#x7684;&#x51C6;&#x5907;(411 Length Required, &#x8868;&#x540D;&#x9700;&#x8981;Content-length&#x957F;&#x5EA6;)</p>
+<blockquote>
+<ol>
+<li>&#x5206;&#x5757;&#x62A5;&#x6587;&#x7684;&#x62D6;&#x6302;</li>
+</ol>
+</blockquote>
+<p>&#x62D6;&#x6302;&#x7528;&#x4E8E;&#x5728;&#x62A5;&#x6587;&#x5F00;&#x59CB;&#x65F6;&#x65E0;&#x6CD5;&#x786E;&#x8BA4;&#x7684;&#x9996;&#x90E8;</p>
+<p>&#x9664;&#x4E86;Transfer-Encoding,Trailer&#x4EE5;&#x53CA;Content-length&#x9996;&#x90E8;&#x5916;</p>
+<p>&#x5176;&#x4ED6;HTTP&#x9996;&#x90E8;&#x90FD;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x62D6;&#x6302;&#x53D1;&#x9001;</p>
 <footer class="page-footer"><span class="copyright">&#xA9; 404mzk all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2015-12-28 14:26:33
+2017-03-17 00:13:43
 </span></footer>
                     
                     </section>
@@ -1391,10 +1459,10 @@
         </div>
 
         
-        <a href="./bian_cheng_shi_zhan.html" class="navigation navigation-prev " aria-label="Previous page: 编程实战"><i class="fa fa-angle-left"></i></a>
+        <a href="./tcpipxiang_jie_juan_4e003a_xie_yi.html" class="navigation navigation-prev " aria-label="Previous page: TCP\/IP详解 卷一: 协议"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="./ji_chu.html" class="navigation navigation-next " aria-label="Next page: 基础"><i class="fa fa-angle-right"></i></a>
+        <a href="./qian_duan.html" class="navigation navigation-next " aria-label="Next page: 前端"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
