@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://read.404mzk.com/sitemap.xml 
