@@ -48,6 +48,7 @@
   * [Laravel框架关键技术解析](laravelkuang_jia_guan_jian_ji_zhu_jie_xi.md)
   * [ModernPHP](modernphp.md)
   * [网络游戏核心技术与实战](internet_game_technology.md)
+  * [高性能MySQL](gao-xing-neng-mysql.md)
 * [安全](an_quan.md)
   * [白帽子讲WEB安全](bai_mao_zi_jiang_web_an_quan.md)
 * [Utils](utils.md)
