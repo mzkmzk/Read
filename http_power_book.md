@@ -89,4 +89,14 @@ Content-MD5: ****1112341***
 1. Expires(过期)
 2. Cache-Control(缓存控制)
 
+### 15.8.2 有条件的请求与验证码
 
+请求类型             验证码          描述
+
+If-Modified-Since   Last-Modified 如果前一条响应的Last-Modified首部中说明时间之后,资源的版本发生变化,就发送其副本
+
+If-Unmodified-Since Last-Modified 仅在前一条响应的Last-Modified首部中说明的时间之后,资源的版本没有变化,才发送其副本
+
+If-Match             Etag         如果实体的标记前一次响应收不中的Etag相同,就发送资源的副本
+
+If-None-Match        Etag         如果实体的标记与前一次响应收不中的Etag不同,就发送该资源的副本
