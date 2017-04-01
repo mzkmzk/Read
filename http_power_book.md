@@ -100,3 +100,10 @@ If-Unmodified-Since Last-Modified 仅在前一条响应的Last-Modified首部中
 If-Match             Etag         如果实体的标记前一次响应收不中的Etag相同,就发送资源的副本
 
 If-None-Match        Etag         如果实体的标记与前一次响应收不中的Etag不同,就发送该资源的副本
+
+HTTP校验分为弱检验码(Last-Modified)和强验证码(Etag)
+
+## 15.9 范围请求
+
+
+
