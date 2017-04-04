@@ -36,6 +36,7 @@
   * [深入浅出node](深入浅出node.md)
   * [javascript\_设计模式](javascript_design.md)
   * [Node.js高级编程](node.js.md)
+  * [JavaScript高效图形编程](javascriptgao-xiao-tu-xing-bian-cheng.md)
 * [服务器端](fu_wu_qi_duan.md)
   * [系统分析师UML项目实战](xi_tong_fen_xi_shi_uml_xiang_mu_shi_zhan.md)
   * [深入php面向对象、模式与实践](shen_ru_php_mian_xiang_dui_xiang_3001_mo_shi_yu_sh.md)
