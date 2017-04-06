@@ -1,0 +1,2280 @@
+[0;35mdebug:[0m readme found at README.md 
+[0;35mdebug:[0m summary file found at SUMMARY.md 
+[0;35mdebug:[0m cleanup folder "/Users/maizhikun/GitBook/Library/mzkmzk/Read/_book" 
+[0;36minfo:[0m 14 plugins are installed 
+[0;36minfo:[0m 12 explicitly listed 
+[0;36minfo:[0m loading plugin "duoshuo"... [0;32mOK[0m 
+[0;36minfo:[0m loading plugin "baidu"... [0;32mOK[0m 
+[0;36minfo:[0m loading plugin "tbfed-pagefooter"... [0;32mOK[0m 
+[0;36minfo:[0m loading plugin "github-buttons"... [0;32mOK[0m 
+[0;36minfo:[0m loading plugin "splitter"... [0;32mOK[0m 
+[0;36minfo:[0m loading plugin "catalogue-title"... [0;32mOK[0m 
+[0;36minfo:[0m loading plugin "highlight"... [0;32mOK[0m 
+[0;36minfo:[0m loading plugin "search"... [0;32mOK[0m 
+[0;36minfo:[0m loading plugin "lunr"... [0;32mOK[0m 
+[0;36minfo:[0m loading plugin "sharing"... [0;32mOK[0m 
+[0;36minfo:[0m loading plugin "fontsettings"... [0;32mOK[0m 
+[0;36minfo:[0m loading plugin "theme-default"... [0;32mOK[0m 
+[0;36minfo:[0m found 70 pages 
+[0;36minfo:[0m found 60 asset files 
+[0;35mdebug:[0m calling hook "config" 
+[0;35mdebug:[0m calling hook "init" 
+[0;33mwarn:[0m "navigation" property is deprecated 
+[0;33mwarn:[0m "options.generator" property is deprecated, use "output.name" instead 
+[0;33mwarn:[0m "config.options" property is deprecated, use "config.get(key)" instead 
+[0;33mwarn:[0m "this.generator" property is deprecated, use "this.output.name" instead 
+[0;33mwarn:[0m "book" property is deprecated, use "this" directly instead 
+[0;33mwarn:[0m "options" property is deprecated, use config.get(key) instead 
+{
+    "log": {
+        "lastChar": "\n",
+        "logLevel": 0
+    },
+    "config": {
+        "values": {
+            "plugins": [
+                "duoshuo",
+                "baidu",
+                "tbfed-pagefooter",
+                "github-buttons",
+                "splitter",
+                "catalogue-title"
+            ],
+            "styles": {
+                "website": "styles/website.css",
+                "pdf": "styles/pdf.css",
+                "epub": "styles/epub.css",
+                "mobi": "styles/mobi.css",
+                "ebook": "styles/ebook.css",
+                "print": "styles/print.css"
+            },
+            "pluginsConfig": {
+                "tbfed-pagefooter": {
+                    "copyright": "&copy 404mzk",
+                    "modify_label": "该文件修订时间：",
+                    "modify_format": "YYYY-MM-DD HH:mm:ss"
+                },
+                "splitter": {},
+                "search": {},
+                "lunr": {
+                    "maxIndexSize": 1000000,
+                    "ignoreSpecialCharacters": false
+                },
+                "duoshuo": {
+                    "short_name": "read404mzk",
+                    "theme": "default"
+                },
+                "fontsettings": {
+                    "theme": "white",
+                    "family": "sans",
+                    "size": 2
+                },
+                "highlight": {},
+                "catalogue-title": {},
+                "github-buttons": {
+                    "repo": "mzkmzk/Read",
+                    "types": [
+                        "star",
+                        "watch"
+                    ],
+                    "size": "small"
+                },
+                "baidu": {
+                    "token": "e896671664efc07c29c08fa1f080f297"
+                },
+                "sharing": {
+                    "facebook": true,
+                    "twitter": true,
+                    "google": false,
+                    "weibo": false,
+                    "instapaper": false,
+                    "vk": false,
+                    "all": [
+                        "facebook",
+                        "google",
+                        "twitter",
+                        "weibo",
+                        "instapaper"
+                    ]
+                },
+                "theme-default": {
+                    "styles": {
+                        "website": "styles/website.css",
+                        "pdf": "styles/pdf.css",
+                        "epub": "styles/epub.css",
+                        "mobi": "styles/mobi.css",
+                        "ebook": "styles/ebook.css",
+                        "print": "styles/print.css"
+                    },
+                    "showLevel": false
+                }
+            },
+            "theme": "default",
+            "pdf": {
+                "pageNumbers": true,
+                "fontSize": 12,
+                "fontFamily": "Arial",
+                "paperSize": "a4",
+                "chapterMark": "pagebreak",
+                "pageBreaksBefore": "/",
+                "margin": {
+                    "right": 62,
+                    "left": 62,
+                    "top": 56,
+                    "bottom": 56
+                }
+            },
+            "structure": {
+                "langs": "LANGS.md",
+                "readme": "README.md",
+                "glossary": "GLOSSARY.md",
+                "summary": "SUMMARY.md"
+            },
+            "variables": {},
+            "title": "404k的阅读笔记",
+            "language": "zh",
+            "gitbook": "*",
+            "description": "404mzk 阅读笔记",
+            "generator": "website",
+            "output": "/Users/maizhikun/GitBook/Library/mzkmzk/Read/_book"
+        },
+        "options": "~config~values"
+    },
+    "summary": {},
+    "template": {},
+    "output": {
+        "name": "website"
+    },
+    "gitbook": {
+        "version": "3.2.2"
+    },
+    "generator": "website",
+    "navigation": {
+        "progit.md": {
+            "index": 53,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "utils.md",
+                "title": "Utils",
+                "level": "1.6",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "zhong_gou_gai_shan_ji_you_dai_ma_de_she_ji.md",
+                "title": "重构改善既有代码的设计",
+                "level": "1.6.2",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.6.1"
+        },
+        "an_quan.md": {
+            "index": 50,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "gao-xing-neng-mysql.md",
+                "title": "高性能MySQL",
+                "level": "1.4.12",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "bai_mao_zi_jiang_web_an_quan.md",
+                "title": "白帽子讲WEB安全",
+                "level": "1.5.1",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.5"
+        },
+        "linuxniao_ge_si_fang_cai_ji_chu_xue_xi_pian.md": {
+            "index": 43,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "springshi_zhan.md",
+                "title": "Spring实战",
+                "level": "1.4.5",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "linux.md",
+                "title": "Linux内核设计与实现",
+                "level": "1.4.7",
+                "exists": false,
+                "external": false
+            },
+            "level": "1.4.6"
+        },
+        "webqian_duan_kai_fa_zui_jia_shi_jian.md": {
+            "index": 27,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "effectivejavascriptbian_xie_gao_zhi_liang_javascri.md",
+                "title": "EffectiveJavaScript编写高质量JavaScript的68个有效方法",
+                "level": "1.3.17",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "javascriptxing_neng_you_hua_du_liang_3001_jian_kon.md",
+                "title": "JavaScript性能优化度量、监控与可视化",
+                "level": "1.3.19",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.18"
+        },
+        "fan_qie_gong_zuo_fa_tu_jie.md": {
+            "index": 70,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "xiao_lv.md",
+                "title": "效率",
+                "level": "1.9",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.9.1"
+        },
+        "gao_xing_neng_wang_zhan_jian_she_zhi_nan.md": {
+            "index": 13,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "amazingjavascript-2.md",
+                "title": "JavaScript",
+                "level": "1.3.3.3",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "gao_xing_neng_wang_zhan_jian_she_jin_jie_zhi_nan.md",
+                "title": "高性能网站建设进阶指南",
+                "level": "1.3.5",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.4"
+        },
+        "javascriptgao_ji_cheng_xu_she_ji.md": {
+            "index": 17,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "javascriptshe_ji_mo_shi_yu_kai_fa_shi_jian.md",
+                "title": "JavaScript设计模式与开发实践",
+                "level": "1.3.7",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "webqian_duan_hei_ke_ji_zhu_jie_mi.md",
+                "title": "Web前端黑客技术揭秘",
+                "level": "1.3.9",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.8"
+        },
+        "da_xing_wang_zhan_ji_zhu_jia_gou_he_xin_yuan_li_yu.md": {
+            "index": 45,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "linux.md",
+                "title": "Linux内核设计与实现",
+                "level": "1.4.7",
+                "exists": false,
+                "external": false
+            },
+            "next": {
+                "path": "laravelkuang_jia_guan_jian_ji_zhu_jie_xi.md",
+                "title": "Laravel框架关键技术解析",
+                "level": "1.4.9",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.4.8"
+        },
+        "javascriptgao-xiao-tu-xing-bian-cheng.md": {
+            "index": 36,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "node.js.md",
+                "title": "Node.js高级编程",
+                "level": "1.3.26",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "fu_wu_qi_duan.md",
+                "title": "服务器端",
+                "level": "1.4",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.27"
+        },
+        "zhi_mei_yong_hu_ren_ben_she_ji_pou_xi.md": {
+            "index": 65,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "she_ji.md",
+                "title": "设计",
+                "level": "1.8",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "yi_dong_she_ji.md",
+                "title": "移动设计",
+                "level": "1.8.2",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.8.1"
+        },
+        "tu_jie_http.md": {
+            "index": 2,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "wang_luo.md",
+                "title": "网络",
+                "level": "1.2",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "wiresharkwang_luo_fen_xi_de_yi_zhu.md",
+                "title": "Wireshark网络分析的艺术",
+                "level": "1.2.2",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.2.1"
+        },
+        "zhong_gou_gai_shan_ji_you_dai_ma_de_she_ji.md": {
+            "index": 54,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "progit.md",
+                "title": "Pro_Git",
+                "level": "1.6.1",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "vimshi_yong_ji_qiao.md",
+                "title": "Vim使用技巧",
+                "level": "1.6.3",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.6.2"
+        },
+        "bai_mao_zi_jiang_web_an_quan.md": {
+            "index": 51,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "an_quan.md",
+                "title": "安全",
+                "level": "1.5",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "utils.md",
+                "title": "Utils",
+                "level": "1.6",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.5.1"
+        },
+        "phphe_xin_ji_zhu_yu_zui_jia_shi_jian.md": {
+            "index": 40,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "shen_ru_php_mian_xiang_dui_xiang_3001_mo_shi_yu_sh.md",
+                "title": "深入php面向对象、模式与实践",
+                "level": "1.4.2",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "dan_yuan_ce_shi_de_yi_zhu.md",
+                "title": "单元测试的艺术",
+                "level": "1.4.4",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.4.3"
+        },
+        "jqueryji_zhu_nei_mu_ff1a_shen_ru_jie_xi_jquery_jia.md": {
+            "index": 29,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "javascriptxing_neng_you_hua_du_liang_3001_jian_kon.md",
+                "title": "JavaScript性能优化度量、监控与可视化",
+                "level": "1.3.19",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "编写可维护的javascript.md",
+                "title": "编写可维护的JavaScript",
+                "level": "1.3.21",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.20"
+        },
+        "vimshi_yong_ji_qiao.md": {
+            "index": 55,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "zhong_gou_gai_shan_ji_you_dai_ma_de_she_ji.md",
+                "title": "重构改善既有代码的设计",
+                "level": "1.6.2",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "程序员修炼之道--从小工到专家.md",
+                "title": "程序员修炼之道--从小工到专家",
+                "level": "1.6.4",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.6.3"
+        },
+        "internet_game_technology.md": {
+            "index": 48,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "modernphp.md",
+                "title": "ModernPHP",
+                "level": "1.4.10",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "gao-xing-neng-mysql.md",
+                "title": "高性能MySQL",
+                "level": "1.4.12",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.4.11"
+        },
+        "javascript语言精粹.md": {
+            "index": 31,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "编写可维护的javascript.md",
+                "title": "编写可维护的JavaScript",
+                "level": "1.3.21",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "javascript-dom-编程艺术第2版.md",
+                "title": "JavaScript DOM 编程艺术(第2版)",
+                "level": "1.3.23",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.22"
+        },
+        "base_-farewell.md": {
+            "index": 59,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "beirf_history_of_humankind.md",
+                "title": "人类简史",
+                "level": "1.6.6",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "qi-ye-ying-yong-jia-gou-mo-shi.md",
+                "title": "企业应用架构模式",
+                "level": "1.6.8",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.6.7"
+        },
+        "effectivejavascriptbian_xie_gao_zhi_liang_javascri.md": {
+            "index": 26,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "javascriptqi_shi_lu.md",
+                "title": "JavaScript启示录",
+                "level": "1.3.16",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "webqian_duan_kai_fa_zui_jia_shi_jian.md",
+                "title": "Web前端开发最佳实践",
+                "level": "1.3.18",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.17"
+        },
+        "qi-ye-ying-yong-jia-gou-mo-shi.md": {
+            "index": 60,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "base_-farewell.md",
+                "title": "最好的告别",
+                "level": "1.6.7",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "han-shu-shi-bian-cheng-si-7ef45c.md",
+                "title": "函数式编程思维",
+                "level": "1.6.9",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.6.8"
+        },
+        "http_power_book.md": {
+            "index": 5,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "tcpipxiang_jie_juan_4e003a_xie_yi.md",
+                "title": "TCP-IP详解 卷一: 协议",
+                "level": "1.2.3",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "qian_duan.md",
+                "title": "前端",
+                "level": "1.3",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.2.4"
+        },
+        "javascriptxing_neng_you_hua_du_liang_3001_jian_kon.md": {
+            "index": 28,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "webqian_duan_kai_fa_zui_jia_shi_jian.md",
+                "title": "Web前端开发最佳实践",
+                "level": "1.3.18",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "jqueryji_zhu_nei_mu_ff1a_shen_ru_jie_xi_jquery_jia.md",
+                "title": "jQuery技术内幕：深入解析jQuery架构设计与实现原理",
+                "level": "1.3.20",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.19"
+        },
+        "yi_dong_she_ji.md": {
+            "index": 66,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "zhi_mei_yong_hu_ren_ben_she_ji_pou_xi.md",
+                "title": "至美用户人本设计剖析",
+                "level": "1.8.1",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "she_ji_xin_li_xue_yi.md",
+                "title": "设计心理学一",
+                "level": "1.8.3",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.8.2"
+        },
+        "modernphp.md": {
+            "index": 47,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "laravelkuang_jia_guan_jian_ji_zhu_jie_xi.md",
+                "title": "Laravel框架关键技术解析",
+                "level": "1.4.9",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "internet_game_technology.md",
+                "title": "网络游戏核心技术与实战",
+                "level": "1.4.11",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.4.10"
+        },
+        "程序员修炼之道--从小工到专家.md": {
+            "index": 56,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "vimshi_yong_ji_qiao.md",
+                "title": "Vim使用技巧",
+                "level": "1.6.3",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "鲜活的数据--数据可视化指南.md",
+                "title": "鲜活的数据--数据可视化指南",
+                "level": "1.6.5",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.6.4"
+        },
+        "gao_xing_neng_wang_zhan_jian_she_jin_jie_zhi_nan.md": {
+            "index": 14,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "gao_xing_neng_wang_zhan_jian_she_zhi_nan.md",
+                "title": "高性能网站建设指南",
+                "level": "1.3.4",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "bootstrapshi_zhan.md",
+                "title": "BootStrap实战",
+                "level": "1.3.6",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.5"
+        },
+        "cssjie_mi.md": {
+            "index": 24,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "webkitji_zhu_nei_mu.md",
+                "title": "WebKit技术内幕",
+                "level": "1.3.14",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "javascriptqi_shi_lu.md",
+                "title": "JavaScript启示录",
+                "level": "1.3.16",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.15"
+        },
+        "qian_duan.md": {
+            "index": 6,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "http_power_book.md",
+                "title": "HTTP权威指南",
+                "level": "1.2.4",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "gao_xing_neng_javascript.md",
+                "title": "高性能JavaScript",
+                "level": "1.3.1",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3"
+        },
+        "webqian_duan_hei_ke_ji_zhu_jie_mi.md": {
+            "index": 18,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "javascriptgao_ji_cheng_xu_she_ji.md",
+                "title": "JavaScript高级程序设计",
+                "level": "1.3.8",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "javascripthan_shu_shi_bian_cheng.md",
+                "title": "JavaScript函数式编程",
+                "level": "1.3.10",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.9"
+        },
+        "she_ji_xin_li_xue_yi.md": {
+            "index": 67,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "yi_dong_she_ji.md",
+                "title": "移动设计",
+                "level": "1.8.2",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "网页设计创意书卷4.md",
+                "title": "网页设计创意书(卷4)",
+                "level": "1.8.4",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.8.3"
+        },
+        "dan_yuan_ce_shi_de_yi_zhu.md": {
+            "index": 41,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "phphe_xin_ji_zhu_yu_zui_jia_shi_jian.md",
+                "title": "PHP核心技术与最佳实践",
+                "level": "1.4.3",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "springshi_zhan.md",
+                "title": "Spring实战",
+                "level": "1.4.5",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.4.4"
+        },
+        "qi_ye_guan_li.md": {
+            "index": 62,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "han-shu-shi-bian-cheng-si-7ef45c.md",
+                "title": "函数式编程思维",
+                "level": "1.6.9",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "zhi_you_pian_zhi_kuang_cai_neng_sheng_cun.md",
+                "title": "只有偏执狂才能生存",
+                "level": "1.7.1",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.7"
+        },
+        "node.js.md": {
+            "index": 35,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "javascript_design.md",
+                "title": "javascript_设计模式",
+                "level": "1.3.25",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "javascriptgao-xiao-tu-xing-bian-cheng.md",
+                "title": "JavaScript高效图形编程",
+                "level": "1.3.27",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.26"
+        },
+        "编写可维护的javascript.md": {
+            "index": 30,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "jqueryji_zhu_nei_mu_ff1a_shen_ru_jie_xi_jquery_jia.md",
+                "title": "jQuery技术内幕：深入解析jQuery架构设计与实现原理",
+                "level": "1.3.20",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "javascript语言精粹.md",
+                "title": "JavaScript语言精粹",
+                "level": "1.3.22",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.21"
+        },
+        "bootstrapshi_zhan.md": {
+            "index": 15,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "gao_xing_neng_wang_zhan_jian_she_jin_jie_zhi_nan.md",
+                "title": "高性能网站建设进阶指南",
+                "level": "1.3.5",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "javascriptshe_ji_mo_shi_yu_kai_fa_shi_jian.md",
+                "title": "JavaScript设计模式与开发实践",
+                "level": "1.3.7",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.6"
+        },
+        "linux.md": {
+            "index": 44,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "linuxniao_ge_si_fang_cai_ji_chu_xue_xi_pian.md",
+                "title": "Linux鸟哥私房菜基础学习篇",
+                "level": "1.4.6",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "da_xing_wang_zhan_ji_zhu_jia_gou_he_xin_yuan_li_yu.md",
+                "title": "大型网站技术架构核心原理与案例分析",
+                "level": "1.4.8",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.4.7"
+        },
+        "bian_xie_ke_ce_shi_de_javascript_dai_ma.md": {
+            "index": 21,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "html5_canvas.md",
+                "title": "HTML5 Canvas",
+                "level": "1.3.11",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "javascriptwebying_yong_kai_fa.md",
+                "title": "JavaScriptWeb应用开发",
+                "level": "1.3.13",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.12"
+        },
+        "fu_wu_qi_duan.md": {
+            "index": 37,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "javascriptgao-xiao-tu-xing-bian-cheng.md",
+                "title": "JavaScript高效图形编程",
+                "level": "1.3.27",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "xi_tong_fen_xi_shi_uml_xiang_mu_shi_zhan.md",
+                "title": "系统分析师UML项目实战",
+                "level": "1.4.1",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.4"
+        },
+        "zhi_you_pian_zhi_kuang_cai_neng_sheng_cun.md": {
+            "index": 63,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "qi_ye_guan_li.md",
+                "title": "企业管理",
+                "level": "1.7",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "she_ji.md",
+                "title": "设计",
+                "level": "1.8",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.7.1"
+        },
+        "springshi_zhan.md": {
+            "index": 42,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "dan_yuan_ce_shi_de_yi_zhu.md",
+                "title": "单元测试的艺术",
+                "level": "1.4.4",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "linuxniao_ge_si_fang_cai_ji_chu_xue_xi_pian.md",
+                "title": "Linux鸟哥私房菜基础学习篇",
+                "level": "1.4.6",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.4.5"
+        },
+        "han-shu-shi-bian-cheng-si-7ef45c.md": {
+            "index": 61,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "qi-ye-ying-yong-jia-gou-mo-shi.md",
+                "title": "企业应用架构模式",
+                "level": "1.6.8",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "qi_ye_guan_li.md",
+                "title": "企业管理",
+                "level": "1.7",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.6.9"
+        },
+        "javascriptquan_wei_zhi_nan.md": {
+            "index": 8,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "gao_xing_neng_javascript.md",
+                "title": "高性能JavaScript",
+                "level": "1.3.1",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "feng_kuang_html5__css3__javascript.md",
+                "title": "疯狂Html5-CSS3-JavaScript",
+                "level": "1.3.3",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.2"
+        },
+        "feng_kuang_html5__css3__javascript.md": {
+            "index": 9,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "javascriptquan_wei_zhi_nan.md",
+                "title": "JavaScript权威指南",
+                "level": "1.3.2",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "html5.md",
+                "title": "HTML5",
+                "level": "1.3.3.1",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.3"
+        },
+        "utils.md": {
+            "index": 52,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "bai_mao_zi_jiang_web_an_quan.md",
+                "title": "白帽子讲WEB安全",
+                "level": "1.5.1",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "progit.md",
+                "title": "Pro_Git",
+                "level": "1.6.1",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.6"
+        },
+        "gao_xing_neng_javascript.md": {
+            "index": 7,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "qian_duan.md",
+                "title": "前端",
+                "level": "1.3",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "javascriptquan_wei_zhi_nan.md",
+                "title": "JavaScript权威指南",
+                "level": "1.3.2",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.1"
+        },
+        "css3.md": {
+            "index": 11,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "html5.md",
+                "title": "HTML5",
+                "level": "1.3.3.1",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "amazingjavascript-2.md",
+                "title": "JavaScript",
+                "level": "1.3.3.3",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.3.2"
+        },
+        "javascriptshe_ji_mo_shi_yu_kai_fa_shi_jian.md": {
+            "index": 16,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "bootstrapshi_zhan.md",
+                "title": "BootStrap实战",
+                "level": "1.3.6",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "javascriptgao_ji_cheng_xu_she_ji.md",
+                "title": "JavaScript高级程序设计",
+                "level": "1.3.8",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.7"
+        },
+        "xi_tong_fen_xi_shi_uml_xiang_mu_shi_zhan.md": {
+            "index": 38,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "fu_wu_qi_duan.md",
+                "title": "服务器端",
+                "level": "1.4",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "shen_ru_php_mian_xiang_dui_xiang_3001_mo_shi_yu_sh.md",
+                "title": "深入php面向对象、模式与实践",
+                "level": "1.4.2",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.4.1"
+        },
+        "javascript_design.md": {
+            "index": 34,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "深入浅出node.md",
+                "title": "深入浅出node",
+                "level": "1.3.24",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "node.js.md",
+                "title": "Node.js高级编程",
+                "level": "1.3.26",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.25"
+        },
+        "gao-xing-neng-mysql.md": {
+            "index": 49,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "internet_game_technology.md",
+                "title": "网络游戏核心技术与实战",
+                "level": "1.4.11",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "an_quan.md",
+                "title": "安全",
+                "level": "1.5",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.4.12"
+        },
+        "javascripthan_shu_shi_bian_cheng.md": {
+            "index": 19,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "webqian_duan_hei_ke_ji_zhu_jie_mi.md",
+                "title": "Web前端黑客技术揭秘",
+                "level": "1.3.9",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "html5_canvas.md",
+                "title": "HTML5 Canvas",
+                "level": "1.3.11",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.10"
+        },
+        "amazingjavascript-2.md": {
+            "index": 12,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "css3.md",
+                "title": "CSS3",
+                "level": "1.3.3.2",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "gao_xing_neng_wang_zhan_jian_she_zhi_nan.md",
+                "title": "高性能网站建设指南",
+                "level": "1.3.4",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.3.3"
+        },
+        "she_ji.md": {
+            "index": 64,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "zhi_you_pian_zhi_kuang_cai_neng_sheng_cun.md",
+                "title": "只有偏执狂才能生存",
+                "level": "1.7.1",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "zhi_mei_yong_hu_ren_ben_she_ji_pou_xi.md",
+                "title": "至美用户人本设计剖析",
+                "level": "1.8.1",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.8"
+        },
+        "鲜活的数据--数据可视化指南.md": {
+            "index": 57,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "程序员修炼之道--从小工到专家.md",
+                "title": "程序员修炼之道--从小工到专家",
+                "level": "1.6.4",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "beirf_history_of_humankind.md",
+                "title": "人类简史",
+                "level": "1.6.6",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.6.5"
+        },
+        "javascriptqi_shi_lu.md": {
+            "index": 25,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "cssjie_mi.md",
+                "title": "CSS揭秘",
+                "level": "1.3.15",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "effectivejavascriptbian_xie_gao_zhi_liang_javascri.md",
+                "title": "EffectiveJavaScript编写高质量JavaScript的68个有效方法",
+                "level": "1.3.17",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.16"
+        },
+        "README.md": {
+            "index": 0,
+            "title": 12345,
+            "introduction": true,
+            "prev": {
+                "path": "fan_qie_gong_zuo_fa_tu_jie.md",
+                "title": "番茄工作法图解",
+                "level": "1.9.1",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "wang_luo.md",
+                "title": "网络",
+                "level": "1.2",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.1"
+        },
+        "laravelkuang_jia_guan_jian_ji_zhu_jie_xi.md": {
+            "index": 46,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "da_xing_wang_zhan_ji_zhu_jia_gou_he_xin_yuan_li_yu.md",
+                "title": "大型网站技术架构核心原理与案例分析",
+                "level": "1.4.8",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "modernphp.md",
+                "title": "ModernPHP",
+                "level": "1.4.10",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.4.9"
+        },
+        "wiresharkwang_luo_fen_xi_de_yi_zhu.md": {
+            "index": 3,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "tu_jie_http.md",
+                "title": "图解HTTP",
+                "level": "1.2.1",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "tcpipxiang_jie_juan_4e003a_xie_yi.md",
+                "title": "TCP-IP详解 卷一: 协议",
+                "level": "1.2.3",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.2.2"
+        },
+        "javascript-dom-编程艺术第2版.md": {
+            "index": 32,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "javascript语言精粹.md",
+                "title": "JavaScript语言精粹",
+                "level": "1.3.22",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "深入浅出node.md",
+                "title": "深入浅出node",
+                "level": "1.3.24",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.23"
+        },
+        "html5_canvas.md": {
+            "index": 20,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "javascripthan_shu_shi_bian_cheng.md",
+                "title": "JavaScript函数式编程",
+                "level": "1.3.10",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "bian_xie_ke_ce_shi_de_javascript_dai_ma.md",
+                "title": "编写可测试的JavaScript代码",
+                "level": "1.3.12",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.11"
+        },
+        "tcpipxiang_jie_juan_4e003a_xie_yi.md": {
+            "index": 4,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "wiresharkwang_luo_fen_xi_de_yi_zhu.md",
+                "title": "Wireshark网络分析的艺术",
+                "level": "1.2.2",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "http_power_book.md",
+                "title": "HTTP权威指南",
+                "level": "1.2.4",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.2.3"
+        },
+        "深入浅出node.md": {
+            "index": 33,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "javascript-dom-编程艺术第2版.md",
+                "title": "JavaScript DOM 编程艺术(第2版)",
+                "level": "1.3.23",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "javascript_design.md",
+                "title": "javascript_设计模式",
+                "level": "1.3.25",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.24"
+        },
+        "webkitji_zhu_nei_mu.md": {
+            "index": 23,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "javascriptwebying_yong_kai_fa.md",
+                "title": "JavaScriptWeb应用开发",
+                "level": "1.3.13",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "cssjie_mi.md",
+                "title": "CSS揭秘",
+                "level": "1.3.15",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.14"
+        },
+        "html5.md": {
+            "index": 10,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "feng_kuang_html5__css3__javascript.md",
+                "title": "疯狂Html5-CSS3-JavaScript",
+                "level": "1.3.3",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "css3.md",
+                "title": "CSS3",
+                "level": "1.3.3.2",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.3.1"
+        },
+        "shen_ru_php_mian_xiang_dui_xiang_3001_mo_shi_yu_sh.md": {
+            "index": 39,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "xi_tong_fen_xi_shi_uml_xiang_mu_shi_zhan.md",
+                "title": "系统分析师UML项目实战",
+                "level": "1.4.1",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "phphe_xin_ji_zhu_yu_zui_jia_shi_jian.md",
+                "title": "PHP核心技术与最佳实践",
+                "level": "1.4.3",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.4.2"
+        },
+        "wang_luo.md": {
+            "index": 1,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "README.md",
+                "title": "Introduction",
+                "level": "1.1",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "tu_jie_http.md",
+                "title": "图解HTTP",
+                "level": "1.2.1",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.2"
+        },
+        "xiao_lv.md": {
+            "index": 69,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "网页设计创意书卷4.md",
+                "title": "网页设计创意书(卷4)",
+                "level": "1.8.4",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "fan_qie_gong_zuo_fa_tu_jie.md",
+                "title": "番茄工作法图解",
+                "level": "1.9.1",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.9"
+        },
+        "beirf_history_of_humankind.md": {
+            "index": 58,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "鲜活的数据--数据可视化指南.md",
+                "title": "鲜活的数据--数据可视化指南",
+                "level": "1.6.5",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "base_-farewell.md",
+                "title": "最好的告别",
+                "level": "1.6.7",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.6.6"
+        },
+        "网页设计创意书卷4.md": {
+            "index": 68,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "she_ji_xin_li_xue_yi.md",
+                "title": "设计心理学一",
+                "level": "1.8.3",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "xiao_lv.md",
+                "title": "效率",
+                "level": "1.9",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.8.4"
+        },
+        "javascriptwebying_yong_kai_fa.md": {
+            "index": 22,
+            "title": 12345,
+            "introduction": false,
+            "prev": {
+                "path": "bian_xie_ke_ce_shi_de_javascript_dai_ma.md",
+                "title": "编写可测试的JavaScript代码",
+                "level": "1.3.12",
+                "exists": true,
+                "external": false
+            },
+            "next": {
+                "path": "webkitji_zhu_nei_mu.md",
+                "title": "WebKit技术内幕",
+                "level": "1.3.14",
+                "exists": true,
+                "external": false
+            },
+            "level": "1.3.13"
+        }
+    },
+    "book": "~",
+    "options": "~config~values"
+}
+[0;35mdebug:[0m copy assets from theme /Users/maizhikun/.gitbook/versions/3.2.2/node_modules/gitbook-plugin-theme-default/_assets/website 
+[0;35mdebug:[0m copy resources from plugin /Users/maizhikun/.gitbook/versions/3.2.2/node_modules/gitbook-plugin-fontsettings/assets 
+[0;35mdebug:[0m copy resources from plugin /Users/maizhikun/.gitbook/versions/3.2.2/node_modules/gitbook-plugin-sharing/assets 
+[0;35mdebug:[0m copy resources from plugin /Users/maizhikun/.gitbook/versions/3.2.2/node_modules/gitbook-plugin-lunr/assets 
+[0;35mdebug:[0m copy resources from plugin /Users/maizhikun/.gitbook/versions/3.2.2/node_modules/gitbook-plugin-search/assets 
+[0;35mdebug:[0m copy resources from plugin /Users/maizhikun/.gitbook/versions/3.2.2/node_modules/gitbook-plugin-highlight/css 
+[0;35mdebug:[0m copy resources from plugin /Users/maizhikun/GitBook/Library/mzkmzk/Read/node_modules/gitbook-plugin-splitter/book 
+[0;35mdebug:[0m copy resources from plugin /Users/maizhikun/GitBook/Library/mzkmzk/Read/node_modules/gitbook-plugin-github-buttons/lib 
+[0;35mdebug:[0m copy resources from plugin /Users/maizhikun/GitBook/Library/mzkmzk/Read/node_modules/gitbook-plugin-tbfed-pagefooter/assets 
+[0;35mdebug:[0m copy resources from plugin /Users/maizhikun/GitBook/Library/mzkmzk/Read/node_modules/gitbook-plugin-baidu/book 
+[0;35mdebug:[0m copy resources from plugin /Users/maizhikun/GitBook/Library/mzkmzk/Read/node_modules/gitbook-plugin-duoshuo/duoshuo 
+[0;35mdebug:[0m copy asset ".gitignore" 
+[0;35mdebug:[0m copy asset ".md" 
+[0;35mdebug:[0m copy asset "2015-11-19-01.png" 
+[0;35mdebug:[0m copy asset "2015-11-19-01副本.png" 
+[0;35mdebug:[0m copy asset "2015-11-19-02.png" 
+[0;35mdebug:[0m copy asset "QQ20151118-0.png" 
+[0;35mdebug:[0m copy asset "QQ20151118-1.png" 
+[0;35mdebug:[0m copy asset "QQ20151119-1.png" 
+[0;35mdebug:[0m copy asset "QQ20151223-1.png" 
+[0;35mdebug:[0m copy asset "QQ20151223-2.png" 
+[0;35mdebug:[0m copy asset "QQ20151230-0.png" 
+[0;35mdebug:[0m copy asset "QQ20160103-0.png" 
+[0;35mdebug:[0m copy asset "QQ20160103-1.png" 
+[0;35mdebug:[0m copy asset "QQ20160103-2.png" 
+[0;35mdebug:[0m copy asset "QQ20160103-3.png" 
+[0;35mdebug:[0m copy asset "QQ20160106-0.png" 
+[0;35mdebug:[0m copy asset "QQ20160107-0.png" 
+[0;35mdebug:[0m copy asset "QQ20160107-3.png" 
+[0;35mdebug:[0m copy asset "QQ20160114-0.png" 
+[0;35mdebug:[0m copy asset "QQ20160117-0.png" 
+[0;35mdebug:[0m copy asset "QQ20160117-1.png" 
+[0;35mdebug:[0m copy asset "QQ20160121-1.png" 
+[0;35mdebug:[0m copy asset "QQ20160129-0.png" 
+[0;35mdebug:[0m copy asset "QQ20160129-1.png" 
+[0;35mdebug:[0m copy asset "QQ20160131-0.png" 
+[0;35mdebug:[0m copy asset "QQ20160131-1.png" 
+[0;35mdebug:[0m copy asset "QQ20160131-2.png" 
+[0;35mdebug:[0m copy asset "QQ20160131-3.png" 
+[0;35mdebug:[0m copy asset "QQ20160929-0.png" 
+[0;35mdebug:[0m copy asset "QQ20160929-1.png" 
+[0;35mdebug:[0m copy asset "QQ20160930-0.png" 
+[0;35mdebug:[0m copy asset "QQ20161008-0.png" 
+[0;35mdebug:[0m copy asset "QQ20161010-0.png" 
+[0;35mdebug:[0m copy asset "ajax.md" 
+[0;35mdebug:[0m copy asset "assets/QQ20170111-0.png" 
+[0;35mdebug:[0m copy asset "bian_cheng_shi_zhan.md" 
+[0;35mdebug:[0m copy asset "dombian_cheng.md" 
+[0;35mdebug:[0m copy asset "git_ji_chu.md" 
+[0;35mdebug:[0m copy asset "google75026bf2fa85c633.html" 
+[0;35mdebug:[0m copy asset "http.md" 
+[0;35mdebug:[0m copy asset "javascript.md" 
+[0;35mdebug:[0m copy asset "javascript_.md" 
+[0;35mdebug:[0m copy asset "ji_chu.md" 
+[0;35mdebug:[0m copy asset "ji_chu_.md" 
+[0;35mdebug:[0m copy asset "jia_zai_yu_zhi_xing.md" 
+[0;35mdebug:[0m copy asset "jiao_ben_hua_wen_dang.md" 
+[0;35mdebug:[0m copy asset "ke_hu_duan_javascript.md" 
+[0;35mdebug:[0m copy asset "package.json" 
+[0;35mdebug:[0m copy asset "robots.txt" 
+[0;35mdebug:[0m copy asset "shi_jian_chu_li.md" 
+[0;35mdebug:[0m copy asset "shu_ju_du_qu.md" 
+[0;35mdebug:[0m copy asset "sitemap.xml" 
+[0;35mdebug:[0m copy asset "suan_fa_he_liu_cheng_kong_zhi.md" 
+[0;35mdebug:[0m copy asset "tmp.txt" 
+[0;35mdebug:[0m copy asset "ui.md" 
+[0;35mdebug:[0m copy asset "zi_dong_ji_cheng.md" 
+[0;35mdebug:[0m copy asset "zi_fu_chuan_he_zheng_ze_biao_da_shi.md" 
+[0;35mdebug:[0m copy asset "两个装饰模式.png" 
+[0;35mdebug:[0m copy asset "组合模式.png" 
+[0;35mdebug:[0m copy asset "装饰模式.png" 
+[0;35mdebug:[0m generate page "README.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+Introduction
+1.1
+README.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page README.md 
+[0;35mdebug:[0m generate page "wang_luo.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+网络
+1.2
+wang_luo.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page wang_luo.md 
+[0;35mdebug:[0m generate page "tu_jie_http.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+图解HTTP
+1.2.1
+tu_jie_http.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page tu_jie_http.md 
+[0;35mdebug:[0m generate page "wiresharkwang_luo_fen_xi_de_yi_zhu.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+Wireshark网络分析的艺术
+1.2.2
+wiresharkwang_luo_fen_xi_de_yi_zhu.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page wiresharkwang_luo_fen_xi_de_yi_zhu.md 
+[0;35mdebug:[0m generate page "tcpipxiang_jie_juan_4e003a_xie_yi.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+TCP-IP详解 卷一: 协议
+1.2.3
+tcpipxiang_jie_juan_4e003a_xie_yi.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page tcpipxiang_jie_juan_4e003a_xie_yi.md 
+[0;35mdebug:[0m generate page "http_power_book.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+HTTP权威指南
+1.2.4
+http_power_book.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page http_power_book.md 
+[0;35mdebug:[0m generate page "qian_duan.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+前端
+1.3
+qian_duan.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page qian_duan.md 
+[0;35mdebug:[0m generate page "gao_xing_neng_javascript.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+高性能JavaScript
+1.3.1
+gao_xing_neng_javascript.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page gao_xing_neng_javascript.md 
+[0;35mdebug:[0m generate page "javascriptquan_wei_zhi_nan.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+JavaScript权威指南
+1.3.2
+javascriptquan_wei_zhi_nan.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page javascriptquan_wei_zhi_nan.md 
+[0;35mdebug:[0m generate page "feng_kuang_html5__css3__javascript.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+疯狂Html5-CSS3-JavaScript
+1.3.3
+feng_kuang_html5__css3__javascript.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page feng_kuang_html5__css3__javascript.md 
+[0;35mdebug:[0m generate page "html5.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+HTML5
+1.3.3.1
+html5.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page html5.md 
+[0;35mdebug:[0m generate page "css3.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+CSS3
+1.3.3.2
+css3.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page css3.md 
+[0;35mdebug:[0m generate page "amazingjavascript-2.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+JavaScript
+1.3.3.3
+amazingjavascript-2.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page amazingjavascript-2.md 
+[0;35mdebug:[0m generate page "gao_xing_neng_wang_zhan_jian_she_zhi_nan.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+高性能网站建设指南
+1.3.4
+gao_xing_neng_wang_zhan_jian_she_zhi_nan.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page gao_xing_neng_wang_zhan_jian_she_zhi_nan.md 
+[0;35mdebug:[0m generate page "gao_xing_neng_wang_zhan_jian_she_jin_jie_zhi_nan.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+高性能网站建设进阶指南
+1.3.5
+gao_xing_neng_wang_zhan_jian_she_jin_jie_zhi_nan.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page gao_xing_neng_wang_zhan_jian_she_jin_jie_zhi_nan.md 
+[0;35mdebug:[0m generate page "bootstrapshi_zhan.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+BootStrap实战
+1.3.6
+bootstrapshi_zhan.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page bootstrapshi_zhan.md 
+[0;35mdebug:[0m generate page "javascriptshe_ji_mo_shi_yu_kai_fa_shi_jian.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+JavaScript设计模式与开发实践
+1.3.7
+javascriptshe_ji_mo_shi_yu_kai_fa_shi_jian.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page javascriptshe_ji_mo_shi_yu_kai_fa_shi_jian.md 
+[0;35mdebug:[0m generate page "javascriptgao_ji_cheng_xu_she_ji.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+JavaScript高级程序设计
+1.3.8
+javascriptgao_ji_cheng_xu_she_ji.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page javascriptgao_ji_cheng_xu_she_ji.md 
+[0;35mdebug:[0m generate page "webqian_duan_hei_ke_ji_zhu_jie_mi.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+Web前端黑客技术揭秘
+1.3.9
+webqian_duan_hei_ke_ji_zhu_jie_mi.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page webqian_duan_hei_ke_ji_zhu_jie_mi.md 
+[0;35mdebug:[0m generate page "javascripthan_shu_shi_bian_cheng.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+JavaScript函数式编程
+1.3.10
+javascripthan_shu_shi_bian_cheng.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page javascripthan_shu_shi_bian_cheng.md 
+[0;35mdebug:[0m generate page "html5_canvas.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+HTML5 Canvas
+1.3.11
+html5_canvas.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page html5_canvas.md 
+[0;35mdebug:[0m generate page "bian_xie_ke_ce_shi_de_javascript_dai_ma.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+编写可测试的JavaScript代码
+1.3.12
+bian_xie_ke_ce_shi_de_javascript_dai_ma.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page bian_xie_ke_ce_shi_de_javascript_dai_ma.md 
+[0;35mdebug:[0m generate page "javascriptwebying_yong_kai_fa.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+JavaScriptWeb应用开发
+1.3.13
+javascriptwebying_yong_kai_fa.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page javascriptwebying_yong_kai_fa.md 
+[0;35mdebug:[0m generate page "webkitji_zhu_nei_mu.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+WebKit技术内幕
+1.3.14
+webkitji_zhu_nei_mu.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page webkitji_zhu_nei_mu.md 
+[0;35mdebug:[0m generate page "cssjie_mi.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+CSS揭秘
+1.3.15
+cssjie_mi.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page cssjie_mi.md 
+[0;35mdebug:[0m generate page "javascriptqi_shi_lu.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+JavaScript启示录
+1.3.16
+javascriptqi_shi_lu.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page javascriptqi_shi_lu.md 
+[0;35mdebug:[0m generate page "effectivejavascriptbian_xie_gao_zhi_liang_javascri.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+EffectiveJavaScript编写高质量JavaScript的68个有效方法
+1.3.17
+effectivejavascriptbian_xie_gao_zhi_liang_javascri.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page effectivejavascriptbian_xie_gao_zhi_liang_javascri.md 
+[0;35mdebug:[0m generate page "webqian_duan_kai_fa_zui_jia_shi_jian.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+Web前端开发最佳实践
+1.3.18
+webqian_duan_kai_fa_zui_jia_shi_jian.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page webqian_duan_kai_fa_zui_jia_shi_jian.md 
+[0;35mdebug:[0m generate page "javascriptxing_neng_you_hua_du_liang_3001_jian_kon.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+JavaScript性能优化度量、监控与可视化
+1.3.19
+javascriptxing_neng_you_hua_du_liang_3001_jian_kon.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page javascriptxing_neng_you_hua_du_liang_3001_jian_kon.md 
+[0;35mdebug:[0m generate page "jqueryji_zhu_nei_mu_ff1a_shen_ru_jie_xi_jquery_jia.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+jQuery技术内幕：深入解析jQuery架构设计与实现原理
+1.3.20
+jqueryji_zhu_nei_mu_ff1a_shen_ru_jie_xi_jquery_jia.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page jqueryji_zhu_nei_mu_ff1a_shen_ru_jie_xi_jquery_jia.md 
+[0;35mdebug:[0m generate page "编写可维护的javascript.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+编写可维护的JavaScript
+1.3.21
+编写可维护的javascript.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page 编写可维护的javascript.md 
+[0;35mdebug:[0m generate page "javascript语言精粹.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+JavaScript语言精粹
+1.3.22
+javascript语言精粹.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page javascript语言精粹.md 
+[0;35mdebug:[0m generate page "javascript-dom-编程艺术第2版.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+JavaScript DOM 编程艺术(第2版)
+1.3.23
+javascript-dom-编程艺术第2版.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page javascript-dom-编程艺术第2版.md 
+[0;35mdebug:[0m generate page "深入浅出node.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+深入浅出node
+1.3.24
+深入浅出node.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page 深入浅出node.md 
+[0;35mdebug:[0m generate page "javascript_design.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+javascript_设计模式
+1.3.25
+javascript_design.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page javascript_design.md 
+[0;35mdebug:[0m generate page "node.js.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+Node.js高级编程
+1.3.26
+node.js.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page node.js.md 
+[0;35mdebug:[0m generate page "javascriptgao-xiao-tu-xing-bian-cheng.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+JavaScript高效图形编程
+1.3.27
+javascriptgao-xiao-tu-xing-bian-cheng.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page javascriptgao-xiao-tu-xing-bian-cheng.md 
+[0;35mdebug:[0m generate page "fu_wu_qi_duan.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+服务器端
+1.4
+fu_wu_qi_duan.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page fu_wu_qi_duan.md 
+[0;35mdebug:[0m generate page "xi_tong_fen_xi_shi_uml_xiang_mu_shi_zhan.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+系统分析师UML项目实战
+1.4.1
+xi_tong_fen_xi_shi_uml_xiang_mu_shi_zhan.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page xi_tong_fen_xi_shi_uml_xiang_mu_shi_zhan.md 
+[0;35mdebug:[0m generate page "shen_ru_php_mian_xiang_dui_xiang_3001_mo_shi_yu_sh.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+深入php面向对象、模式与实践
+1.4.2
+shen_ru_php_mian_xiang_dui_xiang_3001_mo_shi_yu_sh.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page shen_ru_php_mian_xiang_dui_xiang_3001_mo_shi_yu_sh.md 
+[0;35mdebug:[0m generate page "phphe_xin_ji_zhu_yu_zui_jia_shi_jian.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+PHP核心技术与最佳实践
+1.4.3
+phphe_xin_ji_zhu_yu_zui_jia_shi_jian.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page phphe_xin_ji_zhu_yu_zui_jia_shi_jian.md 
+[0;35mdebug:[0m generate page "dan_yuan_ce_shi_de_yi_zhu.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+单元测试的艺术
+1.4.4
+dan_yuan_ce_shi_de_yi_zhu.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page dan_yuan_ce_shi_de_yi_zhu.md 
+[0;35mdebug:[0m generate page "springshi_zhan.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+Spring实战
+1.4.5
+springshi_zhan.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page springshi_zhan.md 
+[0;35mdebug:[0m generate page "linuxniao_ge_si_fang_cai_ji_chu_xue_xi_pian.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+Linux鸟哥私房菜基础学习篇
+1.4.6
+linuxniao_ge_si_fang_cai_ji_chu_xue_xi_pian.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page linuxniao_ge_si_fang_cai_ji_chu_xue_xi_pian.md 
+[0;35mdebug:[0m generate page "da_xing_wang_zhan_ji_zhu_jia_gou_he_xin_yuan_li_yu.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+大型网站技术架构核心原理与案例分析
+1.4.8
+da_xing_wang_zhan_ji_zhu_jia_gou_he_xin_yuan_li_yu.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page da_xing_wang_zhan_ji_zhu_jia_gou_he_xin_yuan_li_yu.md 
+[0;35mdebug:[0m generate page "laravelkuang_jia_guan_jian_ji_zhu_jie_xi.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+Laravel框架关键技术解析
+1.4.9
+laravelkuang_jia_guan_jian_ji_zhu_jie_xi.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page laravelkuang_jia_guan_jian_ji_zhu_jie_xi.md 
+[0;35mdebug:[0m generate page "modernphp.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+ModernPHP
+1.4.10
+modernphp.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page modernphp.md 
+[0;35mdebug:[0m generate page "internet_game_technology.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+网络游戏核心技术与实战
+1.4.11
+internet_game_technology.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page internet_game_technology.md 
+[0;35mdebug:[0m generate page "gao-xing-neng-mysql.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+高性能MySQL
+1.4.12
+gao-xing-neng-mysql.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page gao-xing-neng-mysql.md 
+[0;35mdebug:[0m generate page "an_quan.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+安全
+1.5
+an_quan.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page an_quan.md 
+[0;35mdebug:[0m generate page "bai_mao_zi_jiang_web_an_quan.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+白帽子讲WEB安全
+1.5.1
+bai_mao_zi_jiang_web_an_quan.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page bai_mao_zi_jiang_web_an_quan.md 
+[0;35mdebug:[0m generate page "utils.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+Utils
+1.6
+utils.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page utils.md 
+[0;35mdebug:[0m generate page "progit.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+Pro_Git
+1.6.1
+progit.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page progit.md 
+[0;35mdebug:[0m generate page "zhong_gou_gai_shan_ji_you_dai_ma_de_she_ji.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+重构改善既有代码的设计
+1.6.2
+zhong_gou_gai_shan_ji_you_dai_ma_de_she_ji.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page zhong_gou_gai_shan_ji_you_dai_ma_de_she_ji.md 
+[0;35mdebug:[0m generate page "vimshi_yong_ji_qiao.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+Vim使用技巧
+1.6.3
+vimshi_yong_ji_qiao.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page vimshi_yong_ji_qiao.md 
+[0;35mdebug:[0m generate page "程序员修炼之道--从小工到专家.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+程序员修炼之道--从小工到专家
+1.6.4
+程序员修炼之道--从小工到专家.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page 程序员修炼之道--从小工到专家.md 
+[0;35mdebug:[0m generate page "鲜活的数据--数据可视化指南.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+鲜活的数据--数据可视化指南
+1.6.5
+鲜活的数据--数据可视化指南.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page 鲜活的数据--数据可视化指南.md 
+[0;35mdebug:[0m generate page "beirf_history_of_humankind.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+人类简史
+1.6.6
+beirf_history_of_humankind.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page beirf_history_of_humankind.md 
+[0;35mdebug:[0m generate page "base_-farewell.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+最好的告别
+1.6.7
+base_-farewell.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page base_-farewell.md 
+[0;35mdebug:[0m generate page "qi-ye-ying-yong-jia-gou-mo-shi.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+企业应用架构模式
+1.6.8
+qi-ye-ying-yong-jia-gou-mo-shi.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page qi-ye-ying-yong-jia-gou-mo-shi.md 
+[0;35mdebug:[0m generate page "han-shu-shi-bian-cheng-si-7ef45c.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+函数式编程思维
+1.6.9
+han-shu-shi-bian-cheng-si-7ef45c.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page han-shu-shi-bian-cheng-si-7ef45c.md 
+[0;35mdebug:[0m generate page "qi_ye_guan_li.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+企业管理
+1.7
+qi_ye_guan_li.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page qi_ye_guan_li.md 
+[0;35mdebug:[0m generate page "zhi_you_pian_zhi_kuang_cai_neng_sheng_cun.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+只有偏执狂才能生存
+1.7.1
+zhi_you_pian_zhi_kuang_cai_neng_sheng_cun.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page zhi_you_pian_zhi_kuang_cai_neng_sheng_cun.md 
+[0;35mdebug:[0m generate page "she_ji.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+设计
+1.8
+she_ji.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page she_ji.md 
+[0;35mdebug:[0m generate page "zhi_mei_yong_hu_ren_ben_she_ji_pou_xi.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+至美用户人本设计剖析
+1.8.1
+zhi_mei_yong_hu_ren_ben_she_ji_pou_xi.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page zhi_mei_yong_hu_ren_ben_she_ji_pou_xi.md 
+[0;35mdebug:[0m generate page "yi_dong_she_ji.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+移动设计
+1.8.2
+yi_dong_she_ji.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page yi_dong_she_ji.md 
+[0;35mdebug:[0m generate page "she_ji_xin_li_xue_yi.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+设计心理学一
+1.8.3
+she_ji_xin_li_xue_yi.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page she_ji_xin_li_xue_yi.md 
+[0;35mdebug:[0m generate page "网页设计创意书卷4.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+网页设计创意书(卷4)
+1.8.4
+网页设计创意书卷4.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page 网页设计创意书卷4.md 
+[0;35mdebug:[0m generate page "xiao_lv.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+效率
+1.9
+xiao_lv.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page xiao_lv.md 
+[0;35mdebug:[0m generate page "fan_qie_gong_zuo_fa_tu_jie.md" 
+[0;35mdebug:[0m calling hook "page:before" 
+page hooks
+番茄工作法图解
+1.9.1
+fan_qie_gong_zuo_fa_tu_jie.md
+
+[0;35mdebug:[0m calling hook "page" 
+[0;35mdebug:[0m index page fan_qie_gong_zuo_fa_tu_jie.md 
+[0;35mdebug:[0m calling hook "finish:before" 
+[0;35mdebug:[0m calling hook "finish" 
+{
+    "undefined": {
+        "title": "番茄工作法图解",
+        "basename": "fan_qie_gong_zuo_fa_tu_jie.md"
+    }
+}
+[0;35mdebug:[0m write search index 
+[0;36minfo:[0m [0;32m>> [0mgeneration finished with success in 10.4s ! 

@@ -1,5 +1,5 @@
 {
-  "title": "Read笔记",
+  "title": "404k的阅读笔记",
   "description": "404mzk 阅读笔记",
   "language": "zh",
   "plugins": [
@@ -7,7 +7,8 @@
     "baidu",
     "tbfed-pagefooter",
     "github-buttons",
-    "splitter"
+    "splitter",
+    "catalogue-title"
   ],
   "pluginsConfig": {
     "duoshuo": {
