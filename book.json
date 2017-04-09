@@ -3,14 +3,21 @@
   "description": "404mzk 阅读笔记",
   "language": "zh",
   "plugins": [
-    "duoshuo",
+    "disqus",
     "baidu",
     "tbfed-pagefooter",
     "github-buttons",
     "splitter",
-    "catalogue-title"
+    "anchor-navigation-ex",
+    "anchors",
+     "catalogue-title",
+     "edit-link",
+     "sitemap-general"
   ],
   "pluginsConfig": {
+    "disqus": {
+        "shortName": "read-404mzk-com-1"
+    },
     "duoshuo": {
       "short_name": "read404mzk",
       "theme": "default"
@@ -20,7 +27,7 @@
     },
     "tbfed-pagefooter": {
       "copyright":"&copy 404mzk",
-      "modify_label": "该文件修订时间：",
+      "modify_label": "<a target='_blank' href='http://read.404mzk.com'>http://read.404mzk.com </a>该文件修订时间：",
       "modify_format": "YYYY-MM-DD HH:mm:ss"
     },
     "github-buttons": {
@@ -30,6 +37,34 @@
         "watch"
       ],
       "size": "small"
+    },
+    "anchor-navigation-ex": {
+        "showLevel": false,
+        "associatedWithSummary": true,
+        "mode": "float",
+        "float": {
+            "showLevelIcon": false,
+            "level1Icon": "fa fa-hand-o-right",
+            "level2Icon": "fa fa-hand-o-right",
+            "level3Icon": "fa fa-hand-o-right"
+        },
+        "pageTop": {
+            "showLevelIcon": false,
+            "level1Icon": "fa fa-hand-o-right",
+            "level2Icon": "fa fa-hand-o-right",
+            "level3Icon": "fa fa-hand-o-right"
+        }
+    },
+    "simple-page-toc": {
+        "maxDepth": 3,
+        "skipFirstH1": true
+    },
+    "edit-link": {
+        "base": "https://github.com/mzkmzk/Read/blob/master",
+        "label": "Edit This Page"
+    },
+    "sitemap-general": {
+            "prefix": "http://read.404mzk.com"
     }
 
   }
