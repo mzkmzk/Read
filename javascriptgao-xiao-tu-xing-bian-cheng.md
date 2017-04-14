@@ -55,8 +55,8 @@ api:
 2. drawImage(source,x, y, width, height): 在1的基础上 缩放图像到所需大小
 3. drawImage(source, sx, sy, swidth, sheight, x, y, width, height): 2~5参数制定源图像中的源矩形块,6~9绘制画布上的目标
 
-drawImage在FF或Opera 绘制小于1的像素位置,会导致严重的性能损失
+drawImage在FF或Opera 绘制小数点的像素位置,会导致严重的性能损失
 
-最好先 Math.floor(x) 或 (x>0)
+最好先 Math.floor(x) 或 (x>>0)
 
 
