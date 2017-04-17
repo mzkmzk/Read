@@ -60,3 +60,14 @@ drawImage在FF或Opera 绘制小数点的像素位置,会导致严重的性能�
 最好先 Math.floor(x) 或 (x>>0)
 
 
+# 7. 游戏和模拟中的向量
+
+# 8. 谷歌可视化
+
+国人喜欢echart
+
+# 9. 使用jquery mobile为移动设备开发
+
+# 10. PhoneGap创建Android应用
+
+
