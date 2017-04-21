@@ -63,6 +63,7 @@
   * [企业应用架构模式](qi-ye-ying-yong-jia-gou-mo-shi.md)
   * [函数式编程思维](han-shu-shi-bian-cheng-si-7ef45c.md)
   * [网络营销推广实战宝典](wang-luo-ying-xiao-tui-guang-shi-zhan-bao-dian.md)
+  * [精通正则表达式](jing-tong-zheng-ze-biao-da-shi.md)
 * [企业管理](qi_ye_guan_li.md)
   * [只有偏执狂才能生存](zhi_you_pian_zhi_kuang_cai_neng_sheng_cun.md)
 * [设计](she_ji.md)
