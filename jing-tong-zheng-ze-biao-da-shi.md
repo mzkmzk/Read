@@ -21,8 +21,13 @@
 正则引擎分类
 
 1. DFA(符合或不符合POSIX标准的都属此类)
-2. 传统型NFA
+2. 传统型NFA (支持忽略优先量词)
 3. POSIX NFA
 
-
+```javascript
+//忽略优先量词是否支持,支付则是传统NFA
+if ( 'nfa not'.match(/nfa|nfa not/).length === 1 ) { //只匹配了nfa 没有批核nfa not
+    console.log('传统NFA')
+}
+```
                                                                                                                                                                                              
