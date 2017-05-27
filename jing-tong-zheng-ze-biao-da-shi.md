@@ -68,7 +68,13 @@ if ( 'nfa not'.match(/nfa|nfa not/).length === 1 ) { //只匹配了nfa 没有批
 6. 匹配成功
 
 
+> 先来先服务
 
+```javascript
+'copyright 2003'.match(/^.*([0-9]+)/)
+```
+
+的匹配结果是啥? 只匹配了3 而没有匹配2003
 
 
                                                                                                                                                                                              
