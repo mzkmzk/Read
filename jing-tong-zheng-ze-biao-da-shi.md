@@ -93,16 +93,21 @@ if ( 'nfa not'.match(/nfa|nfa not/).length === 1 ) { //只匹配了nfa 没有批
 
 `\to(nite|knight|night)\`匹配文本`...tonight...`
 
-目标函数找到了to, 尝试匹配nite(尝试匹配n 然后i 然后是t ) 发现不能匹配
-
-                                                                                                                                                                                            然后尝试knight 尝试匹配k 发现不能匹配
+1. 目标函数找到了to, 尝试匹配nite(尝试匹配n 然后i 然后是t ) 发现不能匹配
+                                                                                                                                                                                            2. 然后尝试knight 尝试匹配k 发现不能匹配
                                                                                                                                                                                             
-然后匹配night
+3. 然后匹配night
 
-表达式的控制权在不同的元素之间转换的 称为表达式主导
+表达式的控制权在不同的元素之间转换的 称为表达式主导(非确定型有枪自动机)
 
-## DNA引擎 : 文本主导
+## DFA引擎 : 文本主导
 
+1. `\to(nite|knight|night)\`匹配文本`...tonight...`
+2. 检查完to, 开始检查n 发现nite和night还可以匹配上,暂时保留。knight已经无法匹配了 踢出局
+3. 继续检查i 都可以匹配上 
+4. 检查g 把nite踢出局 匹配night
+
+这种以文本为中心的 称为文本主导(确定型有穷自动机)
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
