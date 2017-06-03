@@ -94,7 +94,7 @@ find /etc -newer /etc/passwd 查找在/etc下比/etc/passwd新的文件
 
 -size [+-]SIZE: 查找比SIZE还要大/小的文件,单文有 c(bytr), k, M, G
 
--type TYPE: 筛选类型, f(正规文件) b/c(设备文件) d(链接文件) d(目录) l(连接文件) s(socket) p(FIFO)
+-type TYPE: 筛选类型, f(正规文件) b/c(设备文件)  d(目录) l(连接文件) s(socket) p(FIFO)
 
 -perm -mode: 查找至少文件权限, 例如(-perm -0744) 也会把(0755)权限的文件筛选出来
 
