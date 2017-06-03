@@ -106,6 +106,10 @@ find /etc -newer /etc/passwd 查找在/etc下比/etc/passwd新的文件
 
 -print: 将结果打印到屏幕上(默认)    
 
+```shell
+ find ./Learning/apache_sites/K-Logging  -type d -exec ls -l {} \;
+```
+
 # 10 Vim程序编辑器
 
 比较常用的命令
