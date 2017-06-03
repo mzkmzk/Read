@@ -30,8 +30,6 @@ locate会在自己创建数据库中查找内容, 而不是硬盘
 
 使用'updatedb', 会读取updatedb.conf配置, 然后取查找硬盘, 最后更新数据库文件 
 
-
-
 `locate [-ir] keyword`
 
 参数:
@@ -48,6 +46,65 @@ work@iZ94fnej0x9Z:~$ locate -r "input_definition_[0-9]\?.md"
 /var/www/html/404mzk/vendor/symfony/console/Tests/Fixtures/input_definition_4.md
 ````
 
+#### find
+
+`find [PATH] [option] [action]`
+
+参数
+
+> 与时间有关的参数 
+
+-atime(读取文件或者执行文件时更改的)
+
+-mtime(是在写入文件时随文件内容的更改而更改的)
+
+-ctime(在写入文件、更改所有者、权限或链接设置时随 Inode 的内容更改而更改的)
+
+-mtime n : 在n天之前24小时内被修改的文件
+
+-time +n: 列出n天之前被修改的文件 (不含n)
+
+-time -n: n天内被修改的文件(含n)
+
+-newer file: 比file文件还要新的文件名
+
+```shell
+find ./ -mtime 0 //查找24小时内修改的文件
+
+find /etc -newer /etc/passwd 查找在/etc下比/etc/passwd新的文件
+```
+
+> 与用户相关的参数
+
+-uid n: 查找属于uid文件
+
+-gid n: 查找属于gid的文件
+
+-user name: 查找属于user的文件
+
+-group name: 查找属于group的文件
+
+-nouser: 查找文件所有者不在/etc/passwd的人
+
+-nogroup: 找所有用户组不存在/etc/group的文件
+
+> 与文件权限和名称有关的参数
+
+-name filename: 查找文件名为filename的文件
+
+-size [+-]SIZE: 查找比SIZE还要大/小的文件,单文有 c(bytr), k, M, G
+
+-type TYPE: 筛选类型, f(正规文件) b/c(设备文件) d(链接文件) d(目录) l(连接文件) s(socket) p(FIFO)
+
+-perm -mode: 查找至少文件权限, 例如(-perm -0744) 也会把(0755)权限的文件筛选出来
+
+-perm +mode: 查找文件权限"包含任意mode权限"的文件, 例如查找(-perm +0755), 那么(0744)也会被筛选出来
+
+> 其他参数
+
+-exec command: command为其他命令 
+
+-print: 将结果打印到屏幕上(默认)    
 
 # 10 Vim程序编辑器
 
