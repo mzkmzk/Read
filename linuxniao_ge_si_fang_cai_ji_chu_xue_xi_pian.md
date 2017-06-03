@@ -18,6 +18,36 @@
 which node
 /Users/maizhikun/.nvm/versions/node/v6.10.0/bin/node
 ```
+### 7.5.2 文件名的查找
+
+#### locate
+
+locate使用简单, 直接在后面输入"文件的部分名称"
+
+locate会在自己创建数据库中查找内容, 而不是硬盘
+
+所以新增了一个文件, 可能没有办法立即使用locate找出, 因为还没更新到数据库(一般每天一次)
+
+使用'updatedb', 会读取updatedb.conf配置, 然后取查找硬盘, 最后更新数据库文件 
+
+
+
+`locate [-ir] keyword`
+
+参数:
+```
+-i: 忽略大小写差异
+-r: 后面可以正则表达式方式
+```
+
+```shell
+work@iZ94fnej0x9Z:~$ locate -r "input_definition_[0-9]\?.md"
+/var/www/html/404mzk/vendor/symfony/console/Tests/Fixtures/input_definition_1.md
+/var/www/html/404mzk/vendor/symfony/console/Tests/Fixtures/input_definition_2.md
+/var/www/html/404mzk/vendor/symfony/console/Tests/Fixtures/input_definition_3.md
+/var/www/html/404mzk/vendor/symfony/console/Tests/Fixtures/input_definition_4.md
+````
+
 
 # 10 Vim程序编辑器
 
