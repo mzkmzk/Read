@@ -6,11 +6,18 @@
 
 ### 7.5.1 脚本文件名的查询
 
+查找可执行文件的位置, 在PATH变量制定的路径中,查找
+
 `which [-a] command`
 
 参数:
 
 -a: 将所有PATH目录中可以找到的命令均列出, 而不只是第一个被找到的命令名称
+
+```shell
+which node
+/Users/maizhikun/.nvm/versions/node/v6.10.0/bin/node
+```
 
 # 10 Vim程序编辑器
 
