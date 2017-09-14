@@ -14,6 +14,14 @@
 
 # 6. 漏洞挖掘
 
+csrf漏洞只需确认以下内容即可
+
+1. 目标表单是否有token随机串
+2. 目标表单是否有验证码
+3. 目标是否判断了refer源
+4. 网站根目录下crossdomain.xml的'allow-access-from domain'是否是通配符
+5. 目标JSON数据是否可以自定义callback函数等
+
 
 
 # 7. 漏洞利用
