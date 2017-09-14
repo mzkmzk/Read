@@ -53,6 +53,7 @@
   * [Web API的设计与开发](web-apide-she-ji-yu-kai-fa.md)
 * [安全](an_quan.md)
   * [白帽子讲WEB安全](bai_mao_zi_jiang_web_an_quan.md)
+  * [白帽子讲Web扫描](bai-mao-zi-jiang-web-sao-miao.md)
 * [Utils](utils.md)
   * [Pro\_Git](progit.md)
   * [重构改善既有代码的设计](zhong_gou_gai_shan_ji_you_dai_ma_de_she_ji.md)
