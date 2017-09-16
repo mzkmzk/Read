@@ -22,7 +22,13 @@ csrf漏洞只需确认以下内容即可
 4. 网站根目录下crossdomain.xml的'allow-access-from domain'是否是通配符
 5. 目标JSON数据是否可以自定义callback函数等
 
+界面操作劫持的漏洞挖掘只要确认以下内容
 
+1. 目标HTTP响应头是否设置好了X-Frame-Options字段
+2. 目标是否有JavaScript的Frame Busting机制
+3. 更简单的就是用iframe嵌入网站试试, 若成功, 则说明漏洞存在
+
+ 
 
 # 7. 漏洞利用
 
