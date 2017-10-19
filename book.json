@@ -3,7 +3,6 @@
   "description": "404mzk 阅读笔记",
   "language": "zh",
   "plugins": [
-    "disqus",
     "baidu",
     "tbfed-pagefooter",
     "github-buttons",
@@ -12,11 +11,18 @@
     "anchors",
      "catalogue-title",
      "edit-link",
-     "sitemap-general"
+     "sitemap-general",
+     "prism", 
+      "-highlight"
   ],
   "pluginsConfig": {
     "disqus": {
         "shortName": "read-404mzk-com-1"
+    },
+    "prism": {
+      "css": [
+        "prismjs/themes/prism-okaidia.css"
+      ]
     },
     "duoshuo": {
       "short_name": "read404mzk",
