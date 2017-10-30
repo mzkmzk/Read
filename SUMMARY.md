@@ -68,6 +68,7 @@
   * [网络营销推广实战宝典](wang-luo-ying-xiao-tui-guang-shi-zhan-bao-dian.md)
   * [精通正则表达式](jing-tong-zheng-ze-biao-da-shi.md)
   * [网络爬虫全解析技术、原理与实战](wang-luo-pa-chong-quan-jie-xi-ji-zhu-3001-yuan-li-yu-shi-zhan.md)
+  * [从零开始学游泳](cong-ling-kai-shi-xue-you-yong.md)
 * [企业管理](qi_ye_guan_li.md)
   * [只有偏执狂才能生存](zhi_you_pian_zhi_kuang_cai_neng_sheng_cun.md)
 * [设计](she_ji.md)
