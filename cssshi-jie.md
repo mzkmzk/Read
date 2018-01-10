@@ -76,7 +76,12 @@ table比css还要老
 
 现在就比较好理解为什么inline-block即可图文一行展示又可以设置width/height了吧
 
-实际上display: 'block'是display: block-block
+实际上
+
+display: 'block'是display: block-block
+
+display: table是display: block-table
+
 
 
 
