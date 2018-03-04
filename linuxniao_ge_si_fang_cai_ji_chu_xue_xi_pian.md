@@ -14,7 +14,7 @@
 
 -a: 将所有PATH目录中可以找到的命令均列出, 而不只是第一个被找到的命令名称
 
-```shell
+```bash
 which node
 /Users/maizhikun/.nvm/versions/node/v6.10.0/bin/node
 ```
@@ -38,7 +38,7 @@ locate会在自己创建数据库中查找内容, 而不是硬盘
 -r: 后面可以正则表达式方式
 ```
 
-```shell
+```bash
 work@iZ94fnej0x9Z:~$ locate -r "input_definition_[0-9]\?.md"
 /var/www/html/404mzk/vendor/symfony/console/Tests/Fixtures/input_definition_1.md
 /var/www/html/404mzk/vendor/symfony/console/Tests/Fixtures/input_definition_2.md
@@ -68,7 +68,7 @@ work@iZ94fnej0x9Z:~$ locate -r "input_definition_[0-9]\?.md"
 
 -newer file: 比file文件还要新的文件名
 
-```shell
+```bash
 find ./ -mtime 0 //查找24小时内修改的文件
 
 find /etc -newer /etc/passwd 查找在/etc下比/etc/passwd新的文件
@@ -106,7 +106,7 @@ find /etc -newer /etc/passwd 查找在/etc下比/etc/passwd新的文件
 
 -print: 将结果打印到屏幕上(默认)    
 
-```shell
+```bash
  find ./Learning/apache_sites/K-Logging  -type d -exec ls -l {} \;
 ```
 
@@ -153,7 +153,7 @@ grep分析的是一行,当一行中有我们想要的东西,就把该行抽取�
 
 `grep [-A] [-B] [-acinv] [--color=auto]`
 
-```shell
+```bash
 -a: 将binary文件以text文件的方式查找数据
 -c: 计算找到`查找字符串`的次数
 -i: 忽略大小写
@@ -178,7 +178,7 @@ grep分析的是一行,当一行中有我们想要的东西,就把该行抽取�
 
 `sed [-nefri] [动作]`
 
-```shell
+```bash
 -n: 使用安静(silent)模式,在一般sed的用法中,所有STDIN的数据一般都会显示在屏幕上,加上`-n`后只有sed特殊处理的那一行(或者操作)才会被列出来
 -e: 直接在命令行模式上进行sed的动作编辑,sed后超过两个动作,需要每个动作前都加`-e`
 -f: 直接将sed的动作写在一个文件内,-f filename 则可以执行filename内的sed操作
@@ -202,7 +202,7 @@ s: 替换,可以直接进行替换工作,通常这个s可以搭配正则表达�
 
 1. sed增加两行
 
-    ```shell
+    ```bash
     nl /etc/passwd | sed '2a Drink tea...\
     > drik beer'
     ```
@@ -296,7 +296,7 @@ linux开机自启动atd: `chkconfig atd on`
 
 命令说明
 
-```shell
+```bash
 crontab [-u username] [-l|-e|-r]
 
 -u: 只有root才能执行/帮其他用户新建/删除crontab

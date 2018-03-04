@@ -91,7 +91,7 @@ php-config --extension-dir
 
 配置ZendOPcache在php.in中
 
-```shell
+```bash
 opcache.validate_timestamps = 1 //生产环境设为0
 ...其他
 ```
@@ -224,7 +224,7 @@ restore_error_handler();
 
 在本地设备中
 
-```shell
+```bash
 输入ssh-keygen
 
 //然后把生成的.pub文件上传到服务器, 带最后的: 会传输到账号的家目录中
@@ -266,7 +266,7 @@ usermod -a -G wheel work
 
 修改`/etc/ssh/sshd_config`
 
-```shell
+```bash
 PasswordAuthentication设为no
 PermitRootLogin设为no
 ```

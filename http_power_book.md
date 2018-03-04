@@ -34,7 +34,7 @@ Transfer-Enconding: chunked
 
 分块传输响应DEMO
 
-```shell
+```bash
 //HTTP响应
 HTTP/1.1 200 OK<CR><LF>
 Content-type: text/plain<CR><LF>

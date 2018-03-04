@@ -358,7 +358,7 @@ UDP VS TCP
 
 实验
 
-```shell
+```bash
 //在window下,在Mac尝试命令行不行
 ping 10.32.106.102 -l 1472 -f -n 1 // 成功
 ping 10.32.106.102 -l 1473 -f -n 1 //失败

@@ -13,7 +13,8 @@
      "edit-link",
      "sitemap-general",
      "prism", 
-      "-highlight"
+      "-highlight",
+      "3-ba"
   ],
   "pluginsConfig": {
     "disqus": {
@@ -30,6 +31,9 @@
     },
    "baidu":{
       "token": "e896671664efc07c29c08fa1f080f297"
+    },
+    "3-ba": {
+            "token": "e896671664efc07c29c08fa1f080f297"
     },
     "tbfed-pagefooter": {
       "copyright":"&copy 404mzk",

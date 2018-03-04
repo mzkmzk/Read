@@ -384,7 +384,7 @@ Patch update>>
 
 查看HEAD
 
-```shell
+```bash
 404-K:grouplus_front maizhikun$ git cat-file -p HEAD
 tree 65c7a29302b4a9c19784472a5c7a69de8676df9c
 parent 6527dc1391777b062aa3221fca59aefa89f19356

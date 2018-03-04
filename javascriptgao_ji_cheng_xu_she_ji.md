@@ -1373,7 +1373,7 @@ source.close();
 
 eg:
 
-```shell
+```bash
 data: f00
 
 data: bar
@@ -1384,7 +1384,7 @@ data: bar
 
 例如
 
-```shell
+```bash
 data: foo
 id: 1
 ```
