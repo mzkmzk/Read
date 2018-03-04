@@ -41,12 +41,17 @@
       "modify_format": "YYYY-MM-DD HH:mm:ss"
     },
     "github-buttons": {
-      "repo": "mzkmzk/Read",
-      "types": [
-        "star",
-        "watch"
-      ],
-      "size": "small"
+      "buttons": [{
+        "user": "mzkmzk",
+        "repo": "Read",
+        "type": "star",
+        "size": "small"
+      }, {
+        "user": "mzkmzk",
+        "repo": "Read",
+        "type": "watch",
+        "size": "small"
+      }]
     },
     "anchor-navigation-ex": {
         "showLevel": false,
