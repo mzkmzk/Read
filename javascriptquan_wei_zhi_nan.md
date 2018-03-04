@@ -906,7 +906,7 @@ image.setAttribute('class',"container");
 
 HTML5在`Element`对象定义了`dataset`属性,指向一个对象,它的各个属性对应于去掉前缀`data-`属性.
 
-```HTML
+```html
 <span class="sparklinke" data-ymin="0" data-ymax="10">
      1 1 1 2 2 3 4 5 5 4 3 5 6 7 7 4 2 1
 </span>     
