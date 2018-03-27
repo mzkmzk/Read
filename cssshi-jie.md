@@ -82,6 +82,9 @@ display: 'block'是display: block-block
 
 display: table是display: block-table
 
+鑫三无原则: 无宽度, 无图片, 无浮动
+
+
 
 
 
