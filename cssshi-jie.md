@@ -84,6 +84,29 @@ display: table是display: block-table
 
 鑫三无原则: 无宽度, 无图片, 无浮动
 
+## 3.2 width/height作用的具体细节
+
+### 3.2.3 CSS流体布局下的宽度分离原则
+
+所谓`宽度分离原则`, 就是CSS中的width属性不与营销宽度的padding/border(有时还包括margin)属性共存, 也就是不能出现以下的组合
+
+```css
+width: 100px; padding: 20px;
+```
+
+而是width独立占用一层标签, 而padding border margin利用流动性在内部自适应呈现
+
+```css
+.father{
+    width: 180px;
+}
+.son{
+    margin:0 20px;
+    padding: 20px;
+    border: 1px solid;
+}
+
+```
 
 
 
