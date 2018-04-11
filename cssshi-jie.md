@@ -108,6 +108,25 @@ width: 100px; padding: 20px;
 
 ```
 
+### 3.3.3 超越!importtant, 超越最大
+
+min-width/max-width和min-height/max-height属性间和width/height
+
+若同时存在会是怎么样一个情况, 谁覆盖谁呢
+
+规则有两个
+
+1. 超越!important
+2. 超越最大
+
+max-width会覆盖width
+
+而且width加了!important 还是会被max-width覆盖
+
+而min-width, max-width同时存在时, 假如min-width比max-width大
+
+max-width会被min-width覆盖
+
 
 
 
