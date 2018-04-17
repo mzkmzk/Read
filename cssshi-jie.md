@@ -127,7 +127,20 @@ max-width会覆盖width
 
 max-width会被min-width覆盖
 
+## 3.4 内联元素
 
+### 3.4.3 幽灵空白节点
 
+在HTML5中(这样声明html`!doctype html`)
+
+所有的内联函数中都会存在幽灵空白节点
+
+例如`<div><span></span></div>`
+
+这里的span高度是0 , 但是div的高度又是18px
+
+为什么18 后续会说到, 跟line-hieght和vertical-align有关
+
+w
 
 
