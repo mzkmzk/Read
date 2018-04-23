@@ -143,5 +143,21 @@ max-width会被min-width覆盖
 
 # 4. 盒尺寸四大家族
 
+## 4.1 深入理解content
 
+### 4.1.1 content与替换元素
+
+替换元素
+
+1. 内容可替换, 例如img可替换src更改内容
+2. 有自己的默认尺寸
+3. 在很多CSS属性上有自己一套表现规则
+
+> 替换元素的计算规则
+
+1. 最外层CSS层 指定width/height max-width/min-width等设置尺寸
+2. 中间层HTML层: 例如textarea指定的cols和rows等
+3. 固有尺寸: 替换元素自身的尺寸
+
+> 替换元素和非替换元素的距离是多远
 
