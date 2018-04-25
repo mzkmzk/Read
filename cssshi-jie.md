@@ -164,3 +164,8 @@ max-width会被min-width覆盖
 1. 观点1: 替换元素和非替换元素之间只隔了一个src属性
 2. 观点2: 替换元素和非替换元素之间只隔了一个CSS content属性
 
+> content 与替换元素关系剖析
+
+content属性生成的对象称为'匿名替换元素'
+
+content属性生成的内容都是
