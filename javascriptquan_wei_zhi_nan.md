@@ -192,7 +192,7 @@ hex_string ="0x"+n.toString(16); //0x11
 ```javascript
 var n =123456.789;
 n.toFixed(0); //"123457"
-n.toFixed(2); //"12345679"
+n.toFixed(2); //"123456.79"
 n.toExponential(1) //"1.2e+5"
 //toPrecision方法将有效数字为转换为字符串,如果有效数字少于数字证书部分的位数,则转为指数形式
 n.toPrecision(4); //"1.235e+5"
