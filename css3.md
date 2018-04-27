@@ -41,7 +41,7 @@
 	E[attr~=value]{...}
 	
 	/* attr的值以连字符'_'为分隔符分开,其中一个值等于value即可的E元素 */
-	E[attr |=value]{...}
+	E[attr|=value]{...}
 	
 	/* attr属性包含value值的E元素 */
 	E[attr*="value"]{...}
