@@ -326,7 +326,7 @@ var getSingle = function(fn) {
 }
 
 //例如全局只有一个的登陆弹出框
-var createLiginLayer = function(){
+var createLoginLayer = function(){
   var div = document.createElements("div");
   div.innerHTML = "我是登录框";
   div.style.display = 'none';
@@ -334,7 +334,7 @@ var createLiginLayer = function(){
   return div;
 }
 
-var createSingleLoginLayer = getSingle(createLiginLayer);
+var createSingleLoginLayer = getSingle(createLoginLayer);
 
 document.getElementById("loginBtn").onclick = function(){
   var loginLayer = createSingleLoginLayer(); //第一次点击 创建div,第二次点击返回第一次的div
