@@ -93,7 +93,7 @@ var total = add(5,10);
 ```javascript
 function K_404(){
     var id = 1;
-    document.getElementByID("save-btn").onclick = function(event){
+    document.getElementById("save-btn").onclick = function(event){
         k(id);
     }
 }
