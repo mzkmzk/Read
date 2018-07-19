@@ -194,5 +194,16 @@ content属性生成的内容都是
 
 ### 9.2.1 隐藏元素的background-image到底加不加载
 
-IE8~IE11 依然发生图片请求
+IE8~IE11 依然发生图片请求 
+
+firefox不会发送 
+
+chrome和safari 会判断父元素display是否为none 是则不发 
+
+# 9.2.2 与众不同的background-position百分比计算方式
+
+background-position的值 主要有几种类型 数字 百分比 或者 left|top|right|bottom|center 
+
+支持1~4个数值(IE8时 最多有两个)
+
 
