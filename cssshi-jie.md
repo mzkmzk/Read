@@ -169,3 +169,22 @@ max-width会被min-width覆盖
 content属性生成的对象称为'匿名替换元素'
 
 content属性生成的内容都是
+
+## 4.2 温和的padding属性
+
+### 4.2.1 padding与元素尺寸
+
+当box-sizing: border-box
+
+并且 width < padding 则 宽度失效 出现`首选最小宽度` 宽度等于padding的计算值
+
+```css
+.box{
+    width: 80px;
+    padding: 20px 60px;
+    box-sizing: border-box;
+}
+```
+
+则最后的宽度为120px
+
