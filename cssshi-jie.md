@@ -194,5 +194,5 @@ content属性生成的内容都是
 
 ### 9.2.1 隐藏元素的background-image到底加不加载
 
-
+IE8~IE11 依然发生图片请求
 
