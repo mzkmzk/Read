@@ -206,4 +206,10 @@ background-position的值 主要有几种类型 数字 百分比 或者 left|top
 
 支持1~4个数值(IE8时 最多有两个)
 
+比较特殊的是 当值为百分比的计算方式 
+
+positionX = ( 容器的宽带 - 图片的宽度 ) * percentX
+
+positionY = ( 容器的高度 - 图片的高度 ) * percentY
+
 
