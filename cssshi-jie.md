@@ -200,6 +200,10 @@ firefox不会发送
 
 chrome和safari 会判断父元素display是否为none 是则不发 
 
+# 6 流的破坏与保护
+
+
+
 # 9.2.2 与众不同的background-position百分比计算方式
 
 background-position的值 主要有几种类型 数字 百分比 或者 left|top|right|bottom|center 
