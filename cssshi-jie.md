@@ -188,6 +188,46 @@ content属性生成的内容都是
 
 则最后的宽度为120px
 
+# 8 强大的文本处理能力 
+
+## 8.1 line-hieght的另一个朋友font-size
+
+### 8.1.1 font-size和vertical-align的隐藏故事
+
+vertical-align百分比属性值 是相对于line-hieght计算的
+
+line-height的部分属性值 是根据front-size计算的
+
+所以vertical-align跟front-size是有关系的 
+
+例如实现一个图标垂居中于文本的案例
+
+http://demo.cssworld.cn/8/1-1.php
+
+主要CSS有
+
+```css
+p {
+    font-size: 14px;
+}
+
+p > img {
+    width: 16px;
+    height: 16px;
+    vertical-align: 25%;
+    position: relative;
+    top: 8px;
+}
+```
+
+vertical-align 具体的值如何计算?
+
+vertical-align = 14px * 1(line-height) * 25% = 3.5px
+
+
+
+
+
 # 9. 元素的装饰与美化
 
 ## 9.2 CSS世界的background很单调(CSS2.0而言)
