@@ -226,10 +226,11 @@ vertical-align = 14px * 1(line-height) * 25% = 3.5px
 
 而vertical-align = 3.5px的意思是 img基线超过父元素的基线3.5px
 
-而父元素的基线
+而文字的基线是 与父元素的基线对齐 
 
+所以此时需要图片的基线和文字的基线对齐
 
-
+所以需要设置 vertical-align为 
 
 # 9. 元素的装饰与美化
 
