@@ -242,7 +242,7 @@ em: 可以理解为 一个父元素中 font-size的倍数 不一定的话chrome�
 
 ### 8.1.4 font-size: 0与文本的隐藏
 
-Chrome上有个字号限制: font-size不能低于12px
+Chrome上有个字号限制: font-size不能低于12px 否则当12px处理 除了0 0的话则隐藏 
 
 
 
