@@ -230,7 +230,18 @@ vertical-align = 14px * 1(line-height) * 25% = 3.5px
 
 所以此时需要图片的基线和文字的基线对齐
 
-所以需要设置 vertical-align为 
+所以需要设置 vertical-align为 25%
+
+---待补充 这里还没完全理解 --- 
+
+### 8.1.2 理解font-size与ex、em和rem的关系
+
+ex:  1为 小写x的高度
+
+em: 可以理解为 一个父元素中 font-size的倍数 不一定的话chrome默认为16px 其高度值可以理解为正方形的方格的边长
+
+
+
 
 # 9. 元素的装饰与美化
 
