@@ -331,6 +331,69 @@ macos常见中文字体
 
 ### 8.4.1 作为缩写的font属性
 
+font的完整写法是
+
+[ [ font-style || font-variant || font-weight ]? font-size [ /line-height ]? font-family ]
+
+font要没注明line-height则会被还原为 normal
+
+需要注意的是 font-size 和 font-family是必须的 否则整个属性不起作用 
+
+## 8.5 真正了解@font face规则
+
+### 8.5.1 @font face的本质是变量
+
+```css
+@font-face {
+    font-family: 'example';
+    src: url(example.ttf);
+    font-style: normal;
+    font-weight: normal;
+    unicode-range: U+0025-00FF;
+    font-variant: small-caps;
+    font-stretch: expanded;
+    font-feature-settings: 'ligal' on;
+}
+```
+
+> font-family
+
+这里的font-family可以看成一个字体的变量 可以随便取 例如 `$`;
+
+注意不要和常用的字体重名即可 
+
+> src
+
+src引入的资源可以是系统字体 也可以是外链字体 
+
+如果是系统安装字体 local() //IE9机器以上才支持
+
+如果是外链 使用url()
+
+常见设置字体 做法有
+
+```css
+@font-face{
+    font-family: ICON;
+    src: url('icon.eot') fotmat('eot'); # 兼容模式不认识下吗的?号 所以在这补充 在实际中午作用
+    src: url('icon.eot?#iefix') format('embedded-opentype'), #IE6~8仅支持这种字体
+ 并解决IE9之前解析多个url 会把长长字符串当做一个地址导致404 这里主要用?把后面都当成参数 
+        url('icon.woff2') format('woff2'), #web open font format 二期标准
+        url('icon.woff') format('woff'), #web open font format 一期标准
+        url('icon.ttf') format('typetrue'),#android兼容性好 但体积大
+        url('icon.svg#icon') format('svg'); #为了兼容IOS4.1及其以前版本
+}
+```
+上面方案弊端很多 所以可以改成
+
+```css
+@font-face{
+    font-family: ICON;
+    src: url('icon.eot');
+    src: local('😁'),
+        
+}
+```
 
 
 # 9. 元素的装饰与美化
