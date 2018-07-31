@@ -390,11 +390,42 @@ src引入的资源可以是系统字体 也可以是外链字体
 @font-face{
     font-family: ICON;
     src: url('icon.eot');
-    src: local('😁'),
-        
+    src: local('😁'),//用IE不认识的字符串解决 IE9以前会读取到这个属性 并且高级浏览器可以用woff2
+         url('icon.woff2') format('woff2'),
+         url('icon.woff') format('woff'),
+         url('icon.ttf') 
 }
 ```
 
+> font-style
+
+```css
+@font-face {
+    font-family: 'I';
+    font-style: normal;
+    src: local('FZYaoti');
+}
+
+@font-face {
+    font-family: 'I';
+    font-style: 'italic';
+    src: local('FZShuTi');
+}
+
+.i{
+    font-family: I;
+}
+```
+
+```html
+<p><i class='i'>类名是i 标签是i</i></p>
+<p><span class='i'>类名是i 标签是</span></p>
+```
+定义多种font-style 在使用字体时 根据font-style使用多套字体
+
+> font-weight
+
+定义多个 font-weight的@font-face 供使用者根据font-weight引用到多种情况
 
 # 9. 元素的装饰与美化
 
