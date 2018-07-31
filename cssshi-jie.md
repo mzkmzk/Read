@@ -506,6 +506,10 @@ white-space声明的是如何处理元素内的空白字符
 
 http://demo.cssworld.cn/8/6-6.php
 
+### 8.6.6 text-align与元素对齐
+
+...作者太灵活了...
+
 # 9. 元素的装饰与美化
 
 ## 9.2 CSS世界的background很单调(CSS2.0而言)
