@@ -188,6 +188,41 @@ content属性生成的内容都是
 
 则最后的宽度为120px
 
+可以借助padding实现一个`登录 | 注册`的效果
+
+例如
+
+```css
+a + a:before{
+    content: "";
+    font-size: 0;
+    padding: 10px 3 px 1 px;
+    margin-left: 6px
+}
+```
+
+又或者我们用瞄点定位 希望其上面留点空隙
+
+`<h3><span id="hash">标题</span></h3>`
+
+```css
+h3 {
+    line-height: 30px;
+    font-size: 14px;
+}
+
+h3 > span {
+    padding-top: 58px;
+}
+```
+
+### 4.2.2 padding的百分值
+
+1. 不支持负值
+2. 无论是水平方向还是垂直方向 都是相对于宽度计算的
+
+
+
 # 6 流的破坏与保护
 
 
