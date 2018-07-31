@@ -427,6 +427,85 @@ src引入的资源可以是系统字体 也可以是外链字体
 
 定义多个 font-weight的@font-face 供使用者根据font-weight引用到多种情况
 
+> 5 unicode-range
+
+用于让特定的字符或特定范围的字符使用指定的字体
+
+例如微软雅黑的双引号左右间隙不均 想用Simsun字体的
+
+
+```css
+@font-face {
+    font-family: quote;
+    src: local('Simsun');
+    unicode-range: U+201c, U+201d;
+}
+
+.font{
+    font-family: quote, 'Microsoft Yahei';
+}
+```
+
+### 8.5.2 @font-face与字体图标技术
+
+以后字体图标技术只会越来越边缘化 因为和SVG相比 唯一优势就是兼容老版本IE了
+
+SVG同样是矢量的 同样颜色可控 但占用资源少 加载体验更好 
+
+## 8.6 文本的控制
+
+### 8.6.1 text-indent 与内联元素缩进
+
+设计的本意是 用来做 例如 段落首行空两个字空格的
+
+但是用的人比较少....
+
+都是用这个来做负值隐藏内容
+
+text-index仅对第一行内联盒子内容有效
+
+### 8.6.2 letter-spacing与字符间隔
+
+字符间隔可负数 一般做些动画
+
+### 8.6.3 word-spacing与单词间隔
+
+主要作用增加空格的间隙宽度
+
+### 8.6.4 了解word-break和word-wrap的区别
+
+首先了解下
+
+word-break:normal
+
+word-break: break-all; #允许任意非CJK(chinese/japanese/korean)文本间的单词断行
+
+word-break: keep-all; # 不允许CJK文本中的单词换行 只能在半角空格或连字符处换行 非CJK文本表现和normal一致
+
+另外的属性
+
+word-wrap: normal;
+
+word-wrap: break-word; # 一行单词中实在没有其他靠谱的换行点的时候换行
+
+http://demo.cssworld.cn/8/6-5.php
+
+![了解word-break和word-wrap的区别](/assets/QQ20180731-111326.png)
+
+### 8.6.5 white-space与换行和空格的控制
+
+white-space声明的是如何处理元素内的空白字符
+
+|属性|换行|空格和列表|文本环绕|
+|---|---|---|---|
+|normal|合并|合并|环绕|
+|nowrap|合并|合并|不环绕|
+|pre|保留|保留|不环绕|
+|pre-wrap|保留|保留|环绕|
+|pre-line|保留|合并|环绕|
+
+http://demo.cssworld.cn/8/6-6.php
+
 # 9. 元素的装饰与美化
 
 ## 9.2 CSS世界的background很单调(CSS2.0而言)
