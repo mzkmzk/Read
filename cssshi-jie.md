@@ -221,7 +221,50 @@ h3 > span {
 1. 不支持负值
 2. 无论是水平方向还是垂直方向 都是相对于宽度计算的
 
+### 4.2.3 标签元素内置的padding
 
+input button textarea select radio checkbox 都内置了padding
+
+button的padding 最难搞 例如firefox里设置padding 0 不起作用
+
+### 4.2.4 padding与图形绘制
+
+```css
+.icon-menu{
+    display: inline-block;
+    width: 140px;
+    height: 10px;
+    padding: 35px 0;
+    border-top: 10px solid;
+    border-bottom: 10px solid;
+    background-color: currentColor;
+    background-clip: content-box;
+}
+.icon-dot{
+    display: inline-block;
+    width: 100px; 
+    height: 100px;
+    padding: 10px;
+    border: 10px solid;
+    border-radius: 50%;
+    background-color: currentColor;
+    background-clip: content-box;
+}
+```
+
+http://demo.404mzk.com/css/padding/
+
+## 4.3 激进的margin属性
+
+### 4.3.1 margin与元素尺寸以及相关布局
+
+先理一下 各类尺寸
+
+1. 元素尺寸: content+padding+border $().width和$().height() 原生中是offsetWidth和offsetHeight 也叫元素偏移尺寸
+2. 元素内部尺寸: content+padding $().innerWidth和$().innerHeight() 原生是clientWidth和clientHeight 页脚元素可视尺寸
+3. 元素外部尺寸: content+padding+border+margin 没有直接对应的API
+
+外部尺寸有个很奇特的现象 可能是负的
 
 # 6 流的破坏与保护
 
