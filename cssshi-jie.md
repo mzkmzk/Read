@@ -188,6 +188,12 @@ content属性生成的内容都是
 
 则最后的宽度为120px
 
+# 6 流的破坏与保护
+
+
+
+
+
 # 8 强大的文本处理能力 
 
 ## 8.1 line-hieght的另一个朋友font-size
@@ -510,6 +516,19 @@ http://demo.cssworld.cn/8/6-6.php
 
 ...作者太灵活了...
 
+### 8.6.7 如何解决text-decoration下划线和文本重叠的问题
+
+主要靠border
+
+### 8.6.8 一本万利的text-transfrom字符大小写
+
+text-transfrom: uppercase|lowercase
+
+用于输入身份证和验证码
+
+用户由于输入什么大小写的时候.
+
+
 # 9. 元素的装饰与美化
 
 ## 9.2 CSS世界的background很单调(CSS2.0而言)
@@ -521,10 +540,6 @@ IE8~IE11 依然发生图片请求
 firefox不会发送 
 
 chrome和safari 会判断父元素display是否为none 是则不发 
-
-# 6 流的破坏与保护
-
-
 
 # 9.2.2 与众不同的background-position百分比计算方式
 
