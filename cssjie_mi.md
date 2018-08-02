@@ -34,7 +34,29 @@ div{
 }
 ```
 
+![](/assets/QQ20180731-231629.png)
 
+## 2.2 多重边框
+
+```css
+.box-shadow{
+    width: 100px;
+    height: 60px;
+    margin: 25px;
+    background: yellow;
+            /* offset-x offset-y blur-radius spread-radius color*/
+    box-shadow: 0 0 0 10px #655,
+                0 0 0 15px deeppink,
+                0 2px 5px 15px rgba(0,0,0.6);
+}
+```
+
+需要注意的是
+
+1. box-shadow是一层层的 像#655 在最里扩张半径为10 而deeplink设为15 其实只有5px的扩张半径
+2. box-shadow属于外圈 即不在点击范围内 设置内嵌 需要在属性前加inset
+
+![](/assets/QQ20180731-234152.png)
 
 # DEMO
 
