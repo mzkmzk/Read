@@ -69,6 +69,8 @@ form表单和jsonp都是默认带cookie
 
 这样才能带上cookie
 
+withCredentials属性也是从IE10开始支持 https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/withCredentials
+
 # 跨站与IE
 
 虽然IE8 9 都有XMLHttpRequest 
