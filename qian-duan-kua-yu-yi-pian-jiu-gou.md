@@ -79,6 +79,8 @@ form表单和jsonp都是默认带cookie
 
 但是 XDomainRequest 是 没有setRquestHeader方法的...所以IE无法跨域时设置Header
 
+https://developer.mozilla.org/en-US/docs/Web/API/XDomainRequest 也有相关的介绍
+
 # 服务器的Set-Cookie是否只允许 设置域名根域 或者其子域
 
 aaa.xxx.com接口返回Set-Cookie: upgrade=; Path=/; Domain=xxx.com
