@@ -60,6 +60,36 @@ http://demo.404mzk.com/cssjiemi/02-multiple-borders.html
 
 ![](/assets/QQ20180731-234152.png)
 
+## 2.3 灵活的背景定位
+
+http://demo.404mzk.com/cssjiemi/03-background.html
+
+实现右下角设置图标的功能
+
+![灵活的背景定位](/assets/WX20180813-234952.png)
+
+```css
+.text-box{
+    width: 200px ;
+    height: 100px;
+    padding: 10px 20px;
+    margin: 10px;
+}
+.background-position{
+    background: url('./images/code-pirate.svg') no-repeat #58a;
+    background-position: right 20px bottom 10px;
+}
+.background-origin{
+    background: url('./images/code-pirate.svg') no-repeat #58a;
+    background-origin: content-box;
+    background-position: right bottom;
+}
+.background-cale{
+    background: url('./images/code-pirate.svg') no-repeat #58a;
+    background-position:  calc(100% - 20px)  calc(100% - 10px);
+}
+```
+
 # DEMO
 
 http://play.csssecrets.io/
