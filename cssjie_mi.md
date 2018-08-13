@@ -76,19 +76,21 @@ http://demo.404mzk.com/cssjiemi/03-background.html
     margin: 10px;
 }
 .background-position{
-    background: url('./images/code-pirate.svg') no-repeat #58a;
+    background: url('./images/code-pirate.svg') no-repeat #58a bottom right;
     background-position: right 20px bottom 10px;
 }
 .background-origin{
-    background: url('./images/code-pirate.svg') no-repeat #58a;
+    background: url('./images/code-pirate.svg') no-repeat #58a bottom right;
     background-origin: content-box;
     background-position: right bottom;
 }
 .background-cale{
-    background: url('./images/code-pirate.svg') no-repeat #58a;
+    background: url('./images/code-pirate.svg') no-repeat #58a bottom right;
     background-position:  calc(100% - 20px)  calc(100% - 10px);
 }
 ```
+
+1. 最后的`bottom right`是为了防止不支持background-position设置数值的浏览器 能退化到图标在右下角
 
 # DEMO
 
