@@ -38,6 +38,8 @@ div{
 
 ## 2.2 多重边框
 
+http://demo.404mzk.com/cssjiemi/02-multiple-borders.html
+
 ```css
 .box-shadow{
     width: 100px;
