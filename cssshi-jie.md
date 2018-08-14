@@ -409,6 +409,8 @@ margin填充规则
 
 默认border-color就是color的色值
 
+类似的属性还有 outline box-shadow text-shadow
+
 
 
 # 6 流的破坏与保护
