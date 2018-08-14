@@ -300,7 +300,9 @@ http://demo.404mzk.com/css/margin/denggao.html
 
 ### 4.3.3 正确看待CSS世界里的margin合并
 
+什么是margin合并
 
+块级元素的上外边距和下外边距有会合并成单个边距
 
 # 6 流的破坏与保护
 
