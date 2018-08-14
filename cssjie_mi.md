@@ -92,6 +92,10 @@ http://demo.404mzk.com/cssjiemi/03-background.html
 
 1. 最后的`bottom right`是为了防止不支持background-position设置数值的浏览器 能退化到图标在右下角
 
+## 2.4 边框内圆角
+
+e
+
 # DEMO
 
 http://play.csssecrets.io/
