@@ -388,7 +388,28 @@ father的高度只有1em
 *. 正负相加
 *. 负负取小
 
-### 4.3.4
+### 4.3.4 深入理解CSS中的margin: auto
+
+margin填充规则
+
+1. 如果一侧定值, 一侧auto, 则auto为剩余空间的大小
+2. 如果两侧都是auto, 则平分剩余空间
+
+### 4.3.5 margin无效情形
+
+(1) display计算值inline的非替换元素的垂直margin是无效的
+
+(2) 表格中tr和太多元素或者设置display计算值是table-cell或table-row的元素margin是无效的
+
+(3) margin合并时 更改的margi值可能是没有效果的
+
+## 4.4 功勋卓越的border属性
+
+### 4.4.3 border-color 和 color
+
+默认border-color就是color的色值
+
+
 
 # 6 流的破坏与保护
 
