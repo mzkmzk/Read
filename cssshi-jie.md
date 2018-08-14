@@ -266,6 +266,40 @@ http://demo.404mzk.com/css/padding/
 
 外部尺寸有个很奇特的现象 可能是负的
 
+> 3 margin与元素的外部尺寸
+
+实现等高布局
+
+![实现等高布局](/assets/QQ20180814-112146.png)
+
+http://demo.404mzk.com/css/margin/denggao.html
+
+```css
+.container{
+    margin: auto;
+    max-width: 600px;
+    overflow: hidden;
+}
+
+
+.column-left,
+.column-right {
+    width: 50%;
+    float: left;
+    margin-bottom: -9999px;
+    padding-bottom: 9999px;
+    color: #fff;
+}
+.column-left {
+    background-color: #34538b;
+}
+.column-right {
+    background-color: #cd0000;
+}
+```
+
+### 4.3.3 正确看待CSS世界里的margin合并
+
 
 
 # 6 流的破坏与保护
