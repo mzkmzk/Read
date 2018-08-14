@@ -304,6 +304,92 @@ http://demo.404mzk.com/css/margin/denggao.html
 
 块级元素的上外边距和下外边距有会合并成单个边距
 
+1. 块状元素: 但不包含浮动和绝对定位的元素
+2. 只发生在垂直方向
+
+> margin合并的3种场景
+
+一: 相邻兄弟元素
+
+```css
+p{ margin: 1em 0 }
+```
+
+```html
+<p>one</p>
+<p>two</p>
+```
+
+第一个元素会和第二个元素margin合并 导致两元素的僵局只有1em
+
+二: 父级元素和第一个/最右一个子元素
+
+```html
+<div>
+    <div style="margin-top:80px;">
+</div>
+
+<div style="margin-top:80px;">
+    <div>
+</div>
+
+<div style="margin-top:80px;">
+    <div style="margin-top:80px;">
+</div>
+
+```
+
+上面3种形式 margin-top是等效的
+
+防止margin合并的方法 满足一个即可
+
+防止margin-top合并
+
+*. 父元素设置为块状格式化上下文元素
+*. 父元素设置border-top值
+*. 父元素设置padding-top值
+*. 父元素和第一个子元素之间加内联元素进行分隔
+
+防止margin-bottom合并
+
+*. 父元素设置为块状格式化上下文元素
+*. 父元素设置border-bottom值
+*. 父元素设置padding-top值
+*. 父元素和最后一个子元素之间加内联元素进行分隔
+*. 父元素设置height、min-height或max-height
+
+三: 空块级元素的margin合并
+
+```css
+.father{ overflow: hidden; }
+.son{ margin: 1em 0; }
+```
+
+```html
+<div class="father">
+    <div class="son"></div>
+</div>
+```
+
+father的高度只有1em
+
+因为son的margin-top和margin-bottom合并了
+
+这种情况如何防止margin合并
+
+*. 设置垂直方向的border
+*. 设置垂直方向的padding
+*. l里面添加内联元素(加空格没用)
+*. 设置height或minx-height
+
+> 3. margin合并的计算规则
+
+*. 正正取大
+*. 正负相加
+*. 负负取小
+
+### 4.3.4
+
 # 6 流的破坏与保护
 
 
