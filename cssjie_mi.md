@@ -94,7 +94,89 @@ http://demo.404mzk.com/cssjiemi/03-background.html
 
 ## 2.4 边框内圆角
 
-e
+http://demo.404mzk.com/cssjiemi/04-inner-rounding.html
+
+![边框内圆角](/assets/QQ20180814-232214.png)
+
+```css
+.scheme1{
+    outline: .6em solid #655;
+    box-shadow: 0 0 0 .4em #655;
+
+    max-width: 10em;
+    border-radius: .8em;
+    padding: 1em;
+    margin: 1em;
+    background: tan;
+    font: 100%/1.5 sans-serif;
+}
+
+.scheme2{
+    background: #655;
+    padding: .6em;
+    max-width: 12em;
+    
+}
+.scheme2 > div {
+    
+    background: tan;
+    border-radius: .8em;
+     padding: 1em;
+     font: 100%/1.5 sans-serif;
+     
+}
+```
+
+```html
+<div class="scheme1">I have a nice subtle inner rounding, don’t I look pretty?</div>
+
+<div class="scheme2">
+    <div>
+        I have a nice subtle inner rounding, don’t I look pretty?
+    </div>
+</div>
+```
+
+用了两种方式实现边框内圆角
+
+第一种方式用
+
+outline画外部的灰色边框
+
+然后内部用圆角
+
+但是会有一些间隙
+
+用box-shadow填补
+
+那么box-shadow应该设置多少了
+
+现在我们的border-radio设置的是.8em 表明 是个正圆
+
+所以边长一致, 圆心到描边角的距离为 开根号(0.8^2 + 0.8^2) 所以box-shadow 应该是  开根号(2 * (0.8^2) ) - 0.8
+
+总结公式可为 r(根号2 - 1) 因为根号2-1 < 0.5 也可以偷懒设置为0.5 所以就是0.5 * r (r即为border-radius)
+
+该公式也暴露了一个问题 box-shadow需要比outline宽度小, 并且 扩张半径要比(根号2 -1)r要大 才能进行填充
+
+第二种方式就比较简单了不多说明了
+
+## 2.5 条纹背景
+
+```html
+如果多个色标具有相同的位置, 他们会产生一个无限小的过渡区域,
+
+过渡的起止色分别是 第一个和最右一个指定值, 从效果上看 颜色会在那个位置突然变化
+
+而不是一个平滑的剪标过程
+```
+
+```html
+如果某个色标的位置值比整个列表中再它之前的色标位置值都要小
+
+则该色标的位置值会被设置为它前面所有色标位置值的最大值
+```
+
 
 # DEMO
 
