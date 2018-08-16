@@ -411,7 +411,36 @@ margin填充规则
 
 类似的属性还有 outline box-shadow text-shadow
 
+### 4.4.4 border与透明边框技巧
 
+> 三角形绘制
+
+http://demo.404mzk.com/css/border/sanjiaoxing.html
+
+![](/assets/QQ20180816-195255.png)
+
+```css
+.box {
+     width: 0;
+    border: 10px solid;
+    margin: 30px;
+}
+.sanjiaoxing{
+    border-color: #f30 transparent transparent;
+}
+
+.sanjiaoxing2{
+    border-color: transparent transparent #f30 ;
+}
+
+.sanjiaoxing3{
+    border-color: transparent #f30 transparent  ;
+}
+
+.sanjiaoxing4{
+   border-color:  #f30 transparent  ;
+}
+```
 
 # 6 流的破坏与保护
 
