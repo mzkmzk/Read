@@ -417,9 +417,10 @@ margin填充规则
 
 http://demo.404mzk.com/css/border/sanjiaoxing.html
 
-![](/assets/QQ20180816-195255.png)
+![三角形绘制](/assets/QQ20180816-201349.png)
 
 ```css
+
 .box {
      width: 0;
     border: 10px solid;
@@ -439,6 +440,24 @@ http://demo.404mzk.com/css/border/sanjiaoxing.html
 
 .sanjiaoxing4{
    border-color:  #f30 transparent  ;
+}
+
+.sanjiaoxing5{
+    width: 10px;
+    height: 10px;
+   border-color:  #f30 #00f #396 #0f0  ;
+}
+
+.sanjiaoxing6{
+    width: 10px;
+    height: 10px;
+   border-color:  #f30 transparent transparent ;
+}
+
+.sanjiaoxing7{
+    border-width: 10px 20px;
+    border-style: solid;
+   border-color:  #f30 #f30 transparent transparent ;
 }
 ```
 
