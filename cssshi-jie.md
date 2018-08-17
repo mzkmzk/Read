@@ -498,6 +498,40 @@ nav设置margin-left -150px float:left
 
 # 5. 内联元素与流
 
+## 5.1 字母x CSS世界中隐匿的举足轻重的角色
+
+CSS中的基线: 小写字母x的下边缘(线)
+
+### 5.1.2 字母x与CSS中的x-height
+
+vertical-align: middle 指的是1/2 x-height 就是x中间交叉的位置
+
+### 5.1.3 字母x与css的ex
+
+1ex指的就是 x-height的高度
+
+所以用1ex来垂直和文本对齐是极好的
+
+```css
+.icon-arrow{
+    display: inline-block;
+    width: 20px;
+    height: 1ex;
+    background: url('../img/arrow.png') no-repeat center;
+}
+```
+![1ex来垂直和文本对齐](/assets/QQ20180817-182406.png)
+
+http://demo.404mzk.com/cssworld/img/icon-duiqi.html
+
+## 5.2 line-height内联元素的基石
+
+### 5.2.1 内联元素的高度之本- line-hieght  
+
+默认空的div高度是0
+
+写了几个字之后 就有高度了 请问为什么
+
 # 8 强大的文本处理能力 
 
 ## 8.1 line-hieght的另一个朋友font-size
