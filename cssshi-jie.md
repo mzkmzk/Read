@@ -461,6 +461,8 @@ http://demo.404mzk.com/css/border/sanjiaoxing.html
 }
 ```
 
+###4.4.6 border等高布局技术
+
 # 6 流的破坏与保护
 
 
