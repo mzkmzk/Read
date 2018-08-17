@@ -465,6 +465,8 @@ http://demo.404mzk.com/css/border/sanjiaoxing.html
 
 # 6 流的破坏与保护
 
+http://demo.404mzk.com/css/border/denggao.html
+
 原理就是
 
 border-left 设置150的宽度
@@ -473,7 +475,26 @@ nav设置margin-left -150px float:left
 
 然后在box上清除浮动
 
+核心CSS
 
+```css
+.box{
+    border-left: 150px solid #333;
+    background-color: #f0f3f9;
+}
+/* 清除浮动影响，不能使用overflow:hidden */
+.box:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.box > nav{
+    width: 150px;
+    margin-left: -150px;
+    float: left;
+}
+```
 
 # 8 强大的文本处理能力 
 
