@@ -467,6 +467,12 @@ http://demo.404mzk.com/css/border/sanjiaoxing.html
 
 原理就是
 
+border-left 设置150的宽度
+
+nav设置margin-left -150px float:left
+
+然后在box上清除浮动
+
 
 
 # 8 强大的文本处理能力 
