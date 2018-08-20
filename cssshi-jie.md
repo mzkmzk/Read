@@ -532,6 +532,45 @@ http://demo.404mzk.com/cssworld/img/icon-duiqi.html
 
 写了几个字之后 就有高度了 请问为什么
 
+是因为font-size吗 
+
+不是的 主要是因为line-hieght决定的 但有时也跟font-size有关
+
+行距 = line-height - font-size
+
+而行距分为上下行距 是评分的
+
+### 5.2.2 为什么line-height可以让内联元素'垂直居中'
+
+例如 
+
+http://demo.404mzk.com/cssworld/5/juzhong.html
+
+```css
+ .box{
+    width: 280px;
+    line-height: 120px;
+
+    background-color: #f0f3f9;
+}
+
+.content{
+    display: inline-block;
+    line-height: 20px;
+    vertical-align: middle;
+}
+```
+
+```html
+
+```
+
+是因为.content的display: inline-block 生成了一个幽灵节点
+
+继承了.box的line-height 120px 撑开了高度
+
+然而和设置vertical-align: middle 居中
+
 # 8 强大的文本处理能力 
 
 ## 8.1 line-hieght的另一个朋友font-size
