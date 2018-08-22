@@ -1,4 +1,5 @@
-# CSS世界
+#
+CSS世界
 
 # 1. 概述
 
@@ -38,9 +39,9 @@ table比css还要老
 
 ```css
 .clear:after{
-    content: '';
-    display: block;
-    clear: both;
+content: '';
+display: block;
+clear: both;
 }
 ```
 
@@ -54,7 +55,7 @@ table比css还要老
 
 内联盒子负责 内容
 
-突然来了一个list-item, 浏览器不知道怎么归类. 
+突然来了一个list-item, 浏览器不知道怎么归类.
 
 就叫做`附加盒子`
 
@@ -98,12 +99,12 @@ width: 100px; padding: 20px;
 
 ```css
 .father{
-    width: 180px;
+width: 180px;
 }
 .son{
-    margin:0 20px;
-    padding: 20px;
-    border: 1px solid;
+margin:0 20px;
+padding: 20px;
+border: 1px solid;
 }
 
 ```
@@ -180,9 +181,9 @@ content属性生成的内容都是
 
 ```css
 .box{
-    width: 80px;
-    padding: 20px 60px;
-    box-sizing: border-box;
+width: 80px;
+padding: 20px 60px;
+box-sizing: border-box;
 }
 ```
 
@@ -194,10 +195,10 @@ content属性生成的内容都是
 
 ```css
 a + a:before{
-    content: "";
-    font-size: 0;
-    padding: 10px 3 px 1 px;
-    margin-left: 6px
+content: "";
+font-size: 0;
+padding: 10px 3 px 1 px;
+margin-left: 6px
 }
 ```
 
@@ -207,12 +208,12 @@ a + a:before{
 
 ```css
 h3 {
-    line-height: 30px;
-    font-size: 14px;
+line-height: 30px;
+font-size: 14px;
 }
 
 h3 > span {
-    padding-top: 58px;
+padding-top: 58px;
 }
 ```
 
@@ -231,24 +232,24 @@ button的padding 最难搞 例如firefox里设置padding 0 不起作用
 
 ```css
 .icon-menu{
-    display: inline-block;
-    width: 140px;
-    height: 10px;
-    padding: 35px 0;
-    border-top: 10px solid;
-    border-bottom: 10px solid;
-    background-color: currentColor;
-    background-clip: content-box;
+display: inline-block;
+width: 140px;
+height: 10px;
+padding: 35px 0;
+border-top: 10px solid;
+border-bottom: 10px solid;
+background-color: currentColor;
+background-clip: content-box;
 }
 .icon-dot{
-    display: inline-block;
-    width: 100px; 
-    height: 100px;
-    padding: 10px;
-    border: 10px solid;
-    border-radius: 50%;
-    background-color: currentColor;
-    background-clip: content-box;
+display: inline-block;
+width: 100px;
+height: 100px;
+padding: 10px;
+border: 10px solid;
+border-radius: 50%;
+background-color: currentColor;
+background-clip: content-box;
 }
 ```
 
@@ -276,25 +277,25 @@ http://demo.404mzk.com/css/margin/denggao.html
 
 ```css
 .container{
-    margin: auto;
-    max-width: 600px;
-    overflow: hidden;
+margin: auto;
+max-width: 600px;
+overflow: hidden;
 }
 
 
 .column-left,
 .column-right {
-    width: 50%;
-    float: left;
-    margin-bottom: -9999px;
-    padding-bottom: 9999px;
-    color: #fff;
+width: 50%;
+float: left;
+margin-bottom: -9999px;
+padding-bottom: 9999px;
+color: #fff;
 }
 .column-left {
-    background-color: #34538b;
+background-color: #34538b;
 }
 .column-right {
-    background-color: #cd0000;
+background-color: #cd0000;
 }
 ```
 
@@ -326,15 +327,15 @@ p{ margin: 1em 0 }
 
 ```html
 <div>
-    <div style="margin-top:80px;">
+<div style="margin-top:80px;">
 </div>
 
 <div style="margin-top:80px;">
-    <div>
+<div>
 </div>
 
 <div style="margin-top:80px;">
-    <div style="margin-top:80px;">
+<div style="margin-top:80px;">
 </div>
 
 ```
@@ -367,7 +368,7 @@ p{ margin: 1em 0 }
 
 ```html
 <div class="father">
-    <div class="son"></div>
+<div class="son"></div>
 </div>
 ```
 
@@ -422,48 +423,46 @@ http://demo.404mzk.com/css/border/sanjiaoxing.html
 ```css
 
 .box {
-     width: 0;
-    border: 10px solid;
-    margin: 30px;
+width: 0;
+border: 10px solid;
+margin: 30px;
 }
 .sanjiaoxing{
-    border-color: #f30 transparent transparent;
+border-color: #f30 transparent transparent;
 }
 
 .sanjiaoxing2{
-    border-color: transparent transparent #f30 ;
+border-color: transparent transparent #f30 ;
 }
 
 .sanjiaoxing3{
-    border-color: transparent #f30 transparent  ;
+border-color: transparent #f30 transparent ;
 }
 
 .sanjiaoxing4{
-   border-color:  #f30 transparent  ;
+border-color: #f30 transparent ;
 }
 
 .sanjiaoxing5{
-    width: 10px;
-    height: 10px;
-   border-color:  #f30 #00f #396 #0f0  ;
+width: 10px;
+height: 10px;
+border-color: #f30 #00f #396 #0f0 ;
 }
 
 .sanjiaoxing6{
-    width: 10px;
-    height: 10px;
-   border-color:  #f30 transparent transparent ;
+width: 10px;
+height: 10px;
+border-color: #f30 transparent transparent ;
 }
 
 .sanjiaoxing7{
-    border-width: 10px 20px;
-    border-style: solid;
-   border-color:  #f30 #f30 transparent transparent ;
+border-width: 10px 20px;
+border-style: solid;
+border-color: #f30 #f30 transparent transparent ;
 }
 ```
 
 ###4.4.6 border等高布局技术
-
-# 6 流的破坏与保护
 
 http://demo.404mzk.com/css/border/denggao.html
 
@@ -479,20 +478,20 @@ nav设置margin-left -150px float:left
 
 ```css
 .box{
-    border-left: 150px solid #333;
-    background-color: #f0f3f9;
+border-left: 150px solid #333;
+background-color: #f0f3f9;
 }
 /* 清除浮动影响，不能使用overflow:hidden */
 .box:after{
-    content: '';
-    display: block;
-    clear: both;
+content: '';
+display: block;
+clear: both;
 }
 
 .box > nav{
-    width: 150px;
-    margin-left: -150px;
-    float: left;
+width: 150px;
+margin-left: -150px;
+float: left;
 }
 ```
 
@@ -514,10 +513,10 @@ vertical-align: middle 指的是1/2 x-height 就是x中间交叉的位置
 
 ```css
 .icon-arrow{
-    display: inline-block;
-    width: 20px;
-    height: 1ex;
-    background: url('../img/arrow.png') no-repeat center;
+display: inline-block;
+width: 20px;
+height: 1ex;
+background: url('../img/arrow.png') no-repeat center;
 }
 ```
 ![1ex来垂直和文本对齐](/assets/QQ20180817-182406.png)
@@ -526,13 +525,13 @@ http://demo.404mzk.com/cssworld/img/icon-duiqi.html
 
 ## 5.2 line-height内联元素的基石
 
-### 5.2.1 内联元素的高度之本- line-hieght  
+### 5.2.1 内联元素的高度之本- line-hieght
 
 默认空的div高度是0
 
 写了几个字之后 就有高度了 请问为什么
 
-是因为font-size吗 
+是因为font-size吗
 
 不是的 主要是因为line-hieght决定的 但有时也跟font-size有关
 
@@ -542,27 +541,29 @@ http://demo.404mzk.com/cssworld/img/icon-duiqi.html
 
 ### 5.2.2 为什么line-height可以让内联元素'垂直居中'
 
-例如 
+例如
 
 http://demo.404mzk.com/cssworld/5/juzhong.html
 
 ```css
- .box{
-    width: 280px;
-    line-height: 120px;
+.box{
+width: 280px;
+line-height: 120px;
 
-    background-color: #f0f3f9;
+background-color: #f0f3f9;
 }
 
 .content{
-    display: inline-block;
-    line-height: 20px;
-    vertical-align: middle;
+display: inline-block;
+line-height: 20px;
+vertical-align: middle;
 }
 ```
 
 ```html
-
+<div class="box">
+    <div class="content">基于行高实现的...</div>
+</div>
 ```
 
 是因为.content的display: inline-block 生成了一个幽灵节点
@@ -571,7 +572,115 @@ http://demo.404mzk.com/cssworld/5/juzhong.html
 
 然而和设置vertical-align: middle 居中
 
-# 8 强大的文本处理能力 
+### 5.2.3 深入line-height的各类属性值
+
+line-height的默认值是normal, 还支持数值 百分比 长度值
+
+normal具体的值 只和当时的字体有关系
+
+所以一般line-height都建议是css赋值的
+
+数值: 例如line-height: 1.5 最终效果是 1.5 乘以 当前font-size
+
+百分比: 例如line-height: 150% 乘以 150% 乘以 当前font-size
+
+长度值: 具体的长度值
+
+问题:
+
+line-height: 1.5 或者 1.5em 或者 150% 有何不同
+
+同: 
+
+对于当前元素的最后计算值都是一样的
+
+异:
+
+150%和1.5em 子元素继承的line-height 是最后的计算值
+
+而 1.5 子元素继承的line-height 就是1.5 
+
+关于重置line-height
+
+因为line-height具有继承性
+
+我们是否 在body上设置line-height 就全部元素覆盖了呢
+
+非也
+
+因为替换元素并不继承父元素的lien-height
+
+需要
+
+```css
+body {
+    line-height: 150%;
+}
+
+input, button {
+    line-height: inherit;
+}
+```
+
+### 5.2.4 内联元素 line-height 的大值特性
+
+```html
+<div class="box box1">
+    <span>span: line-height:20px</span>
+</div>
+<div class="box box2">
+    <span>span: line-height:20px</span>
+</div>
+```
+
+```css
+.box {
+    width: 280px;
+    margin: 1em auto;
+    outline: 1px solid #beceeb;
+    background: #f0f3f9;
+}
+.box1 {
+    line-height: 96px;
+}
+.box1 span {
+    line-height: 20px;
+}
+.box2 {
+    line-height: 20px;
+}
+.box2 span {
+    line-height: 96px;
+}
+```
+
+问题其实 就是 最后.box1的高度为多高 是20还是96?
+
+之前 内联盒模型都是 存在一个空白的幽灵节点的
+
+空白幽灵节点继承了父元素的line-height 
+
+所以当 父元素lien-height > span的line-height
+
+空白幽灵节点 会撑开div 高度为96
+
+当 父元素lien-height < span的line-height
+
+span则撑开了 div的高度 也为96px
+
+所以称内联模型 父元素和子元素设置了不同的line-height
+
+则最后 表现出来span元素的line-height 都是两者中大的那个 作者称 line-height是'大值特性'
+
+## 5.3 line-height 的好朋友 vertical-align
+
+line-height起作用的地方 vertical-align也一定起作用
+
+
+
+# 6 流的破坏与保护
+
+# 8 强大的文本处理能力
 
 ## 8.1 line-hieght的另一个朋友font-size
 
@@ -581,7 +690,7 @@ vertical-align百分比属性值 是相对于line-hieght计算的
 
 line-height的部分属性值 是根据front-size计算的
 
-所以vertical-align跟front-size是有关系的 
+所以vertical-align跟front-size是有关系的
 
 例如实现一个图标垂居中于文本的案例
 
@@ -591,15 +700,15 @@ http://demo.cssworld.cn/8/1-1.php
 
 ```css
 p {
-    font-size: 14px;
+font-size: 14px;
 }
 
 p > img {
-    width: 16px;
-    height: 16px;
-    vertical-align: 25%;
-    position: relative;
-    top: 8px;
+width: 16px;
+height: 16px;
+vertical-align: 25%;
+position: relative;
+top: 8px;
 }
 ```
 
@@ -609,23 +718,23 @@ vertical-align = 14px * 1(line-height) * 25% = 3.5px
 
 而vertical-align = 3.5px的意思是 img基线超过父元素的基线3.5px
 
-而文字的基线是 与父元素的基线对齐 
+而文字的基线是 与父元素的基线对齐
 
 所以此时需要图片的基线和文字的基线对齐
 
 所以需要设置 vertical-align为 25%
 
----待补充 这里还没完全理解 --- 
+---待补充 这里还没完全理解 ---
 
 ### 8.1.2 理解font-size与ex、em和rem的关系
 
-ex:  1为 小写x的高度
+ex: 1为 小写x的高度
 
 em: 可以理解为 一个父元素中 font-size的倍数 不一定的话chrome默认为16px 其高度值可以理解为正方形的方格的边长
 
 ### 8.1.4 font-size: 0与文本的隐藏
 
-Chrome上有个字号限制: font-size不能低于12px 否则当12px处理 除了0 0的话则隐藏 
+Chrome上有个字号限制: font-size不能低于12px 否则当12px处理 除了0 0的话则隐藏
 
 ## 8.2 字体属性家族的大家长 font-family
 
@@ -650,12 +759,11 @@ font-family 支持的值有 字体名 和 字体族
 |衬线字体| 笔画开始、结束的地方有额外的装饰而且笔画的粗细会有所不同的字体|宋体 ,Times New Roman, Georgia|
 |无衬线字体| 没有额外装饰 粗细差不多 | 微软雅黑, Arial, Verdana, Tahoma, Helivetica, Calibri|
 |等宽字体| 每个字符(te别是字母)宽度一致 | Consolas, Monaco, monospace|
-  
 ### 8.2.2 等宽字体的实践价值
 
 1. 代码展示 你去看下你的编辑器代码是否是等宽的?
 2. 图案的展示 例如 `———————`, `-------`, `·······`
-3. 结合ch 例如输入手机号 11位 设置输入框宽度为11ch 同时设置数字等宽,  就很直接明了的看到自己输入满了
+3. 结合ch 例如输入手机号 11位 设置输入框宽度为11ch 同时设置数字等宽, 就很直接明了的看到自己输入满了
 
 ### 8.2.3 中文字体和英文名称
 
@@ -720,7 +828,7 @@ font的完整写法是
 
 font要没注明line-height则会被还原为 normal
 
-需要注意的是 font-size 和 font-family是必须的 否则整个属性不起作用 
+需要注意的是 font-size 和 font-family是必须的 否则整个属性不起作用
 
 ## 8.5 真正了解@font face规则
 
@@ -728,14 +836,14 @@ font要没注明line-height则会被还原为 normal
 
 ```css
 @font-face {
-    font-family: 'example';
-    src: url(example.ttf);
-    font-style: normal;
-    font-weight: normal;
-    unicode-range: U+0025-00FF;
-    font-variant: small-caps;
-    font-stretch: expanded;
-    font-feature-settings: 'ligal' on;
+font-family: 'example';
+src: url(example.ttf);
+font-style: normal;
+font-weight: normal;
+unicode-range: U+0025-00FF;
+font-variant: small-caps;
+font-stretch: expanded;
+font-feature-settings: 'ligal' on;
 }
 ```
 
@@ -743,11 +851,11 @@ font要没注明line-height则会被还原为 normal
 
 这里的font-family可以看成一个字体的变量 可以随便取 例如 `$`;
 
-注意不要和常用的字体重名即可 
+注意不要和常用的字体重名即可
 
 > src
 
-src引入的资源可以是系统字体 也可以是外链字体 
+src引入的资源可以是系统字体 也可以是外链字体
 
 如果是系统安装字体 local() //IE9机器以上才支持
 
@@ -757,26 +865,26 @@ src引入的资源可以是系统字体 也可以是外链字体
 
 ```css
 @font-face{
-    font-family: ICON;
-    src: url('icon.eot') fotmat('eot'); # 兼容模式不认识下吗的?号 所以在这补充 在实际中午作用
-    src: url('icon.eot?#iefix') format('embedded-opentype'), #IE6~8仅支持这种字体
- 并解决IE9之前解析多个url 会把长长字符串当做一个地址导致404 这里主要用?把后面都当成参数 
-        url('icon.woff2') format('woff2'), #web open font format 二期标准
-        url('icon.woff') format('woff'), #web open font format 一期标准
-        url('icon.ttf') format('typetrue'),#android兼容性好 但体积大
-        url('icon.svg#icon') format('svg'); #为了兼容IOS4.1及其以前版本
+font-family: ICON;
+src: url('icon.eot') fotmat('eot'); # 兼容模式不认识下吗的?号 所以在这补充 在实际中午作用
+src: url('icon.eot?#iefix') format('embedded-opentype'), #IE6~8仅支持这种字体
+并解决IE9之前解析多个url 会把长长字符串当做一个地址导致404 这里主要用?把后面都当成参数
+url('icon.woff2') format('woff2'), #web open font format 二期标准
+url('icon.woff') format('woff'), #web open font format 一期标准
+url('icon.ttf') format('typetrue'),#android兼容性好 但体积大
+url('icon.svg#icon') format('svg'); #为了兼容IOS4.1及其以前版本
 }
 ```
 上面方案弊端很多 所以可以改成
 
 ```css
 @font-face{
-    font-family: ICON;
-    src: url('icon.eot');
-    src: local('😁'),//用IE不认识的字符串解决 IE9以前会读取到这个属性 并且高级浏览器可以用woff2
-         url('icon.woff2') format('woff2'),
-         url('icon.woff') format('woff'),
-         url('icon.ttf') 
+font-family: ICON;
+src: url('icon.eot');
+src: local('😁'),//用IE不认识的字符串解决 IE9以前会读取到这个属性 并且高级浏览器可以用woff2
+url('icon.woff2') format('woff2'),
+url('icon.woff') format('woff'),
+url('icon.ttf')
 }
 ```
 
@@ -784,19 +892,19 @@ src引入的资源可以是系统字体 也可以是外链字体
 
 ```css
 @font-face {
-    font-family: 'I';
-    font-style: normal;
-    src: local('FZYaoti');
+font-family: 'I';
+font-style: normal;
+src: local('FZYaoti');
 }
 
 @font-face {
-    font-family: 'I';
-    font-style: 'italic';
-    src: local('FZShuTi');
+font-family: 'I';
+font-style: 'italic';
+src: local('FZShuTi');
 }
 
 .i{
-    font-family: I;
+font-family: I;
 }
 ```
 
@@ -819,13 +927,13 @@ src引入的资源可以是系统字体 也可以是外链字体
 
 ```css
 @font-face {
-    font-family: quote;
-    src: local('Simsun');
-    unicode-range: U+201c, U+201d;
+font-family: quote;
+src: local('Simsun');
+unicode-range: U+201c, U+201d;
 }
 
 .font{
-    font-family: quote, 'Microsoft Yahei';
+font-family: quote, 'Microsoft Yahei';
 }
 ```
 
@@ -833,7 +941,7 @@ src引入的资源可以是系统字体 也可以是外链字体
 
 以后字体图标技术只会越来越边缘化 因为和SVG相比 唯一优势就是兼容老版本IE了
 
-SVG同样是矢量的 同样颜色可控 但占用资源少 加载体验更好 
+SVG同样是矢量的 同样颜色可控 但占用资源少 加载体验更好
 
 ## 8.6 文本的控制
 
@@ -912,22 +1020,21 @@ text-transfrom: uppercase|lowercase
 
 ### 9.2.1 隐藏元素的background-image到底加不加载
 
-IE8~IE11 依然发生图片请求 
+IE8~IE11 依然发生图片请求
 
-firefox不会发送 
+firefox不会发送
 
-chrome和safari 会判断父元素display是否为none 是则不发 
+chrome和safari 会判断父元素display是否为none 是则不发
 
 # 9.2.2 与众不同的background-position百分比计算方式
 
-background-position的值 主要有几种类型 数字 百分比 或者 left|top|right|bottom|center 
+background-position的值 主要有几种类型 数字 百分比 或者 left|top|right|bottom|center
 
 支持1~4个数值(IE8时 最多有两个)
 
-比较特殊的是 当值为百分比的计算方式 
+比较特殊的是 当值为百分比的计算方式
 
 positionX = ( 容器的宽带 - 图片的宽度 ) * percentX
 
 positionY = ( 容器的高度 - 图片的高度 ) * percentY
-
 
