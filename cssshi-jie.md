@@ -537,7 +537,7 @@ http://demo.404mzk.com/cssworld/img/icon-duiqi.html
 
 行距 = line-height - font-size
 
-而行距分为上下行距 是评分的
+而行距分为上下行距 是平分的
 
 ### 5.2.2 为什么line-height可以让内联元素'垂直居中'
 
@@ -608,7 +608,7 @@ line-height: 1.5 或者 1.5em 或者 150% 有何不同
 
 非也
 
-因为替换元素并不继承父元素的lien-height
+因为替换元素并不继承父元素的line-height
 
 需要
 
@@ -676,7 +676,111 @@ span则撑开了 div的高度 也为96px
 
 line-height起作用的地方 vertical-align也一定起作用
 
+### 5.3.1 vertical-align家族基本认识
 
+抛开inherit 这类全局属性值不谈
+
+*. 线性: baseline(默认值 对准基线) top middle bottom
+*. 文本类: text-top text-bottom
+*. 上标下标类: sub super
+*. 数值百分比: 20px 20%, 相作用与基线, 正值在基线之上xx, 负值在基线之下xx
+
+基线即英文字母x的下边缘线
+
+baseline 相当于 vertical-align: 0
+
+凡是百分比值 都有个参考系的
+
+例如 padding margin 是相对于宽度计算的
+
+而line-height是相对于font-size计算的
+
+vertical-align的百分比则是根据line-height计算的
+
+### 5.3.2 vertical-align作用的前提
+
+只能作用于 内联元素 或 display为table-cell的元素
+
+也相当于是 只作用于 display为 inline inline-block inline-table table-cell
+
+所以默认的情况下
+
+span strong em 等内联元素
+
+img button input 等替换元素
+
+非HTML规范的自定义标签元素 以及td单元格 都是支持vertical-algin的
+
+一些浮动和绝对会让元素块状化
+
+```css
+.example{
+    float: left;
+    vertical-align: middle;
+}
+
+.example{
+    position: absolute;
+    vertical-align: middle;
+}
+```
+
+以上的middle都是无作用的
+
+还有一些是因为行高高度不足 导致vertical-align无效
+
+<http://demo-404mzk-com/cssworld/5/vertical-align-wuxiao.html>
+
+```css
+.box{
+    height: 128px;
+    /* line-height: 128px; 需要设置此属性vertical-align才生效 */
+}
+
+.box > img {
+    height: 96px;
+    vertical-align: middle;
+}
+```
+
+```html
+<div class="box">
+    <img src="../../img/1.pic.jpg" class="i_img"/>
+</div>
+```
+
+此时box的lineHeight是normal
+
+和img的lineHeight 也是normal
+
+line-height 是normal的话 大小由当前字体决定
+
+所以 需要设置.box的line-height为128px
+
+让img内联元素的幽灵空白节点 撑开高度
+
+table-cell作用的是元素本身 而非子元素
+
+![table-cell作用的是元素本身 而非子元素](/assets/QQ20180823-1245591.png)
+
+
+```css
+.cell{
+    height: 128px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.cell > img {
+    height: 96px; 
+}
+```
+
+vertical-align设置在img是无效的 需要设置在table-ceel同一元素
+
+那为什么.cell不需要设置lien-height为128px 撑开呢? 因为它是块级元素
+
+### 5.3.3 vertical-align 和 line-height之间的关系
 
 # 6 流的破坏与保护
 
@@ -1012,7 +1116,6 @@ text-transfrom: uppercase|lowercase
 用于输入身份证和验证码
 
 用户由于输入什么大小写的时候.
-
 
 # 9. 元素的装饰与美化
 
