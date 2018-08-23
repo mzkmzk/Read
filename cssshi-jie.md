@@ -782,6 +782,112 @@ vertical-align设置在img是无效的 需要设置在table-ceel同一元素
 
 ### 5.3.3 vertical-align 和 line-height之间的关系
 
+大家先来看下以下的.box 高度会是多少
+
+```css
+ .box {
+    line-height: 32px
+}
+
+.box > span { font-size: 24px }
+```
+
+![line-height高度](/assets/QQ20180823-140715.png)
+
+实际上的高度会比32px 高一点
+
+为什么呢
+
+span内联盒子存在一个幽灵节点
+
+幽灵节点的font-size是继承.box的 .box默认是16px
+
+而span里的font-size是24px
+
+因为line-height是一致的 
+
+字号不一致的两个文字在一起时 彼此会发生上下偏移
+
+再来看个图片的案例
+
+<http://demo-404mzk-com/cssworld/5/vertical-align-hight.html>
+
+```css
+.example{
+    width: 280px;
+    outline: 1px solid #aaa;
+}
+
+.example > img {
+    height: 96px;
+}
+```
+
+![图片-line-height](/assets/QQ20180823-195019.png)
+
+为什么下面会多出几px
+
+因为在笔者的chrome font-size是16 
+
+而幽灵节点(这里拿x来做代表) line-hieght 基本是20 = 16 + 2 * 半行距(2)
+
+line-height对img是不起作用的
+
+所以下面空白其实就是被幽灵节点撑开的
+
+需要解决此类问题
+
+*. 图片块状化, 可以一口气干掉 幽灵空白节点 line-height vertical-align
+*. 容器line-height足够小 只要半行距小到字母x的下边缘位置或者再往上, 自然就没有了撑开底部间隙了
+*. 容器font-size足够小
+*. 图片设置其他vertical-align属性值 间隙产生原因之一就是基线对齐 所以vertical-align设置top middle botoom都可以的
+
+此前有介绍 内联特性导致margin无效
+
+```css
+.box > img {
+    hegiht: 96px;
+    margin-top: -200000px
+}
+```
+
+```html
+<div class="box">
+    <img src="1.jpg">
+</div>
+```
+
+因为存在幽灵空白节点的vertical-align:baseline给限制死了
+
+所以图片为了对齐基线 所以会一动不动
+
+### 5.3.4 深入理解 vertical-align线性属性值
+
+> inline-block 与 baseline
+
+vertical-align默认是baseline 
+
+对于文本来说是字母x的下边缘线
+
+对于图片 是图片下边缘
+
+但是如果是inline-block 就有个规则了
+
+```javascript
+if ( 元素是inline-block ){
+    if ( 没有内联元素 || overflow !== 'visable' ){
+        基线 = margin底边缘
+    }else {
+        基线 = 元素里最后一个内联元素的基线
+    }
+}
+```
+
+![inline-block 与 baseline](/assets/QQ20180823-201939.png)
+
+
+左边是没有内联元素的 margin的下底线 = 右边x字母的下边缘
+
 # 6 流的破坏与保护
 
 # 8 强大的文本处理能力
@@ -1116,6 +1222,7 @@ text-transfrom: uppercase|lowercase
 用于输入身份证和验证码
 
 用户由于输入什么大小写的时候.
+
 
 # 9. 元素的装饰与美化
 
