@@ -2019,3 +2019,68 @@ ie则都加载
 
 # 11. 用户界面样式
 
+
+## 11.1 和border形似的outline属性
+
+outline书本书介绍第一个真正意义上不占据任何空间的属性
+
+可以用来做头像裁剪等功能
+
+核心css就是
+
+```css
+.crop-area {
+    width: 80px; height: 80px;
+    outline: 256px solid rgba(0,0,0, .5);
+    cursor: move;
+}
+```
+
+http://demo.cssworld.cn/11/1-1.php
+
+# 12. 流向的改变
+
+## 12.1 改变水平流向的direction
+
+### 12.1.1 direction简介
+
+direction: ltr; //默认 left to right
+         : rtl; //right to left
+
+### 12.1.2 direction的黄金搭档 unicode-bidi
+
+direction属性似乎只能改变图片或者按钮的显现顺序
+
+但对于纯内容 就好像并没有什么效果 这个就要用unicode-bidi
+
+unicode-bidi: normal;//默认
+            : embed;//控制元素自身不被外元素控制unicode-bidi
+            : bidi-override;
+
+一个demo就能表现出unicode-bidi的属性
+
+http://demo.cssworld.cn/12/1-4.php
+
+```css
+.rtl {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+.rtl > span {
+    background-color: #ddd;
+}
+```
+
+```html
+<p class="rtl">开头是我，<span style="unicode-bidi:normal;">这是中间</span>，然后是结束</p>
+<p class="rtl">开头是我，<span style="unicode-bidi:embed;">这是中间</span>，然后是结束</p>
+```
+
+结果:
+
+![unicode-bidi](/assets/QQ20180828-225557.png)
+
+## 12.2 改变CSS世界纵横规则的writing-mode
+
+方便方向,但是笔者觉得适用场景有效..在这里不描述..
+
