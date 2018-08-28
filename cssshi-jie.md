@@ -1251,19 +1251,23 @@ chrome为例
 
 文本省略
 
+```css
 .ell{
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
 }
+```
 
 或者在高级浏览器试用...则无需overflow
 
-```ell-rows-2{
+```css
+ell-rows-2{
     display: -webkit-box;
     -webkit-fox-orient: vertical;
     -webkit-line-clamp: 2;
 }
+```
 
 ### 6.4.5 overflow与锚点定位
 
