@@ -73,6 +73,7 @@
   * [和秋叶一起学PPT](he-qiu-xie-yi-qi-xue-ppt.md)
   * [数学之美](shu-xue-zhi-mei.md)
   * [爱你就像爱生命](ai-ni-jiu-xiang-ai-sheng-ming.md)
+  * [崔玉涛宝贝健康公开课](cui-yu-tao-bao-bei-jian-kang-gong-kai-ke.md)
 * [企业管理](qi_ye_guan_li.md)
   * [只有偏执狂才能生存](zhi_you_pian_zhi_kuang_cai_neng_sheng_cun.md)
 * [设计](she_ji.md)
