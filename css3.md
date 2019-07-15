@@ -40,7 +40,7 @@
 	/* attr的值以空格为分隔符分开,其中一个值等于value即可的E元素 */
 	E[attr~=value]{...}
 	
-	/* attr的值以连字符'_'为分隔符分开,其中一个值等于value即可的E元素 */
+	/* 匹配以value-为开头的E元素 */
 	E[attr|=value]{...}
 	
 	/* attr属性包含value值的E元素 */
@@ -62,7 +62,7 @@
 	
 ###1.2.4 class选择器
 	
-	/* E为可选是否填写指定元素,my_class为指定lcass */
+	/* E为可选是否填写指定元素,my_class为指定class */
 	[E].my_class{...}		
 	
 	/* class同时包含class1.class2 */
@@ -83,7 +83,7 @@
 
 ###1.2.7 兄弟选择器
 
-	/* id为android的标签 之后出现的且class为long的同级元素 */
+	/* id为android的标签 紧跟着出现的且class为long的同级元素 */
 	#android ~ .long{...}	
 	
 ###1.2.8 选择器组合
@@ -144,7 +144,7 @@
 			content: open-quote;
 		}
 		
-		div>divafter{
+		div>div:after{
 			content:close-quote;
 		}
 		

@@ -177,11 +177,53 @@ outline画外部的灰色边框
 则该色标的位置值会被设置为它前面所有色标位置值的最大值
 ```
 
+# 5. 字体排印
+
+# 7. 结构和布局
+
+## 7.38 根据兄弟元素的数量来设置样式
+
+想当列表中子元素的个数为4个的时候设置元素
+
+```css
+li:first-child:nth-last-child(4),  /* 匹配第一个元素 并且是倒数第4个元素 那就是li元素只有4个情况才能匹配上*/
+li:first-child:nth-last-child(4) ~ li  /* 取到第一个元素然后向后取兄弟节点*/
+{  }
+
+```
+
+做成通用的scss就是
+
+```css
+@mixin n-items($n){
+    &:first-child:nth-last-child(#{$n}),
+    &:first-child:nth-last-child(#{$n} ~ &) {
+        @content;
+    }
+}
+
+/* 调用时 */
+li {
+    @include n-items(4){
+        xxx
+    }
+}
+```
+
+当想匹配到元素大于等于4个时 样式为A
+
+```css
+li:first-child:nth-last-child(n+4), 
+li:first-child:nth-last-child(n+4) ~ li { A }
+```
+
+当想匹配元素小于等于4个时样式为B
+
+```css
+li:first-child:nth-last-child(-n+4),
+li:first-child:nth-last-child(-n+4) ~ li { B }
+```
 
 # DEMO
 
 http://play.csssecrets.io/
-
-
-# 5. 字体排印
-

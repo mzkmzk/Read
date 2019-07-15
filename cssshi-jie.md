@@ -1172,7 +1172,7 @@ BFC: block formatting context: 块级格式化上下文
 
 ```css
 
-..boxbox  {{
+.box{
     width: 200px; height: 80px;
     margin: auto;
     padding: 10px;

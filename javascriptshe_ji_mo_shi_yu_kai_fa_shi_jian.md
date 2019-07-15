@@ -321,7 +321,7 @@ extent.call(); //3
 var getSingle = function(fn) {
   var result; //形成闭包,在return后的函数仍可访问result
   return function(){
-    return result || (result = fn.apply(this.arguments));
+    return result || (result = fn.apply(this, arguments));
   }
 }
 
