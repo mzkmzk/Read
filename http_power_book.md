@@ -86,7 +86,7 @@ TCP收到数据流之后 会将数据流砍成被称作段的小数据块 并将
 - 用于捎带确认的TCP延迟确认算法
 - TIME_WAIT时延和端口耗尽
 
-### 4.2.3 TCO连接的握手时延
+### 4.2.3 TCP连接的握手时延
 
 小的HTTP事物可能会在TCP建立上花费50%
 
@@ -168,11 +168,139 @@ HTTP可以设置TCP_NODELAY禁止nagle算法 但要确认会向TCP写入大块�
 
 在一台源服务器和一台目标服务器来说 能变的只有源端口
 
-所以
+最常见的是 代码服务器访问 数据库服务器的端口, 代码服务器没发起一次连接
+
+就要占用本机的一个源端口 而源端口例如是6W个, 并且2MSL内连接无法复用
+
+那么服务器连接频率 超过60000 / 120 = 500次/S
+
+就会出现TIME_WAIT端口耗尽问题
+
+有些操作系统的速度就会严重减缓
+
+> 为什么要设置TIME_WAIT状态
+
+想象这个场景
+
+```bash
+- A和B建立了一个TCP连接，A向B发送消息包1 2 3，消息包3传给B的时候延迟了，A又重传了消息包3，A和B完成通信断开连接，双方都很happy。
+
+- A和B又建立一个TCP连接，用了相同的local IP local PORT remote IP remote PORT，A向B发送消息包1 2，B收到1 2之后，上一个连接延迟的消息包3来了，B无法区分这个消息包是上一个TCP连接的，SEQ=3刚好排在2后面。就会认为消息3是合法的 但实际上无效的延迟消息
+```
+
+这种情况需要两个条件
+
+1. 消息包的 客户端IP、端口 服务器IP、端口 和某个旧TCP连接一致
+2. SEQ number也刚好合法, 如果一个已经接受过的seq number 会被认为是一个重传的包被丢弃
+
+所以要设置2MSL 保证延迟的消息 消失掉
+
+
+> 如何查看本机有多少个源端口
+
+linux的情况下
+
+```bash
+>  sysctl -a|grep net.ipv4.ip_local_port_range
+net.ipv4.ip_local_port_range = 32768    61000
+```
+
+则是只有28232个源端口可用
+
+> 如何查看本机设置的MSL
+
+```bash
+> sysctl -a|grep net.ipv4.tcp_fin_timeout
+net.ipv4.tcp_fin_timeout = 60
+```
+本机设置的MSL为60S
+
+> 如何规避TIME_WAIT问题
+
+- 增加客户端负载生成机器的数量
+- 使用长连接
+- 打开tcp_tw_resue
+
+打开tcp_tw_resue
+
+的前提是需要客户端和服务器都打开tcp_timestamps 这样就能规避延迟消息被误认为合法的问题
+
+但是tcp_timestamps的单位是S 所以 TIME_WAIT端口也要下一秒才能用 所以请求QPS不能超过可用端口数
 
 关于TIME_WAIT的详解: https://blog.csdn.net/u010585120/article/details/80826999
 
+## 4.3 HTTP连接的处理
 
+### 4.3.1 常被误解的Connection首部
+
+Connection可选的值
+
+- HTTP首部字段名, 列出了只与此连接有关的首部(用逗号分隔, 这些标签不会传播到其他连接)
+- 任意标签值, 用于描述此连接的非标准选项
+- close 表示操作完成之后需关闭这条持久连接
+
+### 4.3.2 串行事物处理时延
+
+每个请求 都串行的 建立TCP连接 获取内容 断开TCP连接
+
+那么会非常的慢
+
+解决方案
+
+- 并行连接: 建立多个TCP连接
+- 持久连接: 重用TCP连接 以消除连接及关闭时延
+- 管道化连接: 通过共享TCP连接发起并行的http请求
+- 复用连接: 交替传送请求和响应报文(实验阶段)
+
+## 4.5 持久链接
+
+### 4.5.7 插入Proxy-Connection
+
+客户端A->老旧服务器B->新服务器C
+
+客户端A传了Connection 给老旧服务器B 老旧服务器不认识这个字段 
+
+所以会透传给新服务器C 新服务器以为老旧服务器B想跟它长连接
+
+所以新服务器会发起长连接 并且响应头会传给老旧服务器B为Coneection: Keep-Alive
+
+而老旧服务器B 因为不认识Connection 也会透传Coneection 给客户端A
+
+最终就是客户端A和新服务器C 都以为跟B建立的是长连接
+
+而B其实建立的都是短连接
+
+这时 带来的问题有两个
+
+- 老旧服务器B还在乖乖的等 新服务器C跟它关闭连接
+- 而此时客户端A接受到了Keep-alive 会复用之前的连接发送剩下的请求, 但老旧服务器不认为这个连接上还会有其他请求, 请求被忽略
+
+这就是Connection带来的问题 
+
+而Proxy-Connection什么时候会发起呢
+
+以chrome为例 用设置-高级-设置代理服务器 之后 就会每个请求都带Proxy-Connection
+
+因为这是当年Netspace浏览器和代理实现者定义的一个头部, 而出的一个非标准的头部
+
+同理 我们启动了finndle 也会每个请求都带Proxy-Connection
+
+proxy-connection 起作用仅限于 
+
+- 只有客户端->代理->服务器的这么一层代理关系
+- 或者 多层代理 聪明的代理右边不能有老旧代理
+
+具体看图
+
+一层代理的情况下
+
+![proxy-connection一层代理](./assets/QQ20190706-214738.jpg)
+
+多层代理的情况
+
+![proxy-connection多层代理](./assets/QQ20190706-214950.jpg)
+
+参考链接: https://imququ.com/post/the-proxy-connection-header-in-http-request.html
 
 # 第四部分 实体、编码和国际化
 

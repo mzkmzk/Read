@@ -141,11 +141,67 @@ find /etc -newer /etc/passwd 查找在/etc下比/etc/passwd新的文件
 6. `ctrl+w+k/上箭头`: 同上,不过到上一个文件
 7. `ctrl+w+q`: 也是先按ctrl+w,然后放开其他键按q,关闭下一个文件
 
+# 11 认识与学习bash
+
+# 11.1 认识bash这个shell
+
+### 11.1.4 bash shell的功能
+
+> 命令记忆能力 (history)
+
+好处: 能知道执行过的命令 方便排查问题
+
+坏处: 黑客进来了 mysql的登入命令写在命令行里..那么黑客也知道了
+
+关于历史记录的几个查询方法
+
+> ~/.bash_history文件
+
+这个文件记录的是前一次登录以前所执行过的命令, 至于这一次登录所执行的命令都被暂存在内存中
+
+当成功注销后 才写入到.bash_history当中
+
+还有另外一个查询历史的用法是 使用history命令
+
+具体可参考 https://linuxtoy.org/archives/history-command-usage-examples.html
+
+> 命令与文件补全功能(Tab按键的好处)
+
+减少打错拼音的可能和提高敲命令的效率
+
+> 命令别名设置功能(alias)
+
+例如可以设置~/.bash_profile
+
+里设置
+
+```bash
+alias lm='ls -al'
+```
+
+> 作业控制、前台、后台控制(job control, foreground, background)
+
+定时脚本的执行
+
+不怕ctrl+c 中断了进程
+
+> 程序脚本(shell script)
+
+主要运行linux的一些操作集成到一个脚本中
+
+> 通配符(wildcard)
+
+例如使用 `ls -l /usr/bin/X*` 来查询url/bin目录下有多少X开头的文件
+
 # 12 正则表达式与文本格式化处理
 
 需要注意版本的字符格式是啥,不同的字符格式可能会不一样
 
-拓展正则表达式`egrep` 可以直接通过|匹配不用的正则
+例如LANG=C: 01234....ABCD....Zabc...z
+
+和LANG=zh_CN: 01234....aAbB.....zZ
+
+的编码顺序不一样, 会导致正则的返回不一样
 
 ## 12.1 grep
 
