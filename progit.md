@@ -75,7 +75,7 @@ Git的每个版本的文件是独立存在的,是直接记录快照.
 
     git config --global core.editor 命令设定你喜欢的编辑软件
     
-详情输入`git config`查看 or `git help config`
+详情输入`git config --list`查看 or `git help config`
 
 ##2. Git基础
 
