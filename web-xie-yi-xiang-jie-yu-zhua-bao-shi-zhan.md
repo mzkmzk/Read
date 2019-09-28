@@ -100,9 +100,75 @@ OSI模型与TCP/IP模型的对照
 - 远程会话: CS变体, 服务器保存Apllication state应用状态, 可伸缩性、可见性差
 - 远方数据访问: Application state同时存在于客户端和服务器, 例如mysql命令访问数据库, 几百万数据, 而客户端可以一页页查看 因为游标同时存在于客户端和服务器
 
+> 移动代码风格
 
+- 虚拟机: 分离指令和实现
+- 远程求值: 基于CS的VM, 将代码发送至远程服务器执行
+- 按需代码: 服务器在响应中发回处理代码, 在客户端执行 
+- 分层、按需代码、缓存、无状态、客户端服务器
+- 移动代理: 相当于远程求值+按需代码的结合
 
+> 点对点风格
 
+- Event-based Integration: 基于事件集成系统, 例如kaffa这样的消息系统, 优秀的可重用性,可拓展性, 可进化性, 但缺点是缺乏可理解性, 由于消息广播等因素造成的消息风暴, 可伸缩性差
+- C2: 一带而过
+- DO: 一带而过
+- BDO: 一带而过
+
+ # 09-如何用Chrome的Network分析网络报文
+
+ 过滤器使用技巧
+
+- 选择过滤多种文件类型: 按ctrl|command 点击则多选
+- domain: 仅显示指定域名 可用*来匹配多个子域名
+- has-reponse-header: 显示指定HTTP响应标头的资源
+- `is:` is:running表示查找WebSocket资源, is:from-cache表示查找缓存读出的资源
+- lager-than: 显示大于指定大小的资源(单位为字节)
+- method: 显示指定的HTTP请求方法
+- mime-type: 显示指定MIME类型(CONTENT-TYPE)
+- schme: 筛选协议一般写http|https
+- set-cookie-domain: 显示具有Set-Cookie请求头并且domain要匹配, 类似的还有set-cookie-name,set-cookie-value
+- state-code: 显示指定状态码资源
+
+多属性用空格实现AND操作
+
+> 查看资源是哪个资源引发的
+
+按shift hover到资源名称(A)上
+
+- 其他资源为红色的表示这些资源由A发起的请求
+- 其他资源为绿色的表示这个资源是发起了A资源请求的
+
+> 浏览器加载时间
+
+- 解析HTML结构
+- 加载JS和CSS
+- 解析并执行脚本
+- DOM构建完成
+- 加载图片
+- 页面加载完毕
+
+> 请求时间详细分部
+
+- Queueing: 资源正在排队
+ - 存在更高优先级的资源
+ - 浏览器已打开6个TCP连接, 仅限HTTP1.0/HTTP1.1
+ - 浏览器正在分配磁盘空间
+- Stalled: 请求可能会因为Queueing中的原因而停止
+- DNS Loopup: DNS解析时间
+- Proxy Negotiation: 浏览器正在与代理服务器协商请求
+- Request Send: 正在发送请求
+- ServiceWorker Preparation: 浏览器正在启动ServiceWork
+- Request to ServiceWork: 正在请求发送到ServiceWork
+- Wating(TTFB): 浏览器正在等待响应的第一个字节时间(1次往返+服务器响应时间)
+- Content Download: 浏览器正在接受响应
+- Receiving Push: 浏览器通过HTTP2.0服务器推送接受数据
+- Reading Push: 浏览器正在读取之前收到的本地数据
+
+# 10 URI的基本格式和URI的区别
+
+- URL: 资源具体的位置
+- URN: 例如magent:?xt=urn:sha1:YNCHXXXXX, 期待为资源提供持久的, 位置无关的标识方式, 并允许将多个命名空间映射到单个URN的命名空格
 
 
 
