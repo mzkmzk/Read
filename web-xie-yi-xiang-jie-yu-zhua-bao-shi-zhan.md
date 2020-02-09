@@ -241,7 +241,54 @@ URI百分号编码
  - 307 Temporary Redirect: 类似302, 但明确重定向后请求方法必须与原请求方法相同, 不得改变
  - 308 Permanent Redirect: 类似301, 但明确重定向后请求方法必须与原请求方法相同, 不得改变
 
+# 14 HTTP的错误响应码
+
+- 400: 客户端出现错误
+ - 400 Bad Request: 服务器认为客户端请求错误, 但服务器无法判断是哪种错误 则返回400, 例如HTTP请求格式错误
+ - 401 Unauthorized: 用户认证信息缺失或者不正确
+ - 407 Proxy Authtication Required: 对需要经由代理的请求, 认证信息未通过代理服务器验证
+ - 403 Forbidden: 服务器没有权限执行此请求
+ - 404 Not Found: 服务器没找到对应资源
+ - 410 Gone: 服务器没找到服务器, 且明确的知道该位置永久性找不到该资源
+ - 405 Method Not Allowed: 服务器不支持请求行中的method方法
+ - 406 Not Acceptable: 对客户端指定的资源表示不存在的(例如语言|编码有要求), 并把可选择列表返回给客户端
+ - 408 Request Timeout: 服务器接受请求超时
+ - 409 Conflict: 资源冲突, 例如上传文件时且该位置已存在版本更新的资源
+ - 411 Length Required: 如果请求含有包体且未携带 Content-length头部, 且不属于chunks类请求 返回411
+ - 412 Precondition Failed: 复用缓存时传递的If-Unmodified-Since或If-None-Match头部不被满足
+ - 413 Payload Too Large: 请求包体超出服务器能处理的最大长度
+ - 414 URI Too Long:请求URI超过服务器所能接受的长度
+ - 415 Unsupported Media Type: 上传的文件类型不被服务器接受
+ - 416 Range Not Satisfiable: 无法提供Range请求中指定的那段包体
+ - 417 Expectation Failed: 对于Expect请求头部期待的情况无法满足时的响应码
+ - 421 Misdirected Request: 服务器认为这个请求不该发给它, 因为它没能力处理
+ - 426 Upgrade Required: 服务器拒绝基于当前HTTP协议提供服务, 通过Upgrade头部告诉客户端必须升级才能处理
+ - 428 Precondition Required: 用户请求中缺少条件类头部, 例如If-Match-
+ - 429 Too Many Request: 客户端发送请求速度过快
+ - 431 Request Header Fields Too Large: 请求的HEADER头部大小超过限制
+ - 451 Unavailable For Legal Reasons: RFC7725, 由于法律原因不可访问
+
+> 500 服务器出现错误
+
+|错误码|解释|
+|---|---|
+| 500 Internal Server Error | 服务器内部错误, 且不属于以下错误类型|
+| 501 Not Implemented | 服务器不支持请求所需的功能|
+| 502 Bad Geteway | 代理服务器无法获取到合法响应|
+| 503 Service Unavailable | 服务器资源尚未准备好处理当前请求 |
+| 504 Getway Timeout | 服务器无法及时响应 |
+| 505 Http Version Not Support | 请求使用的HTTP协议版本不支持|
+| 507 Insufficient Storage | 服务器没有足够的空间处理请求|
+| 508 Loop Detected | 访问资源时检测到循环|
+| 511 Network Authentication Required | 代理服务器发现客户端需要进行身份验证才能获得网络访问权限|
+
+统一规则, 服务器无法判断错误原因, 都返回x00的错误码
+
 # 15 如何管理跨代理服务器的长短连接
+
+这里跟HTTP权威指南第四章讲得很像 所以也可参考阅读
+
+http://read.404mzk.com/http_power_book.html#4-%E9%93%BE%E6%8E%A5%E7%AE%A1%E7%90%86
 
 > 长连接和短连接的区别
 
@@ -293,4 +340,191 @@ Connection还有一个作用就是
 
 参考书 HTTP权威指南4.5.7 插入Proxy-Connection
 
+# 16 HTTP消息在服务器端的路由
+
+ 为了防止陈旧代理服务器
+
+ 发向正向代理的请求 request-target必须以absolute-from的形式出现
+
+RFC7230规定 必须发送Host|发送多个HOST请求头|HOST格式错误 否则返回400
+
+- TCP连接
+- 接受请求
+- 根据HOST和端口寻找虚拟主机 
+- 寻找URI处理代码
+- 执行处理请求的代码
+- 生成HTTP响应
+- 发送HTTP响应
+- 记录访问日志
+
+# 17 代理服务器转发消息时相关的头部
+
+多次正向代理反向代理后, 服务器如何拿到用户真正的IP
+
+假设用户经过的代理服务器IP是
+
+115.204.33.1 -> 1.1.1.1 -> 2.2.2.2
+
+那么REF规定的头部是
+
+到达2.2.2.2IP这台机器的时候 其请求头部会有这么一对key-value
+
+X-Forwarded-For: 115.204.33.1, 1.1.1.1
+
+想拿到用户的IP取第一个即可
+
+nginx还实现了非规范的请求头
+
+X-Real-Ip: 115.204.33.1
+
+消息的转发
+
+|请求头|说明|例子|
+|---|---|---|
+|Max-forwards| 限制Proxy代理服务器的最大转发次数, 仅对TRACE/OPTIONS生效 | Max-Forwards = 1, 每层代理服务器都会取值然后减1|
+| Via | 表示经过代理服务器的名称和版本| 1.0 mzk-nginx, 1.0 mzk-apache|
+| Cache-Control| 禁止代理服务器修改响应宝体| Cache-Control: no-transform|
+
+# 18 请求与响应的上下文
+
+> 请求上下文Referer
+
+一个资源请求的发起, 都会给请求头加上referer, 表示这个请求从哪个请求发起的
+
+浏览器不会放referer的情况
+
+- data和file协议的资源
+- 当前请求页面采取HTTP, 而发起的请求是HTTPS
+
+作用
+
+- 统计分析
+- 缓存优化
+- 防盗链
+
+# 19 内容协商与资源表述
+
+内容协商的两种方式
+
+- Proactive主动式内容协商: 由客户端请求头描述形式, 服务器根据请求返回对应的内容
+- Reactive 响应式协商: 服务器返回300表示多种选择或者406, 然后再由客户端再次发起请求(支持性差))
+
+场景的协商要素
+
+质量因子: q
+
+Accept: text/html;q=0.9
+
+> 内容编码: 主要指压缩算法
+
+Accept-Encoding: gzip, deflate, br
+
+> 表述语言
+
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+> 资源表述的源文件头部
+
+- 媒体类型、编码: content-type: text/html; charset=utf-8
+- 内容编码: content-encoding: gzip
+- 语言: Content-Language: de-DE, en-CA
+
+# 20 HTTP包体的传输方式(1)-定长包体
+
+HTTP-message=start-line *(headed0field CRLF) CRLF `[message-body]`
+
+以下消息不能有包体
+
+- HEAD方法请求对应的响应
+- 1xx, 204, 304对应的响应
+- CONNECT方法对应的2XX响应
+
+Content-length方法明确包体总长度(10进制, 包体的字节个数, 且必须与实际传输包体长度一致)
+
+优点: 接收端处理简单
+
+# 21 HTTP包体的传输方式(2)-不定长宝体
+
+- 使用Transfer-Encoding头部指明使用chunk传输方式(含Transfer-Encoding头部后Content-Length将会被忽略)
+
+优点
+
+- 基于长连接持续推送动态内容
+- 压缩体积比较时, 不必完全压缩完(计算头部)再发送, 可以边发送边压缩
+- 传输必须在包体传输完才能计算出Trailer头部
+
+Transfer-conding = chunked | compress | deflate | gzip | transfer-extension
+
+Transfer-Encoding: chunked
+
+chunked-body = * chunk
+                last-chnk
+                trailer-part
+                CRLF
+
+chunk = chunk-size [chunk-ext] CRLF chunk-data CRLF
+
+chunk-size 是16进制
+
+last-chunk = 1*("0") [chunk-ext] CRLF
+
+trailer-part= *(header-field CRLF)
+
+> Trailer头部传输
+
+- 客户端必须表明接受Trailer头部: TE: trailers
+- 服务端必须在刚开始就告诉客户端会在后面携带哪些头部 Trailer: Date
+- 并不是所有trailer-part都允许出现在Trailer头部, 例如Transfer-Encoding和Content-length, Host, Cache-control, Set-Cookie等
+
+> Content-Disposition
+
+- inline: 包体以内联的方式, 作为页面的一部分展示
+- attachment: 指定浏览器将包体以附件的方式下载, Content-Disposition: attachment; name="fileName.jpg";
+- disp-ext-type: 例如在multipart/form-data类型应答中,1 用于子消息体部分 Content-Disposition: form-data; name="fileName.jpg"
+
+# 22 HTML FROM表单提交时的协议格式
+
+enctype: 在POST方法下 对表单内容在请求包体中的编码格式
+
+- application/x-www-form-urlencoded: 数据编码成以`&`分隔的键值对, 同时用=分隔key和value, 字符以URL编码方式进行编码
+- multipart/form-data: 
+ - boundary分隔符
+ - 每部分表述皆有HTTP头部描述子包体, 例如content-type
+ - last boundary结尾
+
+每部分包体格式 encapsulation = delimiter body-part CRLF
+
+- delimiter = "--" boundary CRLF
+- body-part = fields *(CRLF *text)
+  - field = field-name ":" [ field-value] CRLF
+    - content-disposition: form-data; name="xxxx"
+- close-delimiter = "--" boundary "--" CRLF
+
+# 23 断点续传与多线程下载是如何做到的
+
+服务器通过Accept-Range头部表示是否支持Range请求
+
+Accept-Ranges: bytes //支持
+
+Accept-Ranges: none //不支持
+
+> Range请求范围的单位
+
+基于字节 假设总长为10000
+
+第一个500字节 bytes=0-499
+
+第二个500字节
+
+- bytes: 500-999
+- bytes: 500-599,601-999
+
+最后一个500字节
+
+- bytes: -500
+- bytes: 9500-
+
+第一个和最后一个字节
+
+byres=0-0,-1
 

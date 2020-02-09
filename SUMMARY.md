@@ -6,6 +6,7 @@
   * [Wireshark网络分析的艺术](wiresharkwang_luo_fen_xi_de_yi_zhu.md)
   * [TCP-IP详解 卷一: 协议](tcpipxiang_jie_juan_4e003a_xie_yi.md)
   * [HTTP权威指南](http_power_book.md)
+  * [Wireshark数据包分析实战](wireshark-shu-ju-bao-fen-xi-shi-zhan.md)
 * [前端](qian_duan.md)
   * [高性能JavaScript](gao_xing_neng_javascript.md)
   * [JavaScript权威指南](javascriptquan_wei_zhi_nan.md)
