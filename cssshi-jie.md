@@ -778,7 +778,7 @@ img button input 等替换元素
 
 还有一些是因为行高高度不足 导致vertical-align无效
 
-<http://demo-404mzk-com/cssworld/5/vertical-align-wuxiao.html>
+<http://demo.404mzk.com/cssworld/5/vertical-align-wuxiao.html>
 
 ```css
 .box{
@@ -859,7 +859,7 @@ span内联盒子存在一个幽灵节点
 
 再来看个图片的案例
 
-<http://demo-404mzk-com/cssworld/5/vertical-align-hight.html>
+<http://demo.404mzk.com/cssworld/5/vertical-align-hight.html>
 
 ```css
 .example{
