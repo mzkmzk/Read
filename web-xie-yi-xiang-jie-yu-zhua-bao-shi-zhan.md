@@ -517,7 +517,7 @@ Accept-Ranges: none //不支持
 第二个500字节
 
 - bytes: 500-999
-- bytes: 500-599,601-999
+- bytes: 500-599,600-999
 
 最后一个500字节
 
@@ -528,3 +528,41 @@ Accept-Ranges: none //不支持
 
 byres=0-0,-1
 
+客户端验证是否过期
+
+服务器响应文件标识头部为 If-Unmodifien-Since或者If-Match
+
+if-range=entity-tag/HTTP-date
+  - 使用Etga或者Last modified
+
+服务器响应
+
+格式为 first-byte-pos '-' last-bytes-pos / 完整包体大小
+
+Content-Range: bytes 42-1233/1234 , 
+
+或者
+
+Content-Range: bytes 42-1233/* 未知的文件大小
+
+# 27 如何合法地跨域请求
+
+### 跨域请求类型
+
+> 简单跨域请求
+
+- GET/HEAD/POST方法之一
+- 仅能使用Cors安全的头部: Accept, Accept-Language, Content-Language, Content-Type
+- Content-Type值只能是: text/plain, multipart/form-data, application/x-www-form-urlencoded其中之一
+
+> 复杂跨域请求
+
+非简单跨域请求 
+
+# 30 缓存新鲜度的计算
+
+freshness_lifetime 获取的优先级别
+
+`s-maxage > max-age > Expries > 预估过期时间`
+
+预估过期时间: 浏览器一般根据RFC7234推荐的(DownloadTime - LastMofidied ) * 10%

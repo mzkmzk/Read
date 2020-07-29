@@ -86,6 +86,23 @@ display: table是display: block-table
 
 ## 3.2 width/height作用的具体细节
 
+### 3.2.1 深藏不露的width: auto
+
+- `<div>`和`<p>`等元素默认100%于父元素
+- 浮动, 绝对定位, inline-block的元素或者table元素 就会是收缩到合适
+
+> 内部尺寸与流体特性
+
+包裹性: 内容即为宽度, 例如`<button>`
+
+> 首选最小宽度
+
+假设宽度为0时
+
+- 假设内容是中文字, 最小宽度为中文字宽度
+- 如果是英文, 则以英文单词分隔符`-`或空格分隔换行, 如果想每个字母换行则, `word-break: break-all`
+
+
 ### 3.2.3 CSS流体布局下的宽度分离原则
 
 所谓`宽度分离原则`, 就是CSS中的width属性不与营销宽度的padding/border(有时还包括margin)属性共存, 也就是不能出现以下的组合
@@ -107,6 +124,38 @@ border: 1px solid;
 }
 
 ```
+
+### 3.2.6 关于height: 100%
+
+> 1. 为何height: 100% 无效
+
+因为包含块高度没有显示指定(由内容撑高), 并且该元素不是绝对定位, 则计算值为`auto`
+
+`auto * 100%` = NaN 所以无效
+
+渲染DOM是自上而下的, 渲染好父元素, 再去渲染子元素
+
+> 2. 如何让元素支持height: 100%效果
+
+方法1: `html, body{ height: 100% }`
+
+方法2: 使用绝对定位
+
+```css
+div {
+    height: 100%;
+    position: absolute;
+}
+```
+
+这样即使父元素的`hieght: auto` 也会生效
+
+因为绝对定位元素的宽高百分比计算是相对于`padding-box`的
+
+而非绝对定位元素相对于`content-box`的
+
+例子: https://demo.cssworld.cn/3/2-11.php
+
 
 ### 3.3.3 超越!importtant, 超越最大
 

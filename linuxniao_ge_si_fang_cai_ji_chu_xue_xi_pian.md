@@ -193,6 +193,99 @@ alias lm='ls -al'
 
 例如使用 `ls -l /usr/bin/X*` 来查询url/bin目录下有多少X开头的文件
 
+### 11.1.5 bash shell的内置命令 type
+
+```bash
+> type [-tpa] name
+
+-t 表明命令类型 
+    file: 表明为外部命令
+    alas: 表明该命令为命令别名设置的名称
+    builtin: 表明该命令为bash内置的命令功能
+
+-p 当命令为外部命令时, 才显示完整的文件名
+
+-a 将PATH变量的路径中, 将所有含name的命令都列出来, 包含alias
+
+```
+
+### 11.1.6 命令的执行
+
+命令太长的时候我们会利用`\`来进行换行继续输入命令
+
+```bash
+> cp /var/spool/mzk /etc/crontab \
+> /etc/fstab /root
+```
+
+这个是什么原理呢
+
+因为我们是通过`Enter` 来让当前命令执行
+
+所以我们要把Enter转义掉`\[Enter]`
+
+所以`\`和`[Enter]`中间不能有任何字符 否则按下`[Enter]`时都会执行
+
+## 11.2 什么是变量
+
+### 11.2.2 变量的显示与设置: echo, unset
+
+```bash
+> echo $PATH
+> echo ${PATH}
+```
+
+以上两种方式皆可显示PATH
+
+定义变量
+
+```bash
+myname=maizhikun
+```
+
+变量的规定
+
+- 变量名称和变量值要用`=`连接, 并且不能左右不能有空格
+- 变量名称只有英文字母和数字, 并且数字不能开头
+- 变量值有空格的话 需要用引号把内容包起来
+- 双引号包住的变量值 可以解析`$PATH`这种变量, 而单引号包住的`$PATH` 只会认为是纯字符
+- 不使用引号, 而用`\`将空格等特殊字符转义掉也可
+- 变量内容的连接符为`:`
+- 若该变量需要在其他子进程执行, 则需要以`export`来使变量变成环境变量
+    - `PATH="$PATH:/home/bin"`
+    - `export PATH`
+- 通常大写变量为系统默认变量, 小写为用户变量
+- 取消变量使用 unset, 例如`unset PATH`
+- 反单引号的内容会先被执行, 作用和`$()`基本一致
+
+反单引号的引用
+```bash
+#先执行locate crontab, 然后再ls
+> ls -lla `locate crontab `
+```
+
+### 11.2.3 环境变量的功能
+
+```bash
+# 查看环境变量
+> env
+PATH=/home/work/.nvm/versions/node/v8.3.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+PWD=/var/mail
+LANG=en_US.UTF-8
+SHLVL=1
+HOME=/home/work
+LANGUAGE=en_US:
+LC_TERMINAL_VERSION=3.3.7
+...
+```
+
+```bash
+# 输出最近一次命令执行的结果
+echo $?
+```
+
+export可以将自定义变量转为环境变量, 供子进程读取
+
 # 12 正则表达式与文本格式化处理
 
 需要注意版本的字符格式是啥,不同的字符格式可能会不一样
@@ -271,6 +364,76 @@ sed 's/要被替换的字符串/新字符串/g'
     > drik beer'
     ```
 2. 替换: `sed 's/要被替换的字符串/新的字符串/g'`
+
+# 13 学习shell script
+
+## 13.1 什么是shell script
+
+一般程序结束时都建议写个`exit 0`返回给操作系统, 然后执行完这个shell, 可以通过`$?`来获取最后一个shell的返回结果
+
+
+
+# 14 Linux账号管理与ACL权限设置
+
+## 14.1 Linux的账号与用户组
+
+每个登录的用户至少会有 用户ID(UID) 和 用户组ID(GID)
+
+查看当前系统所有的用户文件在`/etc/passwd`
+
+查看当前系统所有用户组在`/etc/group`
+
+用户的密码表在`/etc/shadow`
+
+### 14.1.2 用户账号
+
+> /etc/passwd 文件说明
+
+```bash
+> head -n 4 /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+```
+
+每个用户占一行,以:为分隔符, 可存储7类信息
+
+账号名称:密码:uid:gid:账号说明文案:主文件夹:Shell
+
+其中密码现在都是`x`, 以前Linux用户的密码都放着, 现在就是`x`
+
+uid的号码是有讲究的
+
+- 0是root
+- 0~99是distributions自行创建的系统账号
+- 100~499是用户有系统账号需求时, 可以使用的账号UID
+- 500~65535是可登陆账号
+
+> /etc/shadow 文件说明
+
+```bash
+> head -n 4 /etc/shadow
+root:*:18255:0:99999:7:::
+daemon:*:18113:0:99999:7:::
+bin:*:18113:0:99999:7:::
+work:$6$j7xxxk....xxxx:17062:0:99999:7:::
+```
+
+账号名称:加密的密码:最近更改密码的日期:密码不可被改动的日期:密码需要重新更改的天数:密码需要更改期限前的警告天数:密码过期后的账号宽限时间:账号失效日期:保留字段
+
+
+
+- 最近更改密码的日期: 距离1970101到更改密码的天数
+
+根据天数计算准确日期
+
+```bash
+#!/usr/bin/env bash
+day=17062
+seconds=`expr $day \* 86400`
+echo `date -d @$seconds`
+```
 
 ## 16.3 printf
 `printf '打印格式' 实际内容`
