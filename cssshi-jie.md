@@ -394,18 +394,18 @@ p{ margin: 1em 0 }
 
 防止margin-top合并
 
-*. 父元素设置为块状格式化上下文元素
-*. 父元素设置border-top值
-*. 父元素设置padding-top值
-*. 父元素和第一个子元素之间加内联元素进行分隔
+- 父元素设置为块状格式化上下文元素
+- 父元素设置border-top值
+- 父元素设置padding-top值
+- 父元素和第一个子元素之间加内联元素进行分隔
 
 防止margin-bottom合并
 
-*. 父元素设置为块状格式化上下文元素
-*. 父元素设置border-bottom值
-*. 父元素设置padding-top值
-*. 父元素和最后一个子元素之间加内联元素进行分隔
-*. 父元素设置height、min-height或max-height
+- 父元素设置为块状格式化上下文元素
+- 父元素设置border-bottom值
+- 父元素设置padding-top值
+- 父元素和最后一个子元素之间加内联元素进行分隔
+- 父元素设置height、min-height或max-height
 
 三: 空块级元素的margin合并
 
@@ -426,16 +426,16 @@ father的高度只有1em
 
 这种情况如何防止margin合并
 
-*. 设置垂直方向的border
-*. 设置垂直方向的padding
-*. l里面添加内联元素(加空格没用)
-*. 设置height或minx-height
+- 设置垂直方向的border
+- 设置垂直方向的padding
+- l里面添加内联元素(加空格没用)
+- 设置height或minx-height
 
 > 3. margin合并的计算规则
 
-*. 正正取大
-*. 正负相加
-*. 负负取小
+- 正正取大
+- 正负相加
+- 负负取小
 
 ### 4.3.4 深入理解CSS中的margin: auto
 
@@ -729,10 +729,10 @@ line-height起作用的地方 vertical-align也一定起作用
 
 抛开inherit 这类全局属性值不谈
 
-*. 线性: baseline(默认值 对准基线) top middle bottom
-*. 文本类: text-top text-bottom
-*. 上标下标类: sub super
-*. 数值百分比: 20px 20%, 相作用与基线, 正值在基线之上xx, 负值在基线之下xx
+- 线性: baseline(默认值 对准基线) top middle bottom
+- 文本类: text-top text-bottom
+- 上标下标类: sub super
+- 数值百分比: 20px 20%, 相作用与基线, 正值在基线之上xx, 负值在基线之下xx
 
 基线即英文字母x的下边缘线
 
@@ -886,10 +886,10 @@ line-height对img是不起作用的
 
 需要解决此类问题
 
-*. 图片块状化, 可以一口气干掉 幽灵空白节点 line-height vertical-align
-*. 容器line-height足够小 只要半行距小到字母x的下边缘位置或者再往上, 自然就没有了撑开底部间隙了
-*. 容器font-size足够小
-*. 图片设置其他vertical-align属性值 间隙产生原因之一就是基线对齐 所以vertical-align设置top middle botoom都可以的
+- 图片块状化, 可以一口气干掉 幽灵空白节点 line-height vertical-align
+- 容器line-height足够小 只要半行距小到字母x的下边缘位置或者再往上, 自然就没有了撑开底部间隙了
+- 容器font-size足够小
+- 图片设置其他vertical-align属性值 间隙产生原因之一就是基线对齐 所以vertical-align设置top middle botoom都可以的
 
 此前有介绍 内联特性导致margin无效
 
@@ -943,15 +943,15 @@ if ( 元素是inline-block ){
 
 vertical-align: top
 
-*. 内联元素: 元素底部和当前行框盒子的顶部对齐
-*. table-cell元素: 元素底padding边缘和表格行的顶部对齐
+- 内联元素: 元素底部和当前行框盒子的顶部对齐
+- table-cell元素: 元素底padding边缘和表格行的顶部对齐
 
 bottom则对应的是底部和下边缘
 
 > vertical-algin: middle 与近似垂直居中
 
-*. 内联元素: 元素的垂直中心点和行框盒子基线往上1/2 x-height处对齐
-*. table-cell元素: 单元格填充盒子相对于外面的表格行距中对齐
+- 内联元素: 元素的垂直中心点和行框盒子基线往上1/2 x-height处对齐
+- table-cell元素: 单元格填充盒子相对于外面的表格行距中对齐
 
 一般字体的x往下偏点
 
@@ -977,14 +977,14 @@ vertical-align: text-bottom: 盒子的底部和父级内容区域的底部对齐
 
 因为
 
-*. 使用场景缺乏
-*. 文本类垂直对齐理解成本高
-*. 内容区域不直观且易变
+- 使用场景缺乏
+- 文本类垂直对齐理解成本高
+- 内容区域不直观且易变
 
 ### 5.3.6 简单了解 vertical-align上标下标类属性值
 
-*. vertical-align: super: 提高盒子的基线到父级合适的上标基线位置 作用和`<sup>`类似
-*. vertical-algin: sub: 降低盒子的基线到父亲合适的下标基线位置 作用和`<sub>`类似
+- vertical-align: super: 提高盒子的基线到父级合适的上标基线位置 作用和`<sup>`类似
+- vertical-algin: sub: 降低盒子的基线到父亲合适的下标基线位置 作用和`<sub>`类似
 
 作用基本就是 公式里写平方 和化学公式的下标 的作用了
 
@@ -1084,10 +1084,10 @@ dialog也需要设置vertical-algin:middle
 
 float的特性
 
-*. 包裹性
-*. 块状化并格式化上下文
-*. 破坏文档流
-*. 没有任何margin合并
+- 包裹性
+- 块状化并格式化上下文
+- 破坏文档流
+- 没有任何margin合并
 
 块状化的意思是float属性值不为none 则display计算值为block或者table
 
@@ -1109,8 +1109,8 @@ float的特性
 
 float相关术语
 
-*. 浮动瞄点: 是float元素所在的`流`中的一个点, 这个点本身并不浮动就表现而言更像一个没有margin border 和padding的空的内联元素
-*. 浮动参考: 指的是浮动元素对齐参考的实体
+- 浮动瞄点: 是float元素所在的`流`中的一个点, 这个点本身并不浮动就表现而言更像一个没有margin border 和padding的空的内联元素
+- 浮动参考: 指的是浮动元素对齐参考的实体
 
 浮动参考 指的是行框盒子 即 float元素在当前'行框盒子'内的定位
 
@@ -1205,11 +1205,11 @@ BFC: block formatting context: 块级格式化上下文
 
 什么时候触发BFC
 
-*. `<html>`根元素
-*. float值不为none时
-*. overflow的值为auto scroll hidden
-*. display的值为table-cell table-caption和inline-block中的任何一个
-*. position的值不为relative和static
+- `<html>`根元素
+- float值不为none时
+- overflow的值为auto scroll hidden
+- display的值为table-cell table-caption和inline-block中的任何一个
+- position的值不为relative和static
 
 只要元素符合上面任意调节 都无需clear:both清楚浮动
 
@@ -1266,19 +1266,19 @@ overflow-x和overflow-y 一个设置为visiable 另外一个设置了非visiable
 
 两个标签 标签overflow默认是auto
 
-*. html
-*. textarea
+- html
+- textarea
 
 浏览器自定义滚动条
 
 chrome为例
 
-*. 整体部分: ::-webikit-scrollbar
-*. 两端部分: ::-webokit-scrollbar-button;
-*. 外层轨道: ::-webokit-scrollbar-track
-*. 内层轨道: ::-webokit-scrollbar-track-piece
-*. 滚动滑块: ::-webokit-scrollbar-thumb
-*. 边角: ::-webokit-scrollbar-corner
+- 整体部分: ::-webikit-scrollbar
+- 两端部分: ::-webokit-scrollbar-button;
+- 外层轨道: ::-webokit-scrollbar-track
+- 内层轨道: ::-webokit-scrollbar-track-piece
+- 滚动滑块: ::-webokit-scrollbar-thumb
+- 边角: ::-webokit-scrollbar-corner
 
 ```css
 ::-webikit-scrollbar{ /* 血槽宽度 */
@@ -1322,8 +1322,8 @@ ell-rows-2{
 
 > 锚点定位行为的触发条件
 
-*. URL地址中的锚链与锚点定位行为的发生
-*. 可focus的锚点元素处于focus状态
+- URL地址中的锚链与锚点定位行为的发生
+- 可focus的锚点元素处于focus状态
 
 > 锚点行为的本质
 
@@ -1546,8 +1546,8 @@ left/right 同时设置只有left有效
 
 ### 6.9.3 relative的最小化营销原则
 
-*. 尽量不使用relative 如果想定位某些元素 尽量使用无依赖的绝对定位
-*. 如果必须使用relative 该relative务必最小化
+- 尽量不使用relative 如果想定位某些元素 尽量使用无依赖的绝对定位
+- 如果必须使用relative 该relative务必最小化
 
 原来这样写的
 
@@ -1586,8 +1586,8 @@ z-index只和定位元素(position不为static的元素)才会起作用
 
 ## 7.4 务必记住的规则
 
-*. 谁大谁上: z-index大的在上
-*. 后来居上: 后面的DOM优先 
+- 谁大谁上: z-index大的在上
+- 后来居上: 后面的DOM优先 
 
 ## 7.5 深入了解层叠上下文
 
@@ -1630,23 +1630,23 @@ z-index只和定位元素(position不为static的元素)才会起作用
 
 > css3与新时代的层叠上下文
 
-*. 元素flex布局 同时z-index不为auto
-*. 元素poacity值不是1
-*. 元素mix-blend-mode值不是normal
-*. 元素的filter值不是none
-*. 元素isolation值不是isolate
-*. will-change属性值为2~6的任意一个
-*. -webkit-overflow-scrolling设为touch
+- 元素flex布局 同时z-index不为auto
+- 元素poacity值不是1
+- 元素mix-blend-mode值不是normal
+- 元素的filter值不是none
+- 元素isolation值不是isolate
+- will-change属性值为2~6的任意一个
+- -webkit-overflow-scrolling设为touch
 
 ### 7.5.3 层叠上下文与层叠顺序
 
-*. background/border
-*. 负z-index
-*. block块状水平盒子
-*. float浮动盒子
-*. inline水平盒子
-*. z-index: auto或者z-index: 0 不依赖z-index的层叠上下文
-*. z-index: 正数
+- background/border
+- 负z-index
+- block块状水平盒子
+- float浮动盒子
+- inline水平盒子
+- z-index: auto或者z-index: 0 不依赖z-index的层叠上下文
+- z-index: 正数
 
 ## 7.6 z-index负值深入理解
 
@@ -1689,8 +1689,8 @@ http://demo.cssworld.cn/7/6-1.php
 
 ## 7.7 z-index不犯二准则
 
-*. 非浮层元素 避免设置z-index
-*. z-index不超过2
+- 非浮层元素 避免设置z-index
+- z-index不超过2
 
 # 8 强大的文本处理能力
 
