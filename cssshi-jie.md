@@ -713,7 +713,7 @@ input, button {
 
 空白幽灵节点 会撑开div 高度为96
 
-当 父元素lien-height < span的line-height
+当 父元素line-height < span的line-height
 
 span则撑开了 div的高度 也为96px
 
@@ -920,7 +920,7 @@ vertical-align默认是baseline
 
 对于图片 是图片下边缘
 
-但是如果是inline-block 就有个规则了
+但是如果是inline-block 就有个以下的规则了
 
 ```javascript
 if ( 元素是inline-block ){

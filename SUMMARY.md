@@ -54,6 +54,7 @@
   * [网络游戏核心技术与实战](internet_game_technology.md)
   * [高性能MySQL](gao-xing-neng-mysql.md)
   * [Web API的设计与开发](web-apide-she-ji-yu-kai-fa.md)
+  * [GraphQL学习指南](graphql-xue-xi-zhi-nan.md)
 * [安全](an_quan.md)
   * [Web前端黑客技术揭秘](webqian_duan_hei_ke_ji_zhu_jie_mi.md)
   * [白帽子讲WEB安全](bai_mao_zi_jiang_web_an_quan.md)
