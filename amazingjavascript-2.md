@@ -425,7 +425,7 @@ HTML文档中只有一个根节点
 
 		Node parentNode: 返回父节点
 		Node previousSibling: 返回前一个兄弟节点
-		Node nextSibling: 饭后后一个兄弟节点
+		Node nextSibling: 返回后一个兄弟节点
 		Node[] childNodes 返回当前节点的所有节点
 		Node[] getElementsByTagName('标签名称'): 返回当前节点具有制定标签的子节点
 		//注意ol标签的子标签IE8和其他浏览器不一样(其他浏览器会把ol下的li和其后面的空白分别当成2个节点,IE8则不会)
