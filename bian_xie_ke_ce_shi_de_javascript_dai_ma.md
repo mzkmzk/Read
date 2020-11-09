@@ -1,4 +1,4 @@
-# 编写可测试的javas
+# 编写可测试的JavaScript
 
 # 0.总结
 
