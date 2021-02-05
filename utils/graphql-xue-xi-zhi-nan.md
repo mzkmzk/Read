@@ -474,4 +474,136 @@ type User {
 
 例如会把参数转换为符合graphql的形式
 
+### Query组件
 
+这里其实像把api请求语句抽离到外部写, 而组件需要数据的话, 直接通过Query组件获取
+
+```javascript
+import React from 'react'
+import Users from './Users'
+import { gql } from 'apollo-boost'
+
+export const ROOT_QUERY = gql`
+    query allUsers {
+        totalUsers
+        allUsers {
+            githubLogin
+            name
+            avatar
+        }
+    }
+`
+
+```
+
+React组件使用
+
+```javascript
+
+import React from 'react'
+import { Query } from 'react-apollo'
+import { ROOT_QUERY } form './App'
+
+const Users = () => {
+    <Query query={ROOT_QUERY}>
+        {({ data, loading, refetch }) => loading ?
+            <p>loading users...</p> :
+            <UserList 
+                count={data.totalUsers} 
+                users={data.allUsers}
+                refetchUsers={fretch}
+            />
+        
+        }
+}
+```
+
+### Mutation组件
+
+与Query组件相类似的还有Mutation组件, 用法基本是一致的
+
+主要多了一个refetchQueries表明, 发送变更后重新获取哪些查询
+
+Mutation gql编写
+
+```javascript
+import { Query, Mutation } from 'react-apollo'
+import { gql } from 'apollo-boost'
+
+export const ADD_FAKE_USERS_MUTATION = gql`
+    mutation addFakeUsers($count:Int!) {
+        addFakeUsers(count: $count){
+            githubLogin
+            name
+            avatar
+        }
+    }
+`
+```
+
+使用示例
+```javascript
+const { ADD_FAKE_USERS_MUTATION } from './mutationGql'
+
+<Mutation 
+    mutation={ADD_FAKE_USERS_MUTATION}
+    VARIABLES={{COUNT: 1}}
+>
+    {
+        addFakeUsers =>
+            <button onClick={addFakeUsers}>Add Fake Users<button>
+    }
+</Mutation>
+```
+
+### 添加缓存
+
+### 取回策略
+
+apollo默认的缓存策略是cache-first
+
+|策略名|处理方式|
+|---|---|
+|cache-first|优先取本地缓存,没有本地缓存则发起网络|
+|cache-only|只从缓存中取, 缓存没有则报错|
+|cache-and-network|先从缓存取, 不管缓存有没有, 在有网络的情况下都发送一个请求来更新缓存|
+|network-only|每次都发送请求, 但会缓存数据|
+|no-cache|始终发送请求, 并不缓存数据|
+
+### 持久缓存
+
+`npm install apollo-cache-persist`
+
+这个包主要作用是将缓存存储到本地缓存
+
+```javascript
+import ApolloClient, { InmemoryCache } from 'apollo-boost'
+import { persistCache } from 'apollo-cache-persist'
+
+const cache = new InmemoryCache()
+
+persistCache({
+    cache,
+    storage: localStorage
+})
+
+const client = new ApolloClient({
+    cache,
+    ...
+})
+
+```
+
+# 现实世界中的GraphQL
+
+### 订阅
+
+主要使用 graphql-subscriptions, graphql-transports-ws 这两个库
+
+### schema优先开发
+
+graphql 可以自定义设置mock数据
+
+# 笔者总结
+
+用来作为入门书籍还不错, 也有一些实践操作, 4分吧(总分5)
