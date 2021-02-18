@@ -1,3 +1,4 @@
 node_modules/
 _book/
 copy_book/
+.DS_Store
