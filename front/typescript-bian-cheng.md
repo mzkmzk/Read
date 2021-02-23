@@ -192,9 +192,145 @@ let a: {
     b: number // 1
     c?: string // 2
     [key: number]: boolean // 3
+    readonly firstName: string // 4
 }
 ```
 
 - 1: a必须有个类型为number的属性b
 - 2: a可能有个类型为string的属性c, 如果有属性c, 其值可能为undefined
 - 3: a可能有任意多个数字属性, 其值为布尔值
+- 4: firstName为只读属性, 必须在初始化时赋值
+
+### 3.2.9 类型别名、交集和并集
+
+```typescript
+type Age = Number
+type Person = {
+    name: string
+    age:Age
+}
+```
+
+并集使用`|`, 交集使用`&`
+
+```typescript
+type Cat { name: string, purrs: boolean }
+type Dog = { name: string, barks: boolean, wags: boolean }
+type CatOrDogOrBoth = Cat | Dog
+type CatAndDog = Cat & Dog
+
+// Cat
+let a: CatOrDogOrBoth = {
+    name: 'Bonkers',
+    purrs: true
+}
+
+// Dog
+a = {
+    name: 'Domino',
+    barks: true,
+    wags: true
+}
+
+//两者
+a = {
+    name: 'Donkers',
+    barks: true,
+    purrs: true,
+    wags: true
+}
+
+```
+
+### 3.2.10 数组
+
+声明数组
+
+```typescript
+let a = [1, 2, 3]
+let c: string[] = ['a']
+let d = [1, 'a'] // (string | number ) []
+let e: Array<(string | number )> = [1, 'a'] 
+```
+
+在同一个数组处理不同基础类型的数据时, 必须使用typeof进行判断
+
+```typescript
+let d = [1, 'a']
+d.map(_ => {
+    if (typeof _ === 'number') {
+        return _ * 3
+    }
+    return _.toUpperCase()
+})
+```
+
+ts会根据数组里的内容 不断推导数组类型
+
+```typescript
+function buildArray() {
+    let a = [] // any[]
+    a.push(1) // number[]
+    a.push('x') //(string |number )[]
+}
+```
+
+### 3.2.11 元组
+
+元组是array的子类型
+
+是定义数组的特殊方式: 长度固定, 各索引位上的值具有固定的已知类型
+
+```typescript
+let b: [string, string, number] = ['malcolm', 'abc', 1234]
+```
+
+可选元素
+
+```typescript
+let tranFares: [number, number?][] = [
+    [3.1],
+    [2,1],
+]
+
+// 等价于
+
+let tranFares: ([number] | [number, number]) [] = { ... }
+```
+
+剩余元素
+
+```typescript
+// 至少一个string元素的数组
+let friends: [string, ...string[]] = ['Sara', 'Tali']
+```
+
+只读数组
+
+```typescript
+let as: readonly number[] = [1,2,3]
+```
+
+只读数组无法使用push和splice方法 还有`as[0]=5`这种复制方法
+
+只能通过复制数组的方法, 例如`.concat`和`.slice`方法
+
+### 3.2.12 null、undefined、void和never
+
+void表示函数没有显式的返回值
+
+never表示函数根本不返回(例如函数抛出异常, 或者永远运行下去)
+
+```typescript
+//返回never的函数
+function d() {
+    throw TypeError('error')
+}
+
+//返回never的函数
+function e(){
+    while(true) {
+        xxx
+    }
+}
+```
