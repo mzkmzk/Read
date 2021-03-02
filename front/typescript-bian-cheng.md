@@ -575,7 +575,7 @@ type Filter<T> = {
 let filter: Filter<number> = (array, f) => { ... }
 ```
 
-```4.2.2 可以在什么地方声明泛型
+### 4.2.2 可以在什么地方声明泛型
 
 ```typescript
 type Filter = {
@@ -588,3 +588,112 @@ type Filter<T> = {
 
 function filter<T>(array: T[], f: (item: T) => boolean): T[] { ...}
 ```
+
+标准库中的filter和map函数
+
+
+```typescript
+interface Array<T> {
+    filter(
+        callbackfn: (value: T, index: number, array: T[]) => any,
+        thisArg?: any
+    ): T[]
+    map<U>(
+        callbackfn: (value: T, index: number, array: T[]) => U,
+        thisArg?: any
+    ): U[]
+}
+
+```
+
+### 4.2.3 泛型推导
+
+```typescript
+function map<T, U>(array: T[], f: (item: T) => U): U[] {
+    // ...
+}
+
+map(
+    ['a', 'b', 'c'],
+    _ => _ === 'a'
+)
+```
+
+上面TypeScript会自动推导T为string, U为boolean
+
+但也可以显示写注解
+
+```typescript
+map <string, boolean>(
+    ['a', 'b', 'c'],
+    _ => _ === 'a'
+)
+```
+
+```typescript
+let promise = new Promise(resolve =>
+    resolve(45)
+)
+promise.then(result => // 推导结果为{}
+    result * 4 // Error T2362
+)
+```
+
+这里因为我们没有提供足够的信息, TypeScript通过泛型函数的参数类型推导泛型的类型
+
+所以T默认是{}
+
+可更正为
+
+```typescript
+let promise = new Promise<number>(resolve =>
+    resolve(45)
+)
+promise.then(result => // 推导结果为{}
+    result * 4 // Error T2362
+)
+```
+
+### 4.2.4 泛型别名
+
+注意, 在类型别名中只有一个地方可以声明泛型, 即紧随类型别名的名称之后、赋值运算之前
+
+
+```typescript
+type MyEvent<T> = {
+    target: T
+    type: string
+}
+
+```
+
+使用MyEvent这样的泛型时, 必须显式绑定类型参数, TypeScript无法自动推导
+
+```typescript
+let myEvent: MyEvent<HTMLButtonElement | null > = {
+    target: document.querySelector('#myButton')
+    type: 'click'
+}
+```
+
+类型别名也可以在函数签名中使用
+
+```typescript
+function triggerEvent<T>(event: MyEvent<T>): void {
+    ...
+}
+
+triggerEvent({ //T 是Element | null
+    target: document.querySelector('#myButton')
+    type: 'click'
+})
+
+```
+
+下面说下TypeScript的编译步骤
+
+- 调用triggerEvent传入一个对象
+- 根据函数签名, TypeScript认定传入的参数必为MyEvent<T>
+- MyEvent<T>与传入的对象进行匹配, 发现T应该为`document.querySelector('#myButton')`的返回类型, 即为`Element | null`
+- TypeScript检查所有代码, 把T都替换为Element | null
+- 确定所有类型都满足可赋值性, 确保代码类型安全
