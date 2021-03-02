@@ -334,3 +334,257 @@ function e(){
     }
 }
 ```
+
+### 3.2.13 enum 枚举
+
+枚举可分为, 字符串->字符串的映射 或字符串到数字之间的映射
+
+```typescript
+enum Language {
+    English,
+    Spanish,
+    Russian
+}
+
+// 下面与上面结果一致
+
+enum Language {
+    English = 0,
+    Spanish = 1,
+    Russian = 2
+}
+```
+
+typescript会自动按顺序给枚举值得默认赋值
+
+```typescript
+enum Language {
+    English = 100,
+    Spanish = 500,
+    Russian
+}
+
+// 下面与上面结果一致
+
+enum Language {
+    English = 100,
+    Spanish = 500,
+    Russian = 501
+}
+```
+
+> enum 不安全索引问题
+
+```typescript
+enum Language {
+    English = 100,
+    Spanish = 500,
+    Russian
+}
+
+let a = Language.English // 100
+let b = Language.Spanish // 500
+let c = Language.aaa // Error TS2339, Property 'aaa' does not exist on type 'typeof Language'
+let d = Language['English'] // 100
+console.log(d)
+
+let e = Language[6] // string
+console.log(e) // undefined
+
+let f = Language[100] // English
+console.log(f)
+```
+
+ts并不会阻止`e`这样的访问方式
+
+改为const会只允许使用Key来查询值
+
+```typescript
+const enum Language {
+    English = 100,
+    Spanish = 500,
+    Russian
+}
+
+let a = Language.English // 100
+let b = Language.Spanish // 500
+let d = Language['English'] // 100
+
+let e = Language[6] // A const enum member can only be accessed using a string literal.ts(2476)
+
+let f = Language[100] // A const enum member can only be accessed using a string literal.ts(2476)
+```
+
+默认情况下`const enum`编译是使用内插的
+
+```typescript
+const enum Language {
+    English = 100,
+    Spanish = 500,
+    Russian
+}
+
+let a = Language.English // 100
+let b = Language.Spanish // 500
+let d = Language['English'] // 100
+
+export default Language
+```
+
+这部分代码会编译成
+
+```javascript
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+let a = 100 /* English */; // 100
+let b = 500 /* Spanish */; // 500
+let d = 100 /* 'English' */; // 100
+console.log(d);
+//# sourceMappingURL=test.js.map
+```
+
+我们的`export default Language`会直接消失掉
+
+而 假设设置`const enums`为非内插模式
+
+设置`tsconfig.json`的`compilerOptions.preserveConstEnums`为true
+
+编译后的结果是
+
+```javascript
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Language;
+(function (Language) {
+    Language[Language["English"] = 100] = "English";
+    Language[Language["Spanish"] = 500] = "Spanish";
+    Language[Language["Russian"] = 501] = "Russian";
+})(Language || (Language = {}));
+let a = 100 /* English */; // 100
+let b = 500 /* Spanish */; // 500
+let d = 100 /* 'English' */; // 100
+exports.default = Language;
+console.log(d);
+//# sourceMappingURL=test.js.map
+```
+
+这种模式的代码才是正常的
+
+即使是这种模式, 假如这部分代码发布到npm, 业务方更改了Language中的属性值, 原库也是不知道的
+
+使用`const enum`时尽量避免使用内插, 而且只在受自己控制的ts程序中使用, 不要发布到npm
+
+# 4 函数
+
+### 4.1.4 注解this的类型
+
+想为函数绑定this的类型
+
+```typescript
+function fancyDate(this: Date) {
+    return $(this.getDate())
+}
+```
+
+### 4.1.7 调用签名
+
+定义函数的参数和返回值类型
+
+```typescript
+type Log = (message: string, userId?: string) => void
+let log: Log (
+    message,
+    userId: 'xxxx'
+) => {
+    console.log(message)
+}
+```
+
+### 4.1.9 函数类型重载
+
+```typescript
+type CreateElement = {
+    (tag: 'a'): HTMLAnchorElement
+    (tag: 'canvas'): HTMLCanvasElement
+    (tag: string): HTMLElement
+}
+
+let createElement: CreateElement = (tag: string): HTMLElement => {
+    ....
+}
+
+```
+
+## 4.2 多态
+
+```typescript
+
+function
+
+type Filter = {
+    (array: number[], f: (item: number) => boolean): number[]
+    (array: string[], f: (item: string) => boolean): string[]
+}
+
+let filter: Filter (
+    array,
+    f
+) => {
+    let result = []
+    for(let i = 0; i < array.length; i++) {
+        let item = array[i]
+        if(f(item)) {
+            result.push(item)
+        }
+    }
+    return result
+}
+```
+
+增加Filter的灵活性还可以使用泛型
+
+```typescript
+type Filter = {
+    <T>(array: T[], f: (item: T) => boolean ): T[]
+}
+```
+
+### 4.2.1 什么时候绑定泛型
+
+声明泛型的位置不仅限定泛型的作用域
+
+还觉得TypeScript何时绑定具体的类型
+
+```typescript
+type Filter = {
+    <T>(array: T[], f: (item: T) => boolean ): T[]
+}
+
+let filter: Filter = (array, f) => { ...}
+```
+
+`<T>`声明在调用签名中声明(位于签名的开始圆括号前面), TypesCript将在调用Filter类型的函数时为T绑定具体类型
+
+而如把`T`绑定在类型别名`Filter`中, TypeScript泽要求在使用时显式绑定类型
+
+```typescript
+type Filter<T> = {
+    (array: T[], f: (item: T) => boolean ): T[]
+}
+
+let filter: Filter<number> = (array, f) => { ... }
+```
+
+```4.2.2 可以在什么地方声明泛型
+
+```typescript
+type Filter = {
+    <T>(array: T[], f: (item: T) => boolean ): T[]
+}
+
+type Filter<T> = {
+    (array: T[], f: (item: T) => boolean ): T[]
+}
+
+function filter<T>(array: T[], f: (item: T) => boolean): T[] { ...}
+```
