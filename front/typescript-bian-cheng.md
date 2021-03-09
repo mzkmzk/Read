@@ -697,3 +697,124 @@ triggerEvent({ //T 是Element | null
 - MyEvent<T>与传入的对象进行匹配, 发现T应该为`document.querySelector('#myButton')`的返回类型, 即为`Element | null`
 - TypeScript检查所有代码, 把T都替换为Element | null
 - 确定所有类型都满足可赋值性, 确保代码类型安全
+
+### 4.2.5 受限的多态
+
+这里以二叉树为例
+
+主要为了演示函数如何处理多种同类型的返回值
+
+```typescript
+type TreeNode = {
+    value: string
+}
+
+type LeafNode = TreeNode & {
+    isLeaf: true
+}
+
+type InnerNode = TreeNode & {
+    children: [TreeNode] | [ TreeNode, TreeNode]
+}
+
+```
+
+TreeNode 算是父类, 有两种类型的子类 一种是空节点, 一种是有子节点的
+
+一般处理TreeNode的方法都需要对这三种类型进行兼容
+
+使用demo
+
+```typescript
+let a: TreeNode = { value: 'a' }
+let b: LeafNode = { value: 'b', isLeaf: true }
+let c: InnerNode = { value: 'c', children: [b] }
+
+let a1 = mapNode(a, _ => _.toUpperCase()) // TreeNode
+let b1 = mapNode(b, _ => _.toUpperCase()) // LeafNode
+let c1 = mapNode(c, _ => _.toUpperCase()) // InnerNode
+```
+
+这个mapNode 应该如何实现
+
+```typescript
+function mapNode<T extends TreeNode> (
+    node: T,
+    f: (value: string) => string
+): T {
+    return {
+        ...node,
+        value: f(node.value)
+    }
+}
+
+```
+
+- mapNode函数定义了泛型参数T, T的上限为TreeNode, 即T可以是TreeNode, 也可以是TreeNode的子类型
+
+为什吗要这样声明T呢?
+
+- 如果只输入T(没有extends), 那么mapNode会提示不能安全读取node.value
+- 如果根本不用T, 即声明为(node: TreeNode, f: (value: string) => string ) => TreeNode, 那么a1, b1, c3 都会丢失信息称为TreeNode
+
+> 使用受限的多态模拟边长参数
+
+模拟call
+
+```typescript
+function call<T extends unknown[], R>(
+    f: (...args: T) => R,
+    ...args:T
+): R {
+    return f(...args)
+}
+```
+
+
+# 5. 类和接口 
+
+## 5.1 类和继承
+
+TypeScript支持3个访问修饰符
+
+- public: 任何地方都可访问, 默认为这个
+- protected: 只有当前类和子类可以访问
+- private: 只有当前类的实例可以访问
+
+## 5.4 接口
+
+类型别名和接口的区别
+
+- 类型别名更加通用, 右边可以是任何类型, 或者类型表达式(&,|等运算符), 而接口右边必须为结构
+
+例如下面这些无法用接口重写
+
+```typescript
+type A = number
+type B = A | string
+```
+
+- 同一作用域中, 多个同名接口自动合并, 同一作用域的多个类型别名将导致编译错误
+
+### 5.4.1 声明合并
+
+以下User的接口将会自动合并
+
+```typescript
+interface User { name: string }
+interface User { age: number }
+
+let a: User = {
+    name: 'xxx',
+    age: 30
+}
+```
+
+假设接口里定义了冲突的字段说明, 将会报错
+
+
+## 5.7 多态
+
+- 构造方法不能声明泛型, 应该在类声明中声明泛型
+- 静态方法不能访问类的泛型
+
