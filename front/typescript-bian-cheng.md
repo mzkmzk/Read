@@ -818,3 +818,102 @@ let a: User = {
 - 构造方法不能声明泛型, 应该在类声明中声明泛型
 - 静态方法不能访问类的泛型
 
+# 6 类型进阶
+
+## 6.1 类型之间的关系
+
+### 6.1.2 型变
+
+先声明下这里的特殊符号
+
+- `A <: B`: A类型是B类型的子类型, 或者同种类型
+- `A >: B`: A类型是B类型的超类型, 或者同种类型
+
+Ts中 想要保证A对象可赋值给B对象,
+
+必须保证A对象的每个属性都是B属性的子类型或同种类型
+
+这种柜子的转变叫为协变
+
+型变有四种
+
+- 不变: 只能是T
+- 协变: 可以是<:T
+- 逆变: 可以是>:T
+- 双变: 可以是 <:T 或 >:T
+
+对象, 类, 数组, 和函数的返回类型都是协变
+
+但是函数的参数类型进行逆变
+
+
+> 函数型变
+
+如果函数A的参数数量少于或等于函数B的参数数量, 满足以下条件, 函数A就是函数B的子类型
+
+- 函数A的this类型未指定, 或者>:函数B的this类型
+- 函数A的各个参数类型>:函数B的相应参数
+- 函数A的返回类型<:函数B的返回类型
+
+### 6.1.4 类型拓展
+
+let 和var声明的变量会进行类型拓展
+
+```typescript
+let a = 'x' // string
+let b = 3 // number
+var c = true // boolean
+const d = {x: 3 }// { x: number}
+
+enum E { X, Y, Z}
+let e = E.X // E
+```
+
+如果使用const时推导的就不一样
+
+
+```typescript
+const a = 'x' // 'x'
+const b = 3 // 3
+const c =  true // true
+
+enum E { X, Y, Z}
+const e = E.X // E
+
+```
+
+初始化为null或undefined会拓展为any
+
+```typescript
+let a = null // any
+a =  3 // any
+a = 'b' //any
+
+```
+
+但是脱离了声明的作用域后, 变量会重新分配类型
+
+
+```typescript
+function x () {
+    let a = null
+    a = 3
+    a = 'b'
+    return a
+}
+
+x() // string
+```
+
+> const类型
+
+const 不仅能繁殖拓展类型, 还会递归的将成员设为readonly
+
+```typescript
+let a = { x: 3} // {}
+let b: {x: 3} // {x:3}
+let c = {x: 3} as const // {readonly  x: 3}
+
+let d = [1, {x: 2}] // (number | { x: number })[]
+let e = [1, {x: 2}] as const // readonly [1, { readonly x: 2}]
+```
