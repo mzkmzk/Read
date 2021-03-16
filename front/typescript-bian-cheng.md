@@ -833,7 +833,7 @@ Ts中 想要保证A对象可赋值给B对象,
 
 必须保证A对象的每个属性都是B属性的子类型或同种类型
 
-这种柜子的转变叫为协变
+这种规则的转变叫为协变
 
 型变有四种
 
@@ -907,7 +907,7 @@ x() // string
 
 > const类型
 
-const 不仅能繁殖拓展类型, 还会递归的将成员设为readonly
+const 不仅能防止拓展类型, 还会递归的将成员设为readonly
 
 ```typescript
 let a = { x: 3} // {}
@@ -917,3 +917,115 @@ let c = {x: 3} as const // {readonly  x: 3}
 let d = [1, {x: 2}] // (number | { x: number })[]
 let e = [1, {x: 2}] as const // readonly [1, { readonly x: 2}]
 ```
+
+> 多余性检查
+
+```typescript
+
+type Options = {
+    baseURL: string
+    cacheSize?: number
+    tier?: 'prod' | 'dev'
+}
+
+class API {
+    constructor(private options: Options) {}
+}
+
+new API({ // 1 正常
+    baseUrl: 'xxx',
+    tier: 'prod'
+})
+
+new API({ // 2 报错
+    baseUrl: 'xxx',
+    badTier: 'prod' // 语法检查异常
+})
+
+new API({ // 3 报错
+    baseUrl: 'xxx',
+    badTier: 'prod' 
+} as Options )
+
+let badOptions = {
+    baseUrl: 'xxx',
+    badTier: 'prod'
+}
+
+new AP(badOptions) // 4 正常
+
+let options: Options = {
+    baseUrl: 'xxx',
+    badTier: 'prod' // 5 异常
+}
+```
+
+- 2中对新鲜的选项对象进行多余检查
+- 4中因为存在变量赋值, ts不认为是新鲜对象, 所以不做对象检查
+
+### 6.1.5 细化
+
+TypeScript采用的基于流的类型推导, 这是一种符号执行, 类型检测器在检查代码的过程中利用流程语句(if, ? ||, switch)和类型查询(typeof, instanceof, in) 来细化类型
+
+```typescript
+type Width {
+    unit: Unit,
+    value: number
+}
+
+type Unit = 'cm' | 'px' | '%'
+
+function parseUnit(value: string): Unit | null {
+    ...
+}
+
+function parseWidth(width: number | string | null | undefined): Width | null {
+    if(width == null) return null // 1
+
+    if (typeof width === 'number') { // 2
+        return { unit: 'px', value: width }
+    }
+
+    let unit = parseUnit(width) 
+    if (unit) { // 3
+        return { unit, value: parseFloat(width)}
+    }
+
+    return null 
+}
+
+```
+
+parseWidth中返回类型的推导顺序
+
+- 1: 将返回类型细化为 number | string, 排除了null和undefined
+- 2: 经过了2后, 参数类型变为了 string, 排除了number
+- 3: 经过了3后, 如果3为假值, 那么必为null
+
+> 辨别并集类型
+
+一个好的标记要满足下述条件:
+
+- 在并集类型各组成的相同位置上, 如果是对象类型的并集, 使用相同的字段, 如果是元祖类型的并集, 使用相同的索引
+- 如果字面量类型(字符串, 数字, 布尔值等字面量), 可以混用不同的字面量类型, 不过最好使用同一种类型
+- 不要使用泛型, 标记不应该有任何泛型参数
+- 要互斥(既在并集类型中是独一无二的)
+
+```typescript
+type UserTextEvent = { type: 'TextEvent', value: string, target: HTMLInputElement}
+type UserMouseEvent = { type: 'MouseEvent', value: [number, number], target: HTMLElement}
+
+type UserEvent = UserTextEvent | UserMouseEvent
+
+function handle(event: UserEvent) {
+    if(event.type === 'TextEvent') {
+        event.value // string
+        event.target //HTMLInputElement
+        return
+    }
+
+    event.value // [number, number]
+    event.target // HTMLElement
+}
+```
+
