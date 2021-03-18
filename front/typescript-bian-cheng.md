@@ -1029,3 +1029,240 @@ function handle(event: UserEvent) {
 }
 ```
 
+## 6.2 全面性检查
+
+```typescript
+type Weekday = 'Mon' | 'Tue' | 'Wed' ...
+
+function getNextDay(w: Weekday): Day {
+    switch(w) {
+        case 'Mon': return 'Tue'
+    }
+}
+
+```
+
+上述代码无法编译通过, 因为ts会检查出没有枚举所Weekday的类型
+
+## 6.3 对象类型进阶
+
+> "键入"运算符
+
+```typescript
+type APIResponse = {
+    user: {
+        userId: string
+        friendList: {
+            count: number
+            friends: {
+                firstName: string
+                lastName: string
+            }[]
+        }
+    }
+}
+
+type FriendList = APIResponse['user']['friendList']
+```
+
+这种以别人的声明的某一部分作为自身的声明, 叫做键入
+
+> keyof运算符
+
+keyof运算符获取对象所有健的类型, 合并为一个字符串字面量类型
+
+下面是一个安全获取对象值的方法
+
+```typescript
+function get<
+    O extends Object,
+    K extends keyof O
+> (
+    o: O
+    k: K
+): O[K] {
+    return o[k]
+}
+
+type ActivityLog = {
+    lastEvent: Date
+    events: {
+        id: string
+        timestamp: Date
+        type: 'Read' | 'Write'
+    }[]
+}
+
+let activityLog: ActivityLog = ..
+let lastEvent = get(activityLog, 'lastEvent') // Date
+```
+
+### 6.3.2 Record类型
+
+Record是TS内置描述有映射关系的对象
+
+```typescript
+type Weekday = 'Mon' | 'Tue' | 'Wed' ...
+type Day = Weekday | 'Sat' | 'Sun'
+
+let nextDay: Record<Weekday, Day> = {
+    Mon: 'Tue'
+    ...
+}
+
+nextDay假如没有把记录枚举全的话也会报错
+
+Record的建只能用string, number, symbol
+```
+
+### 6.3.3 映射类型
+
+```typescript
+let nextDay: {[K in Weekday]: Day} = {
+    Mon: 'Tue'
+}
+```
+映射类型的用法与索引签名一样, 一个对象最多有一个映射类型
+
+之前的TS内置record也可以用映射类型实现其功能
+
+```typescript
+type Record<K extends keys any, T> = {
+    [P in K]: T
+}
+```
+
+映射类型还可以用来为原有类型做固定作用的拓展
+
+```typescript
+type Account = {
+    id: number
+    isEmployee: boolean
+    notes: string[]
+}
+
+//所有字段皆可选
+type OptionsAccount = {
+    [K in keyof Account]?: Account[K]
+}
+
+//所有字段皆可为null
+type NullAbleAccount = {
+    [K in keyof Account]: Account[K] | null
+}
+
+//所有字段皆只可读
+type ReadonlyAccount = {
+    readonly [K in keyof Account]: Account[K]
+}
+
+//所有字段皆可写
+type Account2 = {
+    -readonly [K in keyof Account]: Account[K]
+}
+
+//所有字段都是必须的
+type Account3 = {
+    [K in keyof OptionAccount]-?: Account[K]
+}
+
+```
+
+> 内置映射类型
+
+- Record<Keys, Values>: 键的类型为Keys, 值的类型为Values的对象
+- Partial<Object>: 把每个Object中的每个字段都标记为可选的
+- Required<Object>: 每个字段都标记为必须的
+- Readonly<Object>: 每个字段都标记为只读的
+- Pick<Object, Keys>: 返回Object的子类型, 只含指定的Keys
+
+### 6.3.4 伴生对象模式
+
+目的: 把同名对象和类型配对在一起
+
+```typescript
+type Currency = {
+    unit: 'EUR'  | 'USD'
+    value: number
+}
+
+let Currency = {
+    DEFAULT: 'USD',
+    form(value: number, unit = Currency.DEFAULT): Currency {
+        return { unit, value }
+    }
+}
+```
+
+ts的类型和值是分别在不同命名空间的, 所以同一作用域, 可以同名
+
+这个主要用处是 使用方可以一次性导入两者
+
+```typescript
+import {Currency} from './Currency'
+
+let amountDue: Currency = {
+    unit: 'JPY'
+    value: 111.23
+}
+
+let otherAmountDue = Currency.from(330, 'EUR')
+
+```
+
+## 6.4 函数类型进阶
+
+### 6.4.1 改善元组的类型推导
+
+TS在推导元组的类型时会方宽要求, 推导出的结果尽量宽泛, 不在乎元组的长度和各类型的位置
+
+```typescript
+let a = [1, true] // (number | boolean)[]
+```
+
+有时我们希望尽量收窄推导出来的元组类型
+
+
+```typescript
+
+function tuple<
+    T extends unknown[]
+>(
+    ...ts: T
+):T {
+    return ts
+}
+
+let a = tuple(1, true) // [number, boolean]
+
+```
+
+### 6.4.2 用户定义的类型防护措施
+
+之前说过ts会根据typeof等语句来动态识别后续的变量类型, 但其实仅是在同一作用域的情况下
+
+```typescript
+function isString(a: unknown): boolean {
+    return typeof a === 'string'
+}
+
+function parseInt(input: string | number ) {
+    let formattedInput: string
+    if (isString(input)) {
+        formattedInput = input.toUpperCase() // Error TS2339 Property 'toUpperCase'
+    }
+}
+```
+
+虽然在isString用了typeof判断 但是ts仍然爆出了检查错误, 认为input是`string | number`
+
+可以使用类型防护措施
+
+```typescript
+function isString(a: unknown): a is string {
+    return typeof a === 'string'
+}
+
+```
+
+
