@@ -1265,4 +1265,142 @@ function isString(a: unknown): a is string {
 
 ```
 
+## 6.5 条件类型
 
+### 6.5.1 条件分配
+
+
+(string | number ) extends T ? A  : B 等价于
+
+(string extends T ? A : B) | (number extends T ? A : B)
+ 
+ 具体使用demo
+
+ ```typescript
+type Without<T, U> = T extends U ? never : T
+
+type A = Without<
+    boolean | number | string,
+    boolean
+> // number | string
+ ```
+
+ 解释 
+
+ A这里等价于
+
+ ```typescript
+type A = Without<
+    (boolean extends boolean ? never : boolean)
+    | (number extends boolean ? never : number)
+    | (string extends boolean ? never : string)
+>
+ ```
+
+计算得出
+
+```typescript
+type a = never 
+    | number
+    | string
+```
+
+简化得
+
+```typescript
+type a = number
+    | string
+```
+ 
+ ### 6.5.2 infer关键字
+
+ 下面声明一个条件类型ElementType, 获取数组中的元素类型
+
+ ```typescript
+type ElementType<T> = T extends unknown[] ? T[number] : T
+type A = ElementType<number[]> // number
+ ```
+
+使用 infer关键字实现
+
+```typescript
+type ElementType2<T> = T extends (infer U)[] ? U : T
+type B = ElementType2<number[]> // number
+```
+
+这里获取某个方法里的参数类型
+
+```typescript
+type SecondArg<F> = F extends (a: any, b: infer B) => any ? B : never
+
+type F = typeof Array['prototype']['slice']
+type A = SecondArg<F> // number | undefined
+
+```
+
+这里能得到[].slice的第二个参数是`number | undefined`类型
+
+### 6.5.3 内置的条件类型
+
+> Exclude<T,U>
+
+计算在T不在U的类型
+
+```typescript
+type A = number | string
+type B = string
+type C = Exclude<A, B> // number
+```
+
+> Extract<T,U>
+
+计算T中可赋值给U的类型
+
+```typescript
+type A = number | string
+type B = string
+type C = Extract<A,B> // string
+
+```
+
+> NonNullable<T>
+
+从T中排除null和undefined
+
+```typescript
+type A = {a?: number | null}
+type B = NonNullable<A['a']> //number
+
+```
+
+> ReturnType<F>
+
+计算函数的返回类型(不适用于泛型和重载的函数)
+
+```typescript
+type F = (a: number) => string
+type R = ReturnType<F> // string
+```
+
+> InstanceType<C>
+
+计算构造方法的实例类型
+
+```typescript
+type A = {new(): B}
+type B = {b: number}
+type I = InstanceType<A> // {b: number}
+
+```
+
+### 6.6.1 类型断言
+
+```typescript
+function formatInput(input: string) { ... }
+function getUserInput(): string | number { ... }
+
+let input = getUserInput()
+
+formatInput(input as string)
+
+```
