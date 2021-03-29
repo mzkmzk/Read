@@ -1404,3 +1404,49 @@ let input = getUserInput()
 formatInput(input as string)
 
 ```
+
+### 6.6.2 非空断言
+
+```typescript
+function removeFromDOM(dialog: Dialog, element: Element) {
+    element.parentNode.removeChild(element) // Error TS2531: Object is possibly 'null'
+}
+```
+
+这里因为`element`不一定存在`parentNode`
+
+所以这里使用非空断言
+
+```typescript
+function removeFromDOM(dialog: Dialog, element: Element) {
+    element.parentNode!.removeChild(element)
+}
+```
+
+这样当parentNode不存在的时候就不会继续调用removeChild
+
+假设TS将该类型定义为`T | null | undefined`, 则使用非空断言后, 类型会变为T
+
+### 6.6.3 明确赋值断言
+
+```typescript
+let userId: string
+fetchUser()
+userId.toUpperCase() // variable 'userId' is used before being assigned
+
+function fetchUser() {
+    userId = globalCache.get('userId')
+}
+```
+
+这个时候因为作用域问题, TS无法知道userId已经被赋值, 需要我们加明确赋值断言来使编译器不会报错
+
+```typescript
+let userId!: string
+fetchUser()
+userId.toUpperCase() // variable 'userId' is used before being assigned
+
+function fetchUser() {
+    userId = globalCache.get('userId')
+}
+```
