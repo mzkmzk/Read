@@ -5,7 +5,7 @@
 ### 2.2 类型系统
 
 ```typescript
-let a: number = 1
+let a: number = 1
 let b: string = 'hello'
 let c: boolean[] = 'true false'
 
@@ -214,7 +214,7 @@ type Person = {
 并集使用`|`, 交集使用`&`
 
 ```typescript
-type Cat { name: string, purrs: boolean }
+type Cat = { name: string, purrs: boolean }
 type Dog = { name: string, barks: boolean, wags: boolean }
 type CatOrDogOrBoth = Cat | Dog
 type CatAndDog = Cat & Dog
