@@ -207,7 +207,7 @@ let a: {
 type Age = Number
 type Person = {
     name: string
-    age:Age
+    age: Age
 }
 ```
 
@@ -519,8 +519,6 @@ let createElement: CreateElement = (tag: string): HTMLElement => {
 
 ```typescript
 
-function
-
 type Filter = {
     (array: number[], f: (item: number) => boolean): number[]
     (array: string[], f: (item: string) => boolean): string[]
@@ -563,7 +561,7 @@ type Filter = {
 let filter: Filter = (array, f) => { ...}
 ```
 
-`<T>`声明在调用签名中声明(位于签名的开始圆括号前面), TypesCript将在调用Filter类型的函数时为T绑定具体类型
+`<T>`声明在调用签名中声明(位于签名的开始圆括号前面), TypeScript将在调用Filter类型的函数时为T绑定具体类型
 
 而如把`T`绑定在类型别名`Filter`中, TypeScript泽要求在使用时显式绑定类型
 
@@ -649,8 +647,8 @@ promise.then(result => // 推导结果为{}
 let promise = new Promise<number>(resolve =>
     resolve(45)
 )
-promise.then(result => // 推导结果为{}
-    result * 4 // Error T2362
+promise.then(result => 
+    result * 4 
 )
 ```
 
