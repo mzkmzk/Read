@@ -41,6 +41,7 @@
   * [Web性能权威指南](webxing-neng-quan-wei-zhi-nan.md)
   * [CSS世界](cssshi-jie.md)
   * [TypeScript编程](front/typescript-bian-cheng.md)
+  * [PWA开发实践](front/pwd-kai-fa-shi-jian.md)
 * [服务器端](fu_wu_qi_duan.md)
   * [系统分析师UML项目实战](xi_tong_fen_xi_shi_uml_xiang_mu_shi_zhan.md)
   * [深入php面向对象、模式与实践](shen_ru_php_mian_xiang_dui_xiang_3001_mo_shi_yu_sh.md)
