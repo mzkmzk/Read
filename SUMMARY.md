@@ -58,7 +58,7 @@
   * [Web API的设计与开发](web-apide-she-ji-yu-kai-fa.md)
   * [Graphql学习指南](utils/graphql-xue-xi-zhi-nan.md)
   * [Graphql实战](utils/graphql-shi-zhan.md)
-  * [Go程序设计语言](go-lang/go-cheng-xu-she-ji-yu-yan.md)
+  * [Go程序设计语言](go_lang/go-cheng-xu-she-ji-yu-yan.md)
   * [Promethus原理、应用、源码及扩展详解](server/promethus-yuan-li-ying-yong-yuan-ma-yu-tuo-zhan-xiang-jie.md)
 * [安全](an_quan.md)
   * [Web前端黑客技术揭秘](webqian_duan_hei_ke_ji_zhu_jie_mi.md)
