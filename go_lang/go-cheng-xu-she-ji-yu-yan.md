@@ -346,6 +346,292 @@ slice有3个属性: 指针, 长度和容量
 
 go的内置函数len和cap用来返回slice的长度和容量
 
+slice无法用==来比较是否拥有相同元素
+
+slice唯一可以用`==`的就是判断是否为nil
+
+`if summer == nil {...}`
+
+slice的零值是`nil`
+
+值为`nil`的slice的长度和容量都为0
+
+```go
+var s []int // len(s) == 0, s == nil
+s = nil // len(s) == 0, s == nil
+s = []int(nil) // len(s) == 0, s == nil
+s = []int{} // len(s) == 0, s != nil
+```
+
+如果想坚持slice是否为空, 最好是`len(s) == 0` 而不是 `s == nil`
+
+使用`make`来创建slice
+
+```go
+make([]T, len)
+make([]T, len, cap)// 和make([]T, cap)[:len]功能一样
+```
+
+第一行创建了容量和长度都是len
+
+而第二行只引用了前len个元素, 但是容量是数组的长度, 为未来的slice元素留出空间
+
+### 4.2.1 append函数
+
+```go
+func appendInt(x []int, y int) []int {
+    var z []int
+    zLen := len(x) + 1
+    if zLen <= cap(x) {
+        // x仍有空间
+        z = x[:zLen]
+    } else {
+        // slice 已无空间
+        // 为了达到分摊线性复杂性, 容量扩展一倍
+        zCap := zLen
+        if zCap < 2*len(x) {
+            zCap = 2 * len(x)
+        }
+        z = make([]int, zLen, zCap)
+        copy(z, x)
+    }
+    z[len(x)] = y
+    return z
+}
+```
+
+copy函数中, 源slice和目标slice 可能对应同一个底层数组
+
+甚至可能出现元素重叠
+
+copy函数的返回值是 返回实际复制的元素个数
+
+要更新一个slice的指针, 长度或容量都必须这样
+
+```go
+runes = append(runes, r)
+```
+
+### 4.2.2 slice就地修改
+
+例如 删除一个slice里的空字符串
+
+```go
+func noEmpty(strings []string) []string {
+    i := 0
+    for _, s := range strings {
+        if s != "" {
+            strings[i] = s
+            i++
+        }
+    }
+    return strings[:i]
+}
+```
+
+这样会导致底层数组会被更改
+
+```go
+data := []string{"one", "", "three"}
+fmt.Printf("%q\n", noEmpty(data)) // ["one", "three"]
+fmt.Printf("%q\n", data) // ["one", "three", "three"]
+```
+
+所以通常我们这么写
+
+```go
+data = noEmpty(data)
+```
+
+在slice中取出某一个元素
+
+```go
+func remove(slice []int ,i int ) []int {
+    sLen := len(slice)
+    if i < 0 || i >= sLen {
+        return slice
+    } 
+    copy(slice[i:], slice[i+1:])
+    return slice[:len(slice) - 1]
+}
+
+func main() {
+    s :=  remove([]int{5, 6, 7, 8, 9}, 2)
+	fmt.Println(s)
+}
+```
+
+copy函数覆盖的逻辑为, 源slice(第二个参数)按对应索引位复制到目标slice
+
+所以上面的copy函数是, `copy([]int{7, 8, 9}, []int{8, 9})`
+
+源slice的第0位复制目标slice的第0位, 源slice的第1位复制目标slice的第1位
+
+所以最终`slice[i:]`会被改变成`[8, 9, 9]` 
+
+整个slice就位`[5, 6, 8 ,9 ,9]`, 再删掉最后一位即可
+
+## 4.3 map
+
+散列表是设计精妙, 用途广泛的数据结构之一
+
+是一个拥有键值对元素的无序集合
+
+键的值是唯一的
+
+无论这个散列表有多大, (获取/ 更新/ 删除) 这些操作基本是通过常量时间的键比较就可以完成的
+
+map中所有的键 都拥有相同的数据类型, 所有的值也拥有相同的类型
+
+> 创建
+
+创建map的方式
+
+```go
+args := make(map[string]int)
+
+// 或通过字面量
+
+args := map[string]int{
+    "alice": 14,
+    "charlie": 34
+}
+
+// 等价于
+
+args := make(map[string]int)
+
+args["slice"] = 14
+args["charlie"] = 34
+
+```
+
+> 删除
+
+```go
+delete(args, "alice") //移除元素args["slice"]
+```
+
+即使键不在map中, 上面的操作也是安全的
+
+map通过键来找值, 如果对应值不存在, 就返回该类型的零值
+
+例如下面的代码是可行的
+
+```go
+args["boo"] = args["boo"] + 1 // 1
+```
+
+> 获取
+
+但是map元素不是一个变量, 不可以获取其地址, 因为map增长可能导致已有元素被重新散列到新的位置
+
+遍历map
+
+```go
+for name, age := range args {
+    fmt.Printf("%s\t%d\n", name, age)
+}
+```
+
+map的元素迭代顺序是不固定的
+
+map的零值是nil
+
+```go
+var ages map[string]int
+fmt.Println(ages == nil ) // true
+fmt.Println(len(ages) == 0 ) // true
+
+ages["carol"] = 21 //宕机, 为零值map中的项赋值
+```
+
+设置元素之前, 必须初始化map
+
+通过下标的方式访问map中的元素总是会有值
+
+- 键在map中, 返回对应的值
+- 键不在map中, 返回值的零值
+
+判断键是否存在
+
+```go
+if age, ok := ages["bob"]; !ok {
+    /* bob 不是map中的键 */
+}
+```
+
+map是不可比较的, 只能跟nil对比
+
+map的键必须是可比较的
+
+## 4.4 结构体
+
+结构体是将零个或者多个任意类型的命名变量组合在一起的聚合数据类型
+
+点号同样可以用在结构体的指针上
+
+```go
+var employeeOfTheMonth *Employee = &dilbert
+employeeOfTheMonth.Position += " (proactive team player)"
+
+// 最后一句等价于
+
+(*employeeOfTheMonth).Position += " (proactive team player)"
+```
+
+结构体A的属性中不能嵌套同一结构体A
+
+但是结构体A中的属性可以嵌套结构A的指针类型
+
+对创建递归的数据结构比较有用, 比如链表和数
+
+下面实现一个二叉树插入排序的例子
+
+```go
+type tree struct {
+    value int 
+    lef, right *tree
+}
+
+func Sort(values []int) {
+    var root *tree
+    for _, v := range values {
+        add(root, v)
+    }
+    appendValues(values[:0], root)
+}
+
+func appendValues(values []int, t *tree) []int {
+    if t != nil {
+        values = appendValues(values, t.left)
+        values = append(values, t.value)
+        values = appendValues(values, t.right)
+    }
+    return values
+}
+
+
+func add(t *tree, v) *tree {
+    if (t == nil) {
+        // 等价于 *tree{value: value}
+        t = new(tree)
+        t.value = value
+        return t
+    }
+    if (value < t.value) {
+        t.left = add(t.left, value)
+    } else {
+        t.right = add(t.right, value)
+    }
+    return t
+}
+
+
+```
+
+结构体的零值是由结构体成员的零值组成
+
 ## 12 反射
 
 在编译时不知道类型的情况下, 可更新变量、在运行时查看值、调用方法以及直接对它们的布局进行操作
