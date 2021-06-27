@@ -632,6 +632,508 @@ func add(t *tree, v) *tree {
 
 结构体的零值是由结构体成员的零值组成
 
+> 4.4.1 结构字面量
+
+声明字面量
+
+```go
+type Point struct{ X, Y int}
+p := Point{1, 2}
+```
+
+这种按顺序声明的方式, 不太建议, 代码可阅读性不高
+
+建议使用
+
+
+```go
+p := Point{
+    X: 1,
+    Y: 2
+}
+```
+
+这种声明的key, 可以不按顺序声明key
+
+结构体的属性为小写开头, 则为不可导出
+
+```go
+package p
+type T struct {a, b int} 
+
+package q
+var _ = p.T{a: 1} // 编译错误, 无法引用a, b
+```
+
+结构体可作为参数传给函数, 一般为了提高效率, 大型结构体通常用结构体指针直接传递给函数或从函数中返回
+
+因为结构体一般都以指针函数传递, 所以经常直接声明变量就位指针变量
+
+```go
+pp := &Point{1, 2}
+
+//等价于
+
+pp := new(Point)
+*pp = Point{1, 2}
+```
+
+> 4.4.2 结构体比较
+
+如果结构体的所有成员变量都可以比较
+
+那么结构体就是可比较的
+
+其中`==` 按顺序比较两个结构体变量的成员变量
+
+与其他可比较类型一样, 可比较的结构体可作为map的键类型
+
+```go
+type address struct {
+    hostname string
+    port int
+}
+
+hits := make(map[address]int)
+hits[address{"golang.org", 443}]++
+```
+> 4.4.3 结构体嵌套和匿名成员
+
+结构体嵌套机制: 将一个命令结构提当作另一个结构体类型的匿名成员使用
+
+例如`x.f`就可以代替`x.d.e.f`
+
+
+
+### 4.5 JSON
+
+结构体转为json
+
+```go
+data, err := json.Marshal(movies)
+if err != nil {
+    log.Fatalf("JSON marshaling failed: %s", err)
+}
+fmt.Printf("%s\n", data)
+```
+
+Marshal返回一个字节slice
+
+若想格式化JSON可以使用`json.MarshalIndex(movies, "", "    ")`, 第2个参数为输出的前缀字符串, 第二个缩进的字符串
+
+只有可导出的成员会转换为JSON字段
+
+结构体中可以设定成员标签定义
+
+```go
+Year int `json:"release"`
+Color bool `json:"color, omitempty"`
+```
+
+上述表明当结构体转为json时, 
+
+- Year字段会转为属性名叫`release`的字段
+- Color字段会转为属性名叫`color`的字段, 并且表示该字段的值为零值或者为空, 则不输出到JSON里
+
+与marshal对应的逆操作(JSON->struct)的方法叫unmarshal
+
+```go
+var titles []struct{ Title string }
+if err := json.Unmarshal(data, &titles); err != nil {
+    log.Fatalf("JSON.unmarshaling failed %s", err)
+}
+fmt.Println(titles) // [{Casablanca}, {Cool Hand Luke} {Bullitt}]
+
+```
+
+## 4.6 文本和html模板
+
+主要使用`text/template`包和`html/template`包
+
+这两个包基本用法一样,
+
+主要是`html/template`会对HTML,JS,CSS和URL进行自动转义, 规避安全问题
+
+使用示例
+
+html
+
+```go
+const templ = `{{ .TotalCount }} issues:
+{{ range .Items }}--------------
+Number: {{ .Number }}
+User: {{ .User.Login }}
+Title: {{ .Title | printf "%.64s" }}
+Age: {{ .CreateAt | daysAgo }} days
+{{ end }}`
+```
+
+- `.`开头即为获取变量 
+- `|` 与linux命令行类似, 把前面的结果 丢给后面的 技术处理
+
+使用模板
+
+```go
+var report = template.Must(
+        template.New("issuelist")).
+            Funcs(template.FuncMap("daysAgo": daysAgo))
+            Parse(templ)
+    )
+
+func main() {
+    result, err := github.SearchIssues(os.Args[1:])
+    if err != nil { 
+        log.Fatal(err)
+    }
+    if err := report.Execute(os.Stdout, result); err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
+`html/template`的基本用法
+
+```go
+func main() {
+    const templ = `<p>A: {{ .A }}</p><p>B: {{ .B }}</p>`
+    t := template.Must(template.New("escape").Parse(templ))
+    var data struct {
+        A string // 不受信任的文本
+        B template.HTML //受信任的html
+    }
+    data.A = "<b>Hello!</b>"
+    data.B = "<b>Hello!</b>"
+    if err != t.Execute(os.Stdout, data); err != nil {
+        log.Fatal(err)
+    }
+}
+
+```
+
+A则为被转义后输出, B则按照正常html被解析
+
+## 5 函数
+
+### 5.1 函数声明
+
+```go
+func name(parameter-list) (result-list) {
+    body
+}
+```
+
+实参都是按值传递的, 但如果实参包含引用类型, 比如指针, slice, map, 函数, 通道, 那么使用形参变量可能会简介修改实参变量
+
+如果发现函数是没有函数体, 表明该方法是用汇编语言实现的, 声明的是函数的签名
+
+```go
+package math
+func Sin(x float64) float64
+```
+
+### 5.3 多返回值
+
+裸返回, 即函数直接return,  但返回参数和函数体内的变量有一致, 则执行`return`, 会把同名的参数返回
+
+
+```go
+func CountWordsAnImages(url string) (words, images int, err error) {
+    resp, err := http.Get(url)
+    if err != nil {
+        return //返回 0 0 err
+    }
+    doc, err := html.Parse(resp.Body)
+    resp.Body.Close()
+    if err != nil {
+        return // 返回0 0 err
+    }
+    words, images = countWordsAndImage(doc)
+    return // 返回 words images err
+}
+```
+
+尽量少使用
+
+### 5.4 错误
+
+如果函数只有一种错误情况, 那么最后一个参数一般设为布尔类型
+
+假如情况有很多种, 那么返回error
+
+Go语言的异常只是针对程序bug导致预料之外的错误, 而不能通过常规错误处理方法出现在程序中
+
+> 错误处理策略
+
+例子1: 将错误传递下去(最常见的例子)
+
+```go
+resp, err := http.Get(url)
+if err != nil {
+    return nil, err
+}
+
+```
+
+例子2: 需要为错误添加关键信息
+
+
+```go
+doc, err = html.Parse(resp.Body)
+resp.Body.close()
+
+if err != nil {
+    return nil, fmt.Errorf("parsing %s as HTML: %v", url, err)
+}
+```
+
+这里如果只返回解析失败的err, 很难分析问题, 带上url和html, 则容易分析问题很多
+
+一般的`f(x)`调用只负责报告函数的行为f和参数值x
+
+例子3: 不固定或者不可预测的错误, 进行重试
+
+对于不固定或者不可预测的错误, 在短暂的间隔后对操作进行重试是合乎情理的, 超过一定的重试次数和限定时间后再报错退出
+
+```go
+func WaitForServer(url string) error {
+    const timeout = 1 * time.Minute
+    deadline := time.Now().Add(timeout)
+    for tries :=0; time.Now().Before(deadline); tries++ {
+        _, err := http.Head(url)
+        if err == nil {
+            return nil 
+        }
+        log.Printf("server not responding (%s) retrying...", err)
+        time.Sleep(time.Second <<  uint(tries)) //指数退避策略 // 1S 2S 4S 8S 16S 32S 
+    }
+    return fmt.Errorf("server %s failed to respond after %s", url, timeout)
+}
+```
+
+> 5.4.2 文件结束标识
+
+最终用户对多种错误感兴趣, 而不是中间设计的逻辑
+
+所以我们的err 有时需要详细的暴露是哪种情况, 好让使用者针对不同的error做处理
+
+例如IO包要暴露文件读取完毕的error
+
+```go
+package io
+import "errors"
+
+var EOF = errors.New("EOF")
+```
+
+使用者
+
+```go
+in := bufio.NewRender(os.Stdin)
+
+for {
+    r, _, err := in.ReadRune()
+    if err == io.EOF {
+        break // 停止读取
+    }
+    if err != nil {
+        return fmt.Error("read failed: %v", err)
+    }
+    ...
+}
+
+```
+
+### 5.5 函数变量
+
+函数类型的零值是nil, 调用空的函数变量将会宕机
+
+```go
+var f func (int) int
+f(3) //宕机
+```
+
+这么写则不宕机
+
+```go
+var f func (int) int
+if f != nil {
+    f(3)
+}
+```
+
+函数是不可比较的
+
+> 捕获迭代变量
+
+```go
+var rmdirs []func()
+for _, dir := range tempDirs() {
+    os.MkdirAll(dir, 0755)
+    rmdirs = append(rmdirs, func() {
+        os.RemoveAll(dir)
+    })
+}
+```
+
+这里的执行结果是, `os.RemoveAll`会执行多次, 但是删除的路径一直都是最后一次循环的dir
+
+要修复这个问题可以这么改, 将dir至于函数体内
+
+```go
+var rmdirs []func()
+for _, d := range tempDirs() {
+    dir := d
+    os.MkdirAll(dir, 0755)
+    rmdirs = append(rmdirs, func() {
+        os.RemoveAll(dir)
+    })
+}
+```
+
+### 5.7 变长函数
+
+```go
+func sum(vals ..int) int {
+    ...
+}
+```
+
+`...int`代表0个或多个int参数
+
+也可以用于参数传递中
+
+```go
+values := []int{1, 2,3, 4}
+sum(values...)
+```
+
+### 5.8 延迟函数调用
+
+延迟函数调用主要运用defer语句
+
+无论是在正常情况下, 执行return语句或函数执行完毕
+
+还是不正常的情况下, 比如宕机
+
+实际调用延迟到包含defer语句的函数执行后才执行
+
+defer语句没有限制使用次数, 执行的书序为defer语句声明的倒序进行
+
+延迟执行的匿名函数能够改变外层还是返回给调用者的结果
+
+```go
+func double(x int) (result int) {
+    defer func { fmt.Printf("double(%d) = %d\n", x, result) }() // 8w
+    return x +x
+}
+
+func triple(x int) (result int) {
+    defer func() { result += x }()
+    return double(x)
+}
+
+fmt.Println(triple(4)) // 12
+
+```
+
+## 5.10 恢复
+
+当出现宕机时, 假如需要对某一种错误进行恢复, 可以使用recover
+
+
+```go
+func soleTitle() (title string, err error) {
+    
+    type bailout struct {}
+    defer func() {
+        switch p := recover(); p {
+            case nil:
+            case bailout{}:
+                err = fmt.Errorf("multiple title elements")
+            default:
+                panic(p)
+        }
+    }()
+    title := ...
+    panic(bailout{})
+    return title, nil
+}
+```
+
+## 6 方法
+
+### 6.1 方法声明
+
+```go
+type Point struct {X, Y float64}
+func (p Point) Distance(q Point) float64 {
+    return xxx
+}
+```
+
+方法能赋给任意类型, 例如slice, 数字等, 除了指针类型和接口类型
+
+### 6.2 指针接受者方法
+
+由于主调函数会复制每一个实参变量, 如果函数需要更新一个变量, 或者如果一个实参太大而我们希望避免复制整个实参
+
+隐藏我们必须使用指针来传递变量的地址
+
+```go
+func (p *Point) ScaleBy(factor float64) {
+    p.X *= factor
+    p.Y *= factor
+}
+```
+这个方法是`(*Point).ScaleBy`, 括号是必须的, 否则会被解析为`*(Point.ScaleBy)`
+
+习惯上遵循 如果Point的任何一个方法使用指针接受者, 那么所有的Point方法都应该使用指针接受者
+
+为防止混淆, 不允许本身是指针的类型进行方法声明
+
+```go
+type P *int
+type (P) f() {...} //编译错误 
+```
+
+指针接受者方法调用
+
+```go
+r := &Point{1, 2}
+r.ScaleBy(2)
+fmt.Println(*r) // {2, 4}
+```
+
+如果接受者p是Point类型的变量, 但方法要求一个 *Point的接受者, 我们可以简写为
+
+p.ScaleBy(2)
+
+实际上编译器会对变量进行`&p`的隐式转换
+
+不能够对一个不能取地址的Point接受者调用*Point方法, 因为无法获取临时变量的地址
+
+```go
+Point{1, 2}.ScaleBy(2) //编译错误, 不能获取Point类型字面量地址
+```
+
+当实参接受者是*T类型, 而形参是T类型, 编译器也会隐式的解引用接受者
+
+```go
+pptr.Distance(q) // 隐式转换为*pptr
+```
+
+如果所有类型T方法的接受者是T自己(而非*T), 那么复制它的实例是安全的
+
+调用方法的时候都必须进行一次复制
+
+但是任何方法的接受者是指针的情况下, 应该避免复制T实例
+
+因为这么做可能会破坏内部原本的数据, 比如复制bytes.Buffer实例只会得到相当于原来bytes数组的一个别名
+
+随后的方法调用会产生不可预期的结果
+
+`nil是一个合法的接受者`
+
 ## 12 反射
 
 在编译时不知道类型的情况下, 可更新变量、在运行时查看值、调用方法以及直接对它们的布局进行操作
