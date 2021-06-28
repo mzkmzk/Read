@@ -703,7 +703,42 @@ hits[address{"golang.org", 443}]++
 
 例如`x.f`就可以代替`x.d.e.f`
 
+Go允许我们定义不带名称的结构体成员, 只需要指定类型即可, 这种结构体成员称为匿名成员
 
+```go
+type Point struct {
+    X,Y int
+}
+
+type Circle struct {
+    Point
+    Radius int
+}
+
+type Wheel struct {
+    Circle
+    Spokes int
+}
+
+var w Wheel
+w.X = 8 // w.Circle.Point.X = 8
+W.radius = 5 // w.Circle.Radius = 5
+```
+
+但在声明时, 必须要按照嵌套类型来
+
+```go
+w = Wheel{Circle{Point{8, 8}, 5}, 20}
+
+// 或
+
+w = Wheel {
+    Circle: Circle{
+        Point: Point{X:8 ,Y: 8}
+    },
+    Spokes: 20
+}
+```
 
 ### 4.5 JSON
 
@@ -1133,6 +1168,607 @@ pptr.Distance(q) // 隐式转换为*pptr
 随后的方法调用会产生不可预期的结果
 
 `nil是一个合法的接受者`
+
+### 6.3 通过结构体内嵌组成类型
+
+主要用作结构体的组合
+
+```go
+var (
+    mu sync.Mutex //保护mapping
+    mapping = make(map[string]string)
+)
+
+func Lookup(key string) string {
+    mu.Lock()
+    v := mapping[key]
+    mu.Unlock()
+    return v
+}
+```
+
+对结构体进行封装
+
+```go
+var cache = struct {
+    sync.Mutex
+    mapping map[string]string
+}
+
+func Lookup(key string) string {
+    cache.Lock()
+    v := cache.mapping[key]
+    cache.Unlock()
+    return v
+}
+```
+
+## 6.4 方法变量与表达式
+
+```go
+type Point struct { X,Y float64}
+func (p Point) Add(q Point) Point { return Point{p.X + q.X, p.Y + q.Y}}
+func (p Point) Sub(q Point) Point { return Point{p.X -q.X, p.Y - q.Y }}
+
+type Path []Point
+
+func (path Path) TranslateBy(offset Point, add bool){
+    var op func(p, q Point) Point
+    if add {
+        op = Point.Add
+    } else {
+        op = Point.Sub
+    }
+
+    for i := range path {
+        path[i] = op(path[i], offset)
+    }
+}
+```
+
+## 7. 接口
+
+### 7.2 接口类型
+
+一个接口类型定义了一套方法, 如果一个具体类型要实现该接口, 必须实现接口类定义的所有方法
+
+声明接口
+
+```go
+package io
+
+type Reader interface {
+    Read(p []byte) (n int, err error)
+}
+
+type Closer interface {
+    Close() error
+}
+```
+
+另外, 我们还可以发现通过组合已有的接口得到新的接口
+
+```go
+type ReadWriter interface {
+    Reader
+    Writer
+}
+```
+
+### 7.3 实现接口
+
+只要一个类型实现了一个接口要求的所有方法, 那么这个类型实现了这个接口
+
+```go
+var w io.Writer
+w = os.Stdout // ok *os.File实现了Write方法
+w = new(bytes.Buffer) // ok *bytes.Buffer有Write方法
+w = time.Second // 编译失败
+```
+
+接口也可以赋值给接口
+
+```go
+var rwc io.ReadWriteCloser
+w = rwc // ok
+```
+
+### 7.5 接口值
+
+一个接口类型的值包含两部分
+
+- 具体类型(动态类型)
+- 该类型的一个值(动态值)
+
+类型只是编译时的概念, 类型不是一个值
+
+类型需要用`类型描述符`来提供每个类型的具体信息, 比如它的名字和方法
+
+```go
+var w io.Writer // 类型: nil 值 nil
+w = os.Stdout // 类型 *os.File的类型描述符, 值: os.Stdout的副本
+w = new(bytes.Buffer) // 类型 *bytes.Buffer的类型描述符, 值为新分配缓冲区的指针
+w = nil // 类型: nil 值 nil
+```
+
+一个接口值可以指向多个任意大的动态值
+
+```go
+var x interface{} = time.Now() // 类型time.Time, 值: sec:xxx, nsec:xxx, ioc:'"UTC"
+```
+
+接口值可以用==和!=比较, 如果两个接口值都是nil或者(动态类型一致&&动态值一致)
+
+需要注意: 在比较两个接口值时, 假如接口值动态类型一致, 但动态值是不可比较的(比如slice), 会宕机
+
+```go
+var x interface{} = []int{1, 2, 3}
+fmt.Println(x === x) //宕机
+```
+
+> 注意含有空指针的非空接口
+
+```go
+const debug = true
+func main() {
+    var buf *bytes.Buffer
+    if debug {
+        buf = new(bytes.Buffer)
+    }
+    f(buf)
+    if debug {
+        ...
+    }
+}
+
+func f(out io.Writer) {
+    if out != nil {
+        out.Write([]byte("done!\n"))
+    }
+}
+```
+
+调用`f`时, 会把一个空指针赋值给io.Writer
+
+进行`out != nil`判断, 此时out的类型为`*bytes.Buffer` 而非nil, 虽然值为`nil`
+
+但这个判断仍会返回true
+
+导致`out.Write`会宕机
+
+需要做如下修改
+
+```go
+var buf io.Writer
+```
+
+因为`*bytes.Buffer`满足了该接口, 但不满足该接口的行为, 即接受者不能为空, 而io.Writer则允许接受者为nil
+
+### 7.10 类型断言
+
+类型断言是一个作用在接口值上的操作, 语法为`x.(T)`
+
+x为一个接口的表达式, T为一个类型
+
+断言类型T假如未具体类型, 那么会检查x的动态类型是否就是T
+
+```go
+var w io.Writer
+w = os.Stdout
+f := w.(*os.File) //成功 f == os.Stdout
+c := w.(*bytes.Buffer) // 宕机, 接口持有的是*os.File, 不是 *bytes.Buffer
+```
+
+断言类型假如是一个接口类型, 那么会检查x的动态类型是否满足T
+
+检查成功, 动态值并不会提取出来, 结果仍然是一个接口值, 接口值的类型和值部分也没有变更
+
+只是结果的类型为接口类型T
+
+即接口类型的断言, 只会更换接口类型(通常方法数量是增多)
+
+```go
+var w io.Writer
+w = os.Stdout
+rw := w.(io.ReadWriter) //成功 *os.File 有Read和Write方法
+
+w = new(ByteCounter)
+rw = w.(io.readWriter) //崩溃, *ByteCounter 没有Read方法
+```
+
+无论在哪种类型作为断言类型, 如果操作数是一个空的接口, 类型断言都会失败
+
+
+
+```go
+w = rw
+w = rw.(io.Writer) // 晋档rw == nil时失败
+```
+
+当断言接口返回值为两个时, 断言不会崩溃, 而是把结果放到第二个返回值
+
+```go
+var w io.Writer = os.Stdout
+f, ok = w.(*os.File)// ok为true
+b, ok = w.(*bytes.Buffer) //ok为false
+```
+
+### 7.11 使用类型断言来识别错误
+
+用PathError来获取更详细的error信息
+
+```go
+package os
+type PathError struct {
+    Op string
+    Path string
+    Err error
+}
+
+func (e *PathError) Error() string {
+    return e.Op + " " + e.Path + ": " + e.Err.Error()
+}
+
+import (
+    "errors"
+    "syscall"
+)
+
+var ErrorNotExist = errors.New("file does not exist")
+
+func IsNotExist(err error) bool {
+    if pe, ok != err.(*PathError); ok {
+        err = pe.Err
+    }
+    return err == syscall.ENOENT || err == ErrNotExist
+}
+
+```
+
+### 7.13 类型分支
+
+```go
+func sqlQuote(x interface{}) string {
+    if x == nil {
+        ...
+    }else if _, ok := x.(int); ok {
+        ...
+    }
+    ...
+}
+```
+
+等价于
+
+```go
+func sqlQuote(x interface{}) string {
+    switch x.(type) {
+        case nil: ...
+        case int, uint: ...
+    }
+}
+```
+
+## 8. goroutine和通道
+
+### 8.1 goroutine
+
+```go
+f() 调用f() 等待它返回
+go f() 新建一个调用f()的goroutine 不用等待
+```
+
+### 8.4 通道
+
+goroutine是go并发的执行体
+
+通道就是他们之间的链接
+
+通道是可以让一个goroutine发送特定值到另一个goroutine的通信机制
+
+每一个通道是一个具体类型的导管, 叫做通道的元素类型, 一个int元素类型的通道写为`chan int`
+
+使用make创建一个通道
+
+```go
+ch := make(chan int)
+```
+
+像map一样, 通道是一个使用make创建的数据结构的引用
+
+当复制或者作为参赛传递到一个函数时, 复制的是引用
+
+通道的零值是nil
+
+通道的主要操作是发送和接受
+
+```go
+ch <- x //发送语句
+x = <- ch // 赋值语句中的接受表达式
+<-ch // 接受语句 抛弃结果
+close(ch) // 关闭通道
+```
+
+直接使用make创建的通道称为无缓冲通道, 而make可以接受第二个参数, 表示通道容量的整数
+
+```go
+ch = make(chan int) // 无缓冲通道
+ch = make(chan int , 0) // 无缓冲通道
+ch = make(chan int , 3) // 容量为3的缓存通道
+```
+
+> 8.4.1 无缓冲通道
+
+无缓冲通道的发送操作将会阻塞, 直到另一个goroutine在对应的通道上执行操作, 这时值传送完成
+
+两个goroutine都可以继续执行
+
+相反, 如果接受操作先执行, 接受放goroutine将阻塞, 直到另一个goroutine在同一通道上发送一个值
+
+使用无缓冲通道会导致发送和接受goroutine同步化, 无缓冲通道也称为同步通道
+
+> 8.4.2 管道
+
+通道可以用来连接goroutine, 这样一个的输出是另一个的输入, 这个叫做管道(pipeline)
+
+例如一个goroutine发送自然数->接受自然数,并发送平方值->输出值
+
+```go
+func main(){
+    naturals := make(chan int)
+    squares := make(chan int)
+    
+    go func() {
+        for x:=0; x < 100 ; x++ {
+            naturals <- x
+        }
+        close(naturals)
+    }()
+
+    go func {
+        for x: range naturals {
+            squares <- x * x
+        }
+        close(squares)
+    }()
+
+    for x := range squares {
+        fmt.Println(x)
+    }
+}
+```
+
+结束时关闭每一个通道不是必须的, 通道可以通过垃圾回收期判断是否回收它
+
+试图关闭一个已经关闭的通道会宕机
+
+
+> 8.4.3 单项通道
+
+- `chan<- int`: 只能作为发送int的通道, 不能接受
+- `<- chan int`: 只能作为接受int的通道, 不能发送, 关闭一个仅接受的通道, 会编译错误
+
+更改上述代码
+
+
+```go
+func counter(out chan<- int) {
+    for x:=0; x< 100; x++ {
+        out <- x
+    }
+    close(out)
+}
+
+func squarer(out chan<- int, in <- chan int) {
+    for v := range in {
+        out <- x * x
+    }
+    close(out)
+}
+
+func printer(in <- chan int) {
+    for v := range in {
+        fmt.Println(v)
+    }
+}
+
+func main() {
+    naturals := make(chan int)
+    squares := make(chan int )
+
+    go counter(naturals)
+    go squarer(squares, naturals)
+    printer(squares)
+}
+
+```
+
+> 8.4.4 缓冲通道
+
+缓冲通道有一个元素队列
+
+获取缓冲通道当前用于的元素个数`len(ch)`
+
+获取缓冲通道的总容量`cap(ch)`
+
+```go
+func mirroredQuery() string {
+    responses := make(chan string, 3)
+    go func { responses <- request("asia.gopl.io") }()
+    go func { responses <- request("europe.gopl.io") }()
+    go func { responses <- request("americas.gopl.io") }()
+    return <- responses 
+}
+```
+
+这里同时向3个不同地域的服务器发送请求, 会返回最先到达的.
+
+但这里假如使用无缓冲通道, 那么比较慢的两个goroutine就会卡住, 因为他们发送响应结果到通道时,
+
+没有goroutine来接受, 这叫做goroutine泄漏属于bug, 泄漏的goroutine不会自动回收
+
+### 8.5完并行循环
+
+编写一个并行制作图片缩略图的方法
+
+```go
+func makeThumbnails4(filenames []string) error {
+    errors := make(chan error)
+    for _, f := range filenames {
+        go func(f string) {
+            _, err := thumbnail.ImageFile(f)
+            errors <- err
+        }(f)
+    }
+
+    for range filenames {
+        if err := <-errors; err != nil {
+            return err //不正确, goroutine泄漏
+        }
+    }
+    return nil
+}
+```
+
+上面当第一个发送了非nil的错误时, 它将错误返回给调用者
+
+这样没有goroutine 继续从errors返回通道上进行接收, 会导致每一个现存的goroutine在试图给errors发送消息时永久阻塞
+
+知道程序卡住 或者系统内存耗尽
+
+简介方案有几个
+
+- 创建一个足够容量的缓存通道, 这样没有工作goroutine在发送消息时候阻塞
+- 或者, 主goroutine返回第一个错误的同时, 创建另一个goroutine来读完通道
+
+```go
+func makeThumbnails6(filenames <- chan string) int64 {
+    sizes := make(chan int64)
+    var wg sync.WaitGroup // 工作goroutine的个数
+    for f := range filenames {
+        wg.Add(1)
+        go func (f string) {
+            defer wg.Done() // 等价于 defer wg.Add(-1)
+            thumb, err : thumbnail.ImageFile(f)
+            if err != nil {
+                log.Println(err)
+                return
+            }
+            info, _ := os,Stat(thumb) //忽略错误
+            sizes <- info.Size()
+        }(f)
+    }
+    go func() {
+        wg.Wait()
+        close(sizes)
+    }()
+    var total int64
+    for size := range sizes {
+        total += size
+    }
+    return total
+}
+```
+
+- sync.WaitGroup 可以被多个goroutine安全的操作
+- Add方法必须在goroutine开始之前执行
+
+问题1 wg.Wait为什么要用goroutine
+
+否则就会把后面的for循环阻塞住, 导致通道塞住
+
+### 8.6 示例: 并发的web爬虫
+
+```go
+func crawl(url string) []string {
+    fmt.Println(url)
+    list, err := links.Extract(url)
+    if err != nil {
+        log.Print(err)
+    }
+    return list
+}
+
+func main() {
+    worklist := make(chan []string)
+
+    go func() { worklist <- os.Args[1:]}()
+
+    seen := make(map[string]bool)
+    for list := range worklist {
+        for _, link := range list {
+            if !seen[link] {
+                seen[link] = true
+                go func(link string) {
+                    worklist <- crawl(link)
+                }(link)
+            }
+        }
+    }
+}
+```
+
+这是一个广度优先的搜索网址url方法
+
+假如爬虫怕的url比较多
+
+可能一开始是正常的, 后面会出现错误
+
+```bash
+dial tcp: loopup blog.golang.org: no such host
+dial tcp: 23.21.222.120:443: socket: too many open files
+```
+
+这是因为我们没有限制并发数, 导致超过程序能打开文件的限制
+
+可以用缓存通道来限制并发数
+
+```go
+var tokens = make(chan struct{}, 20)
+
+func crawl(url string) []string {
+    fmt.Println(url)
+    tokens <- struct{}{} //获取令牌
+    list, err := links.Extract(url)
+    <- tokens // 释放令牌
+    if err != nil {
+        log.Print(err)
+    }
+    return list
+}
+```
+
+- 为什吗用struct{}作为通道类型? 其实都可以, 只是因为struct{}占用的空间大小是0
+
+现在还有个问题, 这个程序用于不会结束
+
+这里需要一个计数器
+
+```go
+func main() {
+    worklist := make(chan []string)
+    var n int //等待发送到任务列表的数量
+    go func() { worklist <- os.Args[1:]}()
+
+    seen := make(map[string]bool)
+    for ; n>0; n-- {
+        list := <-worklist
+        for _, link := range list {
+            if !seen[link] {
+                seen[link] = true
+                n++
+                go func(link string) {
+                    worklist <- crawl(link)
+                }(link)
+            }
+        }
+    }
+}
+```
+
+## 9. 使用共享变量实现并发
+
+
 
 ## 12 反射
 
