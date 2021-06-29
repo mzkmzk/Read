@@ -2040,6 +2040,255 @@ func (memo *Memo) Get(key string) (value interface{}, err error) {
 
 ```
 
+这里的核心是
+
+- 锁和解锁中间不执行通信任务
+- 通信任务通过通道来通知完成
+
+我们想象另一种解决不用锁, 而用通道
+
+```go
+type Func func(key string )(interface{}, error)
+type result struct {
+    value interface{}
+    err error
+}
+
+type entry struct {
+    res result
+    ready chan struct{}
+}
+
+func (e *entry) call (f Func, key string){
+    e.res.value, e.res.err = f(key)
+    close(e.ready) //通知数据已加载完毕
+}
+
+func (e *entry) deliver(response chan<- result) {
+    // 等待数据加载完成
+    <-e.ready
+    //向客户端发送结果
+    response <- e.res
+}
+
+type request struct {
+    key string
+    response chan <- result
+}
+type Memo struct{ requests chan request}
+
+func New(f Func) *Memo {
+    memo := &Memo{requests: make(chan request)}
+    go memo.server(f)
+    return memo
+}
+
+func (memo *Memo) server(f Func) {
+    cache := make(map[string]*entry)
+    for req := range memo.requests {
+        e := cache[req.key]
+        if e == nil {
+            e = &entry{ready: make(chan struct{})}
+            cache[req.key] = e
+            go e.call(f, req.key)
+        }
+        go e.deliver(req.response)
+    }
+}
+
+func (memo *Memo) Get(key string) (interface{}, error) {
+    response := make(chan result)
+    memo.requests <- request{key, response}
+    res := response
+    return res.value, res.err
+}
+```
+
+- 用无缓冲通道来起到锁的作用
+
+### 9.8 goroutine和线程
+
+> 9.8.1 可增长的栈
+
+每个OS线程都有一个固定大小的栈内存(通常2MB)
+
+而线程典型状态下是2KB, 而也可以栈大小可达1GB
+
+> 9.8.2 goroutine调度
+
+OS线程由OS内核来调度, 每隔几毫秒, 一个硬件时钟中断发到CPU, CPU调用一个叫调度器的内核函数
+
+- 函数暂停正在运行的线程
+- 把线程的寄存器信息保存到内存
+- 查看线程列表决定下一个运行哪个线程
+- 再从内存回复线程的注册表信息
+- 执行选中的线程
+
+goroutine使用m:n调度技术(可以复用/调度每个gourmet到n个OS线程)
+
+与线程调度器不同, Go调度器不由硬件时钟发送, 而由Go语言结构来触发
+
+比如一个goroutine调用time.Sleep或被通道阻塞或互斥量操作时, 调度器会把这个goroutine设为休眠模式
+
+因为它不需要切换到内核语境, 所以一个goroutine比调度一个线程成本低很多
+
+> 9.8.3 GOMAXPROCS
+
+Go调度器使用GOMAXPROCS参数来决定使用多少个OS线程来同时执行Go代码
+
+一般是机器上的CPU数量, GOMAXPROCS是`m:n调度`中的n
+
+- 正在休眠或者阻塞的goroutine不占用线程
+- 阻塞在I/O和其他系统调用中或调用非Go语言编写的函数时, goroutine需要一个独立的OS线程, 但这个线程不计算在GOMAXPROCS内
+
+
+```go
+for {
+    go fmt.Print(0)
+    fmt.Print(1)
+}
+```
+
+```shell
+> GOMAXPROCS=1 go run hacker-cliche.go // 1111111111111000000111111
+> GOMAXPROCS=2 go run hacker-cliche.go // 010101010101100110010101010
+```
+第一个因为每次最多有一个goroutine运行, 所以一开始是主goroutine, 它输出1, 执行一段时间后, Go调度器让主goroutine休眠, 唤起另一个goroutine
+
+第二个因为有3个goroutine, 所以就比较随机了
+
+## 10 包和Go工具
+
+可在godoc.org找包
+
+### 10.5 空导入
+
+```go
+import _ "image/png"
+```
+
+作用在副作用代码, 例如`init`中主动向其他包注册内容
+
+例如png包
+
+```go
+package png
+func Decode(r io.Reader) (image.Image, error)
+func DecodeConfig(r io.Reader) (image.Config, error)
+
+func init() {
+    const pngHeader ="xxx"
+    image.RegisterFormat("png", pngHeader, Decode, DecodeConfig)
+}
+```
+
+这样在主程序引用了image包和空的png包, 那么image包就有了解析png的能力
+
+### 10.7 go工具
+
+> 10.7.5 内部报
+
+go build会识别路径还有`internal`的情况, 这种包叫内部包
+
+内部包只能被另一个包导入, 这个包位于internal目录的父目录为根目录的树中
+
+例如`net/http/internal/chunked` 可以从`net/http/httputil`或`net/http`导入
+
+但不能从`net/url`导入
+
+然而`net/url` 可以导入`net/http/httputil`
+
+## 11.测试
+
+### 11.1 go test工具
+
+以`_test.go`结尾的文件不是go build的目标, 而是go test编译的目标
+
+在测试文件中, 有3类函数会特殊对待
+
+- 功能测试函数: 以Test前缀开头, go test会报告结果PASS|FAIL
+- 基准测试函数: 以Benchmark开头, 用来测试某些操作的性能, go test 会报告平均执行时间
+- 示例函数: 以Example开头, 用来提供机器检测过的文档
+
+### 11.2 Test函数
+
+每一个测试文件必须导入testing包, 函数签名为
+
+```go
+func TestName(t *testing.T) {
+    
+}
+```
+
+`t.Error()`|`t.Errorf()`是让功能测试失败的方法, 这样异常不包括跟踪栈信息
+
+只运行某些测试用例
+
+`go test -v -run="正则"`
+
+可以用`t.Fatal()`|`t.Fatalf()`来终止测试, 这些调用必须吆喝Test函数在一个goroutine
+
+一般的错误字符提示是`f(x)=y, want z`
+
+> 11.2.3 白盒测试
+
+- test可以覆盖同包的非导出函数
+- 覆盖完非导出函数, 需要记得还原
+
+```go
+func TextName(t *testing.T) {
+    saved := notifyUser
+    defer func(){ notifyUser = saved }()
+}
+```
+
+> 11.2.4 外部测试包
+
+`net/url`包被`net/http`包依赖
+
+但`net/url`包想写跟`net/http`的交互的测试用例
+
+因为`net/http`依赖`net/url`包, 所以`net/url`测试用例引入`net/http`包的话 就是循环依赖, Go不允许
+
+这时我们可以把测试函数定义在外部测试包解决这个问题, 例如在`net/url`的路径上定义一个`net/url_test`的测试文件
+
+我们可以使用`go list`来查找这个包的产品代码, 包内测试代码和包外测试代码
+
+```bash
+> go list -f={{.GoFiles}} fmt
+[doc.go format.go print.go scan.go]
+
+> go list -f={{.TestGoFiles}} fmt
+[ export_test.go]
+
+> go list -f={{.XTestGoFiles}} fmt
+[fmt_test.go scan_test.go stringer_test.go]
+```
+
+我们模块会因为封装, 不把一些方法/变量暴露给其他模块,
+
+但是有时为了满足其他包来测试我们的包, 我们可以通过创建`export_test.go`文件来向外部测试包, 暴露模块内部的函数和变量
+
+### 11.3 覆盖率
+
+测试旨在发现bug, 而不是证明其存在
+
+### 11.4 Benchmark函数
+
+```go
+import "testing"
+
+func BenchmarkIsPalindrome(b *testing.B) {
+    ...
+}
+```
+
+可以通过pprof分析性能
+
+```bash
+go tool pprof -text -nodecount=10 ./http.test cpu.log
+```
+
 ## 12 反射
 
 在编译时不知道类型的情况下, 可更新变量、在运行时查看值、调用方法以及直接对它们的布局进行操作
@@ -2136,3 +2385,7 @@ fmr.Println(format.Any(d)) // 1
 fmt.Println(format.Any([]int64{x})) // []int64 0x8202b87b0
 fmt.Println(format.Any([]time.Duration{d})) // []time.Duration 0x8202b87e0
 ```
+
+### 12.3 Display 一个递归显示器
+
+即使非导出字段在反射中也是可见的
