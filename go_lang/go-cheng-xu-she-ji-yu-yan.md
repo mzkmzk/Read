@@ -4,7 +4,7 @@
 
 hello world
 
-```golang
+```go
 package main
 
 import "fmt"
@@ -2149,7 +2149,7 @@ for {
 }
 ```
 
-```shell
+```bash
 > GOMAXPROCS=1 go run hacker-cliche.go // 1111111111111000000111111
 > GOMAXPROCS=2 go run hacker-cliche.go // 010101010101100110010101010
 ```
