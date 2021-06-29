@@ -1768,7 +1768,277 @@ func main() {
 
 ## 9. 使用共享变量实现并发
 
+### 9.1 竞态
 
+一个函数在并发调时仍然能正常工作, 那么这个函数是并发安全的
+
+数据静态发生在 两个goroutine并发读写同一个变量并且至少有一个是写入时
+
+避免数据竞争方法
+
+- 不要通过共享内存来通信, 而是通过通信来共享内存, 即只有一个goroutine能修改数据
+- 互斥锁机制
+
+### 9.2 互斥锁: sync.Mutex
+
+函数A加锁之后 调用了函数B, 函数B也要求加锁, 这就导致死锁
+
+```go
+
+func Withdraw(amount int) bool {
+    mu.Lock
+    defer mu.Unlock
+    Deposit(-amount)
+}
+
+func Deposit(amount int) {
+    mu.Lock()
+    balance = blance + amount
+    mu.Unlock()
+}
+
+```
+
+### 9.3 读写互斥锁
+
+大部分读的情况并发其实无需锁, 当没有写操作的时候, 所以读的时候可以只加读锁
+
+这样没有写锁的时候, 多个读锁是互不影响的
+
+```go
+var mu sync.RWMutex
+var balance int
+
+func Balance() int {
+    mu.RLock()
+    defer mu.RUnlock()
+    return balance
+}
+```
+
+### 9.4 内存同步
+
+```go
+var x, y int
+
+go func() {
+    x = 1
+    fmt.Print("y:", y, " ")
+}
+
+go func() {
+    y = 1
+    fmt.Print("x:", x, " ")
+}
+```
+
+可能出现的结果
+
+- x:0 , y:1
+- x:1 , y:1
+- y:0 , x:1
+- y:1 , x:1
+- x:0 , y:0
+- y:0 , x:0
+
+### 9.5 延迟初始化
+
+延迟一个昂贵的初始化步骤到有时机需求的时候是一个很好的实践
+
+```go
+var icons map[string]image.Image
+
+func loadIcons() {
+    icons = map[string]image.Image{
+        "spades.png": loadIcon("spades.png")
+    }
+}
+
+// 线程不安全
+func Icon(name string) image.Image {
+    if icons == nil {
+        loadIcons()
+    }
+    return icons[name]
+}
+```
+
+容易出现的错误是
+
+loadIcons其实是两行语句
+
+```go
+func loadIcons() {
+    icons = make(map[string]image.Image)
+    icons["spades.png"] = loadIcon("spades.png")
+}
+```
+
+所以第一个goroutine进入`loadIcons`执行完了`icons = make(map[string]image.Image)`, 但未进行元素赋值
+
+这时第二个goroutine进来了, 会判断icons为nil, 但其实初始化还未完成
+
+简单的处理方式
+
+```go
+func Icon(name string) image.Image {
+    mu.Lock()
+    defer mu.Unlock()
+    if icons == nil {
+        loadIcons()
+    }
+    return icons[name]
+}
+```
+
+虽然这样改造后是并发安全, 但是每次进来都得加下锁, 其实在确认初始化完毕后, 完全没必要用锁
+
+我们改造下
+
+```go
+var mu sync.RWMutex
+var icons map[string]image.Image
+
+func Icon(name string) image.Image {
+    mu.RLock()
+    if icons != nil {
+        icon:icons[name]
+        mu.RUnlock()
+        return icon
+    }
+    mu.RUnlock()
+
+    mu.Lock()
+    if icons == nil {
+        loadIcons()
+    }
+    icon := icons[name]
+    mu.Unlock()
+    return icon
+}
+```
+
+这样就效率和并发安全都ok, 就是代码有点繁琐..
+
+sync提供了针对一次性初始化的问题的特定方案: sync.Once
+
+```go
+
+var loadIconsOnce sync.Once
+var icons map[string]image.Image
+
+func Icon(name string) image.Image {
+    loadIconsOnce.Do(loadIcons)
+    return icons[name]
+}
+```
+`Do`会锁定互斥量并检查里边的布尔变量, 第一次这个布尔变量为假, D偶会调用loadIcons 然后把变量设置为真
+
+后续的调用相当于空操作
+
+### 9.6 竞态检测器
+
+竞态检测器会找到一些有问题的案例, 只需要在go build / go run / go test里增加-race参数
+
+一个goroutine写入一个变量后 中间没有任何同步的操作, 就有另一个goroutine读写了该变量
+
+但是它只能检测到那些在运行时发生的竞态
+
+### 9.7 并发非阻塞缓存
+
+最简单的述求
+
+使用http请求一个url
+
+```go
+func httpGetBody(url string) (interface{}, error) {
+    resp, err := http.Get(url)
+    if err != nil {
+        return nil, err
+    }
+    defer resp.Body.Close()
+    return ioutil.ReadAll(resp.Body)
+}
+```
+
+线程不安全的缓存方法
+
+```go
+package memo
+
+type Memo struct {
+    f func
+    cache map[string]result
+}
+
+type Func func(key string) (interface{}, err)
+
+type result struct {
+    value interface{}
+    err error
+}
+
+func New(f Func) *Memo {
+    return &Memo{f: f, cache: make(map[string]result)}
+}
+
+// 线程不安全
+func (memo *Memo) Get(key string) (interface{} err) {
+    res, ok := memo.cache[key]
+    if !ok {
+        resp.value, resp.err := memo.f(key)
+        memo.cache[key] = res
+    }
+    return res.value, res.err
+}
+```
+
+使用线程不安全的缓存方法
+
+```go
+m := memoNew(httpGetBody)
+for url := range incomingURLs() {
+    value, err := m.Get(url)
+}
+```
+
+这里每次获取都是串行的, 所以并发不安全的缓存方法也没关系, 但是假如我们想并行, 就需要改造了
+
+改造缓存通用包
+
+```go
+type entry struct {
+    res result
+    ready chan struct{} //res 准备好后会被关闭
+}
+
+type New(f Func) *Memo {
+    return &Memo{f:f, cache: make(map[string]*entry)}
+}
+
+type Memo struct {
+    f Func
+    mu sync.Mutex //保护cache
+    cache map[string]*entry
+}
+
+func (memo *Memo) Get(key string) (value interface{}, err error) {
+    memo.mu.Unlock()
+    e := memo.cache[key]
+    if e == nil {
+        e = &entry{ready: make(chan struct{})}
+        memo.cache[key] = e
+        memo.mu.Unlock
+        e.res.value, e.res.err = memo.f(key)
+        close(e.ready) // 广播数据已准备完毕的消息
+    } else {
+        memo.mu.Unlock
+        <-e.ready //等待数据准备
+    }
+    return e.res.value, e.res.err
+}
+
+```
 
 ## 12 反射
 
