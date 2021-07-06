@@ -232,4 +232,99 @@ on orders.cust_id = customers.cust_id;
 - UNION中每个查询必须包含相同的列, 表达式或聚合函数(次序可不同)
 - 列数据类型必须兼容, 类型不必完全相同, 但必须是DBMS可以隐式转换的类型
 
+> 17.2.3 包含或取消重复的行
 
+UNION和WHERE的OR一样 都会去掉重复的行
+
+要不取消冲的行则使用`UNION ALL`
+
+> 17.2.4 对组合查询结果排序
+
+UNION组合查询时, ORDER BY只能出现一次, 而且必须在最后一个SELECT中
+
+## 18 全文本搜索
+
+### 18.1 理解全文本搜索
+
+MyISAM支持全文本搜索而InnoD不支持
+
+## 19 插入数据
+
+### 19.2 插入完整的行
+
+如果插入优先级低, 而查询优先级高则可以使用`INSERT LOW_PRIORITY INTO`
+
+### 19.3 插入多个行
+
+mysql单条insert语句多个插入比使用多条INSERT语句要快
+
+### 19.4 插入检索出的数据
+
+利用SELECT语句把结果插入表里
+
+```sql
+insert into customers(cust_id, cust_contact)
+ SELECT cust_id, cust_contact from custnew;
+```
+
+## 26. 管理事务处理
+
+### 26.1 事务处理
+
+MyISAM不支持事务, InnoDB支持事务
+
+- 事务: transaction 指一组SQL语句
+- 回退: rollback 指撤销指定SQL语句的国产
+- 提交: commit 指将未存储的SQL语句结果写入数据库表
+- 保留点: savepoint 指事务处理中设置的临时占位符, 可以对它发布回退
+
+不能回退CREATE或DROP操作, 事务中可以使用者两个操作, 但回退时不会被撤销
+
+### 26.2 控制事务处理
+
+当COMMIT或ROLLBACK语句执行后, 事务会自动关闭
+
+```sql
+start transaction;
+DELETE from orderitems where order_nul = 1;
+DELETE from orders where order_num = 20010;
+commit
+```
+
+使用保留点
+
+```sql
+savepoint delete1;
+rollback to delete1;
+```
+
+## 27. 全球化和本地化
+
+### 27.1 字符集和校对顺序
+
+- 字符集: 字母和符号的集合
+- 编码: 为某个字符集成员的内部表示
+- 校对: 为规定字符如何比较的指令
+
+### 27.2 使用字符集和校对顺序
+
+```sql
+-- 查看所有字符集列表
+show character set;
+-- 输出所有支持校对的完整列表
+show collation
+```
+
+- `_cs`结尾表示一次区分大小写
+- `_ci`结尾表示一次不区分大小写
+
+
+```sql
+create table mytable 
+(
+  col int,
+  col2 varchar(10)
+  col3 varchar(10) character set latin1 collate latin1_general_ci
+) DEFAULT character set hebrew
+  collate hebrew_general_ci;
+```

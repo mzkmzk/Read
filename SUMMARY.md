@@ -61,6 +61,7 @@
   * [Go程序设计语言](go_lang/go-cheng-xu-she-ji-yu-yan.md)
   * [Promethus原理、应用、源码及扩展详解](server/promethus-yuan-li-ying-yong-yuan-ma-yu-tuo-zhan-xiang-jie.md)
   * [MySQL排错指南](server/mysql-pai-cuo-zhi-nan.md)
+  * [MySQL必知必会](server/mysql-bi-zhi-bi-hui.md)
 * [安全](an_quan.md)
   * [Web前端黑客技术揭秘](webqian_duan_hei_ke_ji_zhu_jie_mi.md)
   * [白帽子讲WEB安全](bai_mao_zi_jiang_web_an_quan.md)
