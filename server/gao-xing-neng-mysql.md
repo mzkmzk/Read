@@ -588,3 +588,221 @@ mysql > delete from sakila.film
 ### 10.5.3 规划冗余容量
 
 如果是主-主的拓扑结构, 建议读负载不超过50%
+
+## 10.6 复制管理和维护
+
+### 10.6.1 监控复制
+
+通过`show master status`命令来查看当前主库的二进制日志位置和配置
+
+```mysql
+mysql> show master logs;
++------------------+-----------+
+| Log_name         | File_size |
++------------------+-----------+
+| mysql-bin.000191 | 578297856 |
+| mysql-bin.000192 |      3692 |
+| mysql-bin.000193 |   3914909 |
+| mysql-bin.000194 |       126 |
+| mysql-bin.000195 |    548051 |
+| mysql-bin.000196 |  49851096 |
++------------------+-----------+
+```
+
+该命令用于给`purge master logs`命令决定使用哪个参数
+
+可以查看binlog的复制事件
+
+```mysql
+mysql > show binlog events in 'mysql-bin.000196' from 13630\G;
+ERROR 1220 (HY000): Error when executing command SHOW BINLOG EVENTS: Wrong offset or I/O error
+```
+
+但笔者的测试报错, 尚未查明原因, 理论上来说 应该能看到最近的sql修改记录
+
+### 10.6.2 测试备库延迟
+
+`show slave status`里输出seconds_behind_master列理论上显示了备库的延迟
+
+但可能因为各种原因导致不总是准确的
+
+- 当发生一些错误(max_allowed_packet不匹配, 或者网络不稳定)可能中断复制,但seconds_behind_master将显示0而不是显示错误
+- 备库有时无法计算延迟, 会报0或NULL
+- 一个大事务导致延迟波动, 例如一个事务更新长达1小时, 最后提交, 这个更新会比他实际发生的时间要晚一个小时才记录到二进制中, 当备库执行到这个语句时, 会临时报告备库延迟一个小时, 但很快变为0
+- 如果分发主库落后了, 其备库已追上分发主库, 那么备库延迟为0, 但是备库和源主库是有延迟的
+
+最好的解决方法是`heartbeat record`, 主库每秒更新一次这个时间戳
+
+为计算延迟, 备库当前时间戳减去心跳记录的值
+
+### 10.6.3 确定主备是否一致
+
+- 通过insert...SELECT复制, 生成校验表
+- 然后通过checksum table来校验, 对比主备库的校验表
+
+### 10.6.5 改变主库
+
+步骤
+
+- 停止向老的主库写入
+- 让备库追上主库
+- 将一台备库配置为新的主库
+- 备库的写操作指向新的主库, 开启主库的写入
+
+更细的操作
+
+1. 停止主库所有的写操作, 断开所有客户端的连接以及打开的事务
+2. 通过flush tables with read lock在主库上停止所有活跃的写入(可选), 也可以在主库设置read_only,也可kill掉所有打开的事务
+3. 选择一个备库作为主库, 并确保它完全追上主库
+4. 确保新主库和旧主库的日志是一致的
+5. 在新主库中 stop slave
+6. 在新主库上执行`change master to master_host=''`, 然后reset slave, 这样断开老主库的连接, 并且丢弃master.info的信息
+7. 执行`show master status`记录新主库的二进制坐标
+8. 确保其他备库已追赶上
+9. 关闭旧主库
+10. 在mysql.51以上可能需要激活新主库上的事件
+11. 客户端连接新主库
+12. 在每个备库执行`change master to`, 使用之前通过`show master status`得到的二进制日志坐标, 指向新的主库
+
+> 意外的提升
+
+- 确认哪台备库的数据最新, 检查master_log_file/read_master_log_pos的值最新的那个作为新主库
+- 让所有备库执行完中继日志
+- stop slave
+- 在新主库上执行`change master to master_host=''`, 然后reset slave, 这样断开老主库的连接, 并且丢弃master.info的信息
+- 执行`show master status`记录每个备库的二进制坐标
+- 比较每台备库和主库上的master_log_file/read_master_log_pos的值
+- 在mysql.51以上可能需要激活新主库上的事件
+- 客户端连接新主库
+- 在每个备库执行`change master to`, 使用之前通过`show master status`得到的二进制日志坐标, 指向新的主库
+
+> 确定期望的日志位置
+
+有1个主库和2个备库
+
+- 主库的bin-log的pos为1582
+- 备库1的read_master_log_pos为1582, bin-log的pos为8167
+- 备库2的read_master_log_pos为1492
+
+那么选备库1为主库
+
+备库2`change to master` 并设定pos为(8167-(1582-1492))
+
+执行之前最好确认备库1的(8167-(1582-1492))这个位置是否和备库2中的当前bin-log日志一致
+
+如果备库1的read_master_log_pos是1581呢
+
+需要通过mysqlbinlog或从日志服务器的二进制未见找到丢失的事件
+
+当提升一个备库为主库时, 一定要把它的服务器ID改为原主库的服务器id
+
+否则将不能使用日志服务器从一个旧主库重放日志事件
+
+### 10.6.6 在一个主-主配置中交换角色
+
+- 停止主动服务器上的所有写入
+- 在主动服务器执行set global read_only=1&在配置文件中设置read_only, 或执行flush tables with read lock
+- 获取主库的二进制坐标, 并在被动服务器上执行 select_master_pos_wait(), 将语句阻塞住, 直到复制赶上主数据库
+- 在被动服务器上执行 set global read_only=0
+- 修改应用的的配置, 写入到新的主动服务器中
+
+## 10.7 复制的问题和解决方案
+
+### 10.7.1 数据损坏或丢失的错误
+
+mysql的复制并不能很好的从服务器崩溃, 掉电, 磁盘损坏, 内存或网络错误中回复
+
+遇到这些问题几乎可以肯定的是都需要从某个点开始重启复制
+
+大部分情况是由于非正常关机后导致的复制问题是由于没有把数据及时刷到磁盘
+
+> 主库意外关闭
+
+如果主库没有设置`sync_binlog`选项, 在崩溃前没有把最后的几个二进制日志事件刷到磁盘中(不经常发生, 因为二进制转储线程通常很快)
+
+解决方案: 
+
+指定备库从下一个二进制日志的开头读入职, 但一些日志可能永久丢失, 建议通过`pt-table-checksum`检查数据一致性
+
+> 备库意外关闭
+
+当备库意外关闭重启时, 会读master.info找到上次停止复制的位置
+
+但master.info也不一定刷盘及时
+
+如果使用InnoDB, 重启后观察MySQL日志, InnoDB在恢复时会打印出恢复点的二进制坐标
+
+可以使用这个值指向主库的偏移量
+
+但master.info刷盘不及时其实并不常见
+
+> 主库上的二进制损坏
+
+如果主库上二进制损坏, 可以选择忽略`global sql_slave_skip_counter = 1`来忽略一个损坏事件
+
+但如果太多损坏事件, 这么做就没意义了
+
+也可以执行`flush logs`来让主库开始一个新的日志文件
+
+> 备库上的中继日志损坏
+
+如果主库的中继日志是万昊的, 可以重新change master to到它正在复制的位置(Relay_master_log_file/exec_master_log_Pos)
+
+### 二进制文件损坏
+
+> 数据改变, 但事件仍然是有效的SQL
+
+mysql无法察觉这种损坏
+
+> 数据改变, 事件是无效的sql
+
+通过`mysqlbinlog`提取错乱的数据
+
+例如`update tab set col??????`
+
+可以通过增加偏移量的方式来尝试找到下一个事件
+
+> 数据遗漏或者事件的长度是错误的
+
+这种情况mysqlbinlog可能会发生错误退出, 因为它无法读取事件
+
+> 某些事件已经损坏或被覆盖, 或者偏移量已经改变, 并且下一个事件的起始偏移量也是错误的
+
+mysqlbinlog也起不了作用
+
+可以通过mysqlbinlog 找到样例日志的日志事件偏移量
+
+```bash
+ mysqlbinlog  ./mysql-bin.000196 | egrep '^# at '
+ # at 10719661
+# at 10719740
+# at 10719818
+# at 10720022
+# at 10720101
+# at 10720179
+# at 10720346
+# at 10720425
+# at 10720503
+```
+
+```bash
+> strings -n 2 -t d   ./mysql-bin.000196
+
+4576374 xxxx
+4576389 BEGIN
+4576442 std
+4576452 xxxx
+4576467 UPDATE xxxx.xxxx_table SET flocktimes=0 WHERE finused=0 AND flocktimes<='1625985601'
+4576609 std
+4576619 xxxx
+```
+
+简单的分析找到下一个完整日志事件偏移量, 然后通过mysqlbinlog的--start-position选项来跳过损坏的事件
+
+或者使用`change master to`命令的master_log_pos参数
+
+### 10.7.12 InnoDB加锁读引起的锁争用
+
+一般情况下读是非阻塞的
+
+但执行`insert ... select`操作会锁定源表上的所有行
