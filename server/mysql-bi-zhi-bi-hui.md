@@ -11,7 +11,7 @@ SQL: 结构化查询语言(Structured Query Language)
 
 查询创建数据库的语句
 
-```mysql
+```bash
 show create database mzk_test;
 ```
 
@@ -77,7 +77,7 @@ mysql> SELECT DISTINCT iid from 1_items_links;
 
 ### 4.6 限制结果
 
-```mysql
+```bash
 SELECT prod_name FROM products LIMIT 5,7
 ```
 
@@ -87,7 +87,7 @@ SELECT prod_name FROM products LIMIT 5,7
 
 OFFSET制定的数字就是从第1行开始
 
-```mysql
+```bash
 SELECT prod_name FROM products LIMIT 7 OFFSET 6
 ```
 
@@ -98,7 +98,7 @@ SELECT prod_name FROM products LIMIT 7 OFFSET 6
 > 6.2.1 检查某个值
 字符串`=`和`!=`比较是忽略大小写的
 
-```mysql
+```bash
 SELECT prod_name FROM products WHERE prod_name = 'fuses';
 ```
 
@@ -106,7 +106,7 @@ SELECT prod_name FROM products WHERE prod_name = 'fuses';
 
 > 6.2.3 范围值检查
 
-```mysql
+```bash
 SELECT prod_name FROM products Where prod_price BETWEEN 5 AND 10
 ```
 
@@ -117,7 +117,7 @@ SELECT prod_name FROM products Where prod_price BETWEEN 5 AND 10
 创建表时, 可以设定表是否可以不包含值, 不包含的话就是NULL
 
 找出空值
-```mysql
+```bash
 select prod_name from products where prod_price is NULL;
 ```
 
