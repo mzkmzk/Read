@@ -84,7 +84,7 @@ server_id = 10
 
 确认二进制文件是否已经在主库上创建
 
-```mysql
+```bash
 mysql> show master status;
 +------------------+-----------+--------------+------------------+
 | File             | Position  | Binlog_Do_DB | Binlog_Ignore_DB |
@@ -95,7 +95,7 @@ mysql> show master status;
 
 查找`bin-log`的位置
 
-```mysql
+```bash
 mysql>  show variables like 'datadir';
 +---------------+-----------------------------+
 | Variable_name | Value                       |
@@ -133,7 +133,7 @@ read_only: 1代表阻止其他没有特权权限的线程修改数据
 
 告诉备库如何连接到主库并重放其二进制日志
 
-```mysql
+```bash
 mysql > mysql > change master to master_host='ip',
   master_port=3306,
   master_user='repl',
@@ -144,7 +144,7 @@ mysql > mysql > change master to master_host='ip',
 
 检查复制是否正确执行
 
-```mysql
+```bash
 mysql> show slave status\G
 *************************** 1. row ***************************
                Slave_IO_State:
@@ -195,13 +195,13 @@ Slave_IO_State, Slave_IO_Running, Slave_SQL_Running的值表明 当前备库尚�
 
 执行下面命令开始复制
 
-```mysql
+```bash
 mysql > start slave;
 ```
 
 执行成功的话会显示
 
-```mysql
+```bash
 mysql> show slave status\G;
 *************************** 1. row ***************************
                Slave_IO_State: Waiting for master to send event
@@ -249,7 +249,7 @@ Master_SSL_Verify_Server_Cert: No
 
 在主库上可以看到备库I/O的线程向主库发起的连接
 
-```mysql
+```bash
 > show processlist\G;
 *************************** 16. row ***************************
      Id: 3943814
@@ -264,7 +264,7 @@ Command: Binlog Dump
 
 备库上也可以看到两个线程
 
-```mysql
+```bash
 > mysql> show processlist\G;
 *************************** 2. row ***************************
      Id: 45
@@ -345,7 +345,7 @@ Last_SQL_Error: Error 'Table 'database_xxxx.talbe_xxxx' doesn't exist' on query.
 
 说其实不重要,可以跳过
 
-```mysql
+```bash
 mysql> SET GLOBAL SQL_SLAVE_SKIP_COUNTER = 1000;
 ```
 
@@ -455,7 +455,7 @@ sql线程会重放完一个中继日志中的事件后尽快将其删除(通过r
 
 高效的例如
 
-```mysql
+```bash
 mysql > insert into summary_table(col1, col2, sum_col3)
   select col1, col2, sum(col3)
   from enormous_table
@@ -470,7 +470,7 @@ mysql > insert into summary_table(col1, col2, sum_col3)
 
 例如
 
-```mysql
+```bash
 mysql > update enormous_table set col1 = 0;
 ```
 
@@ -480,7 +480,7 @@ mysql > update enormous_table set col1 = 0;
 
 还可以根据设置回话级别的变量`binlog_format`老控制二进制日志格式
 
-### 10.3.3 基于行货基于语句哪种更优
+### 10.3.3 基于行复制还是基于语句哪种更优
 
 理论上 基于行的复制整体更优, 但是在编写本书时, 行复制还不是很完善
 
@@ -513,7 +513,7 @@ mysql > update enormous_table set col1 = 0;
 
 但是过滤是从当前数据库过滤的, 例如
 
-```mysql
+```bash
 mysql > use test;
 mysql > delete from sakila.film
 ```
@@ -595,7 +595,7 @@ mysql > delete from sakila.film
 
 通过`show master status`命令来查看当前主库的二进制日志位置和配置
 
-```mysql
+```bash
 mysql> show master logs;
 +------------------+-----------+
 | Log_name         | File_size |
@@ -613,7 +613,7 @@ mysql> show master logs;
 
 可以查看binlog的复制事件
 
-```mysql
+```bash
 mysql > show binlog events in 'mysql-bin.000196' from 13630\G;
 ERROR 1220 (HY000): Error when executing command SHOW BINLOG EVENTS: Wrong offset or I/O error
 ```

@@ -79,7 +79,7 @@ mysql > create database a;
 
 指定字符集
 
-```bahsh
+```bash
 mysql > CREATE DATABASE mydb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
@@ -126,8 +126,8 @@ mysql >create table tba1 select * from tba;
 
 |名称|对应的范围|
 |---|---|
-|int|-2^31 ~ (2^31 - 1)|
-|tinyint||-2^7 ~ (-2^7 - 1)|
+|int|`-2^31 ~ (2^31 - 1)`|
+|tinyint|`-2^7 ~ (-2^7 - 1)`|
 
 
 ## 5.3 字符串类型
@@ -371,7 +371,7 @@ count(*)可以当做为排名
 
 先看下基础信息
 
-```basah
+```bash
 mysql> select *   from tb;
 +-------+-------+-------+
 | empid | sales | month |
