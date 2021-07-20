@@ -526,3 +526,243 @@ where sales > 100
 
 将多个SQL语句组合成一个只需要使用命令`CALL X X`就能执行的集合, 该集合就称为存储过程
 
+## 12.2 使用存储过程
+
+### 12.2.1 创建存储过程
+
+```bash
+mysql -> delimiter //
+mysql -> create procedure pr1(d int)
+    -> begin
+    -> select * from tb where sales >=d;
+    -> select * from tb1;
+    -> end
+    -> //
+mysql -> delimiter ;
+```
+
+`delimiter //`表示 将结束符设置为`//`, 因为存储过程会出现`;`
+
+### 12.2.2 执行存储过程
+
+执行存储过程
+
+```bash
+mysql > call pr1(200);
+```
+
+## 12.3 显示和删除存储过程
+
+### 12.3.1 显示存储过程的内容
+
+`show create procedure 存储过程名`
+
+### 12.3.2 删除存储过程
+
+`drop procedure 存储过程名`
+
+## 12.4 什么是存储函数
+
+与存储过程基本相同, 存储函数在执行后返回一个值
+
+```bash
+mysql > delimiter //
+    -> create function fu2() returns double
+    -> begin
+    -> declare r double;
+    -> select avg(sales) into r from tb;
+    -> return r
+    -> end
+    -> //
+mysql > delimiter ;
+
+select fu2();
+```
+
+### 12.5.4 显示和删除存储函数
+
+显示存储函数
+
+`show create function 存储函数名;`
+
+删除存储函数
+
+`drop function 存储函数名;`
+
+## 12.6 什么是触发器
+
+对表执行某种操作后执行其他命令的机制
+
+## 12.7 创建触发器
+
+触发器被触发的时机: `before`, `after`
+
+列值: 
+
+- `old.列名`: 对表进行处理之前的列值
+- `new.列名`: 对标进行处理之后的列值
+
+### 12.7.2 创建触发器
+
+```
+delimiter //
+
+create trigger tr1 before delete 
+on tb1 for each row
+
+begin
+    insert into tb1_from values(old.empid, old.name, old.age);
+end
+
+delimiter ;
+```
+
+## 12.8 确认和删除触发器
+
+### 12.8.1 确认设置的触发器
+
+查看触发器: `show triggers;`
+
+删除触发器: `drop trigger tr1;`
+
+# 13. 熟练使用事务
+
+## 13.2 设置存储引擎
+
+### 13.2.1 确认存储引擎
+
+`show create table tb;`
+
+### 13.2.2 修改存储引擎
+
+`alert table 表名 engine=MyISAM`
+
+## 13.3 什么是事务
+
+多个操作作为单个逻辑单元处理的功能称为`事务(transaction)`
+
+事务开始之后处理结果反馈到数据库的操作称为`提交(commit)`
+
+不反映到数据库而是回复为原来状态的操作称为`回滚(rollback)`
+
+## 13.4 使用事务
+
+```bash
+mysql > start transaction;
+mysql > delete from tb;
+rollback; //回滚 或commit进行提交
+```
+
+## 13.5 自动提交功能
+
+下面命令会被自动提交, 不能回滚
+
+- drop database
+- drop table
+- drop view
+- alert table
+
+# 14. 使用文件进行交互
+
+## 14.1 从文本文件中读取数据(导入)
+
+### 14.1.1 csv文件
+
+```
+N551,佐佐木,337
+N552,佐佐木,338
+```
+
+
+### 14.1.2 导入和导出的准备
+
+修改my.ini的`secure-file-priv=""`, 重启mysql
+
+```bash
+mysql> select @@global.secure_file_priv;
++---------------------------+
+| @@global.secure_file_priv |
++---------------------------+
+|                       |
++---------------------------+
+```
+
+这里显示空字符串 则任何路径都可以导入或导出文件, 而为null则不能导入或导出文件
+
+### 14.1.3 导入文件
+
+从文件中读取数据
+
+```bash
+mysql > load data infile '文件名' into table 表名 选项的描述;
+```
+
+非csv文件, 我们也能指定数据格式导入
+
+```bash
+fileds terminated by 分隔符(默认是'\t': Tab)
+lines terminated by 换行符(默认是'\n', 换行)
+ignore 最开始跳过的行 lines (默认为0)
+```
+
+### 14.1.4 将数据写入文本文件(导出)
+
+`select * into outfile '文件名' 选项的描述 from 表名`
+
+## 14.2 从文件中读取并执行SQL命令
+
+### 14.2.1 通过mysql中断执行sql语句
+
+`source 文本文件名`
+
+### 14.2.2 通过命令提示符执行sql命令
+
+`mysql 数据库名 -u 用户名 -p密码 -e "mysql监视器的命令"`
+
+## 14.3 将SQL的执行结果保存到文件中
+
+### 14.3.2 使用tee命令将SQL语句的执行结果保存到文件中
+
+```bash
+mysql > tee log3.txt
+mysql > select * from tb;
+mysql > notee //停止输入到文件中
+```
+
+## 14.4 备份和恢复数据库
+
+### 14.4.2 使用mysqldump导出
+
+`mysqldump -u 用户名 -p密码 数据库名 > db1_out.txt`
+
+### 14.4.3 恢复转储文件
+
+```bash
+> mysqladmin -u root -proot create db2
+> mysql -u root -proot db2 < db1_out.txt
+```
+
+### 14.4.4 字符编码问题
+
+建议恢复时确认并制定字符集 
+
+`mysqldump -u 用户名 -p密码 数据库名 > db1_out.txt --default-charater-set=utf8`
+
+```bash
+> mysql -u root -proot db2 < db1_out.txt --default-charater-set=utf8
+```
+
+> 锁表
+
+lock tables 表名 锁的类型
+
+|锁的类型|限制内容|
+|---|---|
+|read|只能select|
+|read local|只能select|
+|write|没有加锁的客户端不能进行任何操作, 拥有锁的客户端可以执行操作|
+
+> 给表解锁
+
+`unlock tables` 解除当前所有表的锁定
+
