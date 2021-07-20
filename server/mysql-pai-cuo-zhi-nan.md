@@ -8,7 +8,7 @@ mysql可临时打开查询日志记录
 
 查看日志情况
 
-```mysql
+```bash
 show variables;
 ```
 
@@ -20,7 +20,7 @@ show variables;
 
 开启日志记录
 
-```mysql
+```bash
 set GLOBAL general_log='on'
 ```
 
@@ -28,7 +28,7 @@ log_output可以设置为`table`|`file`
 
 使用file的话就是简单的sql记录, table则有调用者ip等一些信息
 
-```mysql
+```bash
 select * from mysql.general_log\G
 ```
 
