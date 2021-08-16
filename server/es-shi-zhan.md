@@ -107,5 +107,588 @@ es所处理的最小单元: 分片
 - group为类型的名称
 - 1位文档id
 
+### 2.3.1 通过cURL索引一篇文档
 
+```bash
+curl -XPUT -u elastic:6ZghfYT294FE  -H "Content-Type: application/json"  'http://es-cn-4590vgbn4000757o6.elasticsearch.aliyuncs.com:9200/mzk-es-action/group/1?pretty' -d '{
+    "name": "es denver",
+    "organizer": "lee"
+}'
+```
 
+加pretty的原因是为了得到格式化的返回
+
+返回值
+
+```
+{
+  "_index" : "mzk-es-action",
+  "_type" : "group",
+  "_id" : "1",
+  "_version" : 1,
+  "result" : "created",
+  "_shards" : {
+    "total" : 2,
+    "successful" : 2,
+    "failed" : 0
+  },
+  "_seq_no" : 0,
+  "_primary_term" : 1
+}
+```
+
+### 2.3.2 创建索引和映射类型
+
+上一节的命令为何会成功?
+
+- 索引之前不存在: 并未发送任何命令来创建一个叫做`mzk-es-action`的索引
+- 映射之前未定义: 每一定义任何称为group的映射类型来刻画文档中的字段
+
+> 手动创建索引
+
+```bash
+curl -XPUT -u elastic:6ZghfYT294FE  -H "Content-Type: application/json"  'http://es-cn-4590vgbn4000757o6.elasticsearch.aliyuncs.com:9200/mzk-es-action2'
+{"acknowledged":true,"shards_acknowledged":true,"index":"mzk-es-action2"}%
+```
+
+> 获取映射
+
+```bash
+curl -XGET -u elastic:6ZghfYT294FE  -H "Content-Type: application/json"  'http://es-cn-4590vgbn4000757o6.elasticsearch.aliyuncs.com:9200/mzk-es-action/_mapping/group?pretty'
+
+{
+  "mzk-es-action" : {
+    "mappings" : {
+      "group" : {
+        "properties" : {
+          "name" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "organizer" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+```
+
+## 2.4 搜索并获取数据
+
+```bash
+curl "localhost:9200/get-together/group/_search?\
+q=elasticsearch\
+&_source=name,location_group\
+&size=1\
+&pretty"
+
+{
+  "took" : 6,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 2,
+    "successful" : 2,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 10,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0238004,
+    "hits" : [
+      {
+        "_index" : "get-together",
+        "_type" : "_doc",
+        "_id" : "2",
+        "_score" : 1.0238004,
+        "_source" : {
+          "location_group" : "Denver, Colorado, USA",
+          "name" : "Elasticsearch Denver"
+        }
+      }
+    ]
+  }
+}
+```
+
+- q=elasticsaerch: 查找包含`elasticsearch`的文档
+- fields=name,location, 只需要name和location的信息
+- size=1: 只需要排名靠前的
+- pretty: 格式化json
+
+要想搜索所有, 可以使用`_all`
+
+搜索的3个内容
+
+- 在哪里搜索
+- 回复什么内容
+- 搜索什么以及如何搜索
+
+### 2.4.1 在哪里搜索
+
+可以在同一索引的多个字段进行搜索, 也可以在多个索引中搜索
+
+多个类型中搜索, 使用逗号分隔
+
+```bash
+curl "localhost:9200/get-together/_doc/_search\
+?q=elasticsearch&pretty"
+```
+
+在所有索引中的某个类型进行搜索
+
+```bash
+curl "localhost:9200/_all/event/_search"
+```
+
+日志事件经常以基于事件的索引来组织, 例如`logs-2021-03-14`, 这种设计意味着当天的搜索很热门
+
+### 回复的内容
+
+> 时间
+
+```bash
+{
+  "took" : 6,
+  "timed_out" : false,
+}
+```
+
+took表示查询所花费的时间, 默认情况下time_out永远为false
+
+除非在请求时待timeout参数, 
+
+```bash
+curl "localhost:9200/get-together/_doc/_search\
+?q=elasticsearch\
+&timeout=3s\
+&pretty"
+```
+
+这样只会返回3S内查询到的数据, 并且超过3S则time_out为true
+
+> 分片
+
+```bash
+{
+  "_shards" : {
+    "total" : 2,
+    "successful" : 2,
+    "skipped" : 0,
+    "failed" : 0
+  },
+}
+```
+
+> 命中统计数据
+
+```json
+{
+    "total" : {
+        "value" : 10, // 总命中数
+        "relation" : "eq"
+    },
+    "max_score" : 1.0238004, // 匹配最高得分
+}
+```
+
+> 结果文档
+
+```json
+{
+     "hits" : [
+      {
+        "_index" : "get-together",
+        "_type" : "_doc",
+        "_id" : "2",
+        "_score" : 1.0238004,
+        "_source" : {
+          "location_group" : "Denver, Colorado, USA",
+          "name" : "Elasticsearch Denver"
+        }
+      }
+    ]
+}
+```
+
+### 2.4.3 如何搜索
+
+> 设置查询的字符串选项
+
+```bash
+curl 'localhost:9200/get-together/_search?pretty' -d '{\
+  "query": {
+      "query_string": {
+          "query": "elasticsearch san francisco",
+          "default_field": "name",
+          "default_operator": "AND"
+      }
+  }
+}'
+```
+
+获取同样结果的另一种写法:`"query": "name:elasticsearch AND name:san AND name:francisco"`
+
+es默认人`_all`字段里查询, 如果想在分组的名称里查询这样指定`"default_field": "name"`
+
+> 使用过滤器
+
+如果对得分结果不感兴趣, 只关心是否有一条结果匹配条件
+
+```bash
+curl 'localhost:9200/get-together/_search?pretty' -H'Content-Type: application/json' -d '{
+  "query": {
+      "bool": {
+          "filter": {
+              "term": {
+                  "name": "elasticsearch"
+              }
+          }
+      }
+  }
+}'
+
+```
+
+返回的结果跟查询相同, 但没有根据得分来排序
+
+> 应用聚集
+
+查询统计数
+
+```bash
+curl 'localhost:9200/get-together/_search?pretty' -H'Content-Type: application/json' -d '{
+  "aggregations": {
+      "organizers": {
+          "terms": { "field": "organizer" }
+      }
+  }
+}'
+```
+
+返回异常
+
+```bash
+{
+  "error" : {
+    "root_cause" : [
+      {
+        "type" : "illegal_argument_exception",
+        "reason" : "Text fields are not optimised for operations that require per-document field data like aggregations and sorting, so these operations are disabled by default. Please use a keyword field instead. Alternatively, set fielddata=true on [organizer] in order to load field data by uninverting the inverted index. Note that this can use significant memory."
+      }
+    ],
+    "type" : "search_phase_execution_exception",
+    "reason" : "all shards failed",
+    ...
+  "status" : 400
+}
+```
+
+需要给该字段增加属性
+
+```bash
+curl -X PUT "localhost:9200/get-together/_mapping?pretty" -H 'Content-Type: application/json' -d'
+{
+  "properties": {
+    "organizer": { 
+      "type":     "text",
+      "fielddata": true
+    }
+  }
+}
+'
+
+{
+  "acknowledged" : true
+}
+```
+
+然后再次进行查询可得
+
+```bash
+{
+  "took" : 227,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 2,
+    "successful" : 2,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 20,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "get-together",
+        "_type" : "_doc",
+        "_id" : "1",
+        "_score" : 1.0,
+        "_source" : {
+          "relationship_type" : "group",
+          "name" : "Denver Clojure",
+          "organizer" : [
+            "Daniel",
+            "Lee"
+          ],
+          "description" : "Group of Clojure enthusiasts from Denver who want to hack on code together and learn more about Clojure",
+          "created_on" : "2012-06-15",
+          "tags" : [
+            "clojure",
+            "denver",
+            "functional programming",
+            "jvm",
+            "java"
+          ],
+          "members" : [
+            "Lee",
+            "Daniel",
+            "Mike"
+          ],
+          "location_group" : "Denver, Colorado, USA"
+        }
+      }
+      ...
+    ]
+  },
+  "aggregations" : {
+    "organizers" : {
+      "doc_count_error_upper_bound" : 0,
+      "sum_other_doc_count" : 0,
+      "buckets" : [
+        {
+          "key" : "lee",
+          "doc_count" : 2
+        },
+        {
+          "key" : "andy",
+          "doc_count" : 1
+        },
+        {
+          "key" : "daniel",
+          "doc_count" : 1
+        },
+        {
+          "key" : "mik",
+          "doc_count" : 1
+        },
+        {
+          "key" : "tyler",
+          "doc_count" : 1
+        }
+      ]
+    }
+  }
+}
+```
+
+## 2.6 在集群中加入节点
+
+查询分片信息
+
+```bash
+ curl  "localhost:9200/_cat/shards?v"
+index                  shard prirep state      docs  store ip         node
+get-together           1     p      STARTED       4 11.6kb 172.17.0.2 163bef384184
+get-together           1     r      UNASSIGNED
+get-together           0     p      STARTED      16 20.2kb 172.17.0.2 163bef384184
+get-together           0     r      UNASSIGNED
+myindex                0     p      STARTED       0   208b 172.17.0.2 163bef384184
+myindex                0     r      UNASSIGNED
+december_2014_invoices 0     p      STARTED       0   208b 172.17.0.2 163bef384184
+december_2014_invoices 0     r      UNASSIGNED
+.geoip_databases       0     p      STARTED      42 40.6mb 172.17.0.2 163bef384184
+november_2014_invoices 0     p      STARTED       0   208b 172.17.0.2 163bef384184
+november_2014_invoices 0     r      UNASSIGNED
+```
+
+# 3. 索引、更新和删除数据
+
+本章重点介绍下面3种类型的字段
+
+- 核心: 这些字段暴扣字符串和数值型
+- 数组和多元字段: 这些字段在某个字段里存储相同核心类型的多个值
+- 预定义: 自卸字段包括_ttl和_timestamp
+
+可以使用_ttl字段让过期的文档自动被删除
+
+## 3.1 使用映射来定义各种文档
+
+### 3.1.1 检索和定义映射
+
+> 获取目前映射
+
+```bash
+{
+  "get-together" : {
+    "mappings" : {
+      "properties" : {
+        "attendees" : {
+          "type" : "text",
+          "fields" : {
+            "verbatim" : {
+              "type" : "keyword"
+            }
+          }
+        },
+        "created_on" : {
+          "type" : "date",
+          "format" : "yyyy-MM-dd"
+        },
+        "date" : {
+          "type" : "date",
+          "format" : "date_hour_minute"
+        },
+        "description" : {
+          "type" : "text",
+          "term_vector" : "with_positions_offsets"
+        },
+        "host" : {
+          "type" : "text"
+        },
+        "location_event" : {
+          "properties" : {
+            "geolocation" : {
+              "type" : "geo_point"
+            },
+            "name" : {
+              "type" : "text"
+            }
+          }
+        },
+        "location_group" : {
+          "type" : "text"
+        },
+        "members" : {
+          "type" : "text"
+        },
+        "name" : {
+          "type" : "text"
+        },
+        "organizer" : {
+          "type" : "text",
+          "fielddata" : true
+        },
+        "relationship_type" : {
+          "type" : "join",
+          "eager_global_ordinals" : true,
+          "relations" : {
+            "group" : "event"
+          }
+        },
+        "reviews" : {
+          "type" : "integer",
+          "null_value" : 0
+        },
+        "tags" : {
+          "type" : "text",
+          "fields" : {
+            "verbatim" : {
+              "type" : "keyword"
+            }
+          }
+        },
+        "title" : {
+          "type" : "text"
+        }
+      }
+    }
+  }
+}
+```
+
+索引一篇新的文档
+
+```bash
+curl -X PUT "localhost:9200/get-together/_doc/1" -H"Content-Type: application/json"  -d'
+{
+    "name": "Late Night with Elasticsearch",
+    "date": "2013-10-25T19:00"
+}
+'
+
+{"_index":"get-together","_type":"_doc","_id":"1","_version":2,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":16,"_primary_term":1
+```
+
+> 定义新的映射
+
+```bash
+curl -X PUT "localhost:9200/get-together/_mapping/_doc" -H"Content-Type: application/json"  -d'
+{
+    "_doc": {
+        "properties": {
+            "host": {
+                "type": "text"
+            }
+        }
+    }
+}
+'
+{"acknowledged":true}
+```
+
+### 3.1.2 扩展现有的映射
+
+无法改变现有字段的数据类型
+
+也通常无法改变一个字段被索引的方式
+
+唯一解决这个问题的办法是
+
+- 移除索引里的数据
+- 设置新的映射
+- 再次索引所有的数据
+
+## 3.2 用于定义文档字段的核心类型
+
+|核心类型|取值示例|
+|---|---|
+|字符串|'lee'|
+|数值|12, 3.2|
+|日期|2021-11-11T10:02:26.231+01:00|
+|布尔|true或false|
+
+### 3.2.1 字符串类型
+
+假如在索引字符串`late night with elasticsearch`
+
+那么会生成4个词条`late`, `night`, `with`, `elasticsearch`
+
+可以指定字段的索引方式
+
+- true: 被索引
+- false: 不被索引
+
+```bash
+curl -X PUT "localhost:9200/get-together/_mapping/_doc" -H"Content-Type: application/json"  -d'
+{
+    "_doc": {
+        "properties": {
+            "host": {
+                "type": "text",
+                "index": true
+            }
+        }
+    }
+}
+'
+```
