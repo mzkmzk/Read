@@ -692,3 +692,227 @@ curl -X PUT "localhost:9200/get-together/_mapping/_doc" -H"Content-Type: applica
 }
 '
 ```
+
+### 3.2.2 数值类型
+
+es自动检测映射更为安全, 为整数值分配long, 为浮点数值分配double
+
+### 3.2.3 日期类型
+
+```bash
+curl "localhost:9200/get-together/_mapping/_doc?pretty"
+{
+  "get-together" : {
+    "mappings" : {
+      "_doc" : {
+        "properties" : {
+          "created_on" : {
+            "type" : "date",
+            "format" : "yyyy-MM-dd"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## 3.3 数组和多字段
+
+### 3.3.1 数组
+
+```bash
+curl -X PUT "localhost:9200/get-together/_doc/22" -H"Content-Type: application/json"  -d'
+{
+    "tags_22": ["first", "initial"]
+}
+'
+
+{"_index":"get-together","_type":"_doc","_id":"22","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":4,"_primary_term":1
+```
+
+查看到的映射是
+
+```json
+{
+    "tags_22" : {
+        "type" : "text",
+        "fields" : {
+            "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+            }
+        }
+    }
+}
+```
+
+### 3.4.1 控制如何存储和搜索文档
+
+> 存储原有内容的_source
+
+```bash
+curl "localhost:9200/get-together/_doc/1?pretty"
+{
+  "_index" : "get-together",
+  "_type" : "_doc",
+  "_id" : "1",
+  "_version" : 2,
+  "_seq_no" : 16,
+  "_primary_term" : 1,
+  "found" : true,
+  "_source" : {
+    "name" : "Late Night with Elasticsearch",
+    "date" : "2013-10-25T19:00"
+  }
+}
+```
+
+> 仅返回源文档的某些字段
+
+```bash
+curl "localhost:9200/get-together/_doc/1?pretty&_source=name"
+{
+  "_index" : "get-together",
+  "_type" : "_doc",
+  "_id" : "1",
+  "_version" : 2,
+  "_seq_no" : 16,
+  "_primary_term" : 1,
+  "found" : true,
+  "_source" : {
+    "name" : "Late Night with Elasticsearch"
+  }
+}
+
+```
+
+### 3.4.2识别文档
+
+> 为文档提供ID
+
+不指定id时, es将自动生成id
+
+```bash
+curl -X POST "localhost:9200/get-together/_doc" -H"Content-Type: application/json"  -d'
+{
+    "name": "xxxxxx"
+}
+'
+
+{"_index":"get-together","_type":"_doc","_id":"PPqkT3sBnVKKHVdH6BxL","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":17,"_primary_term":1}%
+```
+
+## 3.5 更新现有文档
+
+### 3.5.1 使用更新api
+
+> 发送部分文档
+
+```bash
+curl -X POST "localhost:9200/get-together/_doc/22/_update" -H"Content-Type: application/json"  -d'
+{
+    "doc": {
+            "name": "yyyyy",
+    }
+}
+'
+```
+
+> 使用upsert来创建尚不存在的文档
+
+为了处理文档不存在的使用可以使用upsert
+
+
+```bash
+curl -X POST "localhost:9200/get-together/_doc/33/_update?pretty" -H"Content-Type: application/json"  -d'
+{
+    "doc": {
+            "name": "xxxx"
+    },
+    "upsert": {
+        "name": "yyy",
+        "organizer": "bbb"
+    }
+}
+'
+{
+  "_index" : "get-together",
+  "_type" : "_doc",
+  "_id" : "33",
+  "_version" : 1,
+  "result" : "created",
+  "_shards" : {
+    "total" : 2,
+    "successful" : 1,
+    "failed" : 0
+  },
+  "_seq_no" : 18,
+  "_primary_term" : 1
+}
+```
+
+查询添加的文档:
+
+```bash
+curl "localhost:9200/get-together/_doc/33?pretty"
+{
+  "_index" : "get-together",
+  "_type" : "_doc",
+  "_id" : "33",
+  "_version" : 1,
+  "_seq_no" : 18,
+  "_primary_term" : 1,
+  "found" : true,
+  "_source" : {
+    "name" : "yyy",
+    "organizer" : "zxc"
+  }
+}
+```
+
+> 通过脚本更新文档
+
+默认的脚本语言是Groovy, 语法和java类似
+
+```bash
+curl -X POST "localhost:9200/get-together/_doc/33/_update?pretty" -H"Content-Type: application/json"  -d'
+{
+    "script": {
+        "source": "ctx._source.price += params.price_diff",
+        "params": {
+                "price_diff": 20
+        }
+    }
+}
+'
+
+{
+  "_index" : "get-together",
+  "_type" : "_doc",
+  "_id" : "33",
+  "_version" : 4,
+  "result" : "updated",
+  "_shards" : {
+    "total" : 2,
+    "successful" : 1,
+    "failed" : 0
+  },
+  "_seq_no" : 21,
+  "_primary_term" : 1
+}
+```
+
+### 3.5.2 通过版本来实现并发控制
+
+如果同一时刻多次更新都在执行, 可能会出现并发问题
+
+es支持并发控制, 为每篇文档设置了一个版本号, 在最初的文档版本是1
+
+当更新操作重新索引它时, 版本号会设置为2
+
+当一个文档先被更新为版本2, 与此同时, 一个更新版本也设置为2, 则更新失败
+
+```bash
+
+```
