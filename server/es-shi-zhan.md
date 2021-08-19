@@ -332,7 +332,7 @@ curl "localhost:9200/get-together/_doc/_search\
 > 设置查询的字符串选项
 
 ```bash
-curl 'localhost:9200/get-together/_search?pretty' -d '{\
+curl 'localhost:9200/get-together/_search?pretty'  -H "Content-Type: application/json" -d '{
   "query": {
       "query_string": {
           "query": "elasticsearch san francisco",
@@ -403,11 +403,11 @@ curl 'localhost:9200/get-together/_search?pretty' -H'Content-Type: application/j
 需要给该字段增加属性
 
 ```bash
-curl -X PUT "localhost:9200/get-together/_mapping?pretty" -H 'Content-Type: application/json' -d'
+curl -X PUT "localhost:9200/get-together/_mapping/_doc?pretty" -H 'Content-Type: application/json' -d'
 {
   "properties": {
-    "organizer": { 
-      "type":     "text",
+    "organizer": {
+      "type": "text",
       "fielddata": true
     }
   }
@@ -913,6 +913,672 @@ es支持并发控制, 为每篇文档设置了一个版本号, 在最初的文�
 
 当一个文档先被更新为版本2, 与此同时, 一个更新版本也设置为2, 则更新失败
 
+这种并发控制称为乐观锁
+
+因为它允许并行的操作并假设冲突是很少出现的, 出现的时候就抛出错误
+
+> 冲突发生时自动重试更新操作, 通过`retry_on_conflict`参数, 让es自动重试
+
 ```bash
+curl -X POST "localhost:9200/get-together/_doc/33/_update?pretty&retry_on_conflict=3" -H"Content-Type: application/json"  -d'
+{
+    "script": {
+        "source": "ctx._source.price = 3"
+    }
+}
+'
+```
+
+> 索引文档的时候使用版本号
+
+更新文档的另一个方法是不使用更新api, 而是在同一索引, 类型和id之处索引一个新的文档
+
+如果认为的版本已经是8了,1 一个重新索引的请求应该是这样的
+
+```bash
+curl -XPUT "localhost:9200/get-together/_doc/33?version=8&pretty" -H"Content-Type: application/json"  -d'
+{
+
+    "price": 10
+
+}
+'
+```
+
+如果版本号对不上则会报错`"[_doc][33]: version conflict, current version [8] is different than the one provided [3]`
+
+> 使用外部版本号
+
+es一般版本号是每次更改后递增, 也可以指定version
+
+```bash
+curl -XPUT "localhost:9200/get-together/_doc/33?version=8&version_type=external&pretty" -H"Content-Type: application/json"  -d'
+{
+
+    "price": 10
+
+}
+'
+```
+
+这将使es接受任何版本号, 只要比现在高, 而且es不会自己增加版本号
+
+## 3.6 删除数据
+
+### 3.6.1 删除文档
+
+> 删除单个文档
+
+```bash
+ curl -X DELETE "localhost:9200/get-together/_doc/33?pretty" -H"Content-Type: application/json"
+
+{
+  "_index" : "get-together",
+  "_type" : "_doc",
+  "_id" : "33",
+  "_version" : 10,
+  "result" : "deleted",
+  "_shards" : {
+    "total" : 2,
+    "successful" : 1,
+    "failed" : 0
+  },
+  "_seq_no" : 27,
+  "_primary_term" : 1
+}
+```
+
+可能会出现删除了文档, 但是由于更新操作重新创建了该文档
+
+为了防止这个问题, es将在一段时间内保留这篇文档的版本, 如此它就能拒绝比删除操作更低的更新操作了, 默认情况是60s, 通过修改index.gc_deletes修改它
+
+> 删除映射类型和删除查询匹配的文档
+
+```bash
+ curl -X DELETE "localhost:9200/get-together/_doc" -H"Content-Type: application/json"
+```
+
+或根据查询结果删除
+
+```bash
+ curl -X DELETE "localhost:9200/get-together/_query?1=es" -H"Content-Type: application/json"
+```
+
+### 3.6.2 删除单个索引
+
+```bash
+curl -X DELETE 'localhost:9200/get-together/'
+```
+
+可以设置action.destructive_requires_name:true, 来防止删除_all索引
+
+### 3.6.3  关闭索引
+
+
+```bash
+curl -X POST "localhost:9200/get-together/_close" -H"Content-Type: application/json"
+
+curl -X POST "localhost:9200/get-together/_open" -H"Content-Type: application/json"
 
 ```
+
+# 4. 搜索数据
+
+## 4.1 搜索请求的结构
+
+### 4.1.1 确定搜索范围
+
+```bash
+curl "localhost:9200/_search" // 搜索整个集群
+curl "localhost:9200/get-together/_search" //搜索get-together索引
+curl "localhost:9200/get-together/event/_search" //搜索get-together索引的event类型
+curl "localhost:9200/_all/event" //所有所有索引的event类型
+curl "localhost:9200/get-together,other/event,group/_search"
+curl "localhost:9200/+get-toge*, -get-together/_search" //搜索所有get-toge开头的索引, 但不包括get-together
+```
+
+还可以用别名来搜索多个索引, 例如logstash-yymmdd格式命名的索引, 一个logstash别名就可以指向所有相关索引
+
+### 4.1.2 搜索请求的基本模块
+
+- query: 查询DSL和过滤器DSL
+- size: 返回文档的数量
+- from: 从第XX条开始查
+- _source: 文档的存储值
+- sort: 默认按得分排序
+
+> 基于URL的搜索请求
+
+按时间倒序返回
+
+```bash
+curl "localhost:9200/get-together/_search?sort=date:asc"
+```
+
+### 4.1.3 基于请求主体的搜索请求
+
+> 过滤字段
+
+```bash
+curl "localhost:9200/get-together/_search?pretty" -H"Content-Type: application/json"  -d'
+{
+    "query": {
+        "match_all": {}
+    },
+    "_source": {
+        "include": ["location.*", "date"],
+        "exclude": ["location.geolocation"]
+    }
+}
+'
+```
+
+> 结果排序
+
+```bash
+curl "localhost:9200/get-together/_search?pretty" -H"Content-Type: application/json"  -d'
+{
+    "query": {
+        "match_all": {}
+    },
+    "sort": [
+        {"created_on": "asc" },
+        {"name": "desc"},
+        "_score"
+    ]
+}
+'
+```
+
+## 4.2 介绍查询和过滤器DSL
+
+### 4.2.1 match查询和term过滤器
+
+> match查询
+
+```bash
+curl  http://localhost:9200/get-together/_search  -H"Content-Type: application/json" -d '{
+  "query": {
+      "match": {
+          "title": "hadoop"
+      }
+  }
+}'
+```
+
+match查询的是给特定的词条打分, 而过滤器只是为`文档是否匹配这个查询` 返回简单的是或不是
+
+> 使用过滤器查询
+
+```bash
+curl  http://localhost:9200/get-together/_search  -H"Content-Type: application/json" -d '{
+  "query": {
+      "bool": {
+          "must": {
+              "match": {
+                "title": "hadoop"
+            }
+          },
+          "filter": {
+            "term": {
+                "host": "andy"
+            }
+          }
+      }
+  }
+}'
+```
+
+### 4.2.2 常用的基础查询和过滤器
+
+> query_string查询
+
+默认情况下, query_string会查询_all字段
+
+可以通过设置`default_field`来设置特定请求字段
+
+```bash
+curl  http://localhost:9200/get-together/_search  -H"Content-Type: application/json" -d '{
+  "query": {
+      "query_string": {
+          "default_field": "description",
+          "query": "nosql"
+      }
+  }
+}'
+```
+
+query_string的更多用法:
+
+- 查询所有nosql的分组, 但排除mongodb: `name:nosql AND -description:mongodb`
+
+查询1999年到2001年期间创建的搜索和Lucene分组
+
+`{tag: search OR tag:lucene} AND created_on:[1991-01-01 TO 2001-01-01]`
+
+> term查询和term过滤器
+
+term为词条
+
+词条查询
+```bash
+curl  http://localhost:9200/get-together/_doc/_search?pretty  -H"Content-Type: application/json" -d '{
+  "query": {
+      "term": {
+          "tags": "elasticsearch"
+      }
+  },
+  "_source": ["name", "tags"]
+}'
+
+```
+
+词条过滤器
+
+```bash
+curl 'localhost:9200/get-together/_search?pretty' -H'Content-Type: application/json' -d '{
+  "query": {
+      "bool": {
+          "filter": {
+              "term": {
+                  "name": "elasticsearch"
+              }
+          }
+      }
+  },
+   "_source": ["name", "tags"]
+}'
+```
+
+> terms查询
+
+```bash
+curl  http://localhost:9200/get-together/_doc/_search?pretty  -H"Content-Type: application/json" -d '{
+  "query": {
+      "terms": {
+          "tags": ["jvm", "hadoop"]
+      }
+  },
+  "_source": ["name", "tags"]
+}'
+```
+
+限制每篇文档中匹配词条的最小数量
+
+```bash
+curl  http://localhost:9200/get-together/_doc/_search?pretty  -H"Content-Type: application/json" -d '{
+  "query": {
+      "bool": {
+          "minimum_should_match": 2,
+          "should": [
+              { "term": { "tags": "hadoop" } },
+              { "term": { "tags": "data" } }
+          ]
+      }
+  },
+  "_source": ["name", "tags"]
+}'
+
+```
+
+### 4.2.3 match查询和term过滤器
+
+和term查询类似, match查询是一个散列映射, 包含希望搜索的字段和字符串
+
+> 布尔查询行为
+
+默认情况下, match查询使用布尔行为是OR操作符
+
+```bash
+curl 'localhost:9200/get-together/_search?pretty' -H'Content-Type: application/json' -d '{
+  "query": {
+     "match": {
+         "name": {
+             "query": "Elasticsearch Denver",
+             "operator": "and"
+         }
+     }
+  },
+   "_source": ["name", "tags"]
+}'
+
+```
+
+> 词组查询行为
+
+在文档中查询特定的值, phrase查询非常有用
+
+例如只记得`enterprise`和`london`两个词, 中间有多少个词分离不太记得了, 
+
+就可以设置slop为1或2, 而不是默认的
+
+```bash
+ curl 'localhost:9200/get-together/_search?pretty' -H'Content-Type: application/json' -d '{
+  "query": {
+     "match_phrase": {
+         "name": {
+             "query": "enterprise london",
+             "slop": "1"
+         }
+     }
+  },
+   "_source": ["name", "tags"]
+}'
+{
+  "took" : 313,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 2,
+    "successful" : 2,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 1.5762693,
+    "hits" : [
+      {
+        "_index" : "get-together",
+        "_type" : "_doc",
+        "_id" : "5",
+        "_score" : 1.5762693,
+        "_source" : {
+          "name" : "Enterprise search London get-together",
+          "tags" : [
+            "enterprise search",
+            "apache lucene",
+            "solr",
+            "open source",
+            "text analytics"
+          ]
+        }
+      }
+    ]
+  }
+}
+
+```
+
+### 4.2.4 phrase_prefix查询
+
+和词组最后一个词条进行前缀匹配, 可以通过max_expansions来设置最大的前缀扩展数量
+
+```bash
+ curl 'localhost:9200/get-together/_search?pretty' -H'Content-Type: application/json' -d '{
+  "query": {
+     "match_phrase_prefix": {
+         "name": {
+             "query": "elasticsearch den",
+             "max_expansions": 1
+         }
+     }
+  },
+   "_source": ["name", "tags"]
+}'
+{
+  "took" : 59,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 2,
+    "successful" : 2,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 2.0598295,
+    "hits" : [
+      {
+        "_index" : "get-together",
+        "_type" : "_doc",
+        "_id" : "2",
+        "_score" : 2.0598295,
+        "_source" : {
+          "name" : "Elasticsearch Denver",
+          "tags" : [
+            "denver",
+            "elasticsearch",
+            "big data",
+            "lucene",
+            "solr"
+          ]
+        }
+      }
+    ]
+  }
+}
+```
+
+使用multi_match来匹配多个字段
+
+```bash
+curl 'localhost:9200/get-together/_search?pretty' -H'Content-Type: application/json' -d '{
+  "query": {
+     "multi_match": {
+        "query": "elasticsearch hadoop",
+        "fields": ["name", "description"]
+     }
+  }
+}'
+```
+
+## 4.3 组合查询和复合查询
+
+### 4.3.1 bool查询
+
+bool查询可以组合任意数量的查询, 指定哪些部分是必须的`must`, 应该`should`, 不能`must_not`
+
+- must匹配: 只有匹配上查询的才会返回
+- should: 只有匹配上指定数量的子句文档才会返回
+- 如果没有指定must匹配, 文档至少要匹配一个should子句才返回
+
+```bash
+curl 'localhost:9200/get-together/_search?pretty' -H'Content-Type: application/json' -d '{
+  "query": {
+     "bool": {
+         "must": [
+             { "term": { "attendees": "david"} }
+         ],
+         "should": [
+             { "term": { "attendees": "clint" } },
+             { "term": { "attendees": "andy" } }
+         ],
+         "must_not": [
+             {
+                 "range": {
+                    "date": {
+                        "lt": "2013-06-30T00:00"
+                    }
+                }
+             }
+         ],
+         "minimum_should_match": 1
+     }
+  }
+}'
+{
+  "took" : 131,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 2,
+    "successful" : 2,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 2.5546992,
+    "hits" : [
+      {
+        "_index" : "get-together",
+        "_type" : "_doc",
+        "_id" : "110",
+        "_score" : 2.5546992,
+        "_routing" : "4",
+        "_source" : {
+          "relationship_type" : {
+            "name" : "event",
+            "parent" : "4"
+          },
+          "host" : "Andy",
+          "title" : "Big Data and the cloud at Microsoft",
+          "description" : "Discussion about the Microsoft Azure cloud and HDInsight.",
+          "attendees" : [
+            "Andy",
+            "Michael",
+            "Ben",
+            "David"
+          ],
+          "date" : "2013-07-31T18:00",
+          "location_event" : {
+            "name" : "Bing Boulder office",
+            "geolocation" : "40.018528,-105.275806"
+          },
+          "reviews" : 1
+        }
+      }
+    ]
+  }
+}
+```
+
+### 4.3.2 bool过滤器
+
+过滤器和查询版本基本一致, 但在过滤器中,不支持`minimum_should_match`属性, 默认为1
+
+## 4.4 超越match和过滤器查询
+
+### 4.4.1 range查询器
+
+```bsh
+curl 'localhost:9200/get-together/_search?pretty' -H'Content-Type: application/json' -d '{
+  "query": {
+     "range": {
+         "created_on": {
+             "gt": "2012-06-01",
+             "lte": "2012-09-01"
+         }
+     }
+  }
+}'
+{
+  "took" : 6,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 2,
+    "successful" : 2,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "get-together",
+        "_type" : "_doc",
+        "_id" : "3",
+        "_score" : 1.0,
+        "_source" : {
+          "relationship_type" : "group",
+          "name" : "Elasticsearch San Francisco",
+          "organizer" : "Mik",
+          "description" : "Elasticsearch group for ES users of all knowledge levels",
+          "created_on" : "2012-08-07",
+          "tags" : [
+            "elasticsearch",
+            "big data",
+            "lucene",
+            "open source"
+          ],
+          "members" : [
+            "Lee",
+            "Igor"
+          ],
+          "location_group" : "San Francisco, California, USA"
+        }
+      }
+    ]
+  }
+}
+```
+
+### 4.4.2 prefix查询和过滤器
+
+```bash
+curl 'localhost:9200/get-together/_search?pretty' -H'Content-Type: application/json' -d '{
+  "query": {
+     "prefix": {
+         "title": "liber"
+     }
+  },
+  "_source": ["title"]
+}'
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 2,
+    "successful" : 2,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "get-together",
+        "_type" : "_doc",
+        "_id" : "100",
+        "_score" : 1.0,
+        "_routing" : "1",
+        "_source" : {
+          "title" : "Liberator and Immutant"
+        }
+      }
+    ]
+  }
+}
+```
+
+### 4.4.3 wildcard查询
+
+类似于shell里的正则`ls *foo?ar`
+
+```bash
+curl 'localhost:9200/get-together/_search?pretty' -H'Content-Type: application/json' -d '{
+  "query": {
+     "wildcard": {
+         "title": "ba*n"
+     }
+  },
+  "_source": ["title"]
+}'
+```
+
+## 4.5 使用过滤器查询字段的存在性
+
+### 4.5.1 exists过滤器
+
+过滤文档 是否拥有哪些字段
+
+```bash
+curl 'localhost:9200/get-together/_search?pretty' -H'Content-Type: application/json' -d '{
+  "query": {
+     "bool": {
+         "filter": {
+             "exists": { "field": "location_event.geolocation" }
+         }
+     }
+  }
+}'
+```
+
+# 5. 分析数据
+
+## 5.1 分析数据
+
+分析是在文档被发送并加入倒排搜索之前, 
+
+
