@@ -70,14 +70,16 @@ OK
 
 |命令|行为|
 |---|---|
-|SADD|将给定元素添加到集合|
-|SMEMBERS|返回集合包含的所在元素|
-|SISMEMBER|检查给定元素是否存在于集合中|
-|SREM|如果给定的元素存在于集合中, 那么移除这个元素|
+|SADD|sadd key-name item [item...], 将给定元素添加到集合, 返回添加成功元素的个数|
+|SMEMBERS|smembers key-name, 返回集合包含的所在元素|
+|SISMEMBER|sismember key-name item, 检查给定元素是否存在于集合中|
+|SREM|srem key-name item [item ...]如果给定的元素存在于集合中, 那么移除这个元素, 返回移除元素的个数|
 |SCARD|scard key-name, 返回集合包含的所有元素|
 |srandmember|srandmember key-name [count], 从集合随机返回一个或多个元素, 当count为整数时, 随机元素不会重复, 为负数时, 可能会重复|
 |spop|spop key-name, 随机移除集合中的一个元素, 并返回被移除的元素|
 |smove|smove source-key dest-key item, 将item从source-key移除到dest-key,移除成功返回1, 不成功返回0|
+
+
 
 
 
@@ -114,7 +116,7 @@ OK
 
 |命令|行为|
 |---|---|
-|HSET|在散列了里面关联起给定的键值对|
+|HSET|在散列里面关联起给定的键值对|
 |HGET|获取指定散列键的值|
 |HGETALL|获取散列包含的所有键值对|
 |HDEL|如果给定键存在于散列里面, 那么移除这个键|
@@ -153,10 +155,22 @@ OK
 
 |命令|行为|
 |---|---|
-|ZADD|将一个带有给定分值的成员添加到有序集合里面|
-|ZRANGE|根据元素在有序排列中所处的位置, 从有序集合了里面获取多个元素|
+|ZADD|zadd key-name score member [score member ...] ,将一个带有给定分值的成员添加到有序集合里面|
+|ZRANGE|zrange key-name start stop [withscores] 根据元素在有序排列中所处的位置, 从有序集合了里面获取多个元素, 如果带有`withscores`会把成员的分值也一并返回|
 |ZRANGEBYSCORE|获取有序集合中给定分值范围的所有元素|
-|ZREM|如果给定成员存在于有序集合中,1 那么移除该元素|
+|ZREM|zrem key-name mbmber [member ...],如果给定成员存在于有序集合中,那么移除该元素, 并返回被移除成员的数量|
+|zcard|zcard key-name, 返回有序集合包含的成员数量|
+|zincby|zincby key-name increment member, 将member成员的分值上加上increment|
+|zcount|zcount key-name min max,返回分值介于min和max之间的成员数量|
+|zrank|zrank key-name member, 返回成员member在有序集合中的排名|
+|zscore|zscore key-name member, 返回成员member的分值|
+
+有序集合的范围型数据获取
+
+|命令|行为|
+|---|---|
+|zrevrank|zreverank key-name member, 返回有序集合组里成员member的排名, 成员按照分值从大到小排序|
+|zrevrange|zrevrange key-name start stop [withscores], 返回有序集合给定排名范围内的成员, 成员按照分值从大到小排列|
 
 
 ```bash
@@ -258,3 +272,92 @@ redis处理子串和二进制位的命令
 (nil)
 (1.10s)
 ```
+
+## 3.3 集合
+
+redis的集合用无序的方式存储多个各不相同的元素
+
+用于组合和处理多个集合的redis命令
+
+|命令|说明|
+|---|---|
+|sdiff|sdiff key-name [key-name...], 返回存在第一个集合, 但不存在于其他集合的元素|
+|sdiffstore|sdiffstore dest-key key-name [key-name...], 计算差集并存储到dest_key中|
+|sinter|sinter key-name [key-name...], 返回同时存在所有集合的元素|
+|sintersotre|sinterstore dest-key key-name [key-name...]|
+|sunion|sunion key-name [key-name...] 求并集|
+|sunionstore| sunionsotre dest-key key-name [key-name ...]|
+
+```bash
+127.0.0.1:6379> sadd skey1 a b c d
+(integer) 4
+127.0.0.1:6379>
+127.0.0.1:6379> sadd skey2 a d e f
+(integer) 4
+127.0.0.1:6379> sdiff skey1 skey2
+1) "b"
+2) "c"
+127.0.0.1:6379> sinter skey1 skey2
+1) "d"
+2) "a"
+127.0.0.1:6379> sunion skey1 skey2
+1) "c"
+2) "b"
+3) "e"
+4) "d"
+5) "a"
+6) "f"
+```
+
+## 3.4 散列
+
+|命令|用例和描述|
+|hmget|hmget key-name key [key...],从散列中获取一个或多个键的值|
+|hmset|hmset key-name key value [key value], 为散列里面的一个或多个键设置值|
+|hdel|hdel key-name key [key ...], 删除散列的一个或多个键值对, 返回成功找到并删除的键值对数量|
+|hlen|hlen key-name, 返回散列的键值对数量|
+|kexists|hexists key-name key, 检查给定键是否存在散列中|
+|hkeys|hkeys key-name, 获取散列包含的所有键|
+|hvals|hvals key-nam, 获取散列包含的所有值|
+|hgetall|hgetall key-name, 获取散列包含的所有键值对|
+|hincrby|hincby key-name key increment, 将键key存储的值加上整数increment|
+|hincbyfloat|hincbyfloat key-name key increment, 将键key存储的值加上浮点数increment|
+
+```bash
+127.0.0.1:6379> hmset hask-key3 short hello long 1000*1
+OK
+127.0.0.1:6379> hkeys hask-key3
+1) "short"
+2) "long"
+127.0.0.1:6379> hexists hask-key2 num
+(integer) 0
+127.0.0.1:6379> hincrby hask-key2 num  1
+(integer) 1
+127.0.0.1:6379> hexists hask-key2 num
+(integer) 1
+```
+
+## 3.5 有序集合
+
+```bash
+127.0.0.1:6379> zadd zset-key2 3 'a' 2 'b' 1 'c'
+(integer) 3
+127.0.0.1:6379> zcard zset-key2
+(integer) 3
+127.0.0.1:6379> zincrby zset-key2 3 'c'
+"4"
+127.0.0.1:6379> zscore zset-key2 b
+"2"
+127.0.0.1:6379> zrank zset-key2 'c'
+(integer) 2
+127.0.0.1:6379> zcount zset-key2 0 3
+(integer) 2
+127.0.0.1:6379> zrem zset-key2 'b'
+(integer) 1
+127.0.0.1:6379> zrange zset-key2 0 -1 withscores
+1) "a"
+2) "3"
+3) "c"
+4) "4"
+```
+
