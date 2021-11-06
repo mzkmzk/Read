@@ -171,7 +171,14 @@ OK
 |---|---|
 |zrevrank|zreverank key-name member, 返回有序集合组里成员member的排名, 成员按照分值从大到小排序|
 |zrevrange|zrevrange key-name start stop [withscores], 返回有序集合给定排名范围内的成员, 成员按照分值从大到小排列|
+|zrangebyscore|zrangebyscore key min max [withscores] [limit offset count], 获得有序集合中分值介于min和max之间的所有成员|
+|zrevrangebyscore|zrevrangebyscore max min [withscores] [limit offset count], 获取有序集合中分值介于min和max之间的所有成员, 并按照分值从大到小的顺序返回他们|
+|zremrangebyrank|zremrangebyrank key-name start stop, 移除有序集合中介于start和stop之间的所有成员|
+|zremrangebyscore|zremrangebyscore key-name min max, 移除有序集合介于min和max之间的所有成员|
+|zinterstore|zinterstore dest-key key-count key [key ...] [weights weight weight ...] [aggregate sum\|min\|max], 对给定的有序集合执行类似集合的交集运算|
+|zunionstore|zunionstore dest-key key-count key [key ...] [weights weight weight ...] [aggregate sum\|min\|max], 对给定的有序集合进行类似集合的并集运算|
 
+zinterstore和zunionstore默认使用的聚合是sum形式, 即合并同一key时, 将多个集合中同一key的value相加放到新的集合中
 
 ```bash
 127.0.0.1:6379> zadd zset-key 728 member1
@@ -361,3 +368,114 @@ OK
 4) "4"
 ```
 
+```bash
+127.0.0.1:6379> zadd zset2-1  1 'a' 2 'b' 3 'c'
+(integer) 3
+127.0.0.1:6379> zadd zset2-2 4 'b' 1 'c' 0 'd'
+(integer) 3
+127.0.0.1:6379>  zinterstore z-set2-i 2 zset2-1 zset2-2
+(integer) 2
+127.0.0.1:6379> zrange z-set2-i 0 -1 withscores
+1) "c"
+2) "4"
+3) "b"
+4) "6"
+127.0.0.1:6379> zunionstore z-set2-u 2 zset2-1 zset2-2 aggregate min
+(integer) 4
+127.0.0.1:6379> zrange z-set2-u 0 -1 withscores
+1) "d"
+2) "0"
+3) "a"
+4) "1"
+5) "c"
+6) "1"
+7) "b"
+8) "2"
+127.0.0.1:6379> sadd set2-1 'a' 'b'
+(integer) 2
+127.0.0.1:6379> zunionstore z-set2-u2 3 zset2-1 zset2-2 set2-1
+(integer) 4
+127.0.0.1:6379> zrange z-set2-u2 0 -1 withscores
+1) "d"
+2) "0"
+3) "a"
+4) "2"
+5) "c"
+6) "4"
+7) "b"
+8) "7"
+```
+
+## 3.6 发布与订阅
+
+不太建议使用redis的发布与订阅
+
+## 3.7 其他命令
+
+### 3.7.2 键的过期时间
+
+|命令|示例与描述|
+|---|---|
+|persist|persist key-name, 移除键的过期时间|
+|ttl|ttl key-name, 查看键距离过期还有多少秒|
+|expire|exprie key-name seconds, 让给定键在指定的秒数后过期|
+|expripeat|expripeat key-name timestamp, 将给定键的过期时间设置为给定的unix时间戳|
+|pttl|pttl key-name, 给定键距离过期还有多少毫秒|
+|pexpire|pexpire key-name millseconds, 设置x毫秒后过期|
+|pexpireat|pexpireat key-name timestamp-milliseconds, 指定毫秒级的unix时间戳过期
+
+```bash
+127.0.0.1:6379> set key value
+OK
+127.0.0.1:6379> get key
+"value"
+127.0.0.1:6379> expire key 2
+(integer) 1
+127.0.0.1:6379> get key
+(nil)
+127.0.0.1:6379> set key value2
+OK
+127.0.0.1:6379> expire key 100
+(integer) 1
+127.0.0.1:6379> ttl key
+(integer) 97
+```
+
+# 4. 数据安全与性能保障
+
+## 4.1 持久化选项
+
+- 快照: 存储某一时刻的所有数据写到硬盘里
+- 只追加文件: 在执行命令时, 将被执行的写命令复制到磁盘里
+
+可以混合使用这两种持久化方式, 也可以单独使用
+
+查看save命令
+
+```bash
+127.0.0.1:6379> config get save
+1) "save"
+2) "3600 1 300 100 60 10000"
+```
+
+表示
+
+- 3600s内至少有1个key发生变化
+- 300s内至少有100个key发生变化
+- 60s内至少有10000个key发生变化
+
+都会触发bgsave
+
+客户端也主动发送bgsave, 来让redis在后台进行持久化, 而save是会阻塞redis的
+
+### 4.1.2 AOF持久化
+
+appendfsync的配置决定AOF的记录时机
+
+- always: 每次写命令都写入磁盘, 会非常降低性能
+- everysec: 每秒执行一次写
+- no: 由操作系统决定何时写
+
+# 6 使用Redis构建应用程序组件
+
+setnx: 只会在键不存在的情况下为键设置值
