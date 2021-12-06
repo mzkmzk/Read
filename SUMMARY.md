@@ -66,6 +66,8 @@
   * [MySQL技术内幕SQL编程](server/mysql-ji-shu-nei-mu-sql-bian-cheng.md)
   * [ES实战](server/es-shi-zhan.md)
   * [Redis实战](server/redis-shi-zhan.md)
+  * [Go语言编程之旅](server/go-bian-cheng-zhi-lv.md)
+  * [Go并发编程实践](server/go-bin-fa-bian-cheng-shi-jian.md)
 * [安全](an_quan.md)
   * [Web前端黑客技术揭秘](webqian_duan_hei_ke_ji_zhu_jie_mi.md)
   * [白帽子讲WEB安全](bai_mao_zi_jiang_web_an_quan.md)
