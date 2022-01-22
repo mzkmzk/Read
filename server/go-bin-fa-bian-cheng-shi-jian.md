@@ -185,3 +185,119 @@ Go运行时, 每次只会唤醒一个goroutine
 无论如何都不应该在接受端关闭通道, 因为在接受端通常无法判断发送端是否还会向该通道发送元素值
 
 在发送端关闭通道一般不会对接受端有什么影响. 如果该通道在被关闭时, 仍有元素值, 仍可用表达式取出
+
+### 4.3.2 单向channel
+
+channel为单向通道只是语法糖, 用来做强制类型
+
+不能强制转化channel类型
+
+### 4.3.3 for语句和channel
+
+从一个未初始化的通道中接受元素值会导致当前goroutine的永久阻塞
+
+for语句会不断尝试从通道中接受元素值, 直到通道关闭
+
+通道关闭时, 如果通道仍有元素 for range循环会继续读完再结束
+
+### 4.3.4 select语句
+
+> 分支选择规则
+
+开始执行select语句时, 所有跟在case关键字右边的发送语句或接受语句都会被先求值(从左到右, 从上到下)
+
+```go
+package main
+import "fmt"
+
+var intChan1 chan int
+var intChan2 chan int
+var channels = []chan int{intChan1, intChan2}
+
+var numbers = []int{1,2,3,4,5}
+
+func getChan(i int) chan int {
+    fmt.Printf("channels[%d]\n", i)
+    return channels[i]
+}
+
+func getNumber(i int) int {
+    fmt.Printf("numbers[%d]\n", i)
+    return numbers[i]
+}
+
+func main() {
+    select {
+        case getChan(0) <- getNumber(0):
+            fmt.Println("1th")
+        case getChan(1) <- getNumber(1):
+            fmt.Println("2th")
+        default:
+            fmt.Println("default")
+    }
+}
+```
+
+输出结果为
+
+```
+channels[0]
+numbers[0]
+channels[1]
+numbers[1]
+default
+```
+
+因为上述channel 都未被初始化, 所以会永久阻塞, 走到了defaultcase
+
+执行select时, 会自上而下的判断每个case发送或接收操作是否可以立即进行, 如果多个case都满足条件
+
+系统会通过伪随机算法选中一个case
+
+如果没有一个case符合条件并且没有default case, 此处将会永久阻塞
+
+default无论位置在哪, 执行舒心都是最后
+
+### 4.3.6 time包和channel
+
+超时设置
+
+```go
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+func main() {
+    intChan := make(chan int, 1)
+    go func() {
+        for i:=0; i< 5; i++ {
+            time.Sleep(time.Second)
+            intChan <- i
+        }
+        close(intChan)
+    }()
+    timeout := time.Millisecond * 500
+    var timer *time.Timer
+    for {
+        if timer == nil {
+            timer = time.NewTimer(timeout)
+        } else {
+            timer.Reset(timeout)
+        }
+        select {
+            case e, ok := <- intChan:
+                if !ok {
+                    fmt.Println("End.")
+                    return
+                }
+                fmt.Printf("Reveciver: %v\n", e)
+            case <-timer.C:
+                fmt.Println("Timeout")
+        }
+    }
+}
+
+```
