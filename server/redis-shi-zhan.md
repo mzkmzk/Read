@@ -13,12 +13,12 @@
 |结构类型|结构存储的值|结构的读写能力|
 |---|---|---|
 |string|字符串, 整数或浮点数|操作字符串, 对整数和浮点数执行自增,自减操作|
-|list|一个链表, 链表上每个节点都包含一个字符串|从链表两端推入或者弹出元素, 根据偏移量对链表进行修剪,读取单个或多个元素, 根据值查找或者移除元素|
+|list|一个链表, 链表上每个节点都包含一个字符串|从链表两端推入或者弹出元素, 根据偏移量对链表进行修剪,读取单个或多个元素, 根据值查找或者移除元素|
 |set|包含字符串的无序收集器, 并且被包含的每个字符串都是独一无二,各不相同|添加、获取、移除单个元素, 检查一个元素是否存在集合中, 计算交集、并集、差集, 从集合中随机获取元素|
 |hash|包含键值对的无序散列表|添加、获取单个键值对, 获取所有键值对|
 |zset(有序集合)|字符串成员与浮点数分值之间的有序映射, 元素的排列顺序由分支大小决定|添加、获取、删除单个元素, 根据分值范围或者成员来获取元素|
 
-### 1.2.1 Redis中的字符串
+### 1.2.1 Redis中的字符串
 
 命令: `get`, `set`, `del`
 
@@ -40,7 +40,7 @@ OK
 |rpush|rpush key-name value [value...] 将给定值推入列表的右端|
 |lpush|lpush key-name value [value...] 将给定的值推入到列表左端|
 |rpop|rpop key-name, 移除并返回列表最右侧的元素|
-|lpop|lpop key-name, 从列表的左端弹出一个值|
+|lpop|lpop key-name, 从列表的左端弹出一个值|
 |lrange|lrange key-name start end, 获取列表在给定范围上的所有值|
 |lindex|lindex key-name offset, 获取列表在给定位置上的单个元素|
 |ltrim|ltrim key-name start end,对列表进行裁剪[start, end], 保留start和end|
@@ -216,7 +216,7 @@ redis的自增命令和自减命令
 
 |命令|用途|
 |---|---|
-|incr|incr key-name, 键存储的值加一|
+|incr|incr key-name, 键存储的值加一|
 |decr|decr key-name, 键存储的值减一|
 |incrby| incrby key-name amount, 键存储的值加上整数amount|
 |decrby| decrby key-name amount, 键存储的值减上整数amount|

@@ -1450,7 +1450,7 @@ curl 'localhost:9200/get-together/_search?pretty' -H'Content-Type: application/j
 
 ### 4.4.1 range查询器
 
-```bsh
+```bash
 curl 'localhost:9200/get-together/_search?pretty' -H'Content-Type: application/json' -d '{
   "query": {
      "range": {
