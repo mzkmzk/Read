@@ -161,16 +161,16 @@ No query specified
 下面我们来写下大概sql
 
 - 查询今年当年多少岁
-- 按mysql逻辑计算今年的生日日期
+- 按mysql逻辑计算今年的生日日期
 - 因为mysql当非闰年时, 生日为2月29号的则会被改为2月28日, 所以需要进行判断是否需要加一天
 
 ```bash
 select name, birthday,
     if (cur>today, cur, next) as birth_day
-from (
+from (
     select name, birthday, today ,
         date_add(cur, interval if (day(birthday)=29 && day(cur)=28, 1, 0 ) day ) as cur,
-        date_add(next, interval if (day(birthday)=29 && day(cur)=28, 1, 0) day ) as next
+        date_add(next, interval if (day(birthday)=29 && day(next)=28, 1, 0) day ) as next
     from (
         select name, birthday, today, 
             date_add(birthday, interval diff year) as cur,
