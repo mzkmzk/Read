@@ -311,7 +311,7 @@ where s.app = e.app and s.usr = e.usr;
 
 > 最大重叠会话数
 
-```bash
+```bash
 mysql > select app, max(count) as max
 from (
     select app, s,
@@ -332,7 +332,7 @@ group by app;
 | app1 |    4 |
 | app2 |    3 |
 +------+------+
-```
+```
 
 ## 2.5 数字类型
 
