@@ -417,6 +417,231 @@ Command: Sleep
    Info: NULL
 ```
 
+### 2.3.2 死锁
+
+表结构
+
+```bash
+CREATE TABLE `2_2_3_t_1` (
+  `a` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`a`)
+) ENGINE=innodb DEFAULT CHARSET=utf8;
+```
+
+构建数据
+
+```bash
+mysql> insert into 2_2_3_t_1 values();
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into 2_2_3_t_1 select null from 2_2_3_t_1 ;
+Query OK, 1 row affected (0.02 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> insert into 2_2_3_t_1 select null from 2_2_3_t_1 ;
+Query OK, 2 rows affected (0.02 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from 2_2_3_t_1 ;
++---+
+| a |
++---+
+| 1 |
+| 2 |
+| 3 |
+| 4 |
++---+
+```
+
+同时打开两个事务, 新insert
+
+```bash
+# 事务1
+mysql> begin;
+mysql> select * from 2_2_3_t_1;
++----+
+| a  |
++----+
+|  1 |
+|  2 |
+|  3 |
+|  4 |
+|  8 |
+| 11 |
++----+
+6 rows in set (0.02 sec)
+
+mysql> insert into 2_2_3_t_1 values();
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from 2_2_3_t_1;
++----+
+| a  |
++----+
+|  1 |
+|  2 |
+|  3 |
+|  4 |
+|  8 |
+| 11 |
+| 12 |
++----+
+7 rows in set (0.02 sec)
+```
+
+并行执行事务2
+```bash
+mysql> begin;
+mysql> insert into 2_2_3_t_1 values();
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from 2_2_3_t_1;
++----+
+| a  |
++----+
+|  1 |
+|  2 |
+|  3 |
+|  4 |
+|  8 |
+| 11 |
+| 13 |
++----+
+7 rows in set (0.02 sec)
+```
+
+执行修改
+
+```bash
+# 在事务1中执行
+mysql> update 2_2_3_t_1 set a=13 where a=12;
+# 一开始会卡住, 直到事务2执行update
+Query OK, 1 row affected (17.88 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+# 在事务2中执行
+mysql> update 2_2_3_t_1 set a=12 where a=13;
+ERROR 1213 (40001): Deadlock found when trying to get lock; try restarting transaction
+```
+
+我们可以通过`show engine innodb status`查找死锁, 会输出最近的死锁信息
+
+`WAITING FOR THIS LOCK TO BE GRANTED`代表等待锁的信息
+
+`HOLDS THE LOCK`代表持有锁的信息
+
+```bash
+------------------------
+LATEST DETECTED DEADLOCK
+------------------------
+2024-03-14 20:55:48 0x7f30c4b27700
+*** (1) TRANSACTION:
+TRANSACTION 17463373, ACTIVE 64 sec updating or deleting
+mysql tables in use 1, locked 1
+LOCK WAIT 3 lock struct(s), heap size 1136, 2 row lock(s), undo log entries 2
+MySQL thread id 565780, OS thread handle 139847951447808, query id 299564379 10.10.45.12 root1 updating
+update 2_2_3_t_1 set a=13 where a=12
+*** (1) WAITING FOR THIS LOCK TO BE GRANTED:
+RECORD LOCKS space id 5260 page no 3 n bits 80 index PRIMARY of table `mzk_test`.`2_2_3_t_1` trx id 17463373 lock mode S locks rec but not gap waiting
+Record lock, heap no 9 PHYSICAL RECORD: n_fields 3; compact format; info bits 32
+ 0: len 4; hex 0000000d; asc     ;;
+ 1: len 6; hex 0000010a7847; asc     xG;;
+ 2: len 7; hex 330000085b12a7; asc 3   [  ;;
+
+*** (2) TRANSACTION:
+TRANSACTION 17463367, ACTIVE 67 sec updating or deleting
+mysql tables in use 1, locked 1
+3 lock struct(s), heap size 1136, 2 row lock(s), undo log entries 2
+MySQL thread id 565787, OS thread handle 139847435187968, query id 299564496 10.10.45.12 root1 updating
+update 2_2_3_t_1 set a=12 where a=13
+*** (2) HOLDS THE LOCK(S):
+RECORD LOCKS space id 5260 page no 3 n bits 80 index PRIMARY of table `mzk_test`.`2_2_3_t_1` trx id 17463367 lock_mode X locks rec but not gap
+Record lock, heap no 9 PHYSICAL RECORD: n_fields 3; compact format; info bits 32
+ 0: len 4; hex 0000000d; asc     ;;
+ 1: len 6; hex 0000010a7847; asc     xG;;
+ 2: len 7; hex 330000085b12a7; asc 3   [  ;;
+
+*** (2) WAITING FOR THIS LOCK TO BE GRANTED:
+RECORD LOCKS space id 5260 page no 3 n bits 80 index PRIMARY of table `mzk_test`.`2_2_3_t_1` trx id 17463367 lock mode S locks rec but not gap waiting
+Record lock, heap no 6 PHYSICAL RECORD: n_fields 3; compact format; info bits 32
+ 0: len 4; hex 0000000c; asc     ;;
+ 1: len 6; hex 0000010a784d; asc     xM;;
+ 2: len 7; hex 37000005eb2c08; asc 7    , ;;
+
+```
+
+--疑问--: 事务A获得锁后, 不退出,其他都写不了
+
+https://xiaolincoding.com/mysql/lock/mysql_lock.html#next-key-lock
+
+### 2.3.3 隐式提交
+
+DDL语句与事务相关的语句和管理语句都会产生隐式提交
+
+```bash
+mysql> create table 2_3_3_t_1(f1 int) engine=InooDB;
+Query OK, 0 rows affected, 2 warnings (0.02 sec)
+
+mysql> begin;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into 2_3_3_t_1 values(100);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> create table 2_3_3_t_2 like 2_3_3_t_1;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into 2_3_3_t_1 values(200);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from 2_3_3_t_1 ;
++------+
+| f1   |
++------+
+|  100 |
+|  200 |
++------+
+```
+
+因为create table 就把事务提交了
+
+## 2.4 元数据锁
+
+在其他事务使用表时, 对该表的DDL操作应该阻塞
+
+| 线程 1                  | 线程 2                                |
+| ----------------------- | ------------------------------------- |
+| begin                   |                                       |
+| select * from 2_3_3_t_1 |                                       |
+|                         | drop table 2_3_3_t_1                  |
+| rollback                |                                       |
+|                         | Query OK, 0 rows affected (12.93 sec) |
+|                         |                                       |
+
+
+## 2.6 其他锁问题
+
+```bash
+# 查看冲突
+mysql> select * from performance_schema.mutex_instances where locked_by_thread_id is not null ;
+
+mysql> show create table performance_schema.mutex_instances \G;
+*************************** 1. row ***************************
+       Table: mutex_instances
+Create Table: CREATE TABLE `mutex_instances` (
+  `NAME` varchar(128) NOT NULL,
+  `OBJECT_INSTANCE_BEGIN` bigint(20) unsigned NOT NULL,
+  `LOCKED_BY_THREAD_ID` bigint(20) unsigned DEFAULT NULL
+) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8
+1 row in set (0.02 sec)
+
+```
+这里书中没有给实际案例, 这里也简单略过
+
+
 ## 2.5 并发如何影响性能
 
 ### 2.5.2 为并发问题监控其他资源
@@ -427,11 +652,34 @@ Command: Sleep
 
 ### 2.7.1 基于语句的复制问题
 
+复制模式有Now()之类的函数, 语句复制就会有问题
+
 每个事务都只会在其提交时, 向二进制日志写入数据
 
 ### 2.7.2 混合事务和非事务性表
 
 不要把事务表和非事务表放在一个事务里(innoDB表和MyISAM表), 会造成主从复制不一致性
 
+## 2.8 高效地使用MySQL问题排查工具
+
+### 2.8.3 information_schema中的表
+
+- innodb_trx: 当前运行的所有事务的表
+- innodb_locks: 包含事务持有的当前锁的相关信息以及每个事务等待的锁的信息
+- innodb_lock_wats: 包含事务正在等待的锁的信息
+
+阻塞的事务列表
+
+```bash
+mysql > select * from innodb_locks where lock_trx_id in (select blocking_trx_id from innodb_lock_waits)
+```
+
 # 3. 配置选型对服务器的影响
 
+# 6. 问题排查技术与工具
+
+## 6.9 专用的测试工具
+
+### 6.9.1 基准工具
+
+mysqlslap 模拟负载客户端
