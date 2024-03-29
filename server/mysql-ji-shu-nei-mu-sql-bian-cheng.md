@@ -1,5 +1,9 @@
 # MySQL技术内幕-SQL编程
 
+# 总结
+
+总体4分, 在介绍基本的SQL语句使用的时候大量示例, 读完能比较透彻的使用
+
 # 序
 
 案例中的sql表结构和数据可通过`https://github.com/datacharmer/test_db`安装
@@ -236,7 +240,7 @@ mysql > select a.app, a.usr, a.starttime, a.endtime, b.starttime, b.endtime
 | app1 | user1 | 10:15:00  | 10:40:00 | 10:15:00  | 10:40:00 |
 +------+-------+-----------+----------+-----------+----------+
 ```
-
+
 > 分组查询
 
 服务商允许多个session的连接, 并把其计费统计为1次
@@ -1120,14 +1124,14 @@ ACID:
 - 隐式地修改MySQL架构的操作, create user ...
 - 管理语句: analyze table, ...
 
-以上语句无法回滚
+以上语句无法回滚
 
 ## 8.7 不好的事务编程习惯
 
 ### 8.7.1 在循环中提交
 
 
-# 9 索引
+# 9 索引
 
 ## 9.1 缓冲池、顺序读取与随机读取
 
@@ -1160,7 +1164,7 @@ ACID:
 |---|---|---|
 |No|No|直接将记录插入到叶子节点|
 |Yes|No|- 拆分LeafPage<br>- 将中间的节点放入到Index Page中<br>- 小于中间节点的记录放在左边<br>- 大于等于中间节点的放在右边|
-|Yes|Yes|- 拆分Leaf Page<br>- 小于中间节点的记录放在左边<br>- 大于等于中间节点的记录放在右边<br>- 拆分Index Page<br>- 小于中间节点的记录放在左边<br>- 大于中间节点的记录放在右边<br>- 中间节点放入上一层的Index Page|
+|Yes|Yes|- 拆分Leaf Page<br>- 小于中间节点的记录放在左边<br>- 大于等于中间节点的记录放在右边<br>- 拆分Index Page<br>- 小于中间节点的记录放在左边<br>- 大于中间节点的记录放在右边<br>- 中间节点放入上一层的Index Page|
 
 动画模拟`https://www.cs.usfca.edu/~galles/visualization/Algorithms.html`
 
@@ -1364,7 +1368,7 @@ mysql> explain select * from  9_6_5_t where a=1 and b=2;
 +----+-------------+---------+-------------+---------------+------+---------+------+------+------------------------------------------------+
 ```
 
-Using intersect(b,a)表示根据两个索引得到的结果进行求交的运算
+Using intersect(b,a)表示根据两个索引得到的结果进行求交的运算
 
 使用 use index进行index hint
 
@@ -1439,7 +1443,7 @@ mysql > set @@optimizer_switch='mrr=on,mrr_const_based=off'
 
 read_rnd_buffer_size来控制键值的缓冲区大小 默认为256kb
 
-### 9.8 Index Condition Pushdown
+### 9.8 Index Condition Pushdown
 
 ICP优化支出range, ref, eq_ref, ref_or_null类型的语句
 

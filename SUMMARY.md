@@ -71,6 +71,7 @@
   * [Go并发编程实践](server/go-bin-fa-bian-cheng-shi-jian.md)
   * [中台架构与实现](server/zhong-tai-jia-gou-yu-shi-xian.md)
   * [SRE-Google运维解密](server/sre-google-yun-wei-jie-mi.md)
+  * [MySQL技术内幕-InnoDB存储引擎](server/mysql-ji-shu-nei-mu-innodb-cun-chu-yin-qin.md)
 * [安全](an_quan.md)
   * [Web前端黑客技术揭秘](webqian_duan_hei_ke_ji_zhu_jie_mi.md)
   * [白帽子讲WEB安全](bai_mao_zi_jiang_web_an_quan.md)
