@@ -2,13 +2,13 @@
 
 # 2. 深入功能
 
-es中的数据是如何组织起来的
+es中的数据是如何组织起来的
 
 逻辑设计: 搜索应用所要注意的
 
 - 用于索引和搜索的基本单位是文档, 可以将其理解为数据库的一行
 - 文档以类型来分组, 类型包含若干文档, 类似表格包含若干行
-- 一个或多个类型存在同一索引里, 类似SQL的数据库
+- 一个或多个类型存在同一索引里, 类似SQL的数据库
 
 物理设计: Es是如何处理数据的
 
@@ -75,7 +75,7 @@ es会对字段进行猜测映射, 例如值是7 就会猜测是长整型
 - 系统根据文档id的散列值选择一个主分片, 并把文档发送到该主分片
 - 这份主分片可能存在位于另一个节点
 - 然后文档被发送到该主分片的所有副本分片进行索引
-- 在主分片无法访问时, 副分片自动升级为主分片
+- 在主分片无法访问时, 副分片自动升级为主分片
 
 > 搜索索引时发生了什么
 
@@ -110,7 +110,7 @@ es所处理的最小单元: 分片
 ### 2.3.1 通过cURL索引一篇文档
 
 ```bash
-curl -XPUT -u elastic:6ZghfYT294FE  -H "Content-Type: application/json"  'http://es-cn-4590vgbn4000757o6.elasticsearch.aliyuncs.com:9200/mzk-es-action/group/1?pretty' -d '{
+curl -XPUT -u elastic:xxxxxxx  -H "Content-Type: application/json"  'http://es-cn-xxxxxxx.elasticsearch.aliyuncs.com:9200/mzk-es-action/group/1?pretty' -d '{
     "name": "es denver",
     "organizer": "lee"
 }'
@@ -147,14 +147,14 @@ curl -XPUT -u elastic:6ZghfYT294FE  -H "Content-Type: application/json"  'http:/
 > 手动创建索引
 
 ```bash
-curl -XPUT -u elastic:6ZghfYT294FE  -H "Content-Type: application/json"  'http://es-cn-4590vgbn4000757o6.elasticsearch.aliyuncs.com:9200/mzk-es-action2'
+curl -XPUT -u elastic:xxxxxxx  -H "Content-Type: application/json"  'http://es-cn-xxxxxxx.elasticsearch.aliyuncs.com:9200/mzk-es-action2'
 {"acknowledged":true,"shards_acknowledged":true,"index":"mzk-es-action2"}%
 ```
 
 > 获取映射
 
 ```bash
-curl -XGET -u elastic:6ZghfYT294FE  -H "Content-Type: application/json"  'http://es-cn-4590vgbn4000757o6.elasticsearch.aliyuncs.com:9200/mzk-es-action/_mapping/group?pretty'
+curl -XGET -u elastic:xxxxxxx  -H "Content-Type: application/json"  'http://es-cn-xxxxxxx.elasticsearch.aliyuncs.com:9200/mzk-es-action/_mapping/group?pretty'
 
 {
   "mzk-es-action" : {
@@ -228,11 +228,11 @@ q=elasticsearch\
 ```
 
 - q=elasticsaerch: 查找包含`elasticsearch`的文档
-- fields=name,location, 只需要name和location的信息
+- fields=name,location, 只需要name和location的信息
 - size=1: 只需要排名靠前的
 - pretty: 格式化json
 
-要想搜索所有, 可以使用`_all`
+要想搜索所有, 可以使用`_all`
 
 搜索的3个内容
 
