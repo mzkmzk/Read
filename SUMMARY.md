@@ -98,6 +98,8 @@
   * [幸福的勇气](utils/xing-fu-de-yong-qi.md)
   * [上帝掷骰子](utils/shang-di-zhi-tou-zi.md)
   * [系统之美-决策者的系统思考](utils/xi-tong-zhi-mei-jue-ce-zhe-de-xi-tong-si-kao.md)
+  * [架构师修炼之道](utils/jia-gou-shi-xiu-lian-zhi-dao.md)
+  * [架构师修炼之道-张](utils/jia-gou-shi-xiu-lian-zhi-dao-zhang.md)
 * [企业管理](qi_ye_guan_li.md)
   * [只有偏执狂才能生存](zhi_you_pian_zhi_kuang_cai_neng_sheng_cun.md)
 * [设计](she_ji.md)
