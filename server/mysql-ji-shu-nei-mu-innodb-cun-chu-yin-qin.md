@@ -134,7 +134,92 @@ SET timestamp=1688711829;
 UPDATE `component_entry_configs` SET `deleted_at`='2023-07-07 14:36:46.131707' WHERE key_name in ('cdtid9tqdmgdm34nng50','catbmmp0ep6np4pt61n0','c6559fqqj8qtlq7ep2h0','cdqvd8118hu96ddfnb80','ccmjau1inmkroeob6h20','cd8dbj9inmkmskps1jdg','cdq4rj118hu96ddfn6j0','cdupjkpr0p470mov751g','ce8d97ih6lsdjo3aali0','c5a2f22qj8qoh2hgu3bg','cd8obgpinmkmskps9os0','chjlhbcsqei01766houg','ca2ds7iqj8qpmbs4qda0','cac7nf2qj8qqnksl7uog','cfpir2hr0p4c18b4d7s0','cdtid9tqdmgdm34nng6g','c6fl8jaqj8qtfpahtln0','cdtf8elqdmgdm34nn2n0','ccq19ae25sus2gs6hjm0'
 ```
 
+### 3.2.3 查询日志
 
+
+```bash
+mysql> SHOW VARIABLES LIKE 'general_log';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| general_log   | OFF   |
++---------------+-------+
+1 row in set (0.00 sec)
+```
+
+### 3.2.4 二进制日志
+
+二进制日志记录了对mysql数据执行更改的所有操作
+
+查看二进制文件路径
+
+```bash
+# 查询bin_log 是否开启
+mysql> show variables like 'log_bin';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| log_bin       | ON    |
++---------------+-------+
+1 row in set (0.00 sec)
+
+# 查询datadir bin_log就在这
+mysql> show variables like 'datadir';
++---------------+-----------------------------+
+| Variable_name | Value                       |
++---------------+-----------------------------+
+| datadir       | /usr/local/mysql/data_3307/ |
++---------------+-----------------------------+
+
+# 查看bin_log文件, 文件名默认为主机名, 可以通过配置参数log-bin=[name]制定
+-rw-rw----  1 mysql mysql 1073745604 2024-08-20 11:13:41 mysql-bin.000231
+-rw-rw----  1 mysql mysql  353864634 2024-09-13 03:28:59 mysql-bin.000232
+-rw-rw----. 1 mysql mysql         38 2024-08-20 11:13:41 mysql-bin.index
+
+# 查看binlog索引文件
+[root@st01023vm45 data_3307]# cat  mysql-bin.index;
+./mysql-bin.000231
+./mysql-bin.000232
+```
+
+以下几个参数与binlog文件有关
+
+|  参数   | 作用     |  查询方式 |
+| ---- | ---- | ---- |
+| max_binlog_size       | 单个二进制日志文件的最大值, 默认为1G | SHOW VARIABLES LIKE 'max_binlog_size'; |
+| binlog_cache_size       | binlog缓存池的大小 | show variables like 'binlog_cache_size';|
+| sync_binlog       | /usr/local/mysql/data_3307/ |
+| binlog-do-db       | /usr/local/mysql/data_3307/ |
+| binlog-ignore-db       | /usr/local/mysql/data_3307/ |
+| log-slave-update       | /usr/local/mysql/data_3307/ |
+| binlog-format      | /usr/local/mysql/data_3307/ |
+
+- binlog_cache_size的写入规则
+
+默认为32K, 是每个会话创建一个事务时, mysql会自动分配一个binlog_cache_size的缓存, 所以不能设置过大.
+
+也不能设置过小, 因为会频繁写入二进制临时文件
+
+![binlog_cache_size写入流程](binlog_cache_size写入流程.png)
+
+```bash
+mysql> show variables like 'binlog_cache_size';
++-------------------+-------+
+| Variable_name     | Value |
++-------------------+-------+
+| binlog_cache_size | 32768 |
++-------------------+-------+
+
+# 查看binlog_cache_use和disk_use的次数, 注意这里是次数, 不是cache空间的大小
+mysql> show global status like 'binlog_cache%';
++-----------------------+--------+
+| Variable_name         | Value  |
++-----------------------+--------+
+| Binlog_cache_disk_use | 5741   |
+| Binlog_cache_use      | 458770 |
++-----------------------+--------+
+```
+当Binlog_cache_disk_use出现比较多次时,就应该考虑增加binlog_cache_size
 
 
 
