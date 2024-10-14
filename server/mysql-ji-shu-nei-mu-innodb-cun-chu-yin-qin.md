@@ -188,7 +188,7 @@ mysql> show variables like 'datadir';
 | ---- | ---- | ---- |
 | max_binlog_size       | 单个二进制日志文件的最大值, 默认为1G | SHOW VARIABLES LIKE 'max_binlog_size'; |
 | binlog_cache_size       | binlog缓存池的大小 | show variables like 'binlog_cache_size';|
-| sync_binlog       | /usr/local/mysql/data_3307/ |
+| sync_binlog       | 二进制日志文件写入缓冲池的频率, 可以为0, 1, 大于1的整数 | show variables like 'sync_binlog'; |
 | binlog-do-db       | /usr/local/mysql/data_3307/ |
 | binlog-ignore-db       | /usr/local/mysql/data_3307/ |
 | log-slave-update       | /usr/local/mysql/data_3307/ |
@@ -221,7 +221,61 @@ mysql> show global status like 'binlog_cache%';
 ```
 当Binlog_cache_disk_use出现比较多次时,就应该考虑增加binlog_cache_size
 
+- sync_binlog
 
+sync_binlog=1为采用同步写磁盘的方式写二进制
+
+当is_innodb_support_xa为0时, binlog和redo log互不影响, 会出现主从数据不一致的情况
+
+![当is_innodb_support_xa为0时](QQ_1728871978055.png)
+
+{% details "代码展开" %}
+```bash
+flowchart LR
+  创建事务 --> 执行update-sql
+  执行update-sql --> 
+  is_innodb_support_xa{是否开启innodb_support_xa}
+
+  subgraph writeLog[write log并行]
+  direction LR
+  redoLog[write redo log] 
+  binLog[write bin log]
+  end
+
+  is_innodb_support_xa -->|否| writeLog
+  
+```
+{% enddetails %}
+
+当is_innodb_support_xa为1时, 当写入binlog后, mysql重启会检查prepare的事务是否已提交了binlog, 提交了的话, prepare的会执行commit环节
+
+![当is_innodb_support_xa为1时](QQ_1728872137326.png)
+
+{% details "代码展开" %}
+```bash
+@startuml
+|innodb_server|
+start
+
+:创建事务;
+:执行update-sql;
+if (是否开启innodb_support_xa?) is (是) then
+:write redo log, prepare阶段;
+:提交事务;
+:写binlog;
+|机器|
+:故障重启;
+|innodb_server|
+:检查prepare的redo log完成了binlog提交;
+:提交prepare阶段的redo log;
+stop;
+|innodb_server|
+else
+:此处省略...;
+detach
+@enduml
+  
+```
 
 # 4 表
 

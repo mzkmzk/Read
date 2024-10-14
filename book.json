@@ -13,7 +13,8 @@
      "sitemap-general",
      "prism", 
       "-highlight",
-      "3-ba"
+      "3-ba",
+      "details"
   ],
   "pluginsConfig": {
     "disqus": {
