@@ -274,8 +274,12 @@ else
 :此处省略...;
 detach
 @enduml
-  
 ```
+{% enddetails %}
+
+[参考链接](https://github.com/mao888/golang-guide/blob/main/mysql/MYSQL%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86.md#mysql%E7%9A%84binlog%E6%9C%89%E5%87%A0%E7%A7%8D%E5%BD%95%E5%85%A5%E6%A0%BC%E5%BC%8F%E5%88%86%E5%88%AB%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB)
+
+
 
 # 4 表
 
