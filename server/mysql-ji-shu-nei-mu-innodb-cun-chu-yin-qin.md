@@ -171,6 +171,26 @@ mysql> show variables like 'datadir';
 | datadir       | /usr/local/mysql/data_3307/ |
 +---------------+-----------------------------+
 
+# 查看bin-log文件
+mysql> SHOW BINARY LOGS;
++------------------+------------+
+| Log_name         | File_size  |
++------------------+------------+
+| mysql-bin.000233 | 1073745120 |
+| mysql-bin.000234 | 1073742062 |
+| mysql-bin.000235 |  152539169 |
++------------------+------------+
+
+#查看binlog当前位点
+mysql> show master status \G;
+*************************** 1. row ***************************
+            File: mysql-bin.000235
+        Position: 159895850
+    Binlog_Do_DB:
+Binlog_Ignore_DB:
+1 row in set (0.00 sec)
+
+
 # 查看bin_log文件, 文件名默认为主机名, 可以通过配置参数log-bin=[name]制定
 -rw-rw----  1 mysql mysql 1073745604 2024-08-20 11:13:41 mysql-bin.000231
 -rw-rw----  1 mysql mysql  353864634 2024-09-13 03:28:59 mysql-bin.000232
@@ -281,6 +301,42 @@ detach
 
 
 
+
+- binlog-format
+
+查询binlog格式
+
+```bash
+mysql> select @@session.binlog_format;
++-------------------------+
+| @@session.binlog_format |
++-------------------------+
+| ROW                     |
++-------------------------+
+1 row in set (0.01 sec)
+```
+
+更改binlog格式
+
+```bash
+mysql>set global binlog_format='ROW'
+```
+
+格式有三种
+
+1. Row
+2. Statement
+3. MIXED
+
+设置了binlog_format为ROW, 则可以将innodb事务隔离级别设置为READ COMMTTED, 以获得更好的并发性
+
+MIXED模式下, 默认情况下采取STATEMENT格式存储二进制日志, 但是有些情况会使用ROW格式
+
+  1. 使用了uuid()、user()等不确定函数
+  2. 使用了临时表
+
+
+
 # 4 表
 
 主要讲述和表在磁盘的存储结构.
@@ -323,3 +379,13 @@ innodb中, 表是根据主键顺序存放的, 如果表没有主键, 会按以�
 |Yes| Yes | 1. 拆分LeafePage<br/>2. 小于中间节点的放左边<br/>3. 大于或等于中间节点的放右边<br/>4. 拆分IndexPage<br/>5. 小于中间节点的放左边<br/>6. 大于或等于中间节点的放右边<br/>7. 将中间的节点放入到上层IndexPage中 |
 || | |
 
+# 7. 事务
+
+事务是数据库区别于文件系统的重要特性
+
+Innodb的存储引擎的事务完全符合ACID特性
+
+1. 原子性
+2. 一致性
+3. 隔离性
+4. 持久性

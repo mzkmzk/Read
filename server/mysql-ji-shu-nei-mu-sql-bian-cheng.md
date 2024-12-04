@@ -122,7 +122,7 @@ No query specified
 在生日问题中, 一般对闰月29号生日的处理如下:
 
 - 如果是闰月, 那么返回2月29日
-- 如果不是闰月, 则返回3月1日
+- 如果不是闰月, 则返回3月1日
 
 
 若当年无29号时
@@ -194,7 +194,7 @@ from (
 
 ### 2.4.2 重叠问题
 
-示例数据表-sessionid
+示例数据表-sessionid
 
 ```bash
 mysql> select * from sessions where  app = 'app1' and usr = 'user1';
@@ -210,7 +210,7 @@ mysql> select * from sessions where  app = 'app1' and usr = 'user1';
 ```
 
 这张表可以理解为90年代宽带按时间收费的表
-
+
 > 标示重叠
 
 查询哪个时间段有重叠
@@ -349,7 +349,7 @@ group by app;
 |mediumint|3|-2^23/0|(2^23-1)/(2^24-1))|
 |int|4|-2^31/0|(2^31-1)/(2^32-1))|
 |bigint|8|-2^63/0|(2^63-1)/(2^64-1))|
-
+
 
 # 3. 查询处理
 
@@ -376,15 +376,15 @@ mysql顺序
 每一步都会生成一个虚拟表
 
 * from子句中的左表`<left_table>`和右边`<right_table>`执行笛卡尔积产生虚拟表VT1
-* on: 对虚拟表VT1应用ON筛选, 只有符合`<join_condition>`的行才被插入虚拟VT2中
+* on: 对虚拟表VT1 应用ON筛选, 只有符合`<join_condition>`的行才被插入虚拟VT2中
 * join: 如果指定了`outer join`, 那么保留表中未匹配的行作为外部行添加到虚拟表VT2中, 产生虚拟表VT3, 如果FROM子句包含两张表以上, 则对上一个连接生成的结果表VT3和下一个表重复执行步骤1~步骤3, 直到所有表结束
 * where: 对虚拟表VT3应用where过滤条件, 只有符合`<where_condition>`的记录才被插入到虚拟表V4中
 * group by: 根据group by子句中的列, 对VT4中的记录进行分组产生, 产生VT5
-* cube | rollup: 对VT5表, 进行CUBE或ROLLUP操作产生表VT6
+* cube | rollup: 对VT5表, 进行CUBE或ROLLUP操作产生表VT6
 * having: 对虚拟表VT6应用having过滤器, 只有符合`<having_condition>`的才会被插入到VT7中
 * select: 第二次执行select操作, 选择指定的列, 插入到虚拟表VT8中
 * distinct: 去除重复数据, 产生虚拟表VT9
-* order by: 将VT9按照`<order_by_list>`进行排序操作, 产生虚拟表VT10
+* order by: 将VT9按照`<order_by_list>`进行排序操作, 产生虚拟表VT10
 * limit: 取出指定行的记录, 产生虚拟表VT11
 
 
@@ -713,14 +713,14 @@ not in 是 `<> all`的别名
 
 ## 4.2 独立子查询
 
-假如想要知道每个美国员工都至少处理过一个订单的所有客户
+假如想要知道每个美国员工都至少处理过一个订单的所有客户
 
 假如我们知道美国员工有5个, id为1,2,3,4,8
 
 那么sql可以写为
 
 ```bash
-select customer_id
+select customer_id
 from orders
 where employee_id in (1, 2, 3, 4, 8)
 group by customer_id
@@ -730,7 +730,7 @@ having count(distinct employee_id) = 5
 现在替换为子查询
 
 ```bash
-select customer_id
+select customer_id
 from orders
 where employee_id in (select employee_id from employees where country = 'USA')
 group by customer_id
@@ -855,7 +855,7 @@ where country = 'Spain'
         (select customer_id from orders  )
 ```
 
-这个时候 如果orders里没有customer_id为null的行, 则没问题
+这个时候 如果orders里没有customer_id为null的行, 则没问题
 
 但是一旦有,
 
@@ -1180,11 +1180,11 @@ B+数使用填充因子来控制树的删除变化, 填充因子可设的最小�
 
 ## 9.4 B+树索引
 
-在InnoDB索引中, 每个页的大小为16KB
+在InnoDB索引中, 每个页的大小为16KB
 
 ### 9.4.1 InnoDB B+树索引
 
-聚集索引是根据主键创建的一颗B+树
+聚集索引是根据主键创建的一颗B+树
 
 聚焦索引的叶子节点存放了表中的所有记录
 
@@ -1194,7 +1194,7 @@ B+数使用填充因子来控制树的删除变化, 填充因子可设的最小�
 
 ### 9.5 Cardinality
 
-### 9.5.1 什么是Cardinality
+### 9.5.1 什么是Cardinality
 
 在访问表中很小一部分行时, 使用B+树索引才有意义
 
@@ -1260,7 +1260,7 @@ alter table 9_6_2_buy_log add key ( userid );
 alter table 9_6_2_buy_log add key (userid, buy_date);
 ```
 
-根据userid查询
+根据userid查询
 
 ```bash
 mysql> explain select * from 9_6_2_buy_log where userid=2;
