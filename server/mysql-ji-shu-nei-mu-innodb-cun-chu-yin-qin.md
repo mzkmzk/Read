@@ -335,7 +335,55 @@ MIXED模式下, 默认情况下采取STATEMENT格式存储二进制日志, 但�
   1. 使用了uuid()、user()等不确定函数
   2. 使用了临时表
 
+## 3.6 Innodb存储引擎文件
 
+### 3.6.1 表空间文件
+
+Innodb将存储的数据按表空间(tablespace)进行存放
+
+查看innodb的文件配置
+
+```bash
+mysql>  show variables like "innodb_data_file_path";
++-----------------------+------------------------+
+| Variable_name         | Value                  |
++-----------------------+------------------------+
+| innodb_data_file_path | ibdata1:12M:autoextend |
++-----------------------+------------------------+
+```
+
+这个表示ibdata1大小为12M, 当用完了,autoextend表示会自动增长
+
+也可设置为/db1/ibdata1:12M;/db2/ibdata1:12M:autoextend
+
+表示两个文件共同承担表空间, 如果两个文件在不同磁盘里, 磁盘负载会被平均
+
+如果设置了innodb_file_per_table, 每个表都会有单独的表空间文件
+
+```bash
+mysql> show variables like 'innodb_file_per_table';
++-----------------------+-------+
+| Variable_name         | Value |
++-----------------------+-------+
+| innodb_file_per_table | ON    |
++-----------------------+-------+
+1 row in set (0.02 sec)
+```
+文件的命令是,数据库为目录名,文件名问表名.ibd, 例如我有个表是`study_mysql_002_go_mysql_canal.canal_test`
+
+```bash
+bash-4.2$ ls -llah
+total 136K
+drwxr-x--- 2 mysql mysql 4.0K Dec  9 14:29 .
+drwxrwxr-x 1 mysql root  4.0K Dec  5 15:44 ..
+-rw-r----- 1 mysql mysql 8.5K Dec  9 14:29 canal_test.frm
+-rw-r----- 1 mysql mysql 112K Dec  9 14:29 canal_test.ibd
+-rw-r----- 1 mysql mysql   65 Dec  5 15:44 db.opt
+bash-4.2$ pwd
+/var/lib/mysql/data/study_mysql_002_go_mysql_canal
+```
+
+独立的表空间只存储数据、索引、插入缓存BITMAP等信息, 其他信息还是存放在默认表空间
 
 # 4 表
 
@@ -351,6 +399,532 @@ innodb中, 表是根据主键顺序存放的, 如果表没有主键, 会按以�
 ## 4.2 Innodb逻辑存储结构
 
 表空间由段、区、页组成
+
+![Innodb逻辑存储结构](<Innodb逻辑存储结构.jpg>)
+
+### 4.2.1 表空间
+
+设置了innodb_file_per_table为on时, 每个表都会自己一个独立的表空间, 但还是会有部分数据内容存储在共享表空间, 以下为单独表空间和共享表空间存储的数据内容
+
+![innodb数据存放-共享表和单独表](innodb数据存放-共享表和单独表.jpg)
+
+
+可以使用py_innodb_page_info.py进行表空间的分析
+
+下载地址: https://github.com/qingdengyue/david-mysql-tools/tree/master/py_innodb_page_type
+
+使用方式
+
+```bash
+> python2 py_innodb_page_info.py /tmp/ibdata1
+# 总页数
+Total number of page: 768: 
+# 插入缓存的空闲列表的页数
+Insert Buffer Bitmap: 8
+# 
+System Page: 136
+Transaction system Page: 2
+# 可用页
+Freshly Allocated Page: 468
+# undo页
+Undo Log Page: 110
+File Segment inode: 13
+# 数据页
+B-tree Node: 23
+File Space Header: 8
+```
+
+### 4.2.2 段
+
+表空间有叶子节点段、非叶子节点段、回滚段组成
+
+叶子节点段其实就是数据段
+
+非叶子节点段就是索引段
+
+### 4.2.3 区
+
+区是由连续的页组成的, 每个区的大小为1MB, 为了保证区中页的连续性, Innodb存储引擎一次从磁盘申请4~5个区
+
+页的大小为16KB, 一个区一共有64个(1024/16)连续的页面
+
+```bash
+# 查看页大小
+mysql > SHOW VARIABLES LIKE 'innodb_page_size';
++-----------------+-------+
+| Variable_name   | Value |
++-----------------+-------+
+| innodb_page_size| 16384 |
++-----------------+-------+
+```
+
+```bash
+# 创建mysql表
+mysql > create table read_innodb_4_2_3_t1 (
+  col1 int not null auto_increment,
+  col2 varchar(7000),
+  primary key (col1))  ENGINE=InnoDB character set utf8;
+);
+
+# 查看刚创建时私有表的大小
+bash-4.2$ ls -llh
+total 132K
+-rw-r----- 1 mysql mysql  65 Dec 25 09:31 db.opt
+-rw-r----- 1 mysql mysql 29K Dec 25 09:38 read_innodb_4_2_3_t1.frm
+-rw-r----- 1 mysql mysql 96K Dec 25 09:38 read_innodb_4_2_3_t1.ibd
+bash-4.2$ pwd
+/var/lib/mysql/data/read_innodb
+
+# 查看刚创建表时的页分析
+➜  py_innodb_page_type git:(master) ✗ python2 ./py_innodb_page_info.py -v  /tmp/read_innodb_4_2_3_t1.ibd
+page offset 00000000, page type <File Space Header>
+page offset 00000001, page type <Insert Buffer Bitmap>
+page offset 00000002, page type <File Segment inode>
+page offset 00000003, page type <B-tree Node>, page level <0000>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+Total number of page: 6:
+Freshly Allocated Page: 2
+Insert Buffer Bitmap: 1
+File Space Header: 1
+B-tree Node: 1
+File Segment inode: 1
+
+# 插入记录
+mysql > insert read_innodb_4_2_3_t1 select null, repeat('a', 7000);
+
+# 分析页数量
+➜  py_innodb_page_type git:(master) ✗ python2 ./py_innodb_page_info.py -v  /tmp/read_innodb_4_2_3_t1.ibd
+page offset 00000000, page type <File Space Header>
+page offset 00000001, page type <Insert Buffer Bitmap>
+page offset 00000002, page type <File Segment inode>
+page offset 00000003, page type <B-tree Node>, page level <0000>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+Total number of page: 6:
+Freshly Allocated Page: 2
+Insert Buffer Bitmap: 1
+File Space Header: 1
+B-tree Node: 1
+File Segment inode: 1
+
+# 这里其实会比较奇怪, 因为我的col2是utf8, 所有应该占据了7000 * 3 / 1024 = 20kb 大小, 超出我页的限制大小16K, 但是b+树还是只有一个页节点
+
+# 继续插入记录
+mysql > insert read_innodb_4_2_3_t1 select null, repeat('a', 7000);
+
+➜  py_innodb_page_type git:(master) ✗ python2 ./py_innodb_page_info.py -v  /tmp/read_innodb_4_2_3_t1.ibd
+page offset 00000000, page type <File Space Header>
+page offset 00000001, page type <Insert Buffer Bitmap>
+page offset 00000002, page type <File Segment inode>
+page offset 00000003, page type <B-tree Node>, page level <0000>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+Total number of page: 6:
+Freshly Allocated Page: 2
+Insert Buffer Bitmap: 1
+File Space Header: 1
+B-tree Node: 1
+File Segment inode: 1
+
+# 继续插入记录
+mysql> insert read_innodb_4_2_3_t1 select null, repeat('a', 7000);
+
+➜  py_innodb_page_type git:(master) ✗ python2 ./py_innodb_page_info.py -v  /tmp/read_innodb_4_2_3_t1.ibd
+page offset 00000000, page type <File Space Header>
+page offset 00000001, page type <Insert Buffer Bitmap>
+page offset 00000002, page type <File Segment inode>
+page offset 00000003, page type <B-tree Node>, page level <0001>
+page offset 00000004, page type <B-tree Node>, page level <0000>
+page offset 00000005, page type <B-tree Node>, page level <0000>
+Total number of page: 6:
+Insert Buffer Bitmap: 1
+File Space Header: 1
+B-tree Node: 3
+File Segment inode: 1
+```
+插入了3条记录后, 开始分裂成3个节点, 其中 00000003还是非叶子节点, 因为page level 为1(0则为叶子节点)
+
+批量插入60条一样的记录
+
+[批量创建数据sql](./create_data.sql)
+
+```bash
+#插入后, 文件从96K大小上升为592K
+➜  py_innodb_page_type git:(master) ✗ ls -lhla /tmp/read_innodb_4_2_3_t1.ibd
+-rw-r-----  1 maizhikun  wheel   592K 12 30 09:41 /tmp/read_innodb_4_2_3_t1.ibd
+
+# 页分析
+ python2 ./py_innodb_page_info.py -v  /tmp/read_innodb_4_2_3_t1.ibd
+page offset 00000000, page type <File Space Header>
+page offset 00000001, page type <Insert Buffer Bitmap>
+page offset 00000002, page type <File Segment inode>
+page offset 00000003, page type <B-tree Node>, page level <0001>
+page offset 00000004, page type <B-tree Node>, page level <0000>
+page offset 00000005, page type <B-tree Node>, page level <0000>
+page offset 00000006, page type <B-tree Node>, page level <0000>
+page offset 00000007, page type <B-tree Node>, page level <0000>
+page offset 00000008, page type <B-tree Node>, page level <0000>
+page offset 00000009, page type <B-tree Node>, page level <0000>
+page offset 0000000a, page type <B-tree Node>, page level <0000>
+page offset 0000000b, page type <B-tree Node>, page level <0000>
+page offset 0000000c, page type <B-tree Node>, page level <0000>
+page offset 0000000d, page type <B-tree Node>, page level <0000>
+page offset 0000000e, page type <B-tree Node>, page level <0000>
+page offset 0000000f, page type <B-tree Node>, page level <0000>
+page offset 00000010, page type <B-tree Node>, page level <0000>
+page offset 00000011, page type <B-tree Node>, page level <0000>
+page offset 00000012, page type <B-tree Node>, page level <0000>
+page offset 00000013, page type <B-tree Node>, page level <0000>
+page offset 00000014, page type <B-tree Node>, page level <0000>
+page offset 00000015, page type <B-tree Node>, page level <0000>
+page offset 00000016, page type <B-tree Node>, page level <0000>
+page offset 00000017, page type <B-tree Node>, page level <0000>
+page offset 00000018, page type <B-tree Node>, page level <0000>
+page offset 00000019, page type <B-tree Node>, page level <0000>
+page offset 0000001a, page type <B-tree Node>, page level <0000>
+page offset 0000001b, page type <B-tree Node>, page level <0000>
+page offset 0000001c, page type <B-tree Node>, page level <0000>
+page offset 0000001d, page type <B-tree Node>, page level <0000>
+page offset 0000001e, page type <B-tree Node>, page level <0000>
+page offset 0000001f, page type <B-tree Node>, page level <0000>
+page offset 00000020, page type <B-tree Node>, page level <0000>
+page offset 00000021, page type <B-tree Node>, page level <0000>
+page offset 00000022, page type <B-tree Node>, page level <0000>
+page offset 00000023, page type <B-tree Node>, page level <0000>
+page offset 00000000, page type <Freshly Allocated Page>
+Total number of page: 37:
+Freshly Allocated Page: 1
+Insert Buffer Bitmap: 1
+File Space Header: 1
+B-tree Node: 33
+File Segment inode: 1
+```
+
+再增加一条数据
+
+```bash
+
+mysql> insert read_innodb_4_2_3_t1 select null, repeat('a', 7000);
+Query OK, 1 row affected (0.02 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+# 查看ibd文件大小
+bash-4.2$ ll -ah
+total 2.1M
+drwxr-x--- 2 mysql mysql 4.0K Dec 25 09:38 .
+drwxrwxr-x 1 mysql root  4.0K Dec 25 09:31 ..
+-rw-r----- 1 mysql mysql   65 Dec 25 09:31 db.opt
+-rw-r----- 1 mysql mysql  29K Dec 25 09:38 read_innodb_4_2_3_t1.frm
+-rw-r----- 1 mysql mysql 2.0M Dec 30 09:57 read_innodb_4_2_3_t1.ibd
+bash-4.2$
+
+# 页分析
+➜  py_innodb_page_type git:(master) ✗ python2 ./py_innodb_page_info.py -v  /tmp/read_innodb_4_2_3_t12.ibd
+page offset 00000000, page type <File Space Header>
+page offset 00000001, page type <Insert Buffer Bitmap>
+page offset 00000002, page type <File Segment inode>
+page offset 00000003, page type <B-tree Node>, page level <0001>
+page offset 00000004, page type <B-tree Node>, page level <0000>
+page offset 00000005, page type <B-tree Node>, page level <0000>
+page offset 00000006, page type <B-tree Node>, page level <0000>
+page offset 00000007, page type <B-tree Node>, page level <0000>
+page offset 00000008, page type <B-tree Node>, page level <0000>
+page offset 00000009, page type <B-tree Node>, page level <0000>
+page offset 0000000a, page type <B-tree Node>, page level <0000>
+page offset 0000000b, page type <B-tree Node>, page level <0000>
+page offset 0000000c, page type <B-tree Node>, page level <0000>
+page offset 0000000d, page type <B-tree Node>, page level <0000>
+page offset 0000000e, page type <B-tree Node>, page level <0000>
+page offset 0000000f, page type <B-tree Node>, page level <0000>
+page offset 00000010, page type <B-tree Node>, page level <0000>
+page offset 00000011, page type <B-tree Node>, page level <0000>
+page offset 00000012, page type <B-tree Node>, page level <0000>
+page offset 00000013, page type <B-tree Node>, page level <0000>
+page offset 00000014, page type <B-tree Node>, page level <0000>
+page offset 00000015, page type <B-tree Node>, page level <0000>
+page offset 00000016, page type <B-tree Node>, page level <0000>
+page offset 00000017, page type <B-tree Node>, page level <0000>
+page offset 00000018, page type <B-tree Node>, page level <0000>
+page offset 00000019, page type <B-tree Node>, page level <0000>
+page offset 0000001a, page type <B-tree Node>, page level <0000>
+page offset 0000001b, page type <B-tree Node>, page level <0000>
+page offset 0000001c, page type <B-tree Node>, page level <0000>
+page offset 0000001d, page type <B-tree Node>, page level <0000>
+page offset 0000001e, page type <B-tree Node>, page level <0000>
+page offset 0000001f, page type <B-tree Node>, page level <0000>
+page offset 00000020, page type <B-tree Node>, page level <0000>
+page offset 00000021, page type <B-tree Node>, page level <0000>
+page offset 00000022, page type <B-tree Node>, page level <0000>
+page offset 00000023, page type <B-tree Node>, page level <0000>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000040, page type <B-tree Node>, page level <0000>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+Total number of page: 128:
+Freshly Allocated Page: 91
+Insert Buffer Bitmap: 1
+File Space Header: 1
+B-tree Node: 34
+File Segment inode: 1
+```
+
+### 4.2.4 页
+
+页场景的类型有
+
+1. 数据页(B-tree Node)
+2. undo页(unodo log page)
+3. 系统页(system page)
+4. 事务数据页(Transaction system page)
+5. 插入缓冲位图页(insert buffer bitmap)
+6. 插入缓冲空闲列表页(inser buffer free list)
+7. 未压缩的二进制大对象页(uncompressed blob page)
+8. 压缩的二进制大对象页(compressed blob page)
+
+### 4.2.5 行
+
+innodb是按行存储的, 页存放的记录最多允许存放 16KB / 2 -200 行的记录, 既7992行
+
+## 4.3 Innodb 行记录格式
+
+查看行存储格式:  `show table status like '表名'`
+
+```bash
+mysql> show table status like 'read_innodb_4_2_3_t1' \G;
+*************************** 1. row ***************************
+           Name: read_innodb_4_2_3_t1
+         Engine: InnoDB
+        Version: 10
+     Row_format: Dynamic
+           Rows: 31
+ Avg_row_length: 17441
+    Data_length: 540672
+Max_data_length: 0
+   Index_length: 0
+      Data_free: 0
+ Auto_increment: 65
+    Create_time: 2024-12-25 09:38:35
+    Update_time: 2024-12-30 09:57:31
+     Check_time: NULL
+      Collation: utf8_general_ci
+       Checksum: NULL
+ Create_options:
+        Comment:
+1 row in set (0.00 sec)
+
+ERROR:
+No query specified
+```
+
+常见的格式有
+
+
+|格式|特点|
+|---|---|
+|Dynamic|mysql5.7后默认, 对于 TEXT, BLOB 以及很长的 VARCHAR 类型列，Dynamic 行格式会将数据的 一部分 存储在页的行记录部分，其余部分存储在溢出页中|
+|Compact|所有列尽量存储在主存储页中，溢出页使用较少|
+|Compressed|类似于 Dynamic，但对数据页进行压缩|
+
+### 4.3.1 Compact 行记录格式
+
+![Compact行记录结构](Compact行记录结构.jpg)
+
+1. 变长字段字段: 按照字段的倒序放置, 列的长度小于等于255, 则用一个字节表示, 大于255, 则用两个字节表示. 不可以超过两字节, 因为varchar的最大长度为65535
+2. Null标记位: 该行中是否有NULL值, 转为二进制, 对应的位数为1,则表示对应的行数为NULL值
+3. 事务ID: 6字节
+4. 回滚指针列: 7字节
+5. rowid: 没有定义主键则会增加这一列, 长度为6字节
+3. 记录头信息: 固定占用5字节(40bit)
+
+Compact记录头信息
+
+|名称|大小(bit)|描述|
+|---|---|---|
+|()|1|未知|
+|()|1|未知|
+|deleted_flag|1|该行是否已删除|
+|min_rec_flag|1|为1, 如果该行时预先被定义的最小记录|
+|n_owned|4|该记录拥有的记录数|
+|heap_no|13|索引堆中该条记录的排序书序|
+|record_type|3|记录类型, 000表示普通、001表示B+树节点指针、010表示Infimum, 011表示Supremum, 1xx表示保留
+|next_record|16|页中下一条记录的相对位置|
+|Total|40||
+
+```bash
+# 创建demo表
+mysql > CREATE TABLE read_innodb_4_3_1_mytest(
+  t1 VARCHAR(10),
+  t2 VARCHAR(10),
+  t3 CHAR(10),
+  t4 VARCHAR(10)
+) ENGINE=INNODB CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+mysql> insert into read_innodb_4_3_1_mytest values ('a', 'bb', 'bb', 'ccc');
+mysql> insert into read_innodb_4_3_1_mytest values ('d', 'ee', 'ee', 'fff');
+mysql> insert into read_innodb_4_3_1_mytest values ('d', NULL, NULL, 'fff');
+
+# 输出
+hexdump -C -v /tmp/read_innodb_4_3_1_2.ibd > a.log
+```
+
+![alt text](QQ_1735864394102.png)
+
+
+
+```
+03 02 01 // 变长字段长度列表, 逆序
+00 // NULL标志位, 第一行没有NULL
+00 00 10 00 2C // Record Header 固定5字节长度
+00 00 00 00 02 03 // RowId Innodb自动创建 6字节
+00 00 00 00 07 30 //TransactionID
+A5 00 00 01 19 01 10 //Roll Pointer
+61 // 列1 数据a
+62 62 // 列2 数据bb
+62 62 20 20 20 20 20 20 20 20 //列3 数据bb
+63 63 63 列4 数据ccc
+```
+
+1. char用0x20填充直到占满10个字节
+2. Record Header最后两个字节为next_recorder, 就是2C就是下一个记录的偏移量(这里没弄明白是怎么找到下条记录的)
+
+再看看第三行记录
+
+![alt text](QQ_1735868189230.png)
+
+
+```
+03 01 // 变长字段长度列表, 逆序
+06 // NULL标志位, 转为二进制位00000110, 为1的代表第二列和第三列的数据为NULL
+00 00 20 FF 98 // Record Header 固定5字节长度
+00 00 00 00 02 05 // RowId Innodb自动创建 6字节
+00 00 00 00 07 36 //TransactionID
+A9 00 00 01 1D 01 10 //Roll Pointer
+64 // 列1 数据d
+66 66 66 66 列4 数据fff
+```
+
+### 4.3.3 行溢出数据
+
+1. 最高变长65535字节是指所有varchar列的长度总和
+2. 当发生行溢出时, 数据存放在类型业务 Uncompress BLOB页中
+
+
+```bash
+create table read_innodb_4_3_3_t (
+  a varchar(65532)
+) engine=innodb charset=latin1;
+
+insert into read_innodb_4_3_3_t select repeat('a', 65532);
+
+> python2 /Users/maizhikun/project/38200-david-mysql-tools/py_innodb_page_type/py_innodb_page_info.py /tmp/read_innodb_4_3_3.ibd
+Total number of page: 9:
+Insert Buffer Bitmap: 1
+Uncompressed BLOB Page: 5
+File Space Header: 1
+B-tree Node: 1
+File Segment inode: 1
+```
+
+开始
+![alt text](QQ_1736298660879.png)
+
+结束
+![alt text](QQ_1736298779219.png)
+
+从00010028到00013FF7
+
+## 4.4 InnoDB数据页结构
+
+![页结构](页结构.jpg)
 
 # 5. 索引算法
 
@@ -389,3 +963,4 @@ Innodb的存储引擎的事务完全符合ACID特性
 2. 一致性
 3. 隔离性
 4. 持久性
+
