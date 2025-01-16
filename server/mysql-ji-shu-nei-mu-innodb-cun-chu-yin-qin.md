@@ -926,6 +926,187 @@ File Segment inode: 1
 
 ![页结构](页结构.jpg)
 
+### 4.4.1 File Header
+
+总共38字节
+
+|名称|大小(字节)|说明|
+|---|---|---|
+|FIL_PAGE_SPACE_OR_CHKSUM|4|该页的checksum值|
+|FIL_PAGE_OFFSET|4|表空间中页的偏移量, 例如.ibd占用1GB, 页大小为16K, 那么总共有65536页, 该字段表明该页在所有页的位置, 若表空间id为10, 那么搜索页(10,1)就是查表中第二个页|
+|FIL_PAGE_PREV|4|当前页的上一个页, B+tree特性决定了叶子节点必须是双向列表|
+|FIL_PAGE_NEXT|4|当前页的下一个页, B+tree特性决定了叶子节点必须是双向列表|
+|FIL_PAGE_LSN|8|该页最后被修改的日志序列位置LSN(log sequence number)|
+|FIL_PAGE_TYPE|2|innodb页的类型|
+|FIL_PAGE_FILE_FLUSH_LSN|8|系统表空间的一个页中定义, 代表文件至少被刷新到了该LSN值, 独立表空间值为0|
+|FIL_PAGE_ARCH_LOG_NO_OR_SPACE_ID|4|页属于哪个表空间|
+
+
+
+FIL_PAGE_TYPE类型枚举
+
+|名称|十六进制|说明|
+|---|---|---|
+|FIL_PAGE_INDEX|0x45BF|B+树叶节点|
+|FIL_PAGE_UNDO_LOG|0x0002|Undo log页|
+|FIL_PAGE_INODE|0x0003|索引节点|
+|FIL_PAGE_IBUF_FREE_LIST|0x0004|insert buffer空闲列表|
+|FIL_PAGE_TYPE_ALLOCATED|0x0000|该页为最新分配|
+|FIL_PAGE_IBUF_BITMAP|0x0005|insert buffer 位图|
+|FIL_PAGE_TYPE_SYS|0x0006|系统页|
+|FIL_PAGE_TYPE_TRX_SYS|0x0007|事务系统数据|
+|FIL_PAGE_TYPE_ESP_HDR|0x0008|File Space Header|
+|FIL_PAGE_TYPE_XDES|0x0009|扩展描述页|
+|FIL_PAGE_UNDO_BLOB|0x000A|BLOB页|
+
+### 4.4.2 Page Header
+
+该部分用来记录数据页的状态信息, 总共56字节
+
+|名称|大小(字节)|说明|
+|---|---|---|
+|PAGE_N_DIR_SLOTS|2|在Page Directory中的Slot数
+|PAGE_HEAP_TOP|2|堆中第一个记录的指针|
+|PAGE_N_HEAP|2|堆中的记录数, 占用2字节, 第15位表示行记录格式|
+|PAGE_FREE|2|指向可重用空间的首指针|
+|PAGE_GARBAGE|2|已删除记录的字节数, 既delete flag为1的记录大小总数|
+|PAGE_LAST_INSERT|2|最后插入记录的位置|
+|PAGE_DIRECTION|2|最后插入的方向|
+|PAGE_N_DIRECTION|2|一个方向连续插入记录的数量|
+|PAGE_N_RECS|2|该页中记录的数量|
+|PAGE_MAX_TRX_ID|8|修改当前页的最大事务ID, 注意该值仅在Secondary Index中定义|
+|PAGE_LEVEL|2|当前页在索引树中的位置, 0x00代表叶节点, 既叶子点总是在第0层|
+|PAGE_INDEX_ID|8|索引ID|表示当前页属于哪个索引|
+|PAGE_BTR_SEG_LEAF|10|B+树数据页非叶子节点所在段的segment header. 该值仅在b+树的Root页中定义|
+|PAGE_BTR_SEG_TOP|10|B+树数据页所在段的segment header. 该值仅在B+树的Root页定义|
+
+PAGE_DIRECTION的枚举
+
+|名称|16进制|
+|---|---|
+|PAGE_LEFT|0x01|
+|PAGE_RIGHT|0x02|
+|PAGE_SAME_REC|0x03|
+|PAGE_SAME_PAGE|0x04|
+|PAGE_NO_DIRECTION|0x05|
+
+### 4.4.3 Infimum和Supremum Record
+
+这两个是数据页中两个虚拟的行记录
+
+Infimum记录比该页任何主键都要小的值
+
+Supremum Record记录比该页任何主键都要大的值
+
+### 4.4.4 User Record和Free Space
+
+在一条记录被删除后, 该空间会被加入到空闲链表中
+
+### 4.4.5 Page Directory
+
+记录的是记录的相对位置(相对于页)
+
+### 4.4.6 File Trailer
+
+为了检查页是否已经完整写入磁盘, 只有FIL_PAGE_END_LSN部分, 占用8字节
+
+前4字节是该页的checksum值, 最后4字节和File Header中中的FIL_PAGE_LSN相同
+
+将这两个值于File Header的FIL_PAGE_SPACE_OR_CHECKSUM和FIL_PAGE_LSN值进行比较, 看是否一致
+
+### 4.4.7 InnoDB数据页结构示例分析
+
+插入表
+
+```bash
+mysql > CREATE TABLE read_innodb.read_innodb_4_4_7_t (
+  a int unsigned not null auto_increment,
+  b char(10),
+  primary key(a)
+) engine=Innodb charset=utf8;
+```
+插入数据100条数据, eg: insert read_innodb.read_innodb_4_2_3_t1 select null, repeat(char(97 + RAND() * 26), 10);
+
+[批量创建数据sql2](./create_data2.sql)
+
+```bash
+python2 /Users/maizhikun/project/38200-david-mysql-tools/py_innodb_page_type/py_innodb_page_info.py -v  /tmp/read_innodb_4_4_7_t.ibd
+page offset 00000000, page type <File Space Header>
+page offset 00000001, page type <Insert Buffer Bitmap>
+page offset 00000002, page type <File Segment inode>
+page offset 00000003, page type <B-tree Node>, page level <0000>
+page offset 00000000, page type <Freshly Allocated Page>
+page offset 00000000, page type <Freshly Allocated Page>
+Total number of page: 6:
+Freshly Allocated Page: 2
+Insert Buffer Bitmap: 1
+File Space Header: 1
+B-tree Node: 1
+File Segment inode: 1
+```
+看B+树的数据,是第三页, 从0x0000c000开始看(16K*3=0xc000)
+
+![alt text](QQ_1736905740736.png)
+
+File Header的38字节
+
+- A1 66 AE 46 数据页的checksum值(4)
+- 00 00 00 03 页的偏移量(4)
+- FF FF FF FF 前一页, 因为只有一个数据页,所以是 0xffffffff(4)
+- FF FF FF FF 后一页, 因为只有一个数据页,所以是 0xffffffff(4)
+- 00 00 00 00 00 32 D6 CC, 页的LSN(8)
+- 45 BF, 页类型 为数据页(2)
+- 00 00 00 00 00 00 00 00, 独立表空间都为0(8)
+- 00 00 00 00 2A 表空间的SPACE ID(4)
+
+Page Header的56字节
+
+![alt text](QQ_1737002309672.png)
+
+- 00 1A, Page Directory中的Slot数, 为26个, 每个槽占2字节
+- 0D C0, 空闲空间开始的位置偏移量, 0xc000+0xcdc0=0xcdc0 ![alt text](QQ_1736992594467.png)
+- 80 66, 堆中记录数, 当行记录为compact时, 初始值为0x0802, 0x8066-0x8002=0x64, 代表页中实际有一百条记录
+- 00 00, 指向可重用空间的首指针, 没有删除记录, 所以为0
+- 00 00 已删除记录的字节数, 没有删除记录, 所以为0
+- 0D A5, 最后插入记录的位置, 应该在0xc0000+0xc0da5=0xcda5 ![alt text](QQ_1736993090767.png)
+- 00 02, 最后插入的方向是通过自增方式增加记录的, 所以向右 0x0002
+- 00 63, 一个方向连续插入记录的数量, 我们插入了100条记录, 所以这里是99
+- 00 64, 该页中记录的数量 100
+- 00 00 00 00 00 00 00 00, 修改当前页的最大事务ID, 注意该值仅在Secondary Index中定义
+- 00 00, 代表是叶子节点
+- 00 00 00 00 00 00 00 3E, 索引ID
+- 00 00 00 2A 00 00 00 02 00 F2
+- 00 00 00 2A 00 00 00 02 00 32
+- Infimum伪行记录
+  - 01 00 02 00 1C recorder header, 00 01代表下一个记录的偏移量, 当前位置(0x063)+偏移量(0x001c)=0xc07f
+  - 69 6E 66 69 6D 75 6D 00 只有一个列的伪行记录, 记录内网就是 Infimum, 多一个0x00字节
+- Supermum伪行记录
+  - 05 00 0B 00 00
+  - 73 75 70 72 65 6D 75 6D
+
+Infimum指引的下一个记录为, 0xc07f的数据为
+
+![alt text](QQ_1737002711777.png)
+
+- 00 00 00 01: 主键
+- 00 00 00 00 07 5C: Transaction ID
+- C5 00 00 01 4C 01 10: Roll Pointer
+- 79 79 79 79 79 79 79 79 79 79: b列yyyyyyyy
+
+```bash
+mysql> mysql> select * from read_innodb_4_4_7_t limit 1;
++---+------------+
+| a | b          |
++---+------------+
+| 1 | yyyyyyyyyy |
++---+------------+
+```
+
+通过recorder header 最后两个字节就可以找到下一行的记录偏移量, 得到该页中所有的行记录
+通过Page header里的PAGE_PREV和PAGE_NEXT就知道上一页和下一页, 找到Innodb存储所有行的记录
+
+
+
 # 5. 索引算法
 
 ## 5.2 数据结构和算法
