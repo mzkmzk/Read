@@ -249,7 +249,7 @@ sync_binlog=1为采用同步写磁盘的方式写二进制
 
 ![当is_innodb_support_xa为0时](QQ_1728871978055.png)
 
-{% details "代码展开" %}
+
 ```bash
 flowchart LR
   创建事务 --> 执行update-sql
@@ -265,13 +265,13 @@ flowchart LR
   is_innodb_support_xa -->|否| writeLog
   
 ```
-{% enddetails %}
+
 
 当is_innodb_support_xa为1时, 当写入binlog后, mysql重启会检查prepare的事务是否已提交了binlog, 提交了的话, prepare的会执行commit环节
 
 ![当is_innodb_support_xa为1时](QQ_1728872137326.png)
 
-{% details "代码展开" %}
+
 ```bash
 @startuml
 |innodb_server|
@@ -295,7 +295,7 @@ else
 detach
 @enduml
 ```
-{% enddetails %}
+
 
 [参考链接](https://github.com/mao888/golang-guide/blob/main/mysql/MYSQL%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86.md#mysql%E7%9A%84binlog%E6%9C%89%E5%87%A0%E7%A7%8D%E5%BD%95%E5%85%A5%E6%A0%BC%E5%BC%8F%E5%88%86%E5%88%AB%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB)
 
@@ -823,7 +823,7 @@ No query specified
 3. 事务ID: 6字节
 4. 回滚指针列: 7字节
 5. rowid: 没有定义主键则会增加这一列, 长度为6字节
-3. 记录头信息: 固定占用5字节(40bit)
+6. 记录头信息: 固定占用5字节(40bit)
 
 Compact记录头信息
 
