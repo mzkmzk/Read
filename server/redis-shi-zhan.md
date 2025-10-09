@@ -1,4 +1,4 @@
-# Redis实战
+ # Redis实战
 
 ## 1. 初始redis
 
@@ -61,7 +61,7 @@ OK
 "item"
 127.0.0.1:6379> lrange list-key 0 -1
 1) "item2"
-2) "item"set
+2) "item"
 ```
 
 ### 1.2.3 Redis的集合
@@ -74,7 +74,7 @@ OK
 |SMEMBERS|smembers key-name, 返回集合包含的所在元素|
 |SISMEMBER|sismember key-name item, 检查给定元素是否存在于集合中|
 |SREM|srem key-name item [item ...]如果给定的元素存在于集合中, 那么移除这个元素, 返回移除元素的个数|
-|SCARD|scard key-name, 返回集合包含的所有元素|
+|SCARD|scard key-name, 返回集合包含的所有元素的数量|
 |srandmember|srandmember key-name [count], 从集合随机返回一个或多个元素, 当count为整数时, 随机元素不会重复, 为负数时, 可能会重复|
 |spop|spop key-name, 随机移除集合中的一个元素, 并返回被移除的元素|
 |smove|smove source-key dest-key item, 将item从source-key移除到dest-key,移除成功返回1, 不成功返回0|
@@ -288,12 +288,12 @@ redis的集合用无序的方式存储多个各不相同的元素
 
 |命令|说明|
 |---|---|
-|sdiff|sdiff key-name [key-name...], 返回存在第一个集合, 但不存在于其他集合的元素|
-|sdiffstore|sdiffstore dest-key key-name [key-name...], 计算差集并存储到dest_key中|
-|sinter|sinter key-name [key-name...], 返回同时存在所有集合的元素|
-|sintersotre|sinterstore dest-key key-name [key-name...]|
+|sdiff|sdiff key-name [key-name...], 返回存在第一个集合, 但不存在于其他集合的元素 求差集|
+|sdiffstore|sdiffstore dest-key key-name [key-name...], 计算差集并存储到dest_key中 求差集|
+|sinter|sinter key-name [key-name...], 返回同时存在所有集合的元素 求交集|
+|sintersotre|sinterstore dest-key key-name [key-name...] 求交集|
 |sunion|sunion key-name [key-name...] 求并集|
-|sunionstore| sunionsotre dest-key key-name [key-name ...]|
+|sunionstore| sunionsotre dest-key key-name [key-name ...] 求并集|
 
 ```bash
 127.0.0.1:6379> sadd skey1 a b c d
@@ -478,4 +478,14 @@ appendfsync的配置决定AOF的记录时机
 
 # 6 使用Redis构建应用程序组件
 
+## 6.1 自动补全
+
 setnx: 只会在键不存在的情况下为键设置值
+
+## 小结
+
+这里的练习,建议大家都跟着敲一遍(除了最后的文件分发, 主要是业务本机逻辑处理, redis逻辑处理较少)
+
+# 9 降低内存占用
+
+
