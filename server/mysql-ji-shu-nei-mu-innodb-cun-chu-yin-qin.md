@@ -4,6 +4,8 @@
 
 本书较通俗易懂的讲述了mysql的特性, 评分4星
 
+本书的redo 和undo数据结构未细究
+
 # 1. MySQL体系结构和存储引擎
 
 ## 1.3 MySQL存储引擎
@@ -834,8 +836,8 @@ Compact记录头信息
 |deleted_flag|1|该行是否已删除|
 |min_rec_flag|1|为1, 如果该行时预先被定义的最小记录|
 |n_owned|4|该记录拥有的记录数|
-|heap_no|13|索引堆中该条记录的排序书序|
-|record_type|3|记录类型, 000表示普通、001表示B+树节点指针、010表示Infimum, 011表示Supremum, 1xx表示保留
+|heap_no|13|索引堆中该条记录的排序|
+|record_type|3|记录类型, 000表示普通、001表示B+树节点指针、010表示Infimum, 011表示Supremum, 1xx表示保留|
 |next_record|16|页中下一条记录的相对位置|
 |Total|40||
 
@@ -1079,7 +1081,7 @@ Page Header的56字节
 - 00 00 00 2A 00 00 00 02 00 32
 - Infimum伪行记录
   - 01 00 02 00 1C recorder header, 00 01代表下一个记录的偏移量, 当前位置(0x063)+偏移量(0x001c)=0xc07f
-  - 69 6E 66 69 6D 75 6D 00 只有一个列的伪行记录, 记录内网就是 Infimum, 多一个0x00字节
+  - 69 6E 66 69 6D 75 6D 00 只有一个列的伪行记录, 记录内容就是 Infimum, 多一个0x00字节
 - Supermum伪行记录
   - 05 00 0B 00 00
   - 73 75 70 72 65 6D 75 6D
@@ -1134,6 +1136,115 @@ mysql> mysql> select * from read_innodb_4_4_7_t limit 1;
 |Yes| Yes | 1. 拆分LeafePage<br/>2. 小于中间节点的放左边<br/>3. 大于或等于中间节点的放右边<br/>4. 拆分IndexPage<br/>5. 小于中间节点的放左边<br/>6. 大于或等于中间节点的放右边<br/>7. 将中间的节点放入到上层IndexPage中 |
 || | |
 
+# 6. 锁
+
+## 6.5 锁问题
+
+### 6.5.1 脏读
+
+当事务隔离级别为READ UNCOMMITTED时会有脏读情况发生
+
+READ UNCOMMITTED可以在slave节点且查询不需要特别精致的返回值
+
+### 6.5.2 不可重复读
+
+同一个事务A内, 对同一个数据集不能读两次, 因为第一次读和第二次读, 别的事务B提交了, A事务内两次读取的结果会不一致
+
+脏读和不可重复读, 前者是读到别的未提交事务的数据, 后者是读到别的已提交事务的数据
+
+不可重复读的大多数场景都是可以接受的.
+
+innodb里, 通过next-key lock来避免不可重复读的问题, 通过索引扫描, 锁住扫描的索引, 还锁着这些索引覆盖的范围, 在这个范围内的插入都是不允许的
+
+采用 READ REPEATABLE, 是采用 next-key locK算法 避免不可重复读的现象.
+
+### 6.5.3 丢失更新
+
+1. 事务T1将行记录r更新为v1, 但事务未提交
+2. 事务T2将行记录r更新为v2, 但事务未提交
+3. 事务T1提交
+4. 事务T2提交
+
+解决方式: 串行化
+
+|会话A|会话B|
+|---|---|
+|BEGIN||
+|select cash from account where user=1 for update;||
+||select cash from account where user=1 for update; #等待|
+|...|...|
+|update account set cash=@cash-9000 where user=1||
+|commit||
+||update account set cash=@cash-1 where user=1|
+||commit|
+
+## 6.6 阻塞
+
+innodb_lock_wait_timeout 设置锁等待时间
+
+默认情况下innodb不会回滚超时引发的错误异常
+
+如果表中有字段a, 有4行, 值为1,2,4
+
+事务A执行
+
+> select * from t 
+
+|a|
+|-|
+|1|
+|2|
+|4|
+
+> begin ;
+
+> select * from t where t<4 for update;
+
+事务B
+
+> begin;
+
+> insert into t select 5;
+ok
+> insert into t select 3;
+ERROR 1205 timeout
+
+但是事后select * from t
+
+|a|
+|-|
+|1|
+|2|
+|4|
+|5|
+
+所以MYSQL抛出异常, 还是要进行commit 或者 rollback
+
+# 6.7 死锁
+
+### 6.7.1 死锁的概念
+
+通过wait-for graph检查死锁
+
+需要者两个信息
+
+1. 锁的信息链表
+2. 事务等待锁表
+
+事务等待锁表
+t1, t2, t3, t4
+
+锁的信息链表
+
+row1: t2-x, t1-s
+
+row2: t1-s, t4-s, t2-x, t3-x
+
+结果
+t1需要等待row1里t2-x的释放, t2又需要等待row1里的t1-s释放, 形成死锁
+
+innodb发现死锁会主动终止一个事务
+
 # 7. 事务
 
 事务是数据库区别于文件系统的重要特性
@@ -1145,3 +1256,59 @@ Innodb的存储引擎的事务完全符合ACID特性
 3. 隔离性
 4. 持久性
 
+## 7.2 事务的实现
+
+redo log: 重做日志, 用来保证事务的原子性和持久性. 通常是页的物理修改操作
+undo log: 保证事务的一致性, 用于回滚记录到某个特定版本, 根据每行记录进行记录
+
+### 7.2.1 redo
+
+redo log保证的ACID里的D 持久性
+
+事务提交时, 必须把事务所有日志写入到重做日志文件进行持久化, commit才算完成
+
+redo log保证持久性, undo log保证事务回滚和MVCC功能
+
+innodb_flush_log_at_trx_commit可以来控制策略
+
+写入50W行数据, 每行插入提交一次commit的性能差异
+
+|innod_flush_log_at_trx_commit值|时间|含义
+|---|---|---|
+|0|13.9秒|每秒一次redo log的flush|
+|1|1分53秒|每次commit执行flush|
+|2|23秒|commit时只写入到文件缓存, 不进行flush操作, mysql宕机, 机器没宕机的情况下事务不丢失|
+
+redo log是在事务进行时不断写入, binlog只在事务提交时写入
+
+redo log主要记对于每个页的修改, 存储物理日志, binlog存储为sql或者行记录
+
+redo log内容
+
+例如 CREATE TABLE t(a INT , b INT, primart key(a), KEY(b))
+
+执行语句 insert into t select 1,2;
+
+对应的redolog
+
+page(2,3), offset 32, value 1,2 # 聚集索引
+page(2,4), offset 64, value 2 # 辅助索引
+
+
+redo log是存储引擎层的, binlog是mysql上层的
+
+log block
+
+重做日志都是以512字节存储的
+
+f(f(x))=f(x), redo log是幂等的, 而binlog不是
+
+### 7.2.2 undo
+
+redo存储在重做文件里的, 而undo存储在特殊的段里, 叫做undo段, undo段存储在共享表空间里
+
+undo log
+
+用于回滚: 对于insert操作, undo会执行delete, 对于delete操作, undo会执行insert, 对于update, undo会把修改前的属性设置回去
+
+MVCC: 当用户读取一行记录时, 这一行被其他事务占用了, 当前事务可以通过undo读取之前的行版本信息, 而非锁定读取

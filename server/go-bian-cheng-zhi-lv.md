@@ -6,6 +6,33 @@
 
 time.Parse会尝试从入参参数读取时区信息, 入参参数没有指定时区, 则默认使用UTC时间
 
+## 3. RPC应用: 启动你的RPC服务
+
+### 3.2 Protobuf的使用
+
+#### 3.2.4 更多的数据类型支撑
+
+- oneof
+
+如果希望消息体包含多个字段, 但同时只能设置一个时
+
+```
+message HelloRequest {
+    oneof name {
+        string nick_name = 1;
+        string true_name = 2;
+    }
+}
+```
+
+- map
+
+```
+message HelloRequest {
+    map<string, string> names = 2;
+}
+```
+
 ## 6. Go语言中的大杀器
 
 ### 6.1 Go大杀器PProf之性能剖析(上)
