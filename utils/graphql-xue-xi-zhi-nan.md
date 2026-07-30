@@ -454,7 +454,7 @@ subscription {
 
 ```
 """
-A user who has been authorized by Github at least once
+A user who has been authorized by GitHub at least once
 """
 type User {
     "User name "
