@@ -736,7 +736,7 @@ column-count分栏为CSS3新增,属性主要有:
 
 1. border-collapse: 控制两个单元格的边框分开还是合并.
 
-	1.1 seperate: 边框分开.(双线)
+	1.1 separate: 边框分开.(双线)
 	
 	1.2 collapse: 边框合并.(单线)
 	
